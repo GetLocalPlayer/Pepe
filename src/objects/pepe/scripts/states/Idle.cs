@@ -1,28 +1,35 @@
 using Godot;
 
 
-public class Idle : State
+namespace PepeStates
 {
-
-    static string GetPath(string propName) =>
-        $"parameters/conditions/{propName}";
-
-
-    public override void Enter(Node context)
+    public class Idle : State
     {
-        var animTree = context.GetNode<AnimationTree>("AnimationTree");
-        animTree.Set(GetPath("Idle"), true);
+        protected string _animState = "Idle";
+
+
+        public override void Enter(Node context)
+        {
+            var animTree = context.GetNode<AnimationTree>("AnimationTree");
+            var playback = (AnimationNodeStateMachinePlayback)animTree.Get("parameters/playback");
+            playback.Travel(_animState);
+            var body = context as CharacterBody3D;
+            body.UpDirection = Vector3.Up;
+            body.Velocity = Vector3.Up * (-(context as Pepe).Gravity);
+        }
+
+
+        public override void Update(Node context, double delta)
+        {
+            var body = context as CharacterBody3D;
+            body.MoveAndSlide();
+            (context as Pepe).Stamina += (float)delta;
+        }
+
+
+        public override void Exit(Node context)
+        {
+        }
     }
 
-
-    public override void Update(Node context, double delta)
-    {
-    }
-
-
-    public override void Exit(Node context)
-    {
-        var animTree = context.GetNode<AnimationTree>("AnimationTree");
-        animTree.Set(GetPath("Idle"), false);
-    }
 }
