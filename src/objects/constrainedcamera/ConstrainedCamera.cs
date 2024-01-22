@@ -50,10 +50,14 @@ public partial class ConstrainedCamera : Area3D
         var b = c - a;
         
         var offsetXZ = new Vector3(diff.X, 0, diff.Z).Normalized() * b;
-        
-        var newPos = tarPos + offsetXZ + new Vector3(0, diff.Y, 0);
-        GD.Print(newPos);
-        
+
+        var newPos = new Vector3
+        {
+            X = tarPos.X + offsetXZ.X,
+            Y = camPos.Y,
+            Z = tarPos.Z + offsetXZ.Z,
+        };
+
         camera.GlobalPosition = newPos;
 
         camera.GlobalTransform = camera.GlobalTransform.LookingAt(tarPos);

@@ -2,30 +2,36 @@
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/constrainedcamera/constrainedcamera.tscn" id="2_0hqxc"]
-[ext_resource type="Shader" uid="uid://ckwhkk0jepupo" path="res://scenes/test/Test.tres" id="2_kkiy1"]
+[ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1d30f"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.709804, 0.866667, 1, 1)
+sky_curve = 0.353554
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.709804, 0.866667, 1, 1)
+ground_curve = 1.0
 
 [sub_resource type="Sky" id="Sky_55ece"]
 sky_material = SubResource("ProceduralSkyMaterial_1d30f")
+process_mode = 3
 
 [sub_resource type="Environment" id="Environment_fwjoj"]
-background_mode = 1
-background_color = Color(0.823529, 0.823529, 0.823529, 1)
-background_energy_multiplier = 0.16
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_55ece")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74hqk"]
-size = Vector3(68.8519, 1, 57.7012)
+size = Vector3(68.852, 0.5, 57.701)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_dtqig"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cukl"]
+albedo_texture = ExtResource("2_0o3cl")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jrcw"]
-render_priority = 0
-shader = ExtResource("2_kkiy1")
+[sub_resource type="QuadMesh" id="QuadMesh_dbi2w"]
+material = SubResource("StandardMaterial3D_8cukl")
+size = Vector2(10, 10)
+orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nflci"]
 size = Vector3(24.0359, 3.69482, 23.0302)
@@ -37,6 +43,7 @@ environment = SubResource("Environment_fwjoj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.178916, -0.843612, 0.506268, -0.739584, 0.224033, 0.634685, -0.648848, -0.487983, -0.583839, 6.63249, 5.67415, 0.874507)
+light_energy = 0.2
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -48,13 +55,12 @@ transform = Transform3D(-0.994881, 0, 0.101056, 0, 1, 0, -0.101056, 0, -0.994881
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.247131, -0.521767, -1.53613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307617, 0)
 shape = SubResource("BoxShape3D_74hqk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("PlaneMesh_dtqig")
-surface_material_override/0 = SubResource("ShaderMaterial_2jrcw")
+mesh = SubResource("QuadMesh_dbi2w")
 
 [node name="ConstrainedCamera" parent="." instance=ExtResource("2_0hqxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66117, 0, -7.15012)

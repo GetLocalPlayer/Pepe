@@ -9,7 +9,6 @@ namespace PepeStates
         const string _turnLeftAction = "TurnLeft";
         const string _turnRightAction = "TurnRight";
 
-
         public override void Enter(Node context)
         {
             var animTree = context.GetNode<AnimationTree>("AnimationTree");
