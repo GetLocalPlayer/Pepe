@@ -23,7 +23,7 @@ sky = SubResource("Sky_55ece")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74hqk"]
-size = Vector3(68.852, 0.5, 57.701)
+size = Vector3(100.009, 0.5, 100.226)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cukl"]
 albedo_texture = ExtResource("2_0o3cl")
@@ -55,7 +55,7 @@ transform = Transform3D(-0.994881, 0, 0.101056, 0, 1, 0, -0.101056, 0, -0.994881
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307617, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254787, -0.307617, -0.0149164)
 shape = SubResource("BoxShape3D_74hqk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]

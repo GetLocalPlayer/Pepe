@@ -29,8 +29,8 @@ namespace PepeStates
             var body = context as CharacterBody3D;
             body.RotateY(rotation * (float)delta * (float)Math.PI / 180f);
             var gravity = body.UpDirection * (-pepe.Gravity);
-            var forward = body.Transform.Basis.GetRotationQuaternion() * motion;
-            body.Velocity = gravity + forward;
+            var velocity = body.Transform.Basis.GetRotationQuaternion() * new Vector3(motion.X, 0, motion.Z);
+            body.Velocity = (body.IsOnFloor() ? Vector3.Zero : gravity) + velocity;
             body.MoveAndSlide();
         }
     }

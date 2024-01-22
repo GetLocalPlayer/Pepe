@@ -45,7 +45,7 @@ public partial class ConstrainedCamera : Area3D
         var camPos = camera.GlobalPosition;
 
         var diff = camPos - tarPos;
-        var a = Math.Abs(diff.Y);
+        var a = diff.Y;
         var c = _cameraDistance;
         var b = c - a;
         

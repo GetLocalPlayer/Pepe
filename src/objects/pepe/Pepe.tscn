@@ -4694,6 +4694,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(77, 65.75)
 
 [node name="Pepe" type="CharacterBody3D"]
+floor_snap_length = 0.5
 script = ExtResource("1_ffyqw")
 TurnSpeed = 80.0
 metadata/_edit_lock_ = true
