@@ -23,6 +23,10 @@ window/size/viewport_height=600
 
 project/assembly_name="Src"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 Walk={
