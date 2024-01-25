@@ -9,6 +9,7 @@ namespace PepeStates
         const string _turnLeftAction = "TurnLeft";
         const string _turnRightAction = "TurnRight";
 
+
         public override void Enter(Node context)
         {
             var animTree = context.GetNode<AnimationTree>("AnimationTree");
@@ -16,9 +17,9 @@ namespace PepeStates
             playback.Travel("Walking");
         }
 
-        public override void Exit(Node context)
-        {
-        }
+
+        public override void HandleInput(Node context, InputEvent @event){}
+
 
         public override void Update(Node context, double delta)
         {
@@ -28,11 +29,12 @@ namespace PepeStates
             var rotation = Input.IsActionPressed(_turnLeftAction) ? pepe.TurnSpeed : Input.IsActionPressed(_turnRightAction) ? - pepe.TurnSpeed : 0f;
             var body = context as CharacterBody3D;
             body.RotateY(rotation * (float)delta * (float)Math.PI / 180f);
-            var gravity = body.UpDirection * (-pepe.Gravity);
             var velocity = body.Transform.Basis.GetRotationQuaternion() * new Vector3(motion.X, 0, motion.Z);
-            body.Velocity = (body.IsOnFloor() ? Vector3.Zero : gravity) + velocity;
+            body.Velocity = velocity;
             body.MoveAndSlide();
         }
-    }
 
+        
+        public override void Exit(Node context){}
+    }
 }

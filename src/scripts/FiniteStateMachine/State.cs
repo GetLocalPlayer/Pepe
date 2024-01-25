@@ -8,6 +8,7 @@ public abstract partial class State
 	public event EventHandler<Node> StateFinished;
 	
 	public abstract void Enter(Node context);
+	public virtual void HandleInput(Node context, InputEvent @event){}
 	public abstract void Update(Node context, double delta);
 	public abstract void Exit(Node context);
 

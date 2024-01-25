@@ -25,4 +25,9 @@ public abstract partial class FiniteStateMachine : Node
 	{
 		SetState(GetInitialState());
 	}
+
+    public override void _Input(InputEvent @event)
+    {
+        currentState?.HandleInput(GetContext(), @event);
+    }
 }

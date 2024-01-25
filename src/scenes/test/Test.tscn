@@ -50,7 +50,6 @@ shadow_enabled = true
 transform = Transform3D(-0.863835, -0.204903, 0.460221, 0, 0.913545, 0.406737, -0.503774, 0.351353, -0.789153, 1.77994, 2.09675, -2.69237)
 
 [node name="Pepe" parent="." instance=ExtResource("1_7mhlv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

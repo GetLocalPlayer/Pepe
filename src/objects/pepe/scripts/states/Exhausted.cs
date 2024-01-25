@@ -8,9 +8,14 @@ namespace PepeStates
         float _restoredStamina;
 
 
-        public override void Enter(Node context)
+        public Exhausted()
         {
             _animState = "Exhausted";
+        }
+
+
+        public override void Enter(Node context)
+        {
             base.Enter(context);
             _restoredStamina = 0;
         }
