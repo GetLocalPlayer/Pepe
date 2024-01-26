@@ -23,8 +23,8 @@ namespace PepeStates
         public override void Update(Node context, double delta)
         {
             base.Update(context, delta);
-            _restoredStamina += (float)delta;
             var pepe = context as Pepe;
+            _restoredStamina += pepe.Stamina;
             pepe.Stamina = _restoredStamina >= pepe.MaxStamina ? _restoredStamina : 0;
         }
     }

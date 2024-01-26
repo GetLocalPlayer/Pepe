@@ -36,7 +36,8 @@ namespace PepeStates
             var animTree = context.GetNode<AnimationTree>("AnimationTree");
             var rotation = animTree.GetRootMotionRotation() / (float)delta;
             body.RotateY(rotation.Normalized().GetEuler(EulerOrder.Yxz).Y);
-            (context as Pepe).Stamina += (float)delta;
+            var pepe = context as Pepe;
+            pepe.Stamina += (float)delta * pepe.StaminaRestorationRate;
         }
 
 

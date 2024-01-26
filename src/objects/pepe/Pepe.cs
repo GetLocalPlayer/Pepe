@@ -6,7 +6,8 @@ public partial class Pepe : CharacterBody3D
     [Export] public float Gravity = 10;
     [Export] public float TurnSpeed = 60;
     /* Max time*/
-    [Export] public float MaxStamina = 10;
+    [Export] public float MaxStamina = 20;
+    [Export] public float StaminaRestorationRate = 5;
 
     float _stamina;
     [Export] public float Stamina
