@@ -13,12 +13,6 @@ public partial class PepeFSM : FiniteStateMachine
         public static State Exhausted = new Exhausted();   
     }
 
-
-    const string _walkAction = "Walk";
-    const string _walkBackwardsAction = "WalkBackwards";
-    const string _runModifierAction = "RunModifier";
-
-
     protected override State GetInitialState() => States.Idle;
 
 
@@ -39,11 +33,11 @@ public partial class PepeFSM : FiniteStateMachine
         
         if (body.IsOnFloor())
         {
-            if (Input.IsActionPressed(_walkAction))
+            if (Input.IsActionPressed(InputActions.Move))
             {
-                if (Input.IsActionPressed(_walkBackwardsAction))
+                if (Input.IsActionPressed(InputActions.WalkBackwards))
                     SetState(States.WalkingBackwards);
-                else if (Input.IsActionPressed(_runModifierAction) && !pepe.Exhausted)
+                else if (Input.IsActionPressed(InputActions.RunModifier) && !pepe.Exhausted)
                     SetState(States.Running);
                 else
                     SetState(States.Walking);

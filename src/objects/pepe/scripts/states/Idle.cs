@@ -7,8 +7,6 @@ namespace PepeStates
     {
         protected string _animState = "Idle";
         protected string _animTreeParam = "parameters/Idle/blend_position";
-        protected string _turnLeftAction = "TurnLeft";
-        protected string _turnRightAction = "TurnRight";
         protected float _tweenTime = 0.3f;
         private Tween _tween;
 
@@ -19,7 +17,10 @@ namespace PepeStates
 
             animTree.Set(_animTreeParam, 0f);
             _tween = animTree.CreateTween();
-            var value = 0f + (Input.IsActionPressed(_turnLeftAction) ? - 1f : (Input.IsActionPressed(_turnRightAction) ? 1f : 0f));
+            var value = 0f + (
+                Input.IsActionPressed(InputActions.TurnLeft) ? - 1f :
+                (Input.IsActionPressed(InputActions.TurnRight) ? 1f : 0f)
+            );
             _tween.TweenProperty(animTree, _animTreeParam, value, _tweenTime);
 
             var playback = (AnimationNodeStateMachinePlayback)animTree.Get("parameters/playback");
@@ -52,7 +53,10 @@ namespace PepeStates
             var animTree = context.GetNode<AnimationTree>("AnimationTree");
             _tween?.Kill();
             _tween = animTree.CreateTween();
-            var value = 0f + (Input.IsActionPressed(_turnLeftAction) ? - 1f : (Input.IsActionPressed(_turnRightAction) ? 1f : 0f));
+            var value = 0f + (
+                Input.IsActionPressed(InputActions.TurnLeft) ? - 1f :
+                (Input.IsActionPressed(InputActions.TurnRight) ? 1f : 0f)
+            );
             _tween.TweenProperty(animTree, _animTreeParam, value, _tweenTime);
         }
     }

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cps0r0ym825rb"]
+
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_kkd4o"]
+[ext_resource type="PackedScene" uid="uid://deescqrifw5ir" path="res://objects/grocerytrolley/assets/grocerytrolley.blend" id="2_3gw3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_likg4"]
+size = Vector3(1.38187, 0.883847, 0.938049)
+
+[node name="GroceryTrolley" instance=ExtResource("1_kkd4o")]
+_lines = PackedStringArray("Магазинная тележка, ничего интересного.")
+
+[node name="Detectable" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634249, 0)
+
+[node name="CollisionShape3D" parent="Detectable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131662, -0.0482466, 0)
+shape = SubResource("BoxShape3D_likg4")
+
+[node name="Model" parent="." index="1" instance=ExtResource("2_3gw3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0459521, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00318491, 0.584026, -0.000152588)
+shape = SubResource("BoxShape3D_likg4")

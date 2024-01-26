@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=12 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
+[ext_resource type="PackedScene" uid="uid://cps0r0ym825rb" path="res://objects/grocerytrolley/grocerytrolley.tscn" id="4_qvqct"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1d30f"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -72,5 +73,8 @@ shape = SubResource("BoxShape3D_0w7pu")
 
 [node name="Camera3D" parent="CameraRoomConstraint" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302519, 3.66384, 0)
+
+[node name="GroceryTrolley" parent="." instance=ExtResource("4_qvqct")]
+transform = Transform3D(0.731389, 0, 0.68196, 0, 1, 0, -0.68196, 0, 0.731389, 2.68405, -0.057617, 0.034699)
 
 [editable path="CameraRoomConstraint"]

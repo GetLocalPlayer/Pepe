@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://4047kefmuldg"]
+[gd_scene load_steps=66 format=3 uid="uid://4047kefmuldg"]
 
 [ext_resource type="Script" path="res://objects/pepe/Pepe.cs" id="1_ffyqw"]
 [ext_resource type="Script" path="res://objects/pepe/scripts/PepeFSM.cs" id="2_7foyh"]
@@ -14585,7 +14585,10 @@ states/WalkingBackwards/position = Vector2(415, 481.75)
 transitions = ["Exhausted", "Walking", SubResource("AnimationNodeStateMachineTransition_gcf87"), "Walking", "Exhausted", SubResource("AnimationNodeStateMachineTransition_wntiv"), "Running", "Walking", SubResource("AnimationNodeStateMachineTransition_cnqk3"), "Walking", "Running", SubResource("AnimationNodeStateMachineTransition_aj3pe"), "Exhausted", "Running", SubResource("AnimationNodeStateMachineTransition_b7212"), "Running", "Exhausted", SubResource("AnimationNodeStateMachineTransition_5mnp5"), "Exhausted", "Idle", SubResource("AnimationNodeStateMachineTransition_3vjlh"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_rljwc"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_8pmga"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_rojjg"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_ybfhy"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1ke6m"), "Walking", "WalkingBackwards", SubResource("AnimationNodeStateMachineTransition_jywhq"), "WalkingBackwards", "Walking", SubResource("AnimationNodeStateMachineTransition_nxwnr"), "WalkingBackwards", "Running", SubResource("AnimationNodeStateMachineTransition_gkuv5"), "Running", "WalkingBackwards", SubResource("AnimationNodeStateMachineTransition_awpod"), "Idle", "WalkingBackwards", SubResource("AnimationNodeStateMachineTransition_i0fvl"), "WalkingBackwards", "Idle", SubResource("AnimationNodeStateMachineTransition_drbgw"), "WalkingBackwards", "Exhausted", SubResource("AnimationNodeStateMachineTransition_oxv7a"), "Exhausted", "WalkingBackwards", SubResource("AnimationNodeStateMachineTransition_1pun2")]
 graph_offset = Vector2(13, 213.75)
 
-[node name="Pepe" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbufl"]
+size = Vector3(0.458115, 1.50549, 0.59668)
+
+[node name="Pepe" type="CharacterBody3D" groups=["Player"]]
 floor_snap_length = 0.5
 script = ExtResource("1_ffyqw")
 TurnSpeed = 80.0
@@ -14618,3 +14621,13 @@ parameters/Running/TimeScale/scale = 1.0
 [node name="RootMotionView" type="RootMotionView" parent="."]
 animation_path = NodePath("../AnimationTree")
 radius = 9.92
+
+[node name="InteractableDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00582123, 0.800964, 0.350219)
+shape = SubResource("BoxShape3D_jbufl")
+metadata/_edit_group_ = true

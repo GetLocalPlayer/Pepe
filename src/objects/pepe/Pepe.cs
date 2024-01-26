@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+
 public partial class Pepe : CharacterBody3D
 {
     [Export] public float Gravity = 10;
@@ -18,8 +19,27 @@ public partial class Pepe : CharacterBody3D
 
     public bool Exhausted { get => Stamina <= 0; }
 
+    Area3D _interactableDetector;
+    UI _ui;
+
     public override void _Ready()
     {
         Stamina = MaxStamina;
+        _interactableDetector = GetNode<Area3D>("InteractableDetector");
+        _ui = GetTree().Root.GetNode<UI>("UI");
+    }
+
+
+    async public override void _Input(InputEvent @event)
+    {
+        if (Input.IsActionJustPressed(InputActions.Action))
+        {
+            foreach (var a in _interactableDetector.GetOverlappingAreas())
+            {
+                _ui.RunInteration(a.GetParent<Interactable>());
+                GetViewport().SetInputAsHandled();
+                await ToSignal(_ui, UI.Signals.InteractionFinished);
+            }
+        }
     }
 }
