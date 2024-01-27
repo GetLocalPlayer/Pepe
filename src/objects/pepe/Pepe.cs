@@ -34,10 +34,12 @@ public partial class Pepe : CharacterBody3D
     {
         if (Input.IsActionJustPressed(InputActions.Action))
         {
+            if (_interactableDetector.HasOverlappingAreas())
+                GetViewport().SetInputAsHandled();
+                
             foreach (var a in _interactableDetector.GetOverlappingAreas())
             {
                 _ui.RunInteration(a.GetParent<Interactable>());
-                GetViewport().SetInputAsHandled();
                 await ToSignal(_ui, UI.Signals.InteractionFinished);
             }
         }

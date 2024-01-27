@@ -4,7 +4,6 @@
 
 [node name="Interactable" type="StaticBody3D"]
 script = ExtResource("1_flcgi")
-_lines = PackedStringArray("Просто тележка, ничего интересного.")
 
 [node name="Detectable" type="Area3D" parent="."]
 collision_layer = 512

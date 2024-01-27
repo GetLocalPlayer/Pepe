@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=13 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
 [ext_resource type="PackedScene" uid="uid://cps0r0ym825rb" path="res://objects/grocerytrolley/grocerytrolley.tscn" id="4_qvqct"]
+[ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1d30f"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -20,6 +21,7 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_fwjoj"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.75
 sky = SubResource("Sky_55ece")
 tonemap_mode = 2
 
@@ -74,7 +76,18 @@ shape = SubResource("BoxShape3D_0w7pu")
 [node name="Camera3D" parent="CameraRoomConstraint" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302519, 3.66384, 0)
 
-[node name="GroceryTrolley" parent="." instance=ExtResource("4_qvqct")]
+[node name="Interactables" type="Node" parent="."]
+
+[node name="GroceryShelf_1" parent="Interactables" instance=ExtResource("4_xtui0")]
+transform = Transform3D(-0.412993, 0, -0.910734, 0, 1, 0, 0.910734, 0, -0.412993, -16.0949, -0.0576165, -4.9958)
+
+[node name="GroceryShelf_2" parent="Interactables" instance=ExtResource("4_xtui0")]
+transform = Transform3D(0.994538, 0, 0.104372, 0, 1, 0, -0.104372, 0, 0.994538, -18.9631, -0.0576165, -9.06171)
+
+[node name="GroceryShelf_3" parent="Interactables" instance=ExtResource("4_xtui0")]
+transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, -20.1677, -0.0576165, -4.50214)
+
+[node name="GroceryTrolley" parent="Interactables" instance=ExtResource("4_qvqct")]
 transform = Transform3D(0.731389, 0, 0.68196, 0, 1, 0, -0.68196, 0, 0.731389, 2.68405, -0.057617, 0.034699)
 
 [editable path="CameraRoomConstraint"]

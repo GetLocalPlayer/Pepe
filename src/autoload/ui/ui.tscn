@@ -3,8 +3,13 @@
 [ext_resource type="Script" path="res://autoload/ui/UI.cs" id="1_8gi1j"]
 [ext_resource type="FontFile" uid="uid://cy5a23vnfeo5k" path="res://fonts/PostalShrift.ttf" id="2_g8g2d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbyjf"]
-bg_color = Color(0, 0, 0, 0.364706)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hje5u"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.705882)
 
 [node name="Ui" type="Control"]
 process_mode = 2
@@ -19,25 +24,24 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("1_8gi1j")
 
 [node name="InteractionText" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.937
-anchor_right = 0.8
-anchor_bottom = 0.95
+layout_mode = 2
+offset_left = 329.0
+offset_top = 545.0
+offset_right = 471.0
+offset_bottom = 570.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/default_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_colors/default_color = Color(0.999989, 0.851371, 0.83285, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 2
-theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("2_g8g2d")
 theme_override_font_sizes/normal_font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_lbyjf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hje5u")
 bbcode_enabled = true
 text = "Test text"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
 shortcut_keys_enabled = false
 
 [node name="Modal" type="Control" parent="."]
