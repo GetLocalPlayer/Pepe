@@ -36,10 +36,11 @@ public partial class UI : Control
             }
         };
         _interactionText = GetNode<RichTextLabel>("InteractionText");
-        _interactionText.Hide();
+        if (GetTree().CurrentScene != this)  _interactionText.Hide();
         VisibilityChanged += () =>
             GetTree().Paused = Visible;
-        Hide();
+
+        if (GetTree().CurrentScene != this) Hide();
     }
 
 
