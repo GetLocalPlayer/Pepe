@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0w1778mno73r"
-path="res://.godot/imported/status_well.png-8465778f44005d69f2301442021b13f1.ctex"
+uid="uid://cob2das1tor5l"
+path="res://.godot/imported/status_injured.png-f464083aec3bb5e1c3ac5031e096f01f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://autoload/ui/textures/status_well.png"
-dest_files=["res://.godot/imported/status_well.png-8465778f44005d69f2301442021b13f1.ctex"]
+source_file="res://autoload/ui/inventory/textures/status_injured.png"
+dest_files=["res://.godot/imported/status_injured.png-f464083aec3bb5e1c3ac5031e096f01f.ctex"]
 
 [params]
 
@@ -26,7 +26,7 @@ mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8pupxciy70es"]
+
+[ext_resource type="Script" path="res://autoload/ui/Interaction/Interaction.cs" id="1_4dnys"]
+[ext_resource type="FontFile" uid="uid://cy5a23vnfeo5k" path="res://fonts/PostalShrift.ttf" id="1_debet"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b486o"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.705882)
+
+[node name="Interaction" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dnys")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = 329.0
+offset_top = 545.0
+offset_right = 471.0
+offset_bottom = 570.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.999989, 0.851371, 0.83285, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("1_debet")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b486o")
+bbcode_enabled = true
+text = "Test text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false

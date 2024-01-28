@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cob2das1tor5l"
-path="res://.godot/imported/status_injured.png-4d9c105232a3699be9787ec944bb123e.ctex"
+uid="uid://dn7lcwjh1b7qs"
+path="res://.godot/imported/status_badly_injured.png-4e4ae2b62cea06e161eaea8b723d28d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://autoload/ui/textures/status_injured.png"
-dest_files=["res://.godot/imported/status_injured.png-4d9c105232a3699be9787ec944bb123e.ctex"]
+source_file="res://autoload/ui/inventory/textures/status_badly_injured.png"
+dest_files=["res://.godot/imported/status_badly_injured.png-4e4ae2b62cea06e161eaea8b723d28d6.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -26,7 +26,7 @@ mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false

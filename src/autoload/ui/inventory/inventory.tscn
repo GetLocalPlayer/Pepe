@@ -1,0 +1,281 @@
+[gd_scene load_steps=21 format=3 uid="uid://bue4pp11ghxtp"]
+
+[ext_resource type="Script" path="res://autoload/ui/inventory/Inventory.cs" id="1_yfrlh"]
+[ext_resource type="FontFile" uid="uid://cy5a23vnfeo5k" path="res://fonts/PostalShrift.ttf" id="2_2yydv"]
+[ext_resource type="Shader" uid="uid://dqdqkgwrwioxg" path="res://autoload/ui/inventory/shaders/statusportrait.tres" id="3_xppx1"]
+[ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
+[ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
+[ext_resource type="Texture2D" uid="uid://d0w1778mno73r" path="res://autoload/ui/inventory/textures/status_well.png" id="6_d0dbk"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/ItemsContainer.cs" id="7_undsv"]
+
+[sub_resource type="Gradient" id="Gradient_h0lxj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 2.5028e-06, 0.619822, 0.833365, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_10pyw"]
+gradient = SubResource("Gradient_h0lxj")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljah1"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = SubResource("GradientTexture2D_10pyw")
+
+[sub_resource type="Gradient" id="Gradient_0geh0"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.883803, 0.911972, 0.947183, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.768758, 0.768758, 0.768758, 1, 0.341411, 0.341411, 0.341411, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3dmp"]
+gradient = SubResource("Gradient_0geh0")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_6km8c"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.56338, 0.802817, 0.926056, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.491936, 0.491936, 0.491936, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1rb8f"]
+gradient = SubResource("Gradient_6km8c")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ikmb"]
+shader = ExtResource("3_xppx1")
+shader_parameter/CurrentHealth = 1.0
+shader_parameter/GradientSpeedMinHealth = 0.7
+shader_parameter/GradientSpeedMaxHealth = 0.1
+shader_parameter/ColorMinHealth = Color(1, 0, 0, 1)
+shader_parameter/ColorMaxHealth = Color(0, 1, 0, 1)
+shader_parameter/TextureWell = ExtResource("6_d0dbk")
+shader_parameter/TextureInjured = ExtResource("5_mcf8x")
+shader_parameter/TextureBadlyInjured = ExtResource("4_vdh6k")
+shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
+shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_d8tfa"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_4wmnl"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShader" id="VisualShader_ps08f"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+
+
+// VectorDecompose:3
+	float n_out3p0 = n_out2p0.x;
+	float n_out3p1 = n_out2p0.y;
+	float n_out3p2 = n_out2p0.z;
+	float n_out3p3 = n_out2p0.w;
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+	COLOR.a = n_out3p3;
+
+
+}
+"
+graph_offset = Vector2(-213.239, -79.2738)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_d8tfa")
+nodes/fragment/2/position = Vector2(-420, 60)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDecompose_4wmnl")
+nodes/fragment/3/position = Vector2(100, 340)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 2, 0, 3, 0, 3, 3, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcnlc"]
+shader = SubResource("VisualShader_ps08f")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ot40"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+
+[node name="Inventory" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_yfrlh")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Status" type="VBoxContainer" parent="Inventory/Character"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Inventory/Character/Status"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2yydv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
+text = "Статус
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="ColorRect" parent="Inventory/Character/Status"]
+material = SubResource("ShaderMaterial_8ikmb")
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+
+[node name="Equipment" type="VBoxContainer" parent="Inventory/Character"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Inventory/Character/Equipment"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2yydv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
+text = "Экипировано
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/Character/Equipment"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+
+[node name="Command" type="VBoxContainer" parent="Inventory/Character"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Inventory/Character/Command"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2yydv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
+text = "Действие
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/Character/Command"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+
+[node name="Items" type="Control" parent="Inventory"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ItemsContainer" type="VFlowContainer" parent="Inventory/Items"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -229.0
+offset_right = 229.0
+offset_bottom = 200.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("7_undsv")
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/Items/ItemsContainer"]
+material = SubResource("ShaderMaterial_kcnlc")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_vdh6k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Inventory/Items/ItemsContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_vdh6k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EmptyTailFiller" type="VSeparator" parent="Inventory/Items/ItemsContainer"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="ItemDescription" type="RichTextLabel" parent="Inventory"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_2yydv")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ot40")
+bbcode_enabled = true
+text = "Test description"
+fit_content = true
+
+[node name="BottomButtons" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Inventory/BottomButtons"]
+visibility_layer = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Inventory/BottomButtons"]
+visibility_layer = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButton" type="Button" parent="Inventory/BottomButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2yydv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
+text = "Выход
+"

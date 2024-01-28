@@ -20,13 +20,13 @@ public partial class Pepe : CharacterBody3D
     public bool Exhausted { get => Stamina <= 0; }
 
     Area3D _interactableDetector;
-    UI _ui;
+    Interaction _interaction;
 
     public override void _Ready()
     {
         Stamina = MaxStamina;
         _interactableDetector = GetNode<Area3D>("InteractableDetector");
-        _ui = GetTree().Root.GetNode<UI>("UI");
+        _interaction = GetTree().Root.GetNode<Interaction>("Interaction");
     }
 
 
@@ -39,8 +39,8 @@ public partial class Pepe : CharacterBody3D
                 
             foreach (var a in _interactableDetector.GetOverlappingAreas())
             {
-                _ui.RunInteration(a.GetParent<Interactable>());
-                await ToSignal(_ui, UI.Signals.InteractionFinished);
+                _interaction.Run(a.GetParent<Interactable>().Lines);
+                await ToSignal(_interaction, Interaction.Signals.InteractionFinished);
             }
         }
     }
