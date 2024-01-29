@@ -22,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_4dnys")
 
 [node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 329.0
 offset_top = 545.0
 offset_right = 471.0

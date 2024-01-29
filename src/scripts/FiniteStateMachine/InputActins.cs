@@ -6,4 +6,5 @@ public static class InputActions
     public const string RunModifier = "RunModifier";
     public const string TurnLeft = "TurnLeft";
     public const string TurnRight = "TurnRight";
+    public const string OpenInventory = "OpenInventory";
 }

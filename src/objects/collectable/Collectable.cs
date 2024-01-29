@@ -7,6 +7,11 @@ public partial class Collectable : Interactable
     [Export] bool _deleteIfEmpty = false;
     [Export] string[] _linesOnEmpty;
 
+    public Vector3 LookAtPoint
+    {
+        get => GetNode<Marker3D>("LookAtPoint").GlobalPosition;
+    }
+
 
     public override void _Ready()
     {

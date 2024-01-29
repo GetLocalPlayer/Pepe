@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqnb4kupbkyfo"]
+
+[ext_resource type="PackedScene" uid="uid://dv1hqe7wd5k10" path="res://autoload/ui/inventory/consumable.tscn" id="1_mawg6"]
+[ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="2_57b03"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_whdox"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Consumable" instance=ExtResource("1_mawg6")]
+Model = ExtResource("2_57b03")
+ModelScale = 0.25
+
+[node name="Texture" parent="." index="0"]
+texture = SubResource("ViewportTexture_whdox")
+
+[node name="ModelOwner" parent="SubViewport" index="3"]
+transform = Transform3D(-0.157509, -0.157509, 0.113498, -0.176777, 0.176777, 0, -0.0802555, -0.0802555, -0.222751, 0, 0, 0)
