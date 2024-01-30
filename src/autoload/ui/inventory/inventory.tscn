@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=15 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/Inventory.cs" id="1_yfrlh"]
-[ext_resource type="FontFile" uid="uid://cy5a23vnfeo5k" path="res://fonts/PostalShrift.ttf" id="2_2yydv"]
+[ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
 [ext_resource type="Shader" uid="uid://dqdqkgwrwioxg" path="res://autoload/ui/inventory/shaders/statusportrait.tres" id="3_xppx1"]
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
@@ -18,8 +18,6 @@ fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljah1"]
-content_margin_top = 8.0
-content_margin_bottom = 8.0
 texture = SubResource("GradientTexture2D_10pyw")
 
 [sub_resource type="Gradient" id="Gradient_0geh0"]
@@ -54,12 +52,6 @@ shader_parameter/TextureInjured = ExtResource("5_mcf8x")
 shader_parameter/TextureBadlyInjured = ExtResource("4_vdh6k")
 shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
 shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ot40"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
 
 [node name="Inventory" type="Control"]
 process_mode = 2
@@ -107,8 +99,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_2yydv")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Статус
 "
@@ -129,8 +121,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_2yydv")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Экипировано
 "
@@ -149,8 +141,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_2yydv")
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Действие
 "
@@ -159,19 +151,6 @@ horizontal_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Backdrop/Rows/Character/Command"]
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
-
-[node name="Items" type="Control" parent="Backdrop/Rows"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-
-[node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_2yydv")
-theme_override_font_sizes/normal_font_size = 19
-theme_override_styles/normal = SubResource("StyleBoxEmpty_4ot40")
-bbcode_enabled = true
-text = "Test description"
-fit_content = true
 
 [node name="BottomButtons" type="HBoxContainer" parent="Backdrop/Rows"]
 layout_mode = 2
@@ -192,7 +171,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_2yydv")
+theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Выход
