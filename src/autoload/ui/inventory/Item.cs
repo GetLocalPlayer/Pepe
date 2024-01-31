@@ -77,8 +77,7 @@ public partial class Item : MarginContainer
         var texRect = GetNode<TextureRect>("Texture");
         texRect.Texture = vp.GetTexture();
 
-        if (!Engine.IsEditorHint())
-            Visible = Amount > 0;
+        Amount = _amount; // to trigger property
 
         var animPlayer = GetNode<AnimationPlayer>("SubViewport/AnimationPlayer");
         animPlayer.Play(animPlayer.Autoplay);

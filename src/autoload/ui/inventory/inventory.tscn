@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=16 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/Inventory.cs" id="1_yfrlh"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
 [ext_resource type="Texture2D" uid="uid://d0w1778mno73r" path="res://autoload/ui/inventory/textures/status_well.png" id="6_d0dbk"]
+[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/itemlist.tscn" id="7_mybl8"]
 
 [sub_resource type="Gradient" id="Gradient_h0lxj"]
 interpolation_mode = 2
@@ -176,6 +177,19 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Выход
 "
+
+[node name="ItemListAnchor" type="Control" parent="Backdrop/Rows"]
+layout_mode = 2
+
+[node name="ItemList" parent="Backdrop/Rows/ItemListAnchor" instance=ExtResource("7_mybl8")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -658.0
+offset_right = 658.0
+grow_horizontal = 2
+size_flags_horizontal = 4
 
 [node name="FadeScreen" type="ColorRect" parent="."]
 visible = false
