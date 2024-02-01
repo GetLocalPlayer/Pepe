@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d2ykucjec5cgq"]
 
-[ext_resource type="Script" path="res://autoload/ui/inventory/Item.cs" id="1_j48jw"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/item.gd" id="1_mjg05"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="2_leaap"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1e1cx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gvqsg"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -52,14 +52,17 @@ custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 pivot_offset = Vector2(100, 100)
-script = ExtResource("1_j48jw")
+script = ExtResource("1_mjg05")
+amount = 1
+model_scale = 1.0
 
 [node name="Texture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = SubResource("ViewportTexture_1e1cx")
+texture = SubResource("ViewportTexture_gvqsg")
 expand_mode = 1
 
 [node name="Amount" type="Label" parent="Texture"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -71,7 +74,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.698039)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_leaap")
-text = "x0"
+text = "x1"
 horizontal_alignment = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -96,9 +99,11 @@ spot_range = 24.3519
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.96932)
 
 [node name="ModelOwner" type="Node3D" parent="SubViewport"]
+unique_name_in_owner = true
 transform = Transform3D(-0.630036, -0.630035, 0.453994, -0.707107, 0.707107, 0, -0.321022, -0.321022, -0.891005, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_cxej4")
 }

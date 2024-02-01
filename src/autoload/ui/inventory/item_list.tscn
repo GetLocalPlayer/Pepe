@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbcxp6cit6pdr"]
+
+[ext_resource type="Script" path="res://autoload/ui/inventory/item_list.gd" id="1_vyoqy"]
+[ext_resource type="PackedScene" uid="uid://d2ykucjec5cgq" path="res://autoload/ui/inventory/item.tscn" id="2_fj37s"]
+[ext_resource type="PackedScene" uid="uid://cl7xua3osn0qm" path="res://assets/flashlight/flashlightblend.blend" id="3_vele1"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/consumable.gd" id="4_y33mm"]
+[ext_resource type="PackedScene" uid="uid://djmngbx1l3q0b" path="res://assets/bun/bun.blend" id="5_gemhg"]
+[ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="5_h1sjy"]
+[ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="7_i1pck"]
+
+[node name="ItemList" type="Container"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+script = ExtResource("1_vyoqy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(0.121569, 0.266667, 0.121569, 1)
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+
+[node name="Flashlight" parent="VFlowContainer" instance=ExtResource("2_fj37s")]
+layout_mode = 2
+model = ExtResource("3_vele1")
+model_scale = 9.585
+
+[node name="Bun" parent="VFlowContainer" instance=ExtResource("2_fj37s")]
+layout_mode = 2
+model = ExtResource("5_gemhg")
+model_scale = 7.85
+
+[node name="Snickers" parent="VFlowContainer" instance=ExtResource("2_fj37s")]
+layout_mode = 2
+script = ExtResource("4_y33mm")
+value = 0.0
+type = 0
+model = ExtResource("5_h1sjy")
+model_scale = 0.26
+
+[node name="Milk" parent="VFlowContainer" instance=ExtResource("2_fj37s")]
+layout_mode = 2
+script = ExtResource("4_y33mm")
+value = 0.0
+type = 0
+model = ExtResource("7_i1pck")
+model_scale = 5.09
+model_offset = Vector3(0, -0.215, 0)

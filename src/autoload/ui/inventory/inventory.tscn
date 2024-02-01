@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
 [ext_resource type="Texture2D" uid="uid://d0w1778mno73r" path="res://autoload/ui/inventory/textures/status_well.png" id="6_d0dbk"]
-[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/itemlist.tscn" id="7_mybl8"]
+[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/item_list.tscn" id="7_mybl8"]
 
 [sub_resource type="Gradient" id="Gradient_h0lxj"]
 interpolation_mode = 2
