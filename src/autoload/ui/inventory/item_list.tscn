@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="6_3na38"]
 [ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="7_rwsjs"]
 
-[node name="AllItems" type="VFlowContainer"]
+[node name="ItemList" type="VFlowContainer"]
 unique_name_in_owner = true
 use_parent_material = true
 anchors_preset = -1

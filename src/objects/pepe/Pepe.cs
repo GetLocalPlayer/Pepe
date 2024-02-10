@@ -30,14 +30,14 @@ public partial class Pepe : CharacterBody3D
 
     Area3D _interactableDetector;
     Interaction _interaction;
-    Inventory _inventory;
+    Control _inventory;
 
     public override void _Ready()
     {
         Stamina = MaxStamina;
         _interactableDetector = GetNode<Area3D>("InteractableDetector");
         _interaction = GetTree().Root.GetNode<Interaction>("Interaction");
-        _inventory = GetTree().Root.GetNode<Inventory>("Inventory");
+        _inventory = GetTree().Root.GetNode<Control>("Inventory");
     }
 
 
@@ -57,7 +57,6 @@ public partial class Pepe : CharacterBody3D
         if (Input.IsActionJustPressed(InputActions.OpenInventory))
         {
             GetViewport().SetInputAsHandled();
-            _inventory.Show(Health/MaxHealth);
         }
 
     }

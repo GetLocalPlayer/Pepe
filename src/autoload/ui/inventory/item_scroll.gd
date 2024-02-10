@@ -1,7 +1,7 @@
 extends ScrollContainer
 
 
-@onready var _items = $AllItems.get_children().filter(func(child): return child is Item)
+@onready var _item_list = $ItemList.get_children().filter(func(child): return child is Item)
 @onready var _exit_button = %ExitButton
 @onready var _command_button = %CommandButton_1
 
@@ -11,12 +11,12 @@ extends ScrollContainer
 
 
 func _ready():
-	for i in _items.size():
-		var item: Item = _items[i]
+	for i in _item_list.size():
+		var item: Item = _item_list[i]
 		item.focus_neighbor_top = _command_button.get_path()        
 		item.focus_neighbor_bottom = _exit_button.get_path()
-		item.focus_neighbor_left = item.get_path() if i == 0 else _items[i - 1].get_path()
-		item.focus_neighbor_right = item.get_path() if item == _items.back() else _items[i + 1].get_path()
+		item.focus_neighbor_left = item.get_path() if i == 0 else _item_list[i - 1].get_path()
+		item.focus_neighbor_right = item.get_path() if item == _item_list.back() else _item_list[i + 1].get_path()
 
 		var on_focus_entered = func():
 			_command_button.focus_neighbor_bottom = item.get_path()
@@ -29,8 +29,7 @@ func _ready():
 
 	var on_scroll_value_changed = func(_new_value):
 		var parent_rect = get_parent().get_rect()
-		print(_new_value)
-		for item in _items:
+		for item in _item_list:
 			var item_rect = get_transform() * item.get_parent().get_transform() * item.get_rect()
 			var offset = item_rect.get_center() - parent_rect.get_center()
 			var fade_factor = clamp(abs(offset.x) / (parent_rect.size.x / 2), 0, 1)
