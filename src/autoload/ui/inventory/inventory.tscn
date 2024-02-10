@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=28 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/Inventory.cs" id="1_yfrlh"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -6,20 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
 [ext_resource type="Texture2D" uid="uid://d0w1778mno73r" path="res://autoload/ui/inventory/textures/status_well.png" id="6_d0dbk"]
-[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/item_list.tscn" id="7_mybl8"]
+[ext_resource type="Shader" uid="uid://mabpfkseed6r" path="res://autoload/ui/inventory/shaders/selector.tres" id="7_h5sks"]
+[ext_resource type="Texture2D" uid="uid://bs86c427mrbng" path="res://autoload/ui/inventory/textures/selector.png" id="7_j6mwm"]
+[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/all_items.tscn" id="7_mybl8"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
+[ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
+[ext_resource type="Texture2D" uid="uid://b533ape3tmkcv" path="res://autoload/ui/inventory/textures/selector_background.png" id="12_086n4"]
 
 [sub_resource type="Gradient" id="Gradient_h0lxj"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 1, 2.5028e-06, 0.619822, 0.833365, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.25, 0.5, 0.75)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.619608, 0.835294, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_10pyw"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s75cb"]
 gradient = SubResource("Gradient_h0lxj")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljah1"]
-texture = SubResource("GradientTexture2D_10pyw")
+texture = SubResource("GradientTexture2D_s75cb")
 
 [sub_resource type="Gradient" id="Gradient_0geh0"]
 interpolation_mode = 2
@@ -54,6 +60,34 @@ shader_parameter/TextureBadlyInjured = ExtResource("4_vdh6k")
 shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
 shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+
+[sub_resource type="Gradient" id="Gradient_x08xw"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.5, 0.5, 0.5, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qeet7"]
+gradient = SubResource("Gradient_x08xw")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmtwf"]
+texture = SubResource("GradientTexture2D_qeet7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5pwex"]
+shader = ExtResource("7_h5sks")
+
 [node name="Inventory" type="Control"]
 process_mode = 2
 layout_mode = 3
@@ -68,7 +102,7 @@ script = ExtResource("1_yfrlh")
 
 [node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -110,7 +144,7 @@ vertical_alignment = 1
 
 [node name="Portrait" type="ColorRect" parent="Backdrop/Rows/Character/Status"]
 material = SubResource("ShaderMaterial_8ikmb")
-custom_minimum_size = Vector2(0, 260)
+custom_minimum_size = Vector2(300, 330)
 layout_mode = 2
 
 [node name="Equipment" type="VBoxContainer" parent="Backdrop/Rows/Character"]
@@ -149,9 +183,75 @@ text = "Действие
 "
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Backdrop/Rows/Character/Command"]
+[node name="HSeparator" type="HSeparator" parent="Backdrop/Rows/Character/Command"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ButtonsScroll" type="ScrollContainer" parent="Backdrop/Rows/Character/Command"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Backdrop/Rows/Character/Command/ButtonsScroll"]
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CommandButton_1" type="Button" parent="Backdrop/Rows/Character/Command/ButtonsScroll/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8nrcv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8nrcv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8nrcv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8nrcv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8nrcv")
+text = "Button
+"
+
+[node name="ItemScroll" type="ScrollContainer" parent="Backdrop/Rows"]
+unique_name_in_owner = true
+clip_contents = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("7_uupfk")
+_scroll_tween_time = null
+_scroll_alpha_factor = null
+_scroll_margin_factor = null
+
+[node name="AllItems" parent="Backdrop/Rows/ItemScroll" instance=ExtResource("7_mybl8")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/v_separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Backdrop/Rows"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.65098)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_rokqn")
+theme_override_fonts/bold_font = ExtResource("9_5s03v")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b4kqr")
+bbcode_enabled = true
+text = "Item description line 1
+Item description line 2
+Item description line 3
+Item description line 4"
 
 [node name="BottomButtons" type="HBoxContainer" parent="Backdrop/Rows"]
 layout_mode = 2
@@ -167,29 +267,53 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ExitButton" type="Button" parent="Backdrop/Rows/BottomButtons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljah1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ljah1")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tmtwf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ljah1")
 text = "Выход
 "
 
-[node name="ItemListAnchor" type="Control" parent="Backdrop/Rows"]
-layout_mode = 2
+[node name="Selector" type="MarginContainer" parent="Backdrop"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 249.0
+offset_right = 454.0
+offset_bottom = 379.0
+script = ExtResource("9_dcg4u")
 
-[node name="ItemList" parent="Backdrop/Rows/ItemListAnchor" instance=ExtResource("7_mybl8")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -658.0
-offset_right = 658.0
-grow_horizontal = 2
-size_flags_horizontal = 4
+[node name="Glow" type="NinePatchRect" parent="Backdrop/Selector"]
+material = SubResource("ShaderMaterial_5pwex")
+layout_mode = 2
+texture = ExtResource("7_j6mwm")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Background" type="NinePatchRect" parent="Backdrop/Selector"]
+layout_mode = 2
+texture = ExtResource("12_086n4")
+region_rect = Rect2(-2, -2, 132, 132)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
 
 [node name="FadeScreen" type="ColorRect" parent="."]
 visible = false

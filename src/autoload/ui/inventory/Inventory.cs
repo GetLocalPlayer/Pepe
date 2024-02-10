@@ -10,6 +10,7 @@ public partial class Inventory : Control
     ShaderMaterial _statusMaterial;
     ColorRect _fadeScreen;
     Control _backdrop;
+    ScrollContainer _itemScroll;
 
 
     public override void _Ready()
@@ -17,7 +18,14 @@ public partial class Inventory : Control
         var tree = GetTree();
         var currentScene = tree.CurrentScene;
 
-        if (this != currentScene) base.Hide();
+        if (this == currentScene)
+        {
+            tree.Paused = true;
+        }
+        else
+        {
+            base.Hide();
+        }
 
         VisibilityChanged += () =>
             tree.Paused = Visible;
@@ -25,6 +33,7 @@ public partial class Inventory : Control
         _statusMaterial = GetNode<ColorRect>("Backdrop/Rows/Character/Status/Portrait").Material as ShaderMaterial;
         _fadeScreen = GetNode<ColorRect>("FadeScreen");
         _backdrop = GetNode<Control>("Backdrop");
+        _itemScroll = GetNode<ScrollContainer>("Backdrop/Rows/ItemScroll");
     }
 
     

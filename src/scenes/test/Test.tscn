@@ -6,24 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cps0r0ym825rb" path="res://objects/grocerytrolley/grocerytrolley.tscn" id="4_qvqct"]
 [ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1d30f"]
-sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(0.709804, 0.866667, 1, 1)
-sky_curve = 0.353554
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.709804, 0.866667, 1, 1)
-ground_curve = 1.0
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ib3ht"]
 
 [sub_resource type="Sky" id="Sky_55ece"]
-sky_material = SubResource("ProceduralSkyMaterial_1d30f")
+sky_material = SubResource("PhysicalSkyMaterial_ib3ht")
 process_mode = 3
 
 [sub_resource type="Environment" id="Environment_fwjoj"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 0.75
+background_energy_multiplier = 8.23
 sky = SubResource("Sky_55ece")
-tonemap_mode = 2
+reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74hqk"]
 size = Vector3(100.009, 0.5, 100.226)
@@ -46,7 +40,7 @@ environment = SubResource("Environment_fwjoj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.178916, -0.843612, 0.506268, -0.739584, 0.224033, 0.634685, -0.648848, -0.487983, -0.583839, 6.63249, 5.67415, 0.874507)
-light_energy = 0.2
+light_energy = 0.158
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -79,15 +73,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302519, 3.66384, 0)
 [node name="Interactables" type="Node" parent="."]
 
 [node name="GroceryShelf_1" parent="Interactables" instance=ExtResource("4_xtui0")]
-transform = Transform3D(-0.412993, 0, -0.910734, 0, 1, 0, 0.910734, 0, -0.412993, -16.0949, -0.0576165, -4.9958)
+transform = Transform3D(-0.412993, 0, -0.910734, 0, 1, 0, 0.910734, 0, -0.412993, -16.095, 0, -4.996)
 
 [node name="GroceryShelf_2" parent="Interactables" instance=ExtResource("4_xtui0")]
-transform = Transform3D(0.994538, 0, 0.104372, 0, 1, 0, -0.104372, 0, 0.994538, -18.9631, -0.0576165, -9.06171)
+transform = Transform3D(0.994538, 0, 0.104372, 0, 1, 0, -0.104372, 0, 0.994538, -18.963, 0, -9.062)
 
 [node name="GroceryShelf_3" parent="Interactables" instance=ExtResource("4_xtui0")]
-transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, -20.1677, -0.0576165, -4.50214)
+transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, -20.168, 0, -4.502)
 
 [node name="GroceryTrolley" parent="Interactables" instance=ExtResource("4_qvqct")]
-transform = Transform3D(0.731389, 0, 0.68196, 0, 1, 0, -0.68196, 0, 0.731389, 2.68405, -0.057617, 0.034699)
+transform = Transform3D(0.731389, 0, 0.68196, 0, 1, 0, -0.68196, 0, 0.731389, 2.684, 0, 0.035)
 
 [editable path="CameraRoomConstraint"]

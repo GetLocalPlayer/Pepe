@@ -13,13 +13,9 @@ extends MarginContainer
         if value >= 0:
             _amount = value
         if not is_node_ready(): return
-        label.text = "x%d" % _amount
-        if _amount > 0:
-            model_owner.show()
-            label.show()
-        else:
-            label.hide()
-            model_owner.hide()
+        label.text = "x%d" % value
+        model_owner.visible = value > 0
+        label.visible = amount > 1
 
 
 @export var model: PackedScene:
@@ -73,11 +69,9 @@ func _ready():
     texture_rect.texture = sub_viewport.get_texture()
     model_owner.scale = Vector3(model_scale, model_scale, model_scale)
     model_owner.position = model_offset
-    if amount <= 0:
-        model_owner.hide()
-        label.hide()
     if model != null:
         model_owner.add_child(model.instantiate())
+    amount = amount # just to trigger setter
     player.play(player.autoplay)
 
 

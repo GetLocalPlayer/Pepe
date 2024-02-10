@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://autoload/ui/inventory/item.gd" id="1_mjg05"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="2_leaap"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gvqsg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ni1sr"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -48,21 +48,25 @@ _data = {
 }
 
 [node name="Item" type="MarginContainer"]
+use_parent_material = true
 custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 pivot_offset = Vector2(100, 100)
+focus_mode = 2
 script = ExtResource("1_mjg05")
 amount = 1
 model_scale = 1.0
 
 [node name="Texture" type="TextureRect" parent="."]
+use_parent_material = true
 layout_mode = 2
-texture = SubResource("ViewportTexture_gvqsg")
+texture = SubResource("ViewportTexture_ni1sr")
 expand_mode = 1
 
 [node name="Amount" type="Label" parent="Texture"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -85,12 +89,12 @@ gui_disable_input = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
 transform = Transform3D(0.685958, 0.487113, -0.540539, 0, 0.742864, 0.669442, 0.727641, -0.459209, 0.509574, -5.00522, 5.74625, 6.71116)
-light_energy = 10.0
+light_energy = 15.0
 spot_range = 15.1184
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="SubViewport"]
 transform = Transform3D(0.810785, -0.401063, 0.426352, -0.0655793, -0.786031, -0.614699, 0.581659, 0.470429, -0.663604, 6.25442, -3.03819, -2.81207)
-light_energy = 10.0
+light_energy = 15.0
 light_size = 0.523
 light_specular = 0.05
 spot_range = 24.3519

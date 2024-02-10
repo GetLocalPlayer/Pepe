@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8pupxciy70es"]
 
 [ext_resource type="Script" path="res://autoload/ui/Interaction/Interaction.cs" id="1_4dnys"]
-[ext_resource type="FontFile" uid="uid://cy5a23vnfeo5k" path="res://fonts/PostalShrift.ttf" id="1_debet"]
+[ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_hujjk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b486o"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -22,19 +22,24 @@ grow_vertical = 2
 script = ExtResource("1_4dnys")
 
 [node name="Text" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 329.0
-offset_top = 545.0
-offset_right = 471.0
-offset_bottom = 570.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -35.0
+offset_right = 76.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.999989, 0.851371, 0.83285, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = ExtResource("1_debet")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_fonts/normal_font = ExtResource("2_hujjk")
+theme_override_font_sizes/normal_font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_b486o")
 bbcode_enabled = true
 text = "Test text"
