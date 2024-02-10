@@ -19,11 +19,13 @@ theme_override_constants/h_separation = 0
 
 [node name="Flashlight" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
+description = "Фонарик. Батарейки в комплект не входят."
 model = ExtResource("3_3u5eu")
 model_scale = 8.5
 
 [node name="Bun" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
+description = "Вкусная сдобная булочка."
 amount = 6
 model = ExtResource("4_rd3k8")
 model_scale = 7.85
@@ -33,6 +35,7 @@ layout_mode = 2
 script = ExtResource("5_moqir")
 value = 0.0
 type = 0
+description = "Сникерс, ежедневно при похудении."
 model = ExtResource("6_3na38")
 model_scale = 0.25
 
@@ -41,6 +44,7 @@ layout_mode = 2
 script = ExtResource("5_moqir")
 value = 0.0
 type = 0
+description = "Молоко с истекшим сроком годности."
 model = ExtResource("7_rwsjs")
 model_scale = 5.09
 model_offset = Vector3(0, -0.215, 0)

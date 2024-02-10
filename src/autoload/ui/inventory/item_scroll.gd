@@ -29,6 +29,7 @@ func _ready():
 
 	var on_scroll_value_changed = func(_new_value):
 		var parent_rect = get_parent().get_rect()
+		print(_new_value)
 		for item in _items:
 			var item_rect = get_transform() * item.get_parent().get_transform() * item.get_rect()
 			var offset = item_rect.get_center() - parent_rect.get_center()
@@ -40,6 +41,7 @@ func _ready():
 			item.add_theme_constant_override("margin_right", margin.x)
 			item.add_theme_constant_override("margin_top", margin.y)
 			item.add_theme_constant_override("margin_bottom", margin.y)
-
+			
 
 	get_h_scroll_bar().value_changed.connect(on_scroll_value_changed, CONNECT_DEFERRED)
+	on_scroll_value_changed.call_deferred(0)

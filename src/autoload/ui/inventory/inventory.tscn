@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=29 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/Inventory.cs" id="1_yfrlh"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/item_description.gd" id="10_fiy35"]
 [ext_resource type="Texture2D" uid="uid://b533ape3tmkcv" path="res://autoload/ui/inventory/textures/selector_background.png" id="12_086n4"]
 
 [sub_resource type="Gradient" id="Gradient_h0lxj"]
@@ -236,7 +237,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/v_separation = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Backdrop/Rows"]
+[node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -252,6 +253,7 @@ text = "Item description line 1
 Item description line 2
 Item description line 3
 Item description line 4"
+script = ExtResource("10_fiy35")
 
 [node name="BottomButtons" type="HBoxContainer" parent="Backdrop/Rows"]
 layout_mode = 2
