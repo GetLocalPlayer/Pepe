@@ -32,7 +32,14 @@ var exhausted: bool:
 
 
 func _input(_event):
+	if Input.is_action_just_pressed("Action"):
+		if _interactable_detector.has_overlapping_areas():
+			get_viewport().set_input_as_handled()
+		for a in _interactable_detector.get_overlapping_areas():
+			_ui.interaction.run(a.get_parent().Lines)
+			await _ui.interaction.finished
 	if Input.is_action_just_pressed("OpenInventory"):
+		get_viewport().set_input_as_handled()
 		_ui.inventory.open(health / max_health)
 
 
