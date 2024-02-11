@@ -17,7 +17,7 @@ class_name Pepe
 	get:
 		return stamina
 	set(value):
-		stamina = value if value >= 0 and value <= max_stamina else stamina
+		stamina = 0.0 if value < 0.0 else max_stamina if value > max_stamina else value
 
 var exhausted: bool:
 	get:

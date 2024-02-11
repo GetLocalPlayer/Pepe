@@ -4,9 +4,9 @@ extends FiniteStateMachine
 var _states = {
 	idle = PepeIdle.new(),
 	exhausted = PepeExhausted.new(),
-	walking = null,
-	walking_backwards = null,
-	running = null,
+	walking = PepeWalking.new(),
+	walking_backwards = PepeWalkingBackwards.new(),
+	running = PepeRunning.new(),
 }
 
 
@@ -29,11 +29,12 @@ func _update_current_state(delta: float):
 	body.apply_floor_snap() # only for testing, delete later
 
 	if body.is_on_floor():
-		if Input.is_action_pressed("WalkBackwards"):
-			pass #_set_state(_states.walking_backwards)
-		elif Input.is_action_just_pressed("RunModifier"):
-			pass #_set_state(_states.running)
+		if Input.is_action_pressed("Move"):
+			if Input.is_action_pressed("WalkBackwards"):
+				_set_state(_states.walking_backwards)
+			elif Input.is_action_pressed("RunModifier") and not pepe.exhausted:
+				_set_state(_states.running)
+			else:
+				_set_state(_states.walking)
 		else:
-			pass #_set_state(_states.walking)
-	else:
-		_set_state(_states.exhausted if pepe.exhausted else _states.idle)
+			_set_state(_states.exhausted if pepe.exhausted else _states.idle)
