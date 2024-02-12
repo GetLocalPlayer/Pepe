@@ -6,8 +6,14 @@ extends ScrollContainer
 @onready var _command_button = %CommandButton_1
 
 @export var _scroll_tween_time: float = 0.15
-@export var _scroll_alpha_factor: float = 2.5
-@export var _scroll_margin_factor: float = 1
+@export var _scroll_alpha_range = {
+	min = 0.4,
+	max = 1,
+}
+@export var _scroll_margin_range = {
+	min = 0,
+	max = 0.75,
+}
 
 
 func _ready():
@@ -27,7 +33,7 @@ func _ready():
 
 		item.focus_entered.connect(on_focus_entered)
 
-	get_h_scroll_bar().value_changed.connect(_on_scroll_value_changed)
+	get_h_scroll_bar().value_changed.connect(_on_scroll_value_changed, CONNECT_DEFERRED)
 	visibility_changed.connect(_on_visibility_changed)
 	_on_visibility_changed.call_deferred()
 
@@ -43,9 +49,11 @@ func _on_scroll_value_changed(_new_value):
 		var item_rect = get_transform() * item.get_parent().get_transform() * item.get_rect()
 		var offset = item_rect.get_center() - parent_rect.get_center()
 		var fade_factor = clamp(abs(offset.x) / (parent_rect.size.x / 2), 0, 1)
-		item.modulate = Color(item.modulate, (1 - fade_factor) * _scroll_alpha_factor)
+		var alpha_range = _scroll_alpha_range.max - _scroll_alpha_range.min
+		item.modulate = Color(item.modulate, (1 - fade_factor) * alpha_range + _scroll_alpha_range.min)
 
-		var margin = item_rect.size * 0.5 * fade_factor * _scroll_margin_factor
+		var margin_range = _scroll_margin_range.max - _scroll_margin_range.min
+		var margin = item_rect.size * 0.5 * (fade_factor * margin_range + _scroll_margin_range.min)
 		item.add_theme_constant_override("margin_left", margin.x)
 		item.add_theme_constant_override("margin_right", margin.x)
 		item.add_theme_constant_override("margin_top", margin.y)
