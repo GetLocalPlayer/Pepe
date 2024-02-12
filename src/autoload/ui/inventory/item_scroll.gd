@@ -27,20 +27,28 @@ func _ready():
 
 		item.focus_entered.connect(on_focus_entered)
 
-	var on_scroll_value_changed = func(_new_value):
-		var parent_rect = get_parent().get_rect()
-		for item in _item_list:
-			var item_rect = get_transform() * item.get_parent().get_transform() * item.get_rect()
-			var offset = item_rect.get_center() - parent_rect.get_center()
-			var fade_factor = clamp(abs(offset.x) / (parent_rect.size.x / 2), 0, 1)
-			item.modulate = Color(item.modulate, (1 - fade_factor) * _scroll_alpha_factor)
+	get_h_scroll_bar().value_changed.connect(_on_scroll_value_changed)
+	visibility_changed.connect(_on_visibility_changed)
+	_on_visibility_changed.call_deferred()
 
-			var margin = item_rect.size * 0.5 * fade_factor * _scroll_margin_factor
-			item.add_theme_constant_override("margin_left", margin.x)
-			item.add_theme_constant_override("margin_right", margin.x)
-			item.add_theme_constant_override("margin_top", margin.y)
-			item.add_theme_constant_override("margin_bottom", margin.y)
-			
 
-	get_h_scroll_bar().value_changed.connect(on_scroll_value_changed, CONNECT_DEFERRED)
-	on_scroll_value_changed.call_deferred(0)
+func _on_visibility_changed():
+	if visible:
+		_on_scroll_value_changed(scroll_horizontal)
+
+
+func _on_scroll_value_changed(_new_value):
+	var parent_rect = get_parent().get_rect()
+	for item in _item_list:
+		var item_rect = get_transform() * item.get_parent().get_transform() * item.get_rect()
+		var offset = item_rect.get_center() - parent_rect.get_center()
+		var fade_factor = clamp(abs(offset.x) / (parent_rect.size.x / 2), 0, 1)
+		item.modulate = Color(item.modulate, (1 - fade_factor) * _scroll_alpha_factor)
+
+		var margin = item_rect.size * 0.5 * fade_factor * _scroll_margin_factor
+		item.add_theme_constant_override("margin_left", margin.x)
+		item.add_theme_constant_override("margin_right", margin.x)
+		item.add_theme_constant_override("margin_top", margin.y)
+		item.add_theme_constant_override("margin_bottom", margin.y)
+	
+
