@@ -26,10 +26,12 @@ model_scale = 8.5
 
 [node name="Bun" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-description = "Вкусная сдобная булочка."
-amount = 6
+script = ExtResource("5_moqir")
+value = 0.0
+type = 0
+amount = 4
 model = ExtResource("4_rd3k8")
-model_scale = 7.85
+model_scale = 8.0
 
 [node name="Snickers" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2

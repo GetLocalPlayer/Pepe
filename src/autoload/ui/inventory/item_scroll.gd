@@ -3,7 +3,7 @@ extends ScrollContainer
 
 @onready var _item_list = $ItemList.get_children().filter(func(child): return child is Item)
 @onready var _exit_button = %ExitButton
-@onready var _command_button = %CommandButton_1
+@onready var _button_container = %Command/Buttons
 
 @export var _scroll_tween_time: float = 0.15
 @export var _scroll_alpha_range = {
@@ -19,13 +19,13 @@ extends ScrollContainer
 func _ready():
 	for i in _item_list.size():
 		var item: Item = _item_list[i]
-		item.focus_neighbor_top = _command_button.get_path()        
+		item.focus_neighbor_top = _button_container.get_path()        
 		item.focus_neighbor_bottom = _exit_button.get_path()
 		item.focus_neighbor_left = item.get_path() if i == 0 else _item_list[i - 1].get_path()
 		item.focus_neighbor_right = item.get_path() if item == _item_list.back() else _item_list[i + 1].get_path()
 
 		var on_focus_entered = func():
-			_command_button.focus_neighbor_bottom = item.get_path()
+			_button_container.focus_neighbor_bottom = item.get_path()
 			_exit_button.focus_neighbor_top = item.get_path()
 
 			var tween = create_tween()

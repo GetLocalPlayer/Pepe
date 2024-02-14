@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=30 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://mabpfkseed6r" path="res://autoload/ui/inventory/shaders/selector.tres" id="7_h5sks"]
 [ext_resource type="Texture2D" uid="uid://bs86c427mrbng" path="res://autoload/ui/inventory/textures/selector.png" id="7_j6mwm"]
 [ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/item_list.tscn" id="7_mybl8"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/Buttons.gd" id="7_ta2m8"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
@@ -62,10 +63,6 @@ shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
 shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
 content_margin_left = 20.0
@@ -129,7 +126,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="Backdrop/Rows/Character/Status"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Status"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -154,7 +151,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Backdrop/Rows/Character/Equipment"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Equipment"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
@@ -171,10 +168,11 @@ custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 
 [node name="Command" type="VBoxContainer" parent="Backdrop/Rows/Character"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Backdrop/Rows/Character/Command"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Command"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
@@ -192,17 +190,15 @@ visibility_layer = 0
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ButtonsScroll" type="ScrollContainer" parent="Backdrop/Rows/Character/Command"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Buttons" type="VBoxContainer" parent="Backdrop/Rows/Character/Command/ButtonsScroll"]
+[node name="Buttons" type="VBoxContainer" parent="Backdrop/Rows/Character/Command"]
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 2
+script = ExtResource("7_ta2m8")
 
-[node name="CommandButton_1" type="Button" parent="Backdrop/Rows/Character/Command/ButtonsScroll/Buttons"]
-unique_name_in_owner = true
+[node name="Use" type="Button" parent="Backdrop/Rows/Character/Command/Buttons"]
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -217,8 +213,22 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8nrcv")
-text = "Button
+
+[node name="Label" type="Label" parent="Backdrop/Rows/Character/Command/Buttons/Use"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 21
+text = "Use
 "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ItemScroll" type="ScrollContainer" parent="Backdrop/Rows"]
 unique_name_in_owner = true
@@ -287,8 +297,25 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_tmtwf")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ljah1")
+text = "
+"
+
+[node name="Title" type="Label" parent="Backdrop/Rows/BottomButtons/ExitButton"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_rokqn")
+theme_override_font_sizes/font_size = 21
 text = "Выход
 "
+horizontal_alignment = 1
 
 [node name="Selector" type="MarginContainer" parent="Backdrop"]
 layout_mode = 0
