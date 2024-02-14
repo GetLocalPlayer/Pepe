@@ -25,11 +25,7 @@ func _ready():
     super._ready()
 
 
-func _use():
+func use():
     match type:
         EffectType.HEALTH_RESTORATION:
             get_tree().call_group("Player", "RestoreHealth", value)
-
-
-func _get_actions() -> Array:
-    return [ {"Use": _use} ]

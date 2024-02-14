@@ -49,10 +49,6 @@ extends MarginContainer
         model_owner.position = value
 
 
-var acitons: Array:
-    get = _get_actions
-
-
 var _amount: int
 var _model: PackedScene
 var _model_scale: float
@@ -76,5 +72,5 @@ func _ready():
     player.play(player.autoplay)
 
 
-func _get_actions() -> Array:
-    return []
+func use():
+    push_warning("Not implemented")
