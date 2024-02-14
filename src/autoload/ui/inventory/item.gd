@@ -1,75 +1,68 @@
 @tool
 class_name Item
-extends MarginContainer
+extends Button
 
 
 
 @export_multiline var description: String = ""
 
 
-@export var amount: int:
+@export var _amount: int:
     get:
         return _amount
     set(value):
         if value >= 0:
             _amount = value
         if not is_node_ready(): return
-        label.text = "x%d" % value
-        model_owner.visible = value > 0
-        label.visible = amount > 1
+        _label.text = "x%d" % value
+        _model_owner.visible = value > 0
+        _label.visible = _amount > 1
 
 
-@export var model: PackedScene:
+@export var _model: PackedScene:
     get:
         return _model
     set(value):
         _model = value
         if not is_node_ready(): return
-        for child in model_owner.get_children():
+        for child in _model_owner.get_children():
             child.queue_free()
         if value != null:
-            model_owner.add_child(value.instantiate())
+            _model_owner.add_child(value.instantiate())
 
 
-@export var model_scale: float:
+@export var _model_scale: float:
     get:
         return _model_scale
     set(value):
         _model_scale = value
         if not is_node_ready(): return     
-        model_owner.scale = Vector3(value, value, value) 
+        _model_owner.scale = Vector3(value, value, value) 
 
 
-@export var model_offset: Vector3:
+@export var _model_offset: Vector3:
     get:
         return _model_offset
     set(value):
         _model_offset = value
         if not is_node_ready(): return
-        model_owner.position = value
+        _model_owner.position = value
 
 
-var _amount: int
-var _model: PackedScene
-var _model_scale: float
-var _model_offset: Vector3
-
-
-@onready var model_owner = %ModelOwner
-@onready var sub_viewport = $SubViewport
-@onready var texture_rect = $Texture
-@onready var label = %Amount
-@onready var player = %AnimationPlayer
+@onready var _model_owner = %ModelOwner
+@onready var _sub_viewport = $SubViewport
+@onready var _label = %Amount
+@onready var _anim_player = %AnimationPlayer
 
 
 func _ready():
-    texture_rect.texture = sub_viewport.get_texture()
-    model_owner.scale = Vector3(model_scale, model_scale, model_scale)
-    model_owner.position = model_offset
-    if model != null:
-        model_owner.add_child(model.instantiate())
-    amount = amount # just to trigger setter
-    player.play(player.autoplay)
+    icon = _sub_viewport.get_texture()
+    _model_owner.scale = Vector3(_model_scale, _model_scale, _model_scale)
+    _model_owner.position = _model_offset
+    if _model != null:
+        _model_owner.add_child(_model.instantiate())
+    _amount = _amount # just to trigger setter
+    _anim_player.play(_anim_player.autoplay)
 
 
 func use():

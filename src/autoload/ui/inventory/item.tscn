@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2ykucjec5cgq"]
+[gd_scene load_steps=9 format=3 uid="uid://d2ykucjec5cgq"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/item.gd" id="1_mjg05"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="2_leaap"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ni1sr"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sgc8x"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -47,38 +49,40 @@ _data = {
 "RESET": SubResource("Animation_wava2")
 }
 
-[node name="Item" type="MarginContainer"]
+[node name="Item" type="Button"]
 use_parent_material = true
 custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 pivot_offset = Vector2(100, 100)
-focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j777h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j777h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
+action_mode = 0
+icon = SubResource("ViewportTexture_sgc8x")
+flat = true
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("1_mjg05")
-amount = 1
-model_scale = 1.0
 
-[node name="Texture" type="TextureRect" parent="."]
-use_parent_material = true
-layout_mode = 2
-texture = SubResource("ViewportTexture_ni1sr")
-expand_mode = 1
-
-[node name="Amount" type="Label" parent="Texture"]
+[node name="Amount" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -35.0
 offset_top = 10.0
 offset_right = -10.0
+offset_bottom = 30.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.698039)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_leaap")
-text = "x1"
+text = "x0"
 horizontal_alignment = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -86,6 +90,7 @@ own_world_3d = true
 world_3d = SubResource("World3D_hwcny")
 transparent_bg = true
 gui_disable_input = true
+size = Vector2i(200, 200)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
 transform = Transform3D(0.685958, 0.487113, -0.540539, 0, 0.742864, 0.669442, 0.727641, -0.459209, 0.509574, -5.00522, 5.74625, 6.71116)
@@ -104,7 +109,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.96932)
 
 [node name="ModelOwner" type="Node3D" parent="SubViewport"]
 unique_name_in_owner = true
-transform = Transform3D(-0.630036, -0.630035, 0.453994, -0.707107, 0.707107, 0, -0.321022, -0.321022, -0.891005, 0, 0, 0)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport"]
 unique_name_in_owner = true
