@@ -122,6 +122,7 @@ grow_vertical = 2
 
 [node name="Character" type="HBoxContainer" parent="Backdrop/Rows"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../ItemScroll")
 focus_mode = 2
 theme_override_constants/separation = 10
 alignment = 1

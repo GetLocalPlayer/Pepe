@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hxbnx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bihku"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -61,12 +61,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
 button_mask = 0
-icon = SubResource("ViewportTexture_hxbnx")
+icon = SubResource("ViewportTexture_bihku")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_mjg05")
-amount = null
 
 [node name="Amount" type="Label" parent="."]
 unique_name_in_owner = true
@@ -84,7 +83,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.698039)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_leaap")
-text = "x0"
+text = "x1"
 horizontal_alignment = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -112,7 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.96932)
 [node name="ModelOwner" type="Node3D" parent="SubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport"]
 unique_name_in_owner = true

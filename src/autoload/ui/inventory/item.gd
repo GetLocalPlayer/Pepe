@@ -7,15 +7,14 @@ extends Button
 @export_multiline var description: String = ""
 
 
-@export var amount: int:
+@export var amount: int = 1:
     get:
         return amount
     set(value):
-        if value >= 0:
-            amount = value
+        amount = value if value >= 0 else 0
         if not is_node_ready(): return
-        _label.text = "x%d" % value
-        _model_owner.visible = value > 0
+        _label.text = "x%d" % amount
+        visible = amount > 0
         _label.visible = amount > 1
 
 

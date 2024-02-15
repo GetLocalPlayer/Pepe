@@ -4,8 +4,6 @@ extends Control
 @onready var _fade_screen = %FadeScreen
 @onready var _backdrop = %Backdrop
 @onready var _item_scroll = %ItemScroll
-@onready var _item_list = %ItemList
-@onready var _last_focused_item: Item = _item_list.get_children().filter(func(node): return node is Item)[0]
 
 
 func _ready():
@@ -14,10 +12,9 @@ func _ready():
 	get_tree().paused = self == get_tree().current_scene
 	visible = self == get_tree().current_scene
 
-	_last_focused_item.grab_focus.call_deferred()
 	_backdrop.visibility_changed.connect(_on_backdrop_visibility_changed, CONNECT_DEFERRED)
-	get_viewport().gui_focus_changed.connect(_on_viewport_focus_changed)
 	visibility_changed.connect(_on_visibility_changed)
+	_item_scroll.grab_focus.call_deferred()
 
 
 func _on_backdrop_visibility_changed():
@@ -29,18 +26,13 @@ func _on_backdrop_visibility_changed():
 		focused properly. """
 		_item_scroll.scroll_horizontal += 1
 		_item_scroll.scroll_horizontal -= 1
-		_last_focused_item.grab_focus()
-
-
-func _on_viewport_focus_changed(node: Control):
-	if node is Item:
-		_last_focused_item = node
+		_item_scroll.grab_focus.call_deferred()
 
 
 func _on_visibility_changed():
 	get_tree().paused = visible
 	if visible:
-		_last_focused_item.grab_focus.call_deferred()
+		_item_scroll.grab_focus.call_deferred()
 
 
 func _input(_event):

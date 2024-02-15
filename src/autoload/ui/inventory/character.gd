@@ -57,14 +57,14 @@ func _on_button_pressed(btn: Button):
 
 func _on_button_gui_input(_event: InputEvent):
     if Input.is_action_just_pressed("ui_cancel"):
-        _last_focused_item.grab_focus.call_deferred()
+        get_node(focus_neighbor_bottom).grab_focus.call_deferred()
 
 
 func _on_portrait_button_pressed():
     _portrait_button.hide()
-    _last_focused_item.grab_focus.call_deferred()
-    _last_focused_item.use.call_deferred()
-
+    _last_focused_item.use()
+    get_node(focus_neighbor_bottom).grab_focus.call_deferred()
+    
 
 func _on_portrait_button_gui_input(_event: InputEvent):
     if Input.is_action_just_pressed("ui_cancel"):

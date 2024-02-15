@@ -13,8 +13,6 @@ extends ScrollContainer
 	max = 0.75,
 }
 
-@onready var _last_focused_item: Item = null
-
 
 func _ready():
 	for i in _item_list.size():
@@ -27,7 +25,6 @@ func _ready():
 		var on_item_focus_entered = func():
 			var tween = create_tween()
 			tween.tween_property(self, "scroll_horizontal", item.position.x, _scroll_tween_time)
-			_last_focused_item = item
 
 		item.focus_entered.connect(on_item_focus_entered)
 
@@ -44,8 +41,17 @@ func _ready():
 
 
 func _on_focus_entered():
-	if _last_focused_item:
-		_last_focused_item.grab_focus.call_deferred()
+	var items = _item_list.duplicate().filter(func(i): return i.visible)
+	if not items.is_empty():
+		var sort = func(a, b):
+			var transform = a.get_parent().get_transform()
+			var pos_a = transform * a.position
+			var pos_b = transform * b.position
+			return abs(pos_a.x) < abs(pos_b.x)
+		items.sort_custom(sort)
+		items.front().grab_focus.call_deferred()
+	else:
+		get_node(focus_neighbor_bottom).grab_focus.call_deferred()
 
 
 func _on_visibility_changed():

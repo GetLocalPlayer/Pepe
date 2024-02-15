@@ -15,7 +15,7 @@ enum EffectType {
     set(newValue):
         value = newValue
 
-@onready var _player = get_tree().root.get_node("Player")
+@onready var _player = get_node_or_null("/root/Player")
 
 func _ready():
     super._ready()
