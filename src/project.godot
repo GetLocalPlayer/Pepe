@@ -16,6 +16,7 @@ config/icon="res://project_ico.png"
 
 [autoload]
 
+Player="*res://autoload/player.gd"
 Inventory="*res://autoload/ui/inventory/inventory.tscn"
 Interaction="*res://autoload/ui/Interaction/Interaction.tscn"
 

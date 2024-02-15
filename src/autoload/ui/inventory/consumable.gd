@@ -7,19 +7,15 @@ enum EffectType {
     HEALTH_RESTORATION,
 }
 
+@export var type: EffectType
 
 @export var value: float:
     get:
-        return _value
+        return value
     set(newValue):
-        _value = newValue
+        value = newValue
 
-
-@export var type: EffectType
-
-
-var _value: float
-
+@onready var _player = get_tree().root.get_node("Player")
 
 func _ready():
     super._ready()
@@ -28,4 +24,5 @@ func _ready():
 func use():
     match type:
         EffectType.HEALTH_RESTORATION:
-            get_tree().call_group("Player", "RestoreHealth", value)
+            _player.restore_health(value)
+    amount -= 1

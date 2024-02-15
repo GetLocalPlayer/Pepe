@@ -7,16 +7,16 @@ extends Button
 @export_multiline var description: String = ""
 
 
-@export var _amount: int:
+@export var amount: int:
     get:
-        return _amount
+        return amount
     set(value):
         if value >= 0:
-            _amount = value
+            amount = value
         if not is_node_ready(): return
         _label.text = "x%d" % value
         _model_owner.visible = value > 0
-        _label.visible = _amount > 1
+        _label.visible = amount > 1
 
 
 @export var _model: PackedScene:
@@ -61,7 +61,7 @@ func _ready():
     _model_owner.position = _model_offset
     if _model != null:
         _model_owner.add_child(_model.instantiate())
-    _amount = _amount # just to trigger setter
+    amount = amount # just to trigger setter
     _anim_player.play(_anim_player.autoplay)
 
 

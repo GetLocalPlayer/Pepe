@@ -40,8 +40,4 @@ func _input(_event):
 			await _ui.interaction.finished
 	if Input.is_action_just_pressed("OpenInventory"):
 		get_viewport().set_input_as_handled()
-		_ui.inventory.open(health / max_health)
-
-
-func restore_health(value: float):
-	health += value
+		_ui.inventory.open()

@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sgc8x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hxbnx"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -60,15 +60,17 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
-action_mode = 0
-icon = SubResource("ViewportTexture_sgc8x")
+button_mask = 0
+icon = SubResource("ViewportTexture_hxbnx")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_mjg05")
+amount = null
 
 [node name="Amount" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0

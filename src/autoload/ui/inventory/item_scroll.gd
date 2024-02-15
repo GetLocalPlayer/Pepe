@@ -31,6 +31,12 @@ func _ready():
 
 		item.focus_entered.connect(on_item_focus_entered)
 
+		var on_item_pressed = func():
+			item.get_node(item.focus_neighbor_top).grab_focus.call_deferred()
+
+		item.pressed.connect(on_item_pressed)
+
+
 	get_h_scroll_bar().value_changed.connect(_on_scroll_value_changed, CONNECT_DEFERRED)
 	visibility_changed.connect(_on_visibility_changed)
 	_on_visibility_changed.call_deferred()

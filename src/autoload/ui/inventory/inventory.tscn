@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=32 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/character.gd" id="2_tjspy"]
 [ext_resource type="Shader" uid="uid://dqdqkgwrwioxg" path="res://autoload/ui/inventory/shaders/statusportrait.tres" id="3_xppx1"]
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
@@ -9,8 +10,8 @@
 [ext_resource type="Shader" uid="uid://mabpfkseed6r" path="res://autoload/ui/inventory/shaders/selector.tres" id="7_h5sks"]
 [ext_resource type="Texture2D" uid="uid://bs86c427mrbng" path="res://autoload/ui/inventory/textures/selector.png" id="7_j6mwm"]
 [ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/item_list.tscn" id="7_mybl8"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/buttons.gd" id="7_ta2m8"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
+[ext_resource type="Script" path="res://autoload/ui/inventory/portrait.gd" id="8_kdghm"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/item_description.gd" id="10_fiy35"]
@@ -61,6 +62,8 @@ shader_parameter/TextureInjured = ExtResource("5_mcf8x")
 shader_parameter/TextureBadlyInjured = ExtResource("4_vdh6k")
 shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
 shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iww3n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
 content_margin_top = 30.0
@@ -119,8 +122,10 @@ grow_vertical = 2
 
 [node name="Character" type="HBoxContainer" parent="Backdrop/Rows"]
 layout_mode = 2
+focus_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
+script = ExtResource("2_tjspy")
 
 [node name="Status" type="VBoxContainer" parent="Backdrop/Rows/Character"]
 layout_mode = 2
@@ -147,6 +152,27 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_8ikmb")
 custom_minimum_size = Vector2(300, 330)
 layout_mode = 2
+script = ExtResource("8_kdghm")
+
+[node name="Button" type="Button" parent="Backdrop/Rows/Character/Status/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iww3n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iww3n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iww3n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iww3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iww3n")
+flat = true
 
 [node name="Equipment" type="VBoxContainer" parent="Backdrop/Rows/Character"]
 layout_mode = 2
@@ -169,7 +195,6 @@ custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 
 [node name="Command" type="VBoxContainer" parent="Backdrop/Rows/Character"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -195,8 +220,6 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 2
-script = ExtResource("7_ta2m8")
 
 [node name="Use" type="Button" parent="Backdrop/Rows/Character/Command/Buttons"]
 custom_minimum_size = Vector2(0, 26)
@@ -214,6 +237,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8nrcv")
+button_mask = 0
 
 [node name="Label" type="Label" parent="Backdrop/Rows/Character/Command/Buttons/Use"]
 z_index = 1
@@ -238,7 +262,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Character/Command/Buttons")
+focus_neighbor_top = NodePath("../Character")
 focus_neighbor_bottom = NodePath("../BottomButtons/ExitButton")
 focus_mode = 2
 horizontal_scroll_mode = 3
@@ -301,6 +325,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_tmtwf")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ljah1")
+button_mask = 0
 text = "
 "
 
