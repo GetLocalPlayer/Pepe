@@ -36,11 +36,12 @@ func _on_visibility_changed():
 
 
 func _input(_event):
+	if get_tree().current_scene == self:
+		return
 	if _fade_screen.visible:
 		return
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_viewport().gui_get_focus_owner() is Item:
-			if get_tree().current_scene != self:
 				close()
 
 

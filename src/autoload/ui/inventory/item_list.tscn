@@ -7,16 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="6_3na38"]
 [ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="7_rwsjs"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pxmwb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cpnsq"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gbm66"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gn81g"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8uv2e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qd4kv"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g3idp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6uev5"]
 viewport_path = NodePath("SubViewport")
 
 [node name="ItemList" type="VFlowContainer"]
@@ -31,7 +31,7 @@ theme_override_constants/h_separation = 0
 
 [node name="Flashlight" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_pxmwb")
+icon = SubResource("ViewportTexture_cpnsq")
 description = "Фонарик.
  Батарейки в комплект не входят."
 _model = ExtResource("3_3u5eu")
@@ -39,7 +39,7 @@ _model_scale = 9.0
 
 [node name="Bun" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_gbm66")
+icon = SubResource("ViewportTexture_gn81g")
 script = ExtResource("5_moqir")
 type = 0
 value = 10.0
@@ -49,7 +49,7 @@ _model_scale = 8.0
 
 [node name="Snickers" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_8uv2e")
+icon = SubResource("ViewportTexture_qd4kv")
 script = ExtResource("5_moqir")
 type = 0
 value = 15.0
@@ -60,7 +60,7 @@ _model_scale = 0.25
 
 [node name="Milk" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_g3idp")
+icon = SubResource("ViewportTexture_6uev5")
 script = ExtResource("5_moqir")
 type = 0
 value = -10.0

@@ -6,7 +6,6 @@ extends HBoxContainer
 }
 
 
-@onready var _focus_mode = focus_mode
 @onready var _button_container = $Command/Buttons
 @onready var _buttons = _button_container.get_children().filter(func(child): return child is Button)
 
@@ -24,7 +23,6 @@ var _last_pressed_button: Button = null
 func _ready():
     _button_container.modulate.a = _alpha.focused if has_focus() else _alpha.unfocused
     _button_container.visible = has_focus()
-    focus_mode = _focus_mode if has_focus() else Control.FOCUS_NONE
     focus_entered.connect(_on_focus_entered)
     get_viewport().gui_focus_changed.connect(_on_viewport_focus_changed)
     for i in _buttons.size():
@@ -45,7 +43,7 @@ func _on_focus_entered():
     if _button_container.visible:
         _button_container.find_next_valid_focus().grab_focus.call_deferred()
     else:
-        _last_focused_item.grab_click_focus.call_deferred()
+        get_node(focus_neighbor_bottom).grab_focus.call_deferred()
 
 
 func _on_button_pressed(btn: Button):
@@ -83,6 +81,5 @@ func _on_viewport_focus_changed(node: Control):
         var group: Array = _button_groups[node.get_script()]
         group.all(func(btn): btn.show())
         _button_container.visible = group or not group.is_empty()
-        focus_mode = _focus_mode if _button_container.visible else Control.FOCUS_NONE
 
 
