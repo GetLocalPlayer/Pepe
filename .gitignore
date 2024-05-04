@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 blend/
 /*.blend1
+src/.vscode/settings.json
