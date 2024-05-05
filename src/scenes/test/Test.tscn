@@ -20,7 +20,7 @@ sky = SubResource("Sky_55ece")
 reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74hqk"]
-size = Vector3(100.009, 0.5, 100.226)
+size = Vector3(100.009, 0.558472, 100.226)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cukl"]
 albedo_texture = ExtResource("2_0o3cl")
@@ -51,7 +51,7 @@ transform = Transform3D(-0.863835, -0.204903, 0.460221, 0, 0.913545, 0.406737, -
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254787, -0.307617, -0.0149164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254787, -0.278381, -0.0149164)
 shape = SubResource("BoxShape3D_74hqk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]

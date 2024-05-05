@@ -10,19 +10,18 @@ var _anim_param = {
 
 
 func _enter(context: Node):
-	var playback = get_playback(context)
-	playback.travel(animation.states.idle)
+	get_playback(context).travel(animation.states.idle)
 	_handle_input(context, null)
-	var body = context as CharacterBody3D
-	var pepe = context as Pepe
-	body.velocity = Vector3.UP * (-pepe.gravity);
 
 
 func _update (context: Node, delta: float):
 	var body = context as CharacterBody3D;
 	var anim_tree = get_animation_tree(context)
-	var rotation = anim_tree.get_root_motion_rotation() / delta
-	body.rotate_y(rotation.normalized().get_euler(EULER_ORDER_YXZ).y)
+	var rm_rotation = anim_tree.get_root_motion_rotation()
+	var rm_position = anim_tree.get_root_motion_position()
+	body.velocity = body.quaternion.normalized() * rm_position / delta
+	body.quaternion *= rm_rotation
+	body.move_and_slide()
 	var pepe: Pepe = context
 	pepe.stamina += delta * pepe.stamina_restoration_rate
 

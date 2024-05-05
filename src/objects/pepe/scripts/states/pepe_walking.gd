@@ -1,26 +1,20 @@
-extends PepeState
+extends PepeIdle
 class_name PepeWalking
 
 
+func _init():
+	_anim_param.path = "parameters/Walking/BlendSpace1D/blend_position"
+
+
 func _enter(context: Node):
-    get_playback(context).travel(animation.states.walking)
+	get_playback(context).travel(animation.states.walking)
+	_handle_input(context, null)
 
 
 func _update(context: Node, delta: float):
-    var anim_tree = get_animation_tree(context)
-    var motion = anim_tree.get_root_motion_position() / delta
-    var pepe = context as Pepe
-    var rotation = 0
-    rotation += pepe.turn_speed if Input.is_action_pressed(input_actions.left) else 0
-    rotation -= pepe.turn_speed if Input.is_action_pressed(input_actions.right) else 0
-    var body = context as CharacterBody3D
-    body.rotate_y(deg_to_rad(rotation) * delta)
-    body.velocity = (
-        body.transform.basis.get_rotation_quaternion() * 
-        Vector3(motion.x, 0, motion.z)
-    )
-    body.move_and_slide()
+	var pepe = context as Pepe
+	var stamina = pepe.stamina
+	super._update(pepe, delta)
+	# Do not restore stamina during moving
+	pepe.stamina = stamina
 
-
-func _handle_input(_context: Node, _event: InputEvent): pass
-func _exit(_context: Node): pass
