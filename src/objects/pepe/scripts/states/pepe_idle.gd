@@ -15,24 +15,20 @@ func _enter(context: Node):
 
 
 func _update (context: Node, delta: float):
-	var body = context as CharacterBody3D;
-	var anim_tree = get_animation_tree(context)
-	var rm_rotation = anim_tree.get_root_motion_rotation()
-	var rm_position = anim_tree.get_root_motion_position()
-	body.velocity = body.quaternion.normalized() * rm_position / delta
-	body.quaternion *= rm_rotation
-	body.move_and_slide()
-	var pepe: Pepe = context
+	var pepe = context as Pepe
 	pepe.stamina += delta * pepe.stamina_restoration_rate
+	if get_animation_tree(context).get(_anim_param.path) != 0:
+		var anim_tree = get_animation_tree(context)
+		pepe.quaternion *= anim_tree.get_root_motion_rotation()
 
 
 func _handle_input(context: Node, _event: InputEvent):
 	var anim_tree = get_animation_tree(context)
-	var param_value = 0
-	param_value -= 1 if Input.is_action_pressed(input_actions.left) else 0
-	param_value += 1 if Input.is_action_pressed(input_actions.right) else 0
+	var new_value = 0
+	new_value -= 1 if Input.is_action_pressed(input_actions.left) else 0
+	new_value += 1 if Input.is_action_pressed(input_actions.right) else 0
 	var tween = anim_tree.create_tween()
-	tween.tween_property(anim_tree, _anim_param.path, param_value, _anim_param.tween_time)
+	tween.tween_property(anim_tree, _anim_param.path, new_value, _anim_param.tween_time)
 
 
 func _exit(_context: Node): pass
