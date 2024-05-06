@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c27243toctoic"]
+
+[ext_resource type="PackedScene" uid="uid://jleg5jq565sm" path="res://objects/decorations/chairs/chair_2.blend" id="1_oyr50"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80ho2"]
+height = 0.763525
+radius = 0.302377
+
+[node name="Chair2" type="StaticBody3D"]
+
+[node name="chair_2" parent="." instance=ExtResource("1_oyr50")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.374715, 0)
+shape = SubResource("CylinderShape3D_80ho2")
