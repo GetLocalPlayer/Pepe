@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=15 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
-[ext_resource type="PackedScene" uid="uid://cps0r0ym825rb" path="res://objects/grocerytrolley/grocerytrolley.tscn" id="4_qvqct"]
-[ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
+[ext_resource type="PackedScene" uid="uid://cps0r0ym825rb" path="res://objects/decorations/grocerytrolley/grocerytrolley.tscn" id="4_qvqct"]
+[ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/decorations/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
+[ext_resource type="PackedScene" uid="uid://b5lc50l7wj0em" path="res://objects/decorations/chairs/chair_1.tscn" id="6_xfxth"]
+[ext_resource type="PackedScene" uid="uid://c27243toctoic" path="res://objects/decorations/chairs/chair_2.tscn" id="7_xqmbv"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ib3ht"]
 
@@ -83,5 +85,17 @@ transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, 
 
 [node name="GroceryTrolley" parent="Interactables" instance=ExtResource("4_qvqct")]
 transform = Transform3D(0.731389, 0, 0.68196, 0, 1, 0, -0.68196, 0, 0.731389, 2.684, 0, 0.035)
+
+[node name="Chair1" parent="." instance=ExtResource("6_xfxth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27151, 0.000855088, 0.903422)
+
+[node name="Chair2" parent="." instance=ExtResource("7_xqmbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85836, 0.000855207, -4.69361)
+
+[node name="Chair3" parent="." instance=ExtResource("6_xfxth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63476, 0.000854731, -2.8794)
+
+[node name="Chair4" parent="." instance=ExtResource("7_xqmbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68234, 0.000854969, -0.956603)
 
 [editable path="CameraRoomConstraint"]
