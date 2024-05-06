@@ -15,11 +15,16 @@ func _enter(context: Node):
 
 
 func _update (context: Node, delta: float):
+	var body = context as CharacterBody3D;
+	var anim_tree = get_animation_tree(context)
+	var rm_rotation = anim_tree.get_root_motion_rotation()
+	var rm_position = anim_tree.get_root_motion_position()
+	body.quaternion *= rm_rotation
+	body.velocity = (anim_tree.get_root_motion_rotation_accumulator().inverse() * body.quaternion) * rm_position / delta
+	body.move_and_slide()
+
 	var pepe = context as Pepe
 	pepe.stamina += delta * pepe.stamina_restoration_rate
-	if get_animation_tree(context).get(_anim_param.path) != 0:
-		var anim_tree = get_animation_tree(context)
-		pepe.quaternion *= anim_tree.get_root_motion_rotation()
 
 
 func _handle_input(context: Node, _event: InputEvent):
