@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlyyotltmxl2d"]
+
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_qpmlp"]
+[ext_resource type="PackedScene" uid="uid://cvxvhgyiyot7" path="res://objects/decorations/groceryshelf/assets/groceryshelf.blend" id="2_f82pl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fhnn"]
+size = Vector3(1.05249, 1.40631, 0.916565)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbs76"]
+size = Vector3(1.04889, 2.18268, 1.45996)
+
+[node name="GroceryShelf" instance=ExtResource("1_qpmlp")]
+_lines = PackedStringArray("Пустые полки.")
+
+[node name="CollisionShape3D" parent="Detectable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00354004, 1.10556, -0.00112915)
+shape = SubResource("BoxShape3D_7fhnn")
+
+[node name="Model" parent="." index="1" instance=ExtResource("2_f82pl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00692749, 1.16953, -0.0141602)
+shape = SubResource("BoxShape3D_mbs76")
