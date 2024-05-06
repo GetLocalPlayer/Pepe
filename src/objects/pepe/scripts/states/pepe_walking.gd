@@ -17,9 +17,6 @@ func _update(context: Node, delta: float):
 	var rm_rotation = anim_tree.get_root_motion_rotation()
 	var rm_position = anim_tree.get_root_motion_position()
 	body.quaternion *= rm_rotation
-	if anim_tree.get(_anim_param.path) != 0:
-		body.velocity = body.transform.basis.z * (rm_position.length() / delta)
-	else:
-		body.velocity = body.quaternion.normalized() * rm_position / delta
+	body.velocity = (anim_tree.get_root_motion_rotation_accumulator().inverse() * body.quaternion) * rm_position / delta
 	body.move_and_slide()
 
