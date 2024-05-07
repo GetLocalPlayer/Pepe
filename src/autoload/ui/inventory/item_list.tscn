@@ -7,16 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="6_3na38"]
 [ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="7_rwsjs"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cpnsq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wopar"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gn81g"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhti4"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qd4kv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_n53af"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6uev5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7jw1u"]
 viewport_path = NodePath("SubViewport")
 
 [node name="ItemList" type="VFlowContainer"]
@@ -31,7 +31,7 @@ theme_override_constants/h_separation = 0
 
 [node name="Flashlight" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_cpnsq")
+icon = SubResource("ViewportTexture_wopar")
 description = "Фонарик.
  Батарейки в комплект не входят."
 _model = ExtResource("3_3u5eu")
@@ -39,31 +39,32 @@ _model_scale = 9.0
 
 [node name="Bun" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_gn81g")
+icon = SubResource("ViewportTexture_bhti4")
 script = ExtResource("5_moqir")
 type = 0
-value = 10.0
+value = 20.0
+description = "Сдобная булочка."
 amount = 3
 _model = ExtResource("4_rd3k8")
 _model_scale = 8.0
 
 [node name="Snickers" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_qd4kv")
+icon = SubResource("ViewportTexture_n53af")
 script = ExtResource("5_moqir")
 type = 0
 value = 15.0
 description = "Сникерс.
- Ежедневно при похудении."
+"
 _model = ExtResource("6_3na38")
 _model_scale = 0.25
 
 [node name="Milk" parent="." instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_6uev5")
+icon = SubResource("ViewportTexture_7jw1u")
 script = ExtResource("5_moqir")
 type = 0
-value = -10.0
+value = 15.0
 description = "Молоко с истекшим сроком годности."
 _model = ExtResource("7_rwsjs")
 _model_scale = 5.0
