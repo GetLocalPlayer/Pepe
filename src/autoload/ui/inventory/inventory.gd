@@ -4,6 +4,7 @@ extends Control
 @onready var _fade_screen = %FadeScreen
 @onready var _backdrop = %Backdrop
 @onready var _item_scroll = %ItemScroll
+@onready var _exit_button = %ExitButton
 
 
 func _ready():
@@ -15,6 +16,8 @@ func _ready():
 	_backdrop.visibility_changed.connect(_on_backdrop_visibility_changed, CONNECT_DEFERRED)
 	visibility_changed.connect(_on_visibility_changed)
 	_item_scroll.grab_focus.call_deferred()
+
+	_exit_button.pressed.connect(close)
 
 
 func _on_backdrop_visibility_changed():
