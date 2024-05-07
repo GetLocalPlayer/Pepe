@@ -7,13 +7,13 @@
 size = Vector3(7.86655, 7.5462, 3.58001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gpxis"]
-size = Vector3(5.00751, 7.5462, 1.77716)
+size = Vector3(5.00751, 7.5462, 1.55899)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojj55"]
-size = Vector3(1.30925, 7.5462, 1.44618)
+size = Vector3(1.00033, 7.5462, 1.08832)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hg1p"]
-size = Vector3(3.45504, 7.5462, 3.95786)
+size = Vector3(3.45504, 7.5462, 3.39938)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l7wb5"]
 size = Vector3(3.52325, 7.5462, 1.6989)
@@ -25,7 +25,7 @@ size = Vector3(1.67349, 7.5462, 1.8631)
 size = Vector3(1.66099, 7.5462, 0.968225)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_njd6n"]
-size = Vector3(3.13591, 7.5462, 2.54184)
+size = Vector3(3.13591, 7.5462, 2.21517)
 
 [node name="flat" instance=ExtResource("1_y7ubd")]
 
@@ -50,11 +50,11 @@ _cameraDistance = 100.0
 _cameraTweenTime = 0.3
 
 [node name="CollisionShape3D" parent="Cameras/Hall" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.317912, -1.2269, 0.0982435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.317912, -1.2269, 0.207328)
 shape = SubResource("BoxShape3D_gpxis")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Cameras/Hall" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20768, -1.2269, -1.6552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05322, -1.2269, -1.47628)
 shape = SubResource("BoxShape3D_ojj55")
 
 [node name="Camera3D" parent="Cameras/Hall" index="2"]
@@ -68,11 +68,11 @@ _cameraDistance = 100.0
 _cameraTweenTime = 0.3
 
 [node name="CollisionShape3D" parent="Cameras/Room" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064823, -1.2269, 0.0830207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064823, -1.2269, 0.054719)
 shape = SubResource("BoxShape3D_4hg1p")
 
 [node name="Camera3D" parent="Cameras/Room" index="1"]
-transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 1.47067, 3, -1.74284)
+transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 1.17808, 3, -1.51526)
 fov = 60.0
 
 [node name="Balcony" parent="Cameras" index="3" instance=ExtResource("2_qdykt")]
@@ -124,7 +124,7 @@ _cameraDistance = 100.0
 _cameraTweenTime = 0.3
 
 [node name="CollisionShape3D" parent="Cameras/Kitchen" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22776, -1.2269, 0.528332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22776, -1.2269, 0.364998)
 shape = SubResource("BoxShape3D_njd6n")
 
 [node name="Camera3D" parent="Cameras/Kitchen" index="1"]
