@@ -90,6 +90,7 @@ public partial class CameraRoomConstraint : Area3D
             _target = body.HasNode("CameraTarget") ?  body.GetNode<Node3D>("CameraTarget") : body;
             if (_makeCameraCurrentOnEnter)
                 _camera.MakeCurrent();
+                UpdateCamera(_cameraTweenTime);
         }
     }
 
