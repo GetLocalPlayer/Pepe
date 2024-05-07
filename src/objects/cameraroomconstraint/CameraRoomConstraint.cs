@@ -10,7 +10,7 @@ to its ceiling. The camera will be following the target
 at the given distance INSIDE the room, the camera
 cannot leave the room. If the target is outside the room
 the camera tries to find the clossest to the target
-position on the ceiling. Ceiling is representes as a
+position on the ceiling. Ceiling is represented as a
 Plane instance with its edges represented as a Curve3D
 instance for calculating the closest point to the target
 on the edges of the ceiling.
@@ -18,7 +18,7 @@ on the edges of the ceiling.
 The name of the target must be specified in "Target
 Node Name" property in the inspector. The target
 can have "CameraTarget" node whose position will
-be used to LookAt.
+be used in LookAt.
 
 Area3D is used to detect collision with the target
 and make its camera current.*/
@@ -39,7 +39,7 @@ public partial class CameraRoomConstraint : Area3D
 
     public override void _Ready()
     {
-        var shape = GetNode<CollisionShape3D>("CollisionShape3D");
+        var shape = GetNodeOrNull<CollisionShape3D>("CollisionShape3D");
 
         if (shape.Shape == null)
             throw new Exception($"{Name} - no collision shape found!");
@@ -50,7 +50,8 @@ public partial class CameraRoomConstraint : Area3D
         box.Changed += UpdateCeiling;
 
         _camera = GetNode<Camera3D>("Camera3D");
-        _camera.GlobalPosition = shape.ToGlobal( Vector3.Zero with { Y = box.Size.Y/2 } );
+        var ceilingCenterGlobal = shape.ToGlobal( Vector3.Zero with { Y = box.Size.Y/2 } );
+        _camera.GlobalPosition = _camera.GlobalPosition with { Y = ceilingCenterGlobal.Y };
 
         BodyEntered += OnBodyEntered;
 
