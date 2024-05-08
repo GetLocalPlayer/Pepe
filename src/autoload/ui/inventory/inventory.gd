@@ -12,10 +12,11 @@ func _ready():
 	# not from the inventory scene.
 	get_tree().paused = self == get_tree().current_scene
 	visible = self == get_tree().current_scene
+	if visible:
+		_item_scroll.grab_focus.call_deferred()
 
 	_backdrop.visibility_changed.connect(_on_backdrop_visibility_changed, CONNECT_DEFERRED)
 	visibility_changed.connect(_on_visibility_changed)
-	_item_scroll.grab_focus.call_deferred()
 
 	_exit_button.pressed.connect(close)
 	_exit_button.gui_input.connect(_input)
