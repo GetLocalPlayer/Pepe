@@ -6,19 +6,20 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_likg4"]
 size = Vector3(1.38187, 0.883847, 0.938049)
 
-[node name="GroceryTrolley" instance=ExtResource("1_kkd4o")]
-_lines = Array[String](["A grocery trolley. Nothing interesting."])
+[node name="GroceryTrolley" type="StaticBody3D"]
 
-[node name="Detectable" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634249, 0)
-
-[node name="CollisionShape3D" parent="Detectable" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131662, -0.0482466, 0)
-shape = SubResource("BoxShape3D_likg4")
-
-[node name="Model" parent="." index="1" instance=ExtResource("2_3gw3g")]
+[node name="Model" parent="." instance=ExtResource("2_3gw3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0459521, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00318491, 0.584026, -0.000152588)
 shape = SubResource("BoxShape3D_likg4")
+
+[node name="Interactable" parent="." instance=ExtResource("1_kkd4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.581412, 0)
+_lines = Array[String](["A groccery trolley. Nothing interesting."])
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_likg4")
+
+[editable path="Interactable"]
