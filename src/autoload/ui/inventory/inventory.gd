@@ -18,6 +18,7 @@ func _ready():
 	_item_scroll.grab_focus.call_deferred()
 
 	_exit_button.pressed.connect(close)
+	_exit_button.gui_input.connect(_input)
 
 
 func _on_backdrop_visibility_changed():
@@ -44,7 +45,8 @@ func _input(_event):
 	if _fade_screen.visible:
 		return
 	if Input.is_action_just_pressed("ui_cancel"):
-		if get_viewport().gui_get_focus_owner() is Item:
+		var focus = get_viewport().gui_get_focus_owner()
+		if focus is Item or focus == _exit_button:
 				close()
 
 
