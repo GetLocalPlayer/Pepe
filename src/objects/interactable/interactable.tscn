@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://fa5ihdfikw4u"]
 
-[ext_resource type="Script" path="res://objects/interactable/Interactable.cs" id="1_flcgi"]
+[ext_resource type="Script" path="res://objects/interactable/interactable.gd" id="1_t6scv"]
 
 [node name="Interactable" type="StaticBody3D"]
-script = ExtResource("1_flcgi")
+script = ExtResource("1_t6scv")
 
 [node name="Detectable" type="Area3D" parent="."]
 collision_layer = 512

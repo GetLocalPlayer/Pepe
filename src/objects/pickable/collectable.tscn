@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd0vsv5rx8rbs"]
+
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_glvn6"]
+
+[node name="Collectable" instance=ExtResource("1_glvn6")]
