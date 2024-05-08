@@ -10,7 +10,7 @@ size = Vector3(1.05249, 1.40631, 0.916565)
 size = Vector3(1.04889, 2.18268, 1.45996)
 
 [node name="GroceryShelf" instance=ExtResource("1_qpmlp")]
-_lines = PackedStringArray("Пустые полки.")
+_lines = Array[String](["Empty shelves."])
 
 [node name="CollisionShape3D" parent="Detectable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00354004, 1.10556, -0.00112915)

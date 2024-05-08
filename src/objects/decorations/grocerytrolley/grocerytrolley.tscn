@@ -7,7 +7,7 @@
 size = Vector3(1.38187, 0.883847, 0.938049)
 
 [node name="GroceryTrolley" instance=ExtResource("1_kkd4o")]
-_lines = PackedStringArray("Магазинная тележка, ничего интересного.")
+_lines = Array[String](["A grocery trolley. Nothing interesting."])
 
 [node name="Detectable" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634249, 0)
