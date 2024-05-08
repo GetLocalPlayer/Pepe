@@ -6,3 +6,4 @@ src/.vscode/settings.json
 *.blend
 *.blend1
 *.tmp.driveupload*
+src/autoload/ui/item_list/item_list.json
