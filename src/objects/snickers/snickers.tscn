@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b01clx351mpp8"]
 
-[ext_resource type="PackedScene" uid="uid://cd0vsv5rx8rbs" path="res://objects/collectable/collectable.tscn" id="1_sd1td"]
+[ext_resource type="PackedScene" uid="uid://cd0vsv5rx8rbs" path="res://objects/pickable/collectable.tscn" id="1_sd1td"]
 [ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="2_eoqro"]
 
 [node name="Snickers" instance=ExtResource("1_sd1td")]
