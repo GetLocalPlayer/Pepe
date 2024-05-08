@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0w1778mno73r" path="res://autoload/ui/inventory/textures/status_well.png" id="6_d0dbk"]
 [ext_resource type="Shader" uid="uid://mabpfkseed6r" path="res://autoload/ui/inventory/shaders/selector.tres" id="7_h5sks"]
 [ext_resource type="Texture2D" uid="uid://bs86c427mrbng" path="res://autoload/ui/inventory/textures/selector.png" id="7_j6mwm"]
-[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/inventory/item_list.tscn" id="7_mybl8"]
+[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/item_list/item_list.tscn" id="7_mybl8"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
 [ext_resource type="Script" path="res://autoload/ui/inventory/portrait.gd" id="8_kdghm"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
