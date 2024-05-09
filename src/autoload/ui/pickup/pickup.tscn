@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq8vvt25vbrrm"]
+[gd_scene load_steps=14 format=3 uid="uid://bq8vvt25vbrrm"]
 
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="1_1jgr7"]
 [ext_resource type="Script" path="res://autoload/ui/pickup/pickup.gd" id="1_nbafx"]
@@ -14,7 +14,7 @@ shader = ExtResource("1_tnaun")
 shader_parameter/main_color = Color(1, 0.839216, 0.819608, 1)
 shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
 shader_parameter/flashing_enabled = false
-shader_parameter/flashing_rate = 2.2
+shader_parameter/flashing_rate = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2h2"]
 
@@ -23,9 +23,11 @@ shader = ExtResource("1_tnaun")
 shader_parameter/main_color = Color(1, 0.839216, 0.819608, 1)
 shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
 shader_parameter/flashing_enabled = false
-shader_parameter/flashing_rate = 2.2
+shader_parameter/flashing_rate = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ug3g5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35dot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wf33"]
 bg_color = Color(0, 0, 0, 0.705882)
@@ -36,12 +38,14 @@ border_width_bottom = 5
 border_color = Color(0, 0, 0, 0.705882)
 
 [node name="Pickup" type="VBoxContainer"]
+process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nbafx")
+_item_scale_tween_time = 0.25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -145,12 +149,24 @@ vertical_scroll_mode = 3
 [node name="ItemList" parent="HBoxContainer/ItemView/ItemScroll" instance=ExtResource("5_scqo5")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="DescriptionButton" type="Button" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_35dot")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_35dot")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_35dot")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_35dot")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_35dot")
 
-[node name="Descritpion" type="RichTextLabel" parent="Control"]
+[node name="Descritpion" type="RichTextLabel" parent="DescriptionButton"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -172,7 +188,7 @@ theme_override_fonts/normal_font = ExtResource("1_q5a53")
 theme_override_font_sizes/normal_font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_3wf33")
 bbcode_enabled = true
-text = "[center]You have found %s. Take it?"
+text = "[color=#ff0000]Test text[/color]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

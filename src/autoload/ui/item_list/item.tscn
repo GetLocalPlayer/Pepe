@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_okvc4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_y7sd3"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -61,7 +61,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
 button_mask = 0
-icon = SubResource("ViewportTexture_okvc4")
+icon = SubResource("ViewportTexture_y7sd3")
 flat = true
 icon_alignment = 1
 expand_icon = true

@@ -4,6 +4,7 @@ extends Control
 @onready var _fade_screen = %FadeScreen
 @onready var _backdrop = %Backdrop
 @onready var _item_scroll = %ItemScroll
+@onready var _item_list = %ItemList
 @onready var _exit_button = %ExitButton
 
 
@@ -71,3 +72,11 @@ func close():
 	tween.tween_callback(_backdrop.hide)
 	tween.tween_property(_fade_screen, "color", Color(_fade_screen.color, 0), _fade_screen_tween_time)
 	tween.tween_callback(hide)
+
+
+func add_item(item_name, amount) -> void:
+	var item = _item_list.get_node_or_null(item_name)
+	if item == null:
+		push_error("No item `%s` has been found in the inventory!" % item_name)
+		return
+	item.amount += amount

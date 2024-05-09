@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=17 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5lc50l7wj0em" path="res://objects/decorations/chairs/chair_1.tscn" id="6_xfxth"]
 [ext_resource type="PackedScene" uid="uid://c27243toctoic" path="res://objects/decorations/chairs/chair_2.tscn" id="7_xqmbv"]
 [ext_resource type="PackedScene" uid="uid://dep5q7xcgh8xr" path="res://scenes/flat/flat.tscn" id="8_fqqk5"]
+[ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/Collectables/Flashlight/flashlight.tscn" id="9_b6ykc"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ib3ht"]
 
@@ -103,5 +104,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68234, 0.000854969, -0.956
 
 [node name="flat" parent="." instance=ExtResource("8_fqqk5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.157, 0, 54.2)
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="Flashlight" parent="Collectables" instance=ExtResource("9_b6ykc")]
+transform = Transform3D(0.78378, 0, -0.621038, 0, 1, 0, 0.621038, 0, 0.78378, -3.24649, 0.770782, 0.889097)
+monitoring = true
 
 [editable path="CameraConstraints/General"]

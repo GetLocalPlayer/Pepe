@@ -21,4 +21,3 @@ func _ready():
 func _on_focus_changed():
 	_shader.set_shader_parameter("flashing_enabled", has_focus())
 	set("theme_override_font_sizes/font_size", _focused_font_size if has_focus() else _normal_font_size)
-	print(has_focus())

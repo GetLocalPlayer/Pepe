@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Pepe"
+run/main_scene="res://scenes/test/Test.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 config/icon="res://project_ico.png"
 
@@ -19,6 +20,7 @@ config/icon="res://project_ico.png"
 Player="*res://autoload/player.gd"
 Inventory="*res://autoload/ui/inventory/inventory.tscn"
 Interaction="*res://autoload/ui/Interaction/Interaction.tscn"
+Pickup="*res://autoload/ui/pickup/pickup.tscn"
 
 [display]
 

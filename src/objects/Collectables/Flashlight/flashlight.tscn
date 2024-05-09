@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://doar5l4gui0pc"]
+
+[ext_resource type="PackedScene" uid="uid://b7qqb0kamjg27" path="res://objects/pickable/pickable.tscn" id="1_e1ylx"]
+[ext_resource type="PackedScene" uid="uid://cl7xua3osn0qm" path="res://assets/flashlight/flashlightblend.blend" id="2_r51o3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mikju"]
+height = 1.31399
+
+[node name="FlashLight" instance=ExtResource("1_e1ylx")]
+_item_name = "Flashlight"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_mikju")
+
+[node name="flashlightblend" parent="." index="1" instance=ExtResource("2_r51o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152081, 0.10264, 0.00358248)
