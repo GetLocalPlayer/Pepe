@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=20 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c27243toctoic" path="res://objects/decorations/chairs/chair_2.tscn" id="7_xqmbv"]
 [ext_resource type="PackedScene" uid="uid://dep5q7xcgh8xr" path="res://scenes/flat/flat.tscn" id="8_fqqk5"]
 [ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/Collectables/Flashlight/flashlight.tscn" id="9_b6ykc"]
+[ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/Collectables/snickers.tscn" id="10_5owjf"]
+[ext_resource type="PackedScene" uid="uid://ds38o75ahfi56" path="res://objects/Collectables/three_buns.tscn" id="10_cl2yl"]
+[ext_resource type="PackedScene" uid="uid://cygcq0tmdfge2" path="res://objects/Collectables/milk.tscn" id="11_hq3u4"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ib3ht"]
 
@@ -107,8 +110,19 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.157
 
 [node name="Collectables" type="Node" parent="."]
 
+[node name="ThreeBuns" parent="Collectables" instance=ExtResource("10_cl2yl")]
+transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -5.76484, 0.957237, 56.3406)
+
+[node name="Snikers" parent="Collectables" instance=ExtResource("10_5owjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93534, 1.63879, 56.8081)
+
+[node name="Milk" parent="Collectables" instance=ExtResource("11_hq3u4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48943, 0.512091, 59.6451)
+_default_interaction_line = "[center]A [color=#{_item_name_color}]carton of milk[/color] lays in the grocery trolley. Take it?"
+
 [node name="Flashlight" parent="Collectables" instance=ExtResource("9_b6ykc")]
-transform = Transform3D(0.78378, 0, -0.621038, 0, 1, 0, 0.621038, 0, 0.78378, -3.24649, 0.770782, 0.889097)
+transform = Transform3D(0.78378, 0, -0.621038, 0, 1, 0, 0.621038, 0, 0.78378, -3.42392, 0.770782, 57.6691)
 monitoring = true
+interaction_priority = 0
 
 [editable path="CameraConstraints/General"]
