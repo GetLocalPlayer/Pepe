@@ -35,8 +35,9 @@ func _input(_event):
 	if Input.is_action_just_pressed("Action"):
 		if _interactable_detector.has_overlapping_areas():
 			get_viewport().set_input_as_handled()
-		for a in _interactable_detector.get_overlapping_areas():
-			a.interact()
+			var interactables: Array[Area3D] = _interactable_detector.get_overlapping_areas()
+			interactables.sort_custom(func(a, b): return a.interaction_priority > b.interaction_priority)
+			(interactables[0] as Interactable).interact()
 	if Input.is_action_just_pressed("OpenInventory"):
 		get_viewport().set_input_as_handled()
 		_ui.inventory.open()
