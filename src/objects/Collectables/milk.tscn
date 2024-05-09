@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cygcq0tmdfge2"]
+
+[ext_resource type="PackedScene" uid="uid://b7qqb0kamjg27" path="res://objects/pickable/pickable.tscn" id="1_k6xfp"]
+[ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="2_jg3vl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b7qr7"]
+
+[node name="Milk" instance=ExtResource("1_k6xfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.081929, 0.163858, 0)
+_item_name = "Milk"
+interaction_priority = 0
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_b7qr7")
+
+[node name="milk carton" parent="." index="1" instance=ExtResource("2_jg3vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0735228, 0, -0.0921295)

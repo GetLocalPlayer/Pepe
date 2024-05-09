@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://byvlwrhmyjmwy"]
+
+[ext_resource type="PackedScene" uid="uid://b7qqb0kamjg27" path="res://objects/pickable/pickable.tscn" id="1_xlmvn"]
+[ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="2_5coxs"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80tis"]
+radius = 0.749577
+
+[node name="Snikers" instance=ExtResource("1_xlmvn")]
+_default_interaction_line = "[center]You have found a [color=#{_item_name_color}]{_item_name}[/color] on the shelf. Take it?"
+_item_name = "Snickers"
+interaction_priority = 0
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_80tis")
+
+[node name="Snikers" parent="." index="1" instance=ExtResource("2_5coxs")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.00139713, 0, -0.00792674)
