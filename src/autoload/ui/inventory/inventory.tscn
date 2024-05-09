@@ -68,16 +68,16 @@ shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
 content_margin_top = 30.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lgayf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5bqu5"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hhscl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3qpmm"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1h0jo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b5oeb"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jdng6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a0m1y"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
@@ -155,7 +155,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
-text = "Статус
+text = "Status
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -199,7 +199,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
-text = "Экипировано
+text = "Equipment
 "
 horizontal_alignment = 1
 
@@ -219,8 +219,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
-text = "Действие
-"
+text = "Command"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Backdrop/Rows/Character/Command"]
@@ -289,22 +288,22 @@ theme_override_constants/v_separation = 0
 
 [node name="Flashlight" parent="Backdrop/Rows/ItemScroll/ItemList" index="0"]
 visible = false
-icon = SubResource("ViewportTexture_lgayf")
+icon = SubResource("ViewportTexture_5bqu5")
 amount = 0
 
 [node name="Bun" parent="Backdrop/Rows/ItemScroll/ItemList" index="1"]
 visible = false
-icon = SubResource("ViewportTexture_hhscl")
+icon = SubResource("ViewportTexture_3qpmm")
 amount = 0
 
 [node name="Snickers" parent="Backdrop/Rows/ItemScroll/ItemList" index="2"]
 visible = false
-icon = SubResource("ViewportTexture_1h0jo")
+icon = SubResource("ViewportTexture_b5oeb")
 amount = 0
 
 [node name="Milk" parent="Backdrop/Rows/ItemScroll/ItemList" index="3"]
 visible = false
-icon = SubResource("ViewportTexture_jdng6")
+icon = SubResource("ViewportTexture_a0m1y")
 amount = 0
 
 [node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
@@ -375,8 +374,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 21
-text = "Выход
-"
+text = "Exit"
 horizontal_alignment = 1
 
 [node name="Selector" type="MarginContainer" parent="Backdrop"]
