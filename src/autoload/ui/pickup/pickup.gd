@@ -61,9 +61,9 @@ func run(item_name: String, amount: int, lines: Array[String]) -> void:
 		return
 		
 	show()
-	var item = _item_list.get_node(item_name)
-	_item_scroll.scroll_horizontal = item.position.x
-	item.amount = amount
+	
+	for i in _item_list.get_children():
+		i.amount = amount if i.name == item_name else 0
 
 	var tween = create_tween()
 	tween.tween_property(_item_scroll, "scale", _item_scroll.scale, _item_scale_tween_time)
