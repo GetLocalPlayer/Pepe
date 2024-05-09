@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=36 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -67,6 +67,18 @@ shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
 content_margin_top = 30.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lgayf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hhscl"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1h0jo"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jdng6"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
 content_margin_left = 20.0
@@ -275,6 +287,26 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/v_separation = 0
 
+[node name="Flashlight" parent="Backdrop/Rows/ItemScroll/ItemList" index="0"]
+visible = false
+icon = SubResource("ViewportTexture_lgayf")
+amount = 0
+
+[node name="Bun" parent="Backdrop/Rows/ItemScroll/ItemList" index="1"]
+visible = false
+icon = SubResource("ViewportTexture_hhscl")
+amount = 0
+
+[node name="Snickers" parent="Backdrop/Rows/ItemScroll/ItemList" index="2"]
+visible = false
+icon = SubResource("ViewportTexture_1h0jo")
+amount = 0
+
+[node name="Milk" parent="Backdrop/Rows/ItemScroll/ItemList" index="3"]
+visible = false
+icon = SubResource("ViewportTexture_jdng6")
+amount = 0
+
 [node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
 clip_contents = false
 layout_mode = 2
@@ -383,3 +415,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[editable path="Backdrop/Rows/ItemScroll/ItemList"]
