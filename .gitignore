@@ -8,3 +8,5 @@ src/.vscode/settings.json
 *.tmp.driveupload*
 src/autoload/ui/item_list/item_list.json
 */assets/*
+/src/scenes/flat/assets
+/src/scenes/flat/assets
