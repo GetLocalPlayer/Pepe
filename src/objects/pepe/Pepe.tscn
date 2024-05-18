@@ -18123,6 +18123,7 @@ gizmo_extents = 0.01
 script = ExtResource("3_qhbbf")
 
 [node name="Godette" parent="." instance=ExtResource("3_18cqs")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Godette/Armature" index="0"]
 bones/1/position = Vector3(-2.86491e-13, 0.955749, -0.0474674)
