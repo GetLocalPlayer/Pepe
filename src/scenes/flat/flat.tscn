@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dep5q7xcgh8xr"]
+[gd_scene load_steps=48 format=3 uid="uid://dep5q7xcgh8xr"]
 
 [ext_resource type="PackedScene" uid="uid://d0ereve26iabh" path="res://scenes/flat/assets/flat.blend" id="1_y7ubd"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_qdykt"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bocxvqvow442n" path="res://assets/old_kitchen_set/block2.blend" id="7_g053i"]
 [ext_resource type="PackedScene" uid="uid://d05w41ubrvoin" path="res://assets/plastic_bin/plastic_bin.blend" id="7_k1qg5"]
 [ext_resource type="PackedScene" uid="uid://dcsp5r4ts5865" path="res://assets/old_kitchen_set/block4.blend" id="8_lvfn7"]
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="9_mbwjg"]
+[ext_resource type="Script" path="res://scenes/flat/light_switch.gd" id="9_rh8il"]
 [ext_resource type="PackedScene" uid="uid://d1b5pqtx6drct" path="res://assets/old_kitchen_set/top_block.blend" id="9_w4jgr"]
 [ext_resource type="Texture2D" uid="uid://dvhsty87mr0be" path="res://assets/old_kitchen_set/textures/albedo.jpeg" id="11_5wgf0"]
 [ext_resource type="Texture2D" uid="uid://4kvj1cgx1ox4" path="res://assets/old_kitchen_set/textures/orm.jpeg" id="12_yijsw"]
@@ -29,8 +31,8 @@ background_energy_multiplier = 0.61
 sky_custom_fov = 12.0
 ambient_light_source = 2
 ambient_light_color = Color(1, 0.803922, 0.662745, 1)
-ambient_light_energy = 0.1
-tonemap_exposure = 0.35
+ambient_light_energy = 0.08
+tonemap_exposure = 0.4
 tonemap_white = 3.41
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iiy2v"]
@@ -138,6 +140,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ek4cq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6mck"]
+size = Vector3(0.0855713, 0.217773, 0.0869751)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jude3"]
+size = Vector3(0.382385, 1.11487, 0.197998)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqwe7"]
 resource_name = "OldKitchenSet"
@@ -247,12 +255,14 @@ environment = SubResource("Environment_qugyt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" index="1"]
 transform = Transform3D(0.961926, -0.0929782, 0.25701, -0.229634, -0.784889, 0.575515, 0.148214, -0.61262, -0.776356, -1.73573, 1.97902, -9.7057)
-light_color = Color(1, 0.372549, 0.192157, 1)
-light_energy = 11.089
+light_color = Color(1, 0.431373, 0.196078, 1)
+light_energy = 5.02
+light_bake_mode = 0
 shadow_enabled = true
+shadow_bias = 1.824
+shadow_normal_bias = 4.874
 shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.671
-shadow_opacity = 0.98
+shadow_opacity = 0.97
 directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.451
 directional_shadow_max_distance = 66.1
@@ -381,16 +391,45 @@ mesh = SubResource("ArrayMesh_vk53d")
 transform = Transform3D(0.000573577, 0.000819152, 0, -0.000819153, 0.000573576, 0, 0, 0, 0.001, 0.260749, 0.183753, 0.00400572)
 mesh = SubResource("ArrayMesh_cpkvn")
 
-[node name="fridge" parent="Rooms/Kitchen" index="4" instance=ExtResource("3_5k0it")]
+[node name="simple_light_switch" parent="Rooms/Kitchen" index="4" instance=ExtResource("21_jebvf")]
+transform = Transform3D(-1.765, 0, -2.66508e-07, 0, 1.765, 0, 2.66508e-07, 0, -1.765, 0.369958, 1.33108, 1.57367)
+
+[node name="Interactable" parent="Rooms/Kitchen/simple_light_switch" index="2" instance=ExtResource("9_mbwjg")]
+script = ExtResource("9_rh8il")
+_lines = Array[String](["A light switcher. Turn it %s?"])
+_options = Array[String](["Yes", "No"])
+
+[node name="CollisionShape3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="0"]
+transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894606, -0.0717773, 0.00210434)
+shape = SubResource("BoxShape3D_x6mck")
+
+[node name="Lamp" type="OmniLight3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="1"]
+transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.209608, 0.592315, 0.891597)
+visible = false
+light_energy = 2.0
+shadow_enabled = true
+shadow_transmittance_bias = -7.877
+shadow_opacity = 0.8
+shadow_blur = 10.0
+
+[node name="fridge" parent="Rooms/Kitchen" index="5" instance=ExtResource("3_5k0it")]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -0.0980589, 9.53674e-07, 1.25466)
 
 [node name="microwave_oven" parent="Rooms/Kitchen/fridge" index="1" instance=ExtResource("3_4mftn")]
 transform = Transform3D(0.834338, 0, 0.162421, 0, 0.85, 0, -0.162421, 0, 0.834338, -0.00355804, 1.23059, -0.03626)
 
-[node name="gas_stove" parent="Rooms/Kitchen" index="5" instance=ExtResource("5_7y2lp")]
+[node name="Interactable" parent="Rooms/Kitchen/fridge" index="2" instance=ExtResource("9_mbwjg")]
+_lines = Array[String](["The fridge is empty for a while.", "I had to turn it off,", "not even to save electricity, its pointless hum was taking away what was left of my mind."])
+interaction_priority = 1
+
+[node name="CollisionShape3D" parent="Rooms/Kitchen/fridge/Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0875549, 0.63739, 0.190552)
+shape = SubResource("BoxShape3D_jude3")
+
+[node name="gas_stove" parent="Rooms/Kitchen" index="6" instance=ExtResource("5_7y2lp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.54373, 0, -0.991245)
 
-[node name="block1" parent="Rooms/Kitchen" index="6" instance=ExtResource("6_u2jdq")]
+[node name="block1" parent="Rooms/Kitchen" index="7" instance=ExtResource("6_u2jdq")]
 transform = Transform3D(-4.27735e-08, 0, 1, 0, 0.943497, 0, -0.978544, 0, -4.37114e-08, -1.978, 0, 1.171)
 
 [node name="Block1" parent="Rooms/Kitchen/block1" index="0"]
@@ -427,13 +466,13 @@ visible = false
 [node name="shelf_big005" parent="Rooms/Kitchen/block1/Block1" index="5"]
 visible = false
 
-[node name="block2" parent="Rooms/Kitchen" index="7" instance=ExtResource("7_g053i")]
+[node name="block2" parent="Rooms/Kitchen" index="8" instance=ExtResource("7_g053i")]
 transform = Transform3D(-4.20266e-08, 0, 1, 0, 0.943497, 0, -0.961457, 0, -4.37114e-08, -1.978, 0, 0.417)
 
 [node name="box_big003" parent="Rooms/Kitchen/block2/Block2" index="2"]
 transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.199232, 0.316166, 0.680693)
 
-[node name="block4" parent="Rooms/Kitchen" index="8" instance=ExtResource("8_lvfn7")]
+[node name="block4" parent="Rooms/Kitchen" index="9" instance=ExtResource("8_lvfn7")]
 transform = Transform3D(-4.09893e-08, 0, 1, 0, 0.943497, 0, -0.937726, 0, -4.37114e-08, -1.978, 0, -0.342)
 
 [node name="Block4" parent="Rooms/Kitchen/block4" index="0"]
@@ -454,7 +493,7 @@ transform = Transform3D(0.995913, 0, 0.0903197, 0, 1, 0, -0.0903197, 0, 0.995913
 [node name="door_small003" parent="Rooms/Kitchen/block4/Block4" index="4"]
 transform = Transform3D(0.959393, 0, -0.282074, 0, 1, 0, 0.282074, 0, 0.959393, -0.397092, 0.374136, 0.601619)
 
-[node name="block5" parent="Rooms/Kitchen" index="9" instance=ExtResource("8_lvfn7")]
+[node name="block5" parent="Rooms/Kitchen" index="10" instance=ExtResource("8_lvfn7")]
 transform = Transform3D(-2.83867e-08, 0, 1, 0, 0.943497, 0, -0.649413, 0, -4.37114e-08, -1.97786, 0.000120691, -1.50851)
 
 [node name="Box071" type="MeshInstance3D" parent="Rooms/Kitchen/block5/Block4" index="1"]
@@ -462,13 +501,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.999999, 0, 1, 0, -4.37114e-08,
 mesh = SubResource("ArrayMesh_yr74k")
 skeleton = NodePath("")
 
-[node name="top_block1" parent="Rooms/Kitchen" index="10" instance=ExtResource("9_w4jgr")]
+[node name="top_block1" parent="Rooms/Kitchen" index="11" instance=ExtResource("9_w4jgr")]
 transform = Transform3D(-4.20066e-08, 0, 1, 0, 1, 0, -0.961, 0, -4.37114e-08, -1.978, 1.51508, 1.186)
 
 [node name="door_big003" parent="Rooms/Kitchen/top_block1/TopBlock" index="0"]
 transform = Transform3D(0.831081, 0, -0.556151, 0, 1, 0, 0.55615, 0, 0.831081, -0.397016, 0.401044, 0.403167)
 
-[node name="top_block2" parent="Rooms/Kitchen" index="11" instance=ExtResource("9_w4jgr")]
+[node name="top_block2" parent="Rooms/Kitchen" index="12" instance=ExtResource("9_w4jgr")]
 transform = Transform3D(-4.20066e-08, 0, 1, 0, 1, 0, -0.961, 0, -4.37114e-08, -1.978, 1.51508, 0.417)
 
 [node name="door_big003" parent="Rooms/Kitchen/top_block2/TopBlock" index="0"]
@@ -477,10 +516,10 @@ transform = Transform3D(0.992876, 0, -0.119149, 0, 1, 0, 0.119149, 0, 0.992876, 
 [node name="door_big004" parent="Rooms/Kitchen/top_block2/TopBlock" index="1"]
 transform = Transform3D(0.999291, 0, 0.0376553, 0, 1, 0, -0.0376553, 0, 0.999291, 0.395957, 0.401044, 0.403167)
 
-[node name="top_block3" parent="Rooms/Kitchen" index="12" instance=ExtResource("9_w4jgr")]
+[node name="top_block3" parent="Rooms/Kitchen" index="13" instance=ExtResource("9_w4jgr")]
 transform = Transform3D(-4.20066e-08, 0, 1, 0, 1, 0, -0.961, 0, -4.37114e-08, -1.978, 1.51508, -0.352)
 
-[node name="window_residential_plastic_white_142x62x140" parent="Rooms/Kitchen" index="13" instance=ExtResource("15_q0j7j")]
+[node name="window_residential_plastic_white_142x62x140" parent="Rooms/Kitchen" index="14" instance=ExtResource("15_q0j7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08213, 0.9, -1.9161)
 
 [node name="Frame" parent="Rooms/Kitchen/window_residential_plastic_white_142x62x140" index="0"]
@@ -489,26 +528,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00833082, 0)
 [node name="Handle" parent="Rooms/Kitchen/window_residential_plastic_white_142x62x140/Frame/Sash" index="0"]
 transform = Transform3D(0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, -0.531018, 0.550126, 0.0181613)
 
-[node name="Lamp" type="OmniLight3D" parent="Rooms/Kitchen" index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37652, 0)
-visible = false
-light_energy = 2.0
-shadow_enabled = true
-shadow_transmittance_bias = -7.877
-shadow_opacity = 0.8
-shadow_blur = 10.0
+[node name="old_soviet_table" parent="Rooms/Kitchen" index="15" instance=ExtResource("19_ianek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.097, 0, -0.609095)
 
-[node name="old_soviet_table" parent="." index="3" instance=ExtResource("19_ianek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92087, 0, -3.83245)
+[node name="chair_2" parent="Rooms/Kitchen" index="16" instance=ExtResource("20_h8bwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21944, -1.19209e-07, -1.31407)
 
-[node name="chair_2" parent="." index="4" instance=ExtResource("20_h8bwr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.798428, -1.19209e-07, -4.53743)
-
-[node name="chair_3" parent="." index="5" instance=ExtResource("20_h8bwr")]
-transform = Transform3D(0.73723, 0, -0.675642, 0, 1, 0, 0.675642, 0, 0.73723, -0.851901, -1.19209e-07, -3.42371)
-
-[node name="simple_light_switch" parent="." index="6" instance=ExtResource("21_jebvf")]
-transform = Transform3D(-1.765, 0, -2.66508e-07, 0, 1.765, 0, 2.66508e-07, 0, -1.765, -1.64791, 1.33108, -1.64969)
+[node name="chair_3" parent="Rooms/Kitchen" index="17" instance=ExtResource("20_h8bwr")]
+transform = Transform3D(0.73723, 0, -0.675642, 0, 1, 0, 0.675642, 0, 0.73723, 1.16597, -1.19209e-07, -0.200353)
 
 [editable path="Rooms/Hallway"]
 [editable path="Rooms/Hall"]
@@ -519,6 +546,8 @@ transform = Transform3D(-1.765, 0, -2.66508e-07, 0, 1.765, 0, 2.66508e-07, 0, -1
 [editable path="Rooms/Kitchen"]
 [editable path="Rooms/Kitchen/pot"]
 [editable path="Rooms/Kitchen/pot2"]
+[editable path="Rooms/Kitchen/simple_light_switch/Interactable"]
+[editable path="Rooms/Kitchen/fridge/Interactable"]
 [editable path="Rooms/Kitchen/block1"]
 [editable path="Rooms/Kitchen/block2"]
 [editable path="Rooms/Kitchen/block4"]
