@@ -17,6 +17,8 @@ func _on_scene_saved() -> void:
 	for child in get_children():
 		if child is Item:
 			names.append(child.name)
-	var file = FileAccess.open(scene_file_path.get_basename() + ".json", FileAccess.WRITE)
-	file.store_string(JSON.stringify(names))
-	file.close()
+	var file = FileAccess.open(scene_file_path.get_basename() + ".json", FileAccess.WRITE_READ)
+	var stringfied = JSON.stringify(names)
+	if stringfied != file.to_string():
+		file.store_string(stringfied)
+		file.close()
