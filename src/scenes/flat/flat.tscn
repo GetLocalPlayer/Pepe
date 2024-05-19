@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dep5q7xcgh8xr"]
+[gd_scene load_steps=51 format=3 uid="uid://dep5q7xcgh8xr"]
 
 [ext_resource type="PackedScene" uid="uid://d0ereve26iabh" path="res://scenes/flat/assets/flat.blend" id="1_y7ubd"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_qdykt"]
@@ -8,21 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://bkmjvt1tl0gt3" path="res://assets/pot/textures/albedo.jpg" id="4_k04q7"]
 [ext_resource type="PackedScene" uid="uid://bs3ucf47lq8au" path="res://assets/gas_stove/gas_stove.blend" id="5_7y2lp"]
 [ext_resource type="Texture2D" uid="uid://driabqxeux3yx" path="res://assets/pot/textures/orm.jpg" id="5_jpwgw"]
-[ext_resource type="PackedScene" uid="uid://p57dsa16x661" path="res://assets/old_kitchen_set/block1.blend" id="6_u2jdq"]
+[ext_resource type="PackedScene" uid="uid://p57dsa16x661" path="res://assets/furniture/old_kitchen_set/block1.blend" id="6_u2jdq"]
 [ext_resource type="Texture2D" uid="uid://ddwodcimg3m8j" path="res://assets/pot/textures/normal.jpg" id="6_v44g8"]
-[ext_resource type="PackedScene" uid="uid://bocxvqvow442n" path="res://assets/old_kitchen_set/block2.blend" id="7_g053i"]
+[ext_resource type="PackedScene" uid="uid://bocxvqvow442n" path="res://assets/furniture/old_kitchen_set/block2.blend" id="7_g053i"]
 [ext_resource type="PackedScene" uid="uid://d05w41ubrvoin" path="res://assets/plastic_bin/plastic_bin.blend" id="7_k1qg5"]
-[ext_resource type="PackedScene" uid="uid://dcsp5r4ts5865" path="res://assets/old_kitchen_set/block4.blend" id="8_lvfn7"]
+[ext_resource type="PackedScene" uid="uid://dcsp5r4ts5865" path="res://assets/furniture/old_kitchen_set/block4.blend" id="8_lvfn7"]
 [ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="9_mbwjg"]
 [ext_resource type="Script" path="res://scenes/flat/light_switch.gd" id="9_rh8il"]
-[ext_resource type="PackedScene" uid="uid://d1b5pqtx6drct" path="res://assets/old_kitchen_set/top_block.blend" id="9_w4jgr"]
-[ext_resource type="Texture2D" uid="uid://dvhsty87mr0be" path="res://assets/old_kitchen_set/textures/albedo.jpeg" id="11_5wgf0"]
-[ext_resource type="Texture2D" uid="uid://4kvj1cgx1ox4" path="res://assets/old_kitchen_set/textures/orm.jpeg" id="12_yijsw"]
-[ext_resource type="Texture2D" uid="uid://1xow3krtdofu" path="res://assets/old_kitchen_set/textures/normal.png" id="13_sggxi"]
+[ext_resource type="PackedScene" uid="uid://d1b5pqtx6drct" path="res://assets/furniture/old_kitchen_set/top_block.blend" id="9_w4jgr"]
+[ext_resource type="Texture2D" uid="uid://dvhsty87mr0be" path="res://assets/furniture/old_kitchen_set/textures/albedo.jpeg" id="11_5wgf0"]
+[ext_resource type="Texture2D" uid="uid://4kvj1cgx1ox4" path="res://assets/furniture/old_kitchen_set/textures/orm.jpeg" id="12_yijsw"]
+[ext_resource type="Texture2D" uid="uid://1xow3krtdofu" path="res://assets/furniture/old_kitchen_set/textures/normal.png" id="13_sggxi"]
 [ext_resource type="PackedScene" uid="uid://comdvha8rmyfs" path="res://assets/windows/window_residential_plastic_white_142x62x140.blend" id="15_q0j7j"]
 [ext_resource type="PackedScene" uid="uid://c5c6if6vv0bgk" path="res://assets/furniture/old_soviet_table/old_soviet_table.blend" id="19_ianek"]
 [ext_resource type="PackedScene" uid="uid://jleg5jq565sm" path="res://assets/furniture/chairs/chair_2.blend" id="20_h8bwr"]
 [ext_resource type="PackedScene" uid="uid://dbq188gw8qtip" path="res://assets/doodads/simple_light_switch.blend" id="21_jebvf"]
+[ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/Collectables/snickers.tscn" id="24_tfyl5"]
+[ext_resource type="PackedScene" uid="uid://ds38o75ahfi56" path="res://objects/Collectables/three_buns.tscn" id="25_tvpim"]
+[ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/Collectables/Flashlight/flashlight.tscn" id="26_tn48v"]
 
 [sub_resource type="Environment" id="Environment_qugyt"]
 background_mode = 1
@@ -416,10 +419,10 @@ shadow_blur = 10.0
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -0.0980589, 9.53674e-07, 1.25466)
 
 [node name="microwave_oven" parent="Rooms/Kitchen/fridge" index="1" instance=ExtResource("3_4mftn")]
-transform = Transform3D(0.834338, 0, 0.162421, 0, 0.85, 0, -0.162421, 0, 0.834338, -0.00355804, 1.23059, -0.03626)
+transform = Transform3D(0.834338, 0, 0.162421, 0, 0.85, 0, -0.162421, 0, 0.834338, -0.00355816, 1.23059, -0.03626)
 
 [node name="Interactable" parent="Rooms/Kitchen/fridge" index="2" instance=ExtResource("9_mbwjg")]
-_lines = Array[String](["The fridge is empty for a while.", "I had to turn it off,", "not even to save electricity, its pointless hum was taking away what was left of my mind."])
+_lines = Array[String](["The fridge is empty for a while.", "I had to turn it off,", "not to save electricity, its pointless hum was taking away what was left of my mind."])
 interaction_priority = 1
 
 [node name="CollisionShape3D" parent="Rooms/Kitchen/fridge/Interactable" index="0"]
@@ -537,6 +540,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21944, -1.19209e-07, -1.314
 [node name="chair_3" parent="Rooms/Kitchen" index="17" instance=ExtResource("20_h8bwr")]
 transform = Transform3D(0.73723, 0, -0.675642, 0, 1, 0, 0.675642, 0, 0.73723, 1.16597, -1.19209e-07, -0.200353)
 
+[node name="Snikers" parent="." index="3" instance=ExtResource("24_tfyl5")]
+transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.472836, -3.46913, 0.82556, -3.2431)
+
+[node name="CollisionShape3D" parent="Snikers" index="0"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.346013, 0)
+
+[node name="ThreeBuns" parent="." index="4" instance=ExtResource("25_tvpim")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -1.15086, 0.82556, -3.88861)
+
+[node name="FlashLight" parent="." index="5" instance=ExtResource("26_tn48v")]
+transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440603, -2.33587, 1.2302, -2.12493)
+
+[node name="CollisionShape3D" parent="FlashLight" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.353974, 0)
+
 [editable path="Rooms/Hallway"]
 [editable path="Rooms/Hall"]
 [editable path="Rooms/Room"]
@@ -555,3 +573,6 @@ transform = Transform3D(0.73723, 0, -0.675642, 0, 1, 0, 0.675642, 0, 0.73723, 1.
 [editable path="Rooms/Kitchen/top_block1"]
 [editable path="Rooms/Kitchen/top_block2"]
 [editable path="Rooms/Kitchen/window_residential_plastic_white_142x62x140"]
+[editable path="Snikers"]
+[editable path="ThreeBuns"]
+[editable path="FlashLight"]

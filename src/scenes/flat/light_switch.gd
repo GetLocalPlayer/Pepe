@@ -7,6 +7,5 @@ extends Interactable
 
 func interact():
 	_lines[0] = _text % ("off" if _lamp.visible else "on")
-	print(_lines[0])
 	if await super.interact() == 0:
 		_lamp.visible = not _lamp.visible
