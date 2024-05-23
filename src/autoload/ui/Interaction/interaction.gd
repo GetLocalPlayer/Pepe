@@ -48,6 +48,7 @@ func run_options(lines: Array[String], button_names: Array[String]):
 		var tween = _label.create_tween()
 		tween.tween_property(_label, "visible_characters", _label.text.length(), float(s.length()) / float(_label_appearing_rate))
 		await _text_button.pressed
+		_label.visible_characters = -1
 		tween.stop()
 
 	if button_names.is_empty():
