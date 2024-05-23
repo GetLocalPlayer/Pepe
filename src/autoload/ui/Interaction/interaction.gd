@@ -3,6 +3,8 @@ extends Control
 
 signal finished(int)
 
+
+@export var _label_appearing_rate = 50 # chars per second
 @onready var _label: RichTextLabel = %Text
 @onready var _text_button: Button = %ButtonNext
 @onready var _buttons: Array[Button] = [%Button1, %Button2, %Button3, %Button4]
@@ -39,9 +41,14 @@ func run_options(lines: Array[String], button_names: Array[String]):
 		btn.hide()
 	show()
 	_text_button.grab_focus()
+
 	for s in lines:
 		_label.text = "[center]%s" % s
+		_label.visible_characters = 0
+		var tween = _label.create_tween()
+		tween.tween_property(_label, "visible_characters", _label.text.length(), float(s.length()) / float(_label_appearing_rate))
 		await _text_button.pressed
+		tween.stop()
 
 	if button_names.is_empty():
 		finished.emit(-1)

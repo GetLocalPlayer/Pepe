@@ -217,6 +217,7 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
+visible_characters_behavior = 1
 
 [node name="ButtonNext" type="Button" parent="Text"]
 unique_name_in_owner = true
