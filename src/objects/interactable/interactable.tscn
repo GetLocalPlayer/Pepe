@@ -9,3 +9,6 @@ monitoring = false
 script = ExtResource("1_t6scv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+visible = false
