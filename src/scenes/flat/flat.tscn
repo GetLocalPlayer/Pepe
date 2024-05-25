@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dep5q7xcgh8xr"]
+[gd_scene load_steps=75 format=3 uid="uid://dep5q7xcgh8xr"]
 
 [ext_resource type="PackedScene" uid="uid://d0ereve26iabh" path="res://scenes/flat/assets/flat.blend" id="1_y7ubd"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_qdykt"]
@@ -26,17 +26,20 @@
 [ext_resource type="PackedScene" uid="uid://ctrvmr5ribksp" path="res://assets/furniture/school_chair_soviet/stool_chair_soviet.blend" id="10_b721f"]
 [ext_resource type="Texture2D" uid="uid://ch8spcrcka8cd" path="res://assets/interior/picture_ba2sai/textures/image_ao.png" id="10_hlghp"]
 [ext_resource type="Texture2D" uid="uid://dvhsty87mr0be" path="res://assets/furniture/old_kitchen_set/textures/albedo.jpeg" id="11_5wgf0"]
-[ext_resource type="PackedScene" uid="uid://b7lsfolfq102e" path="res://assets/furniture/tv_stand/tv_stand.blend" id="11_b58tv"]
+[ext_resource type="PackedScene" uid="uid://bjttt15k5hot1" path="res://assets/furniture/tv_stand/tv_stand.blend" id="11_b58tv"]
 [ext_resource type="PackedScene" uid="uid://c22go5ntp8wqk" path="res://assets/doodads/lowpoly_old_tv/lowpoly_old_tv.blend" id="12_ml3ck"]
 [ext_resource type="Texture2D" uid="uid://4kvj1cgx1ox4" path="res://assets/furniture/old_kitchen_set/textures/orm.jpeg" id="12_yijsw"]
+[ext_resource type="PackedScene" uid="uid://lgp6mpwrw260" path="res://assets/interior/balcony_window_door_with_sliders/balcony_window_door_with_sliders.blend" id="13_4blpo"]
 [ext_resource type="Texture2D" uid="uid://1xow3krtdofu" path="res://assets/furniture/old_kitchen_set/textures/normal.png" id="13_sggxi"]
+[ext_resource type="PackedScene" uid="uid://cyylfdhvdpxpm" path="res://assets/interior/wardrobe/wardrobe.blend" id="14_y5cqi"]
+[ext_resource type="PackedScene" uid="uid://80afrw8andog" path="res://assets/interior/russian_poster_1/russian_poster_1.blend" id="15_fxwtn"]
 [ext_resource type="PackedScene" uid="uid://jleg5jq565sm" path="res://assets/furniture/chairs/chair_2.blend" id="20_h8bwr"]
 [ext_resource type="PackedScene" uid="uid://dbq188gw8qtip" path="res://assets/doodads/simple_light_switch.blend" id="21_jebvf"]
 [ext_resource type="PackedScene" uid="uid://crp5m21bct56m" path="res://assets/furniture/cheap_painted_door/cheap_painted_door.blend" id="23_v0w8j"]
-[ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/Collectables/snickers.tscn" id="24_tfyl5"]
-[ext_resource type="PackedScene" uid="uid://ds38o75ahfi56" path="res://objects/Collectables/three_buns.tscn" id="25_tvpim"]
+[ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/collectables/snickers.tscn" id="24_tfyl5"]
+[ext_resource type="PackedScene" uid="uid://ds38o75ahfi56" path="res://objects/collectables/three_buns.tscn" id="25_tvpim"]
 [ext_resource type="PackedScene" uid="uid://dqmoe12784a3p" path="res://assets/furniture/table/table.blend" id="26_4nr2c"]
-[ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/Collectables/Flashlight/flashlight.tscn" id="26_tn48v"]
+[ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/collectables/flashlight/flashlight.tscn" id="26_tn48v"]
 [ext_resource type="PackedScene" uid="uid://bw6kcpuv48pvy" path="res://assets/doodads/old_ussr_bath/old_ussr_bath.blend" id="27_uf6vt"]
 [ext_resource type="PackedScene" uid="uid://ctkot3gclk41d" path="res://assets/interior/doors/doors.blend" id="30_w05d5"]
 [ext_resource type="PackedScene" uid="uid://bh64145aor5w" path="res://assets/interior/window_2x1_with_sliders/window_2x1_with_sliders.blend" id="35_ghvi7"]
@@ -150,6 +153,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2t8hf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rilif"]
+size = Vector3(0.226929, 0.456573, 0.523041)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l7wb5"]
 size = Vector3(4.51436, 7.5462, 1.65348)
@@ -407,7 +413,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05322, -1.2269, -1.47628)
 shape = SubResource("BoxShape3D_ojj55")
 
 [node name="Camera3D" parent="Rooms/Hall" index="2"]
-transform = Transform3D(-3.63447e-08, 0.55557, -0.83147, 2.42847e-08, 0.83147, 0.55557, 1, 1.77636e-15, -4.37114e-08, -2.507, 3, 0.634)
+transform = Transform3D(-3.63447e-08, 0.55557, -0.83147, 2.42847e-08, 0.83147, 0.55557, 1, 2.66454e-14, -4.37114e-08, -2.507, 3, 0.634)
 fov = 60.0
 
 [node name="simple_light_switch" parent="Rooms/Hall" index="3" instance=ExtResource("21_jebvf")]
@@ -490,7 +496,52 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.515
 transform = Transform3D(0.982389, 0, 0.18685, 0, 1, 0, -0.18685, 0, 0.982389, 0.6544, 0.45356, 0.279515)
 
 [node name="lowpoly_old_tv" parent="Rooms/Room/tv_stand" index="2" instance=ExtResource("12_ml3ck")]
-transform = Transform3D(0.632414, 0, 0.17052, 0, 0.655, 0, -0.17052, 0, 0.632414, -0.351437, 0.59949, -2.98023e-08)
+transform = Transform3D(0.655696, 0, 0.245076, 0, 0.7, 0, -0.245076, 0, 0.655696, -0.306306, 0.611382, -2.38419e-07)
+
+[node name="balcony_window_door_with_sliders" parent="Rooms/Room" index="7" instance=ExtResource("13_4blpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305822, 1.06372, -3.00929)
+
+[node name="Cage" parent="Rooms/Room/balcony_window_door_with_sliders" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783335, 0.35, 0)
+
+[node name="Door" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="0"]
+transform = Transform3D(-0.801776, 0, -0.597625, 0, 1, 0, 0.597625, 0, -0.801776, -2.24667, 0.675, 0.110032)
+
+[node name="Glass" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/Door" index="0"]
+cast_shadow = 0
+
+[node name="FrameA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312444, 0, 0)
+
+[node name="GlassA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameA" index="0"]
+cast_shadow = 0
+
+[node name="FrameB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81687, 0, 0)
+
+[node name="GlassB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameB" index="0"]
+cast_shadow = 0
+
+[node name="Windowsill" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.535152, 0.197106)
+
+[node name="wardrobe" parent="Rooms/Room" index="8" instance=ExtResource("14_y5cqi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21223, 0.00464323, 1.69992)
+
+[node name="russian_poster_1" parent="Rooms/Room/wardrobe" index="2" instance=ExtResource("15_fxwtn")]
+transform = Transform3D(-8.95218e-08, 0, 1, 0, 2.00695, 0, -2.04802, 0, -4.37114e-08, 0.6143, 1.3258, -0.0134184)
+
+[node name="Interactable" parent="Rooms/Room/wardrobe/russian_poster_1" index="1" instance=ExtResource("9_mbwjg")]
+_lines = Array[String](["The favorite game of my childhood.", "My grandma bought this poster when I was six.", "Can't believe she kept it so carefuly all these years."])
+
+[node name="CollisionShape3D" parent="Rooms/Room/wardrobe/russian_poster_1/Interactable" index="0"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999994, 0, -1.98952e-13, 0, 1, -0.0104371, -0.123337, 0.157944)
+shape = SubResource("BoxShape3D_rilif")
+
+[node name="Camera3D" parent="Rooms/Room/wardrobe/russian_poster_1/Interactable" index="1"]
+transform = Transform3D(0.465854, -0.0418017, -0.140166, 1.655e-08, 0.477487, -0.142401, 0.299556, 0.272667, 0.914286, -0.108684, -0.0330453, 0.376559)
+visible = true
+fov = 68.2
 
 [node name="Balcony" parent="Rooms" index="3" instance=ExtResource("2_qdykt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34527, 0, -5.70337)
@@ -793,27 +844,36 @@ visible = false
 disabled = true
 
 [node name="window_2x1_with_sliders" parent="Rooms/Kitchen" index="17" instance=ExtResource("35_ghvi7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.102, 1.579, -1.883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0769999, 1.612, -1.885)
 
 [node name="FrameB" parent="Rooms/Kitchen/window_2x1_with_sliders" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529721, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.434034, 0, 0)
 
 [node name="GlassB" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameB" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109657, -0.0135522, -0.0796933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7234e-05, 0, -0.104852)
 cast_shadow = 0
 
 [node name="GlassA" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameA" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7234e-05, 0, -0.104852)
 cast_shadow = 0
 
 [node name="Snikers" parent="." index="3" instance=ExtResource("24_tfyl5")]
 transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.472836, -3.46913, 0.82556, -3.2431)
+_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
+
+interaction_priority = null
+_fade_in_out_color = null
+_fade_in_out_time = null
 
 [node name="CollisionShape3D" parent="Snikers" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.346013, 0)
 
 [node name="ThreeBuns" parent="." index="4" instance=ExtResource("25_tvpim")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
+_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
+
+interaction_priority = null
+_fade_in_out_color = null
+_fade_in_out_time = null
 
 [node name="bun2" parent="ThreeBuns" index="2"]
 transform = Transform3D(0.666337, 0, -0.74565, 0, 1, 0, 0.74565, 0, 0.666337, -0.00591707, 0.0434202, 0.116855)
@@ -823,6 +883,11 @@ transform = Transform3D(0.605043, 0.741939, -0.288877, -0.243685, 0.517973, 0.81
 
 [node name="FlashLight" parent="." index="5" instance=ExtResource("26_tn48v")]
 transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440603, -2.33587, 1.2302, -2.12493)
+_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
+
+interaction_priority = null
+_fade_in_out_color = null
+_fade_in_out_time = null
 
 [node name="CollisionShape3D" parent="FlashLight" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.353974, 0)
@@ -841,6 +906,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.631
 [editable path="Rooms/Room/picture_ba2sai"]
 [editable path="Rooms/Room/picture_ba2sai2"]
 [editable path="Rooms/Room/tv_stand"]
+[editable path="Rooms/Room/balcony_window_door_with_sliders"]
+[editable path="Rooms/Room/wardrobe/russian_poster_1/Interactable"]
 [editable path="Rooms/Balcony"]
 [editable path="Rooms/Bathroom"]
 [editable path="Rooms/Bathroom/simple_light_switch/Interactable"]
