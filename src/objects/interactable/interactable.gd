@@ -26,7 +26,7 @@ func interact():
 	else:
 		_interaction_ui.run_options(_lines, _options)
 	var result = await _interaction_ui.finished
-	if current_camera != _camera:
+	if _camera.visible:
 		await _screen_effect.fade_in(_fade_in_out_color, _fade_in_out_time)
 		current_camera.make_current()
 		await _screen_effect.fade_out(_fade_in_out_color, _fade_in_out_time)
