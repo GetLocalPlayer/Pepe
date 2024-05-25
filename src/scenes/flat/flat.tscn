@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dep5q7xcgh8xr"]
+[gd_scene load_steps=76 format=3 uid="uid://dep5q7xcgh8xr"]
 
 [ext_resource type="PackedScene" uid="uid://d0ereve26iabh" path="res://scenes/flat/assets/flat.blend" id="1_y7ubd"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_qdykt"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://1xow3krtdofu" path="res://assets/furniture/old_kitchen_set/textures/normal.png" id="13_sggxi"]
 [ext_resource type="PackedScene" uid="uid://cyylfdhvdpxpm" path="res://assets/interior/wardrobe/wardrobe.blend" id="14_y5cqi"]
 [ext_resource type="PackedScene" uid="uid://80afrw8andog" path="res://assets/interior/russian_poster_1/russian_poster_1.blend" id="15_fxwtn"]
+[ext_resource type="PackedScene" uid="uid://65pj7u0y5a46" path="res://assets/interior/double_door/double_door.blend" id="16_ftyik"]
 [ext_resource type="PackedScene" uid="uid://jleg5jq565sm" path="res://assets/furniture/chairs/chair_2.blend" id="20_h8bwr"]
 [ext_resource type="PackedScene" uid="uid://dbq188gw8qtip" path="res://assets/doodads/simple_light_switch.blend" id="21_jebvf"]
 [ext_resource type="PackedScene" uid="uid://crp5m21bct56m" path="res://assets/furniture/cheap_painted_door/cheap_painted_door.blend" id="23_v0w8j"]
@@ -450,7 +451,7 @@ transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 
 fov = 60.0
 
 [node name="simple_light_switch" parent="Rooms/Room" index="2" instance=ExtResource("21_jebvf")]
-transform = Transform3D(-1.765, 0, -2.66508e-07, 0, 1.765, 0, 2.66508e-07, 0, -1.765, -0.648056, 1.33108, 2.09851)
+transform = Transform3D(-1.765, 0, -2.66508e-07, 0, 1.765, 0, 2.66508e-07, 0, -1.765, 1.94574, 1.33108, 2.09851)
 
 [node name="Interactable" parent="Rooms/Room/simple_light_switch" index="2" instance=ExtResource("9_mbwjg")]
 script = ExtResource("9_rh8il")
@@ -458,11 +459,11 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="CollisionShape3D" parent="Rooms/Room/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894606, -0.0717773, 0.00210434)
+transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894594, -0.0717773, 0.00210434)
 shape = SubResource("BoxShape3D_x6mck")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Room/simple_light_switch/Interactable" index="1"]
-transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.367171, 0.592315, 1.18896)
+transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.945339, 0.592315, 1.18896)
 light_energy = 2.0
 light_indirect_energy = 13.8
 shadow_enabled = true
@@ -526,10 +527,10 @@ cast_shadow = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.535152, 0.197106)
 
 [node name="wardrobe" parent="Rooms/Room" index="8" instance=ExtResource("14_y5cqi")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.21223, 0.00464323, 1.69992)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.46935, 0.00464323, 1.44561)
 
 [node name="russian_poster_1" parent="Rooms/Room/wardrobe" index="2" instance=ExtResource("15_fxwtn")]
-transform = Transform3D(-8.95218e-08, 0, 1, 0, 2.00695, 0, -2.04802, 0, -4.37114e-08, 0.6143, 1.3258, -0.0134184)
+transform = Transform3D(-8.95218e-08, 0, -1, 0, 2.00695, 0, 2.04802, 0, -4.37114e-08, -0.610179, 1.3258, -0.0134182)
 
 [node name="Interactable" parent="Rooms/Room/wardrobe/russian_poster_1" index="1" instance=ExtResource("9_mbwjg")]
 _lines = Array[String](["The favorite game of my childhood.", "My grandma bought this poster when I was six.", "Can't believe she kept it so carefuly all these years."])
@@ -542,6 +543,30 @@ shape = SubResource("BoxShape3D_rilif")
 transform = Transform3D(0.465854, -0.0418017, -0.140166, 1.655e-08, 0.477487, -0.142401, 0.299556, 0.272667, 0.914286, -0.108684, -0.0330453, 0.376559)
 visible = true
 fov = 68.2
+
+[node name="double_door" parent="Rooms/Room" index="9" instance=ExtResource("16_ftyik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532874, -0.00266838, 2.19396)
+
+[node name="Door" parent="Rooms/Room/double_door" index="1"]
+transform = Transform3D(-0.928971, 0, 0.370152, 0, 1, 0, -0.370152, 0, -0.928971, -0.99, 0, -0.1)
+
+[node name="DoorGlass" parent="Rooms/Room/double_door/Door" index="0"]
+cast_shadow = 0
+
+[node name="Handle Base" parent="Rooms/Room/double_door/Door" index="1"]
+transform = Transform3D(0.997599, 0.000956744, 0.0692489, 0.0692489, -0.0275925, -0.997218, 0.000956684, 0.999619, -0.0275925, 0.88786, 1, 0.0199999)
+
+[node name="Door_002" parent="Rooms/Room/double_door" index="2"]
+transform = Transform3D(0.998791, 0, -0.0491636, 0, 1, 0, 0.0491636, 0, 0.998791, 0.99, 0, -0.1)
+
+[node name="DoorGlass_001" parent="Rooms/Room/double_door/Door_002" index="0"]
+cast_shadow = 0
+
+[node name="Handle Base_001" parent="Rooms/Room/double_door/Door_002" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.88786, 1, 0.02)
+
+[node name="Handle_001" parent="Rooms/Room/double_door/Door_002" index="2"]
+transform = Transform3D(0.996539, 0.000170343, -0.083125, -0.083125, 0.00409131, -0.996531, 0.000170369, 0.999992, 0.00409131, -0.88786, 1, 0.02)
 
 [node name="Balcony" parent="Rooms" index="3" instance=ExtResource("2_qdykt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34527, 0, -5.70337)
@@ -858,9 +883,6 @@ cast_shadow = 0
 
 [node name="Snikers" parent="." index="3" instance=ExtResource("24_tfyl5")]
 transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.472836, -3.46913, 0.82556, -3.2431)
-_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
-
-interaction_priority = null
 _fade_in_out_color = null
 _fade_in_out_time = null
 
@@ -869,9 +891,6 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.34
 
 [node name="ThreeBuns" parent="." index="4" instance=ExtResource("25_tvpim")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
-_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
-
-interaction_priority = null
 _fade_in_out_color = null
 _fade_in_out_time = null
 
@@ -883,9 +902,6 @@ transform = Transform3D(0.605043, 0.741939, -0.288877, -0.243685, 0.517973, 0.81
 
 [node name="FlashLight" parent="." index="5" instance=ExtResource("26_tn48v")]
 transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440603, -2.33587, 1.2302, -2.12493)
-_item_name = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":false,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
-
-interaction_priority = null
 _fade_in_out_color = null
 _fade_in_out_time = null
 
@@ -908,6 +924,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.631
 [editable path="Rooms/Room/tv_stand"]
 [editable path="Rooms/Room/balcony_window_door_with_sliders"]
 [editable path="Rooms/Room/wardrobe/russian_poster_1/Interactable"]
+[editable path="Rooms/Room/double_door"]
 [editable path="Rooms/Balcony"]
 [editable path="Rooms/Bathroom"]
 [editable path="Rooms/Bathroom/simple_light_switch/Interactable"]
