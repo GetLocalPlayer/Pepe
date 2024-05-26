@@ -12,3 +12,5 @@ src/autoload/ui/item_list/item_list.json
 /src/scenes/flat/assets
 /src/scenes/flat/assets
 /.godot
+/build
+src/export_presets.cfg
