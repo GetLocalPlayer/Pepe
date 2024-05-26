@@ -32,6 +32,12 @@ window/size/viewport_height=768
 
 project/assembly_name="Src"
 
+[editor]
+
+movie_writer/movie_file="D:/OBSVideos/godotmovie.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
