@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://coto8qeorhx1g"]
+
+[ext_resource type="Script" path="res://objects/mirror/mirror.gd" id="1_8smcq"]
+[ext_resource type="Shader" path="res://objects/mirror/mirror.gdshader" id="1_68grk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hdtty"]
+viewport_path = NodePath("MirrorViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exmne"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_68grk")
+shader_parameter/video_texture = SubResource("ViewportTexture_hdtty")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xulyy"]
+
+[node name="Mirror" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_exmne")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_xulyy")
+script = ExtResource("1_8smcq")
+
+[node name="MirrorViewport" type="SubViewport" parent="."]
+size = Vector2i(2, 2)
+
+[node name="MirrorCamera" type="Camera3D" parent="MirrorViewport"]
+unique_name_in_owner = true
+cull_mask = 1
+current = true
+fov = 60.0
