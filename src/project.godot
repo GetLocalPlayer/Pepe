@@ -133,6 +133,8 @@ OpenInventory={
 
 [layer_names]
 
+3d_render/layer_1="General"
+3d_render/layer_5="Mirrored Objects"
 3d_physics/layer_10="Interactable"
 
 [rendering]
