@@ -22,6 +22,7 @@ Player="*res://autoload/player.gd"
 Inventory="*res://autoload/ui/inventory/inventory.tscn"
 Interaction="*res://autoload/ui/interaction/interaction.tscn"
 Pickup="*res://autoload/ui/pickup/pickup.tscn"
+FpsOverlay="*res://autoload/fps_overlay.tscn"
 
 [display]
 
