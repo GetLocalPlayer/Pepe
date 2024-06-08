@@ -3,7 +3,7 @@ extends MeshInstance3D
 
 
 @export var _main_camera: Camera3D
-@export_range(0.01, 1, 0.1) var _resolution_factor: float = 0.5:
+@export_range(0.01, 1, 0.01) var _resolution_factor: float = 0.5:
 	set(value):
 		_resolution_factor = value
 		if is_node_ready():
