@@ -27,9 +27,10 @@ extends MeshInstance3D
 func _ready() -> void:
 	mesh = mesh.duplicate()
 	mesh.changed.connect(_on_mesh_changed)
-	_mirror_viewport.size = get_viewport().size * _resolution_factor
 	_mirror_camera.cull_mask = _cull_mask
 	_on_mesh_changed()
+	get_viewport().size_changed.connect(_on_vieport_size_changed)
+	_on_vieport_size_changed()
 
 
 func _on_mesh_changed() -> void:
@@ -38,7 +39,7 @@ func _on_mesh_changed() -> void:
 
 
 func _on_vieport_size_changed():
-	_mirror_viewport.size = get_viewport().size * _resolution_factor
+	_mirror_viewport.size = get_viewport().size * _resolution_factor 
 
 
 func _process(_delta) -> void:
@@ -46,6 +47,7 @@ func _process(_delta) -> void:
 	if camera == null or not camera.current:
 		return
 	_mirror_camera.fov = camera.fov
+	_mirror_camera.keep_aspect = camera.keep_aspect
 
 	var mirror_plane: Plane = Plane(global_basis[mesh.orientation].normalized(), global_position)
 
@@ -76,6 +78,6 @@ func _process(_delta) -> void:
 	var mirror_offset: Vector3 = global_position * t
 	var frustum_offset: Vector3 = mirror_offset - proj_offset
 	_mirror_camera.global_transform = t
-	_mirror_camera.set_frustum(mesh.size.x, Vector2(frustum_offset.x, frustum_offset.y), abs(mirror_offset.z) + 0.01, camera.far)
+	_mirror_camera.set_frustum(max(mesh.size.x, mesh.size.y), Vector2(frustum_offset.x, frustum_offset.y), abs(mirror_offset.z) + 0.01, camera.far)
 
-
+	(material_override as ShaderMaterial).set_shader_parameter("mesh_size", mesh.size)

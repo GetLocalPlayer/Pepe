@@ -10,14 +10,15 @@ viewport_path = NodePath("MirrorViewport")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_68grk")
+shader_parameter/mesh_size = null
 shader_parameter/video_texture = SubResource("ViewportTexture_hdtty")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_476so"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_04xuu"]
 
 [node name="Mirror" type="MeshInstance3D"]
 material_override = SubResource("ShaderMaterial_exmne")
 cast_shadow = 0
-mesh = SubResource("PlaneMesh_476so")
+mesh = SubResource("PlaneMesh_04xuu")
 script = ExtResource("1_8smcq")
 
 [node name="MirrorViewport" type="SubViewport" parent="."]
