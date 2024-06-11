@@ -20,17 +20,17 @@ extends MeshInstance3D
 		if is_node_ready():
 			_mirror_camera.cull_mask = _cull_mask
 
-@onready var _mirror_camera: Camera3D = %MirrorCamera
 @onready var _mirror_viewport: SubViewport = $MirrorViewport
+@onready var _mirror_camera: Camera3D = $MirrorViewport/MirrorCamera
 
 
 func _ready() -> void:
 	mesh = mesh.duplicate()
 	mesh.changed.connect(_on_mesh_changed)
 	_mirror_camera.cull_mask = _cull_mask
-	_on_mesh_changed()
-	get_viewport().size_changed.connect(_on_vieport_size_changed)
+	(material_override as ShaderMaterial).set_shader_parameter("video_texture", _mirror_viewport.get_texture())
 	_on_vieport_size_changed()
+	get_viewport().size_changed.connect(_on_vieport_size_changed)
 
 
 func _on_mesh_changed() -> void:
@@ -38,11 +38,11 @@ func _on_mesh_changed() -> void:
 		push_error("The mesh must be `PlaneMesh`")
 
 
-func _on_vieport_size_changed():
+func _on_vieport_size_changed() -> void:
 	_mirror_viewport.size = get_viewport().size * _resolution_factor 
 
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	var camera = _main_camera if _main_camera != null else get_viewport().get_camera_3d()
 	if camera == null or not camera.current:
 		return
