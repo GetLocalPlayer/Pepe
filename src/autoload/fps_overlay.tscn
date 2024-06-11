@@ -9,9 +9,15 @@ script/source = "extends Control
 func _process(_delta):
 	$FPS.text = str(Performance.get_monitor(Performance.TIME_FPS)) # больше - лучше
 	$ProcessTime.text = str(Performance.get_monitor(Performance.TIME_PROCESS)) # меньше - лучше
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_F12) and not event.is_echo():
+		visible = not visible
 "
 
 [node name="FPSOverlay" type="VBoxContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
