@@ -67,6 +67,8 @@ func _ready():
     icon = _sub_viewport.get_texture()
     _model_owner.scale = Vector3(_model_scale, _model_scale, _model_scale)
     _model_owner.position = _model_offset
+    for child in _model_owner.get_children():
+        child.rotation = _model_rotation
     if _model != null:
         _model_owner.add_child(_model.instantiate())
     amount = amount # just to trigger setter
