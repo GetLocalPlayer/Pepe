@@ -47,6 +47,15 @@ extends Button
         if not is_node_ready(): return
         _model_owner.position = value
 
+@export var _model_rotation: Vector3:
+    get:
+        return _model_rotation
+    set(value):
+        _model_rotation = value
+        if not is_node_ready(): return
+        for child in _model_owner.get_children():
+            child.rotation = value
+
 
 @onready var _model_owner = %ModelOwner
 @onready var _sub_viewport = $SubViewport
