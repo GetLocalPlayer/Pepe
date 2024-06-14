@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene load_steps=37 format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -68,16 +68,19 @@ shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
 content_margin_top = 30.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5bqu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0l8pj"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3qpmm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rwonx"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b5oeb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_r6pn4"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a0m1y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_55ujd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4in7k"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
@@ -288,22 +291,27 @@ theme_override_constants/v_separation = 0
 
 [node name="Flashlight" parent="Backdrop/Rows/ItemScroll/ItemList" index="0"]
 visible = false
-icon = SubResource("ViewportTexture_5bqu5")
+icon = SubResource("ViewportTexture_0l8pj")
 amount = 0
 
 [node name="Bun" parent="Backdrop/Rows/ItemScroll/ItemList" index="1"]
 visible = false
-icon = SubResource("ViewportTexture_3qpmm")
+icon = SubResource("ViewportTexture_rwonx")
 amount = 0
 
 [node name="Snickers" parent="Backdrop/Rows/ItemScroll/ItemList" index="2"]
 visible = false
-icon = SubResource("ViewportTexture_b5oeb")
+icon = SubResource("ViewportTexture_r6pn4")
 amount = 0
 
 [node name="Milk" parent="Backdrop/Rows/ItemScroll/ItemList" index="3"]
 visible = false
-icon = SubResource("ViewportTexture_a0m1y")
+icon = SubResource("ViewportTexture_55ujd")
+amount = 0
+
+[node name="Iron" parent="Backdrop/Rows/ItemScroll/ItemList" index="4"]
+visible = false
+icon = SubResource("ViewportTexture_4in7k")
 amount = 0
 
 [node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
