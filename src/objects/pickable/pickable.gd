@@ -17,14 +17,15 @@ var _item_name: String = "_NO_ITEM_SELECTED_"
 	
 
 func interact():
-	var lines = [
-		_default_interaction_line.format(
+	var lines = [ _default_interaction_line, ] if _interaction_lines.is_empty() else _interaction_lines.duplicate()
+	for i in range(lines.size()):
+		lines[i] = lines[i].format(
 			{
 				"_item_name_color": _item_name_color.to_html(false),
 				"_item_name": _item_name,
 				"_amount": _amount
 			}
-		), ] if _interaction_lines.is_empty() else _interaction_lines
+		)
 	var array_of_strings: Array[String] = []
 	array_of_strings.assign(lines)
 	_pickup_ui.run(_item_name, _amount, array_of_strings)
