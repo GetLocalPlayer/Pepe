@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1e3tn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rojus"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -18,7 +18,7 @@ step = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelOwner:rotation")
+tracks/0/path = NodePath("ModelRoot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +33,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ModelOwner:rotation")
+tracks/0/path = NodePath("ModelRoot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +61,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
 button_mask = 0
-icon = SubResource("ViewportTexture_1e3tn")
+icon = SubResource("ViewportTexture_rojus")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -108,7 +108,7 @@ spot_range = 24.3519
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.96932)
 
-[node name="ModelOwner" type="Node3D" parent="SubViewport"]
+[node name="ModelRoot" type="Node3D" parent="SubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
