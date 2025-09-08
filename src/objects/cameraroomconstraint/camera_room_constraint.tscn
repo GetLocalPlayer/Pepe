@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://50cf04m074fu"]
+
+[ext_resource type="Script" path="res://objects/cameraroomconstraint/camera_room_constraint.gd" id="1_06mpv"]
+
+[node name="CameraRoomConstraint" type="Area3D"]
+monitorable = false
+script = ExtResource("1_06mpv")
+_target_node_name = "Pepe"
+_camera_tween_time = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 37.8493

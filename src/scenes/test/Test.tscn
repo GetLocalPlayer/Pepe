@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene load_steps=21 format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
-[ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/cameraroomconstraint.tscn" id="2_0hqxc"]
+[ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/camera_room_constraint.tscn" id="2_0hqxc"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
 [ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/decorations/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
+[ext_resource type="Shader" path="res://objects/mirror/mirror.gdshader" id="6_4qt73"]
 [ext_resource type="PackedScene" uid="uid://dep5q7xcgh8xr" path="res://scenes/flat/flat.tscn" id="8_fqqk5"]
 [ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/collectables/flashlight/flashlight.tscn" id="9_b6ykc"]
 [ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/collectables/snickers.tscn" id="10_5owjf"]
@@ -24,6 +25,37 @@ orientation = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_335xo"]
 size = Vector3(69.073, 7.5462, 65.7783)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_i7hq3"]
+viewport_path = NodePath("MirrorViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_witq4"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_4qt73")
+shader_parameter/mesh_size = Vector2(0.685, 1.434)
+shader_parameter/blur_radius = 14.0
+shader_parameter/video_texture = SubResource("ViewportTexture_i7hq3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jrn78"]
+size = Vector2(0.685, 1.434)
+orientation = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ulegu"]
+viewport_path = NodePath("MirrorViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkym0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_4qt73")
+shader_parameter/mesh_size = Vector2(0.615, 0.68)
+shader_parameter/blur_radius = 14.0
+shader_parameter/video_texture = SubResource("ViewportTexture_ulegu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oqgfb"]
+size = Vector2(0.6, 0.7)
+center_offset = Vector3(0, 0, 0.005)
+orientation = 2
+
 [node name="Test" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -41,7 +73,7 @@ transform = Transform3D(-0.863835, -0.204903, 0.460221, 0, 0.913545, 0.406737, -
 current = true
 
 [node name="Pepe" parent="." instance=ExtResource("1_7mhlv")]
-transform = Transform3D(0.99921, 0, 0.0397308, 0, 1, 0, -0.0397308, 0, 0.99921, -3.26773, 0.381686, 66.7025)
+transform = Transform3D(0.99921, 0, 0.0397308, 0, 1, 0, -0.0397308, 0, 0.99921, -2.75361, 0.0349882, 68.4714)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -57,11 +89,9 @@ mesh = SubResource("QuadMesh_dbi2w")
 
 [node name="General" parent="CameraConstraints" instance=ExtResource("2_0hqxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48701, -0.00830746, 59.7067)
-_targetNodeName = "Pepe"
-_cameraTweenTime = 0.3
 
 [node name="CollisionShape3D" parent="CameraConstraints/General" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41847, -1.11383, 4.60105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05785, -1.11383, -58.3471)
 shape = SubResource("BoxShape3D_335xo")
 
 [node name="Camera3D" parent="CameraConstraints/General" index="1"]
@@ -77,6 +107,17 @@ transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, 
 
 [node name="flat" parent="." instance=ExtResource("8_fqqk5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.157, 0, 65.71)
+
+[node name="CollisionShape3D" parent="flat/Rooms/Hall" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205662, -1.2269, 0.107933)
+
+[node name="Mirror" parent="flat/Rooms/Hall/dressing_table" index="2"]
+material_override = SubResource("ShaderMaterial_witq4")
+mesh = SubResource("PlaneMesh_jrn78")
+
+[node name="Mirror" parent="flat/Rooms/Bathroom" index="4"]
+material_override = SubResource("ShaderMaterial_wkym0")
+mesh = SubResource("PlaneMesh_oqgfb")
 
 [node name="Collectables" type="Node" parent="flat"]
 
@@ -97,24 +138,31 @@ interaction_priority = 0
 
 [editable path="CameraConstraints/General"]
 [editable path="flat"]
-[editable path="flat/Rooms/Hallway"]
 [editable path="flat/Rooms/Hall"]
 [editable path="flat/Rooms/Hall/simple_light_switch/Interactable"]
+[editable path="flat/Rooms/Hall/picture_ba2sai2"]
+[editable path="flat/Rooms/Hall/picture_ba2sai2/Interactable"]
 [editable path="flat/Rooms/Room"]
 [editable path="flat/Rooms/Room/simple_light_switch/Interactable"]
 [editable path="flat/Rooms/Room/picture_ba2sai"]
-[editable path="flat/Rooms/Room/picture_ba2sai2"]
-[editable path="flat/Rooms/Room/tv_stand"]
+[editable path="flat/Rooms/Room/balcony_window_door_with_sliders"]
+[editable path="flat/Rooms/Room/balcony_window_door_with_sliders/separated_pipes"]
+[editable path="flat/Rooms/Room/balcony_window_door_with_sliders/old_radiator"]
+[editable path="flat/Rooms/Room/school_wardrobe/russian_poster_1/Interactable"]
+[editable path="flat/Rooms/Room/double_door"]
+[editable path="flat/Rooms/Room/wheelchair/Interactable"]
+[editable path="flat/Rooms/Room/office_desk/Pickable"]
+[editable path="flat/Rooms/Room/carpet"]
+[editable path="flat/Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable"]
+[editable path="flat/Rooms/Room/ironing_board"]
 [editable path="flat/Rooms/Balcony"]
 [editable path="flat/Rooms/Bathroom"]
 [editable path="flat/Rooms/Bathroom/simple_light_switch/Interactable"]
 [editable path="flat/Rooms/Bathroom/DoorBathroom"]
 [editable path="flat/Rooms/WaterCloset"]
 [editable path="flat/Rooms/WaterCloset/simple_light_switch/Interactable"]
-[editable path="flat/Rooms/DoorWC"]
+[editable path="flat/Rooms/WaterCloset/DoorWC"]
 [editable path="flat/Rooms/Kitchen"]
-[editable path="flat/Rooms/Kitchen/pot"]
-[editable path="flat/Rooms/Kitchen/pot2"]
 [editable path="flat/Rooms/Kitchen/simple_light_switch/Interactable"]
 [editable path="flat/Rooms/Kitchen/fridge/Interactable"]
 [editable path="flat/Rooms/Kitchen/block1"]
@@ -125,7 +173,12 @@ interaction_priority = 0
 [editable path="flat/Rooms/Kitchen/top_block2"]
 [editable path="flat/Rooms/Kitchen/doors"]
 [editable path="flat/Rooms/Kitchen/window_2x1_with_sliders"]
+[editable path="flat/Rooms/Kitchen/window_2x1_with_sliders/old_radiator"]
+[editable path="flat/Rooms/Kitchen/window_2x1_with_sliders/separated_pipes"]
 [editable path="flat/Rooms/Kitchen/window_2x1_with_sliders/Interactable"]
+[editable path="flat/Rooms/Kitchen/Dishes/pot"]
+[editable path="flat/Rooms/Kitchen/Dishes/pot2"]
+[editable path="flat/Rooms/office_chair_game_model"]
 [editable path="flat/Snikers"]
 [editable path="flat/ThreeBuns"]
 [editable path="flat/FlashLight"]
