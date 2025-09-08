@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxmxhf6jg6asj"]
 
-[ext_resource type="Script" path="res://autoload/ui/screen_effect.gd" id="1_0fk4w"]
+[ext_resource type="Script" uid="uid://ge517bx6s7ds" path="res://autoload/ui/screen_effect.gd" id="1_0fk4w"]
 
 [node name="ScreenEffect" type="Control"]
 process_mode = 3

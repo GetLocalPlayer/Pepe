@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7qqb0kamjg27"]
 
 [ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_l4qfr"]
-[ext_resource type="Script" path="res://objects/pickable/pickable.gd" id="2_aslbf"]
+[ext_resource type="Script" uid="uid://ccwl05giyuy7j" path="res://objects/pickable/pickable.gd" id="2_aslbf"]
 
 [node name="Pickable" instance=ExtResource("1_l4qfr")]
 script = ExtResource("2_aslbf")

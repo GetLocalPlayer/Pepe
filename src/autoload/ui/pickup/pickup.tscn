@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://bq8vvt25vbrrm"]
 
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="1_1jgr7"]
-[ext_resource type="Script" path="res://autoload/ui/pickup/pickup.gd" id="1_nbafx"]
+[ext_resource type="Script" uid="uid://m1nwaqys5bj4" path="res://autoload/ui/pickup/pickup.gd" id="1_nbafx"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="1_q5a53"]
 [ext_resource type="Shader" uid="uid://vl34mwjdwx3u" path="res://autoload/ui/pickup/yesnobutton_flashing_shader.tres" id="1_tnaun"]
-[ext_resource type="Script" path="res://autoload/ui/pickup/yesnobutton.gd" id="3_vs0id"]
+[ext_resource type="Script" uid="uid://csawkbnff4lp6" path="res://autoload/ui/pickup/yesnobutton.gd" id="3_vs0id"]
 [ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/item_list/item_list.tscn" id="5_scqo5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5yah"]

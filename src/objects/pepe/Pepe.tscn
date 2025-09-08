@@ -1,9 +1,9 @@
 [gd_scene load_steps=52 format=3 uid="uid://4047kefmuldg"]
 
-[ext_resource type="Script" path="res://objects/pepe/scripts/pepe.gd" id="1_p8plj"]
+[ext_resource type="Script" uid="uid://dj2j8jeshee4j" path="res://objects/pepe/scripts/pepe.gd" id="1_p8plj"]
 [ext_resource type="PackedScene" uid="uid://df1i4qoprhcpa" path="res://objects/pepe/assets/godette.blend" id="3_18cqs"]
 [ext_resource type="PackedScene" uid="uid://cunr21vrtkhjo" path="res://objects/pepe/assets/pepe.blend" id="3_ltb24"]
-[ext_resource type="Script" path="res://objects/pepe/scripts/pepe_fsm.gd" id="3_qhbbf"]
+[ext_resource type="Script" uid="uid://dedxpw5grxyg0" path="res://objects/pepe/scripts/pepe_fsm.gd" id="3_qhbbf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tfndm"]
 radius = 0.158848

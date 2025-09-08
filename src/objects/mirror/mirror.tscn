@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://coto8qeorhx1g"]
 
-[ext_resource type="Script" path="res://objects/mirror/mirror.gd" id="1_8smcq"]
-[ext_resource type="Shader" path="res://objects/mirror/mirror.gdshader" id="1_68grk"]
+[ext_resource type="Script" uid="uid://cv8btw74bw5av" path="res://objects/mirror/mirror.gd" id="1_8smcq"]
+[ext_resource type="Shader" uid="uid://dcxr4kmwcrffs" path="res://objects/mirror/mirror.gdshader" id="1_68grk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pkcpx"]
 viewport_path = NodePath("MirrorViewport")
@@ -10,9 +10,9 @@ viewport_path = NodePath("MirrorViewport")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_68grk")
-shader_parameter/mesh_size = null
-shader_parameter/blur_radius = 4.0
 shader_parameter/video_texture = SubResource("ViewportTexture_pkcpx")
+shader_parameter/mesh_size = Vector2(0, 0)
+shader_parameter/blur_radius = 4.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_voec2"]
 

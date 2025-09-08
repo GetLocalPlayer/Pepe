@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://bwr4ocbucraje"]
 
-[ext_resource type="Script" path="res://autoload/ui/interaction/interaction.gd" id="1_dsj72"]
+[ext_resource type="Script" uid="uid://d04xcdth8mcgd" path="res://autoload/ui/interaction/interaction.gd" id="1_dsj72"]
 [ext_resource type="Shader" uid="uid://vl34mwjdwx3u" path="res://autoload/ui/pickup/yesnobutton_flashing_shader.tres" id="2_al23h"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_hujjk"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="4_54c4s"]
-[ext_resource type="Script" path="res://autoload/ui/pickup/yesnobutton.gd" id="4_arkjt"]
+[ext_resource type="Script" uid="uid://csawkbnff4lp6" path="res://autoload/ui/pickup/yesnobutton.gd" id="4_arkjt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y20w"]
 

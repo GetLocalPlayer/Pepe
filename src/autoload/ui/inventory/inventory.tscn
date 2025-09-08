@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://bue4pp11ghxtp"]
 
-[ext_resource type="Script" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
+[ext_resource type="Script" uid="uid://q0ckv5xf2p4v" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/character.gd" id="2_tjspy"]
+[ext_resource type="Script" uid="uid://cngd0wpulu4bg" path="res://autoload/ui/inventory/character.gd" id="2_tjspy"]
 [ext_resource type="Shader" uid="uid://dqdqkgwrwioxg" path="res://autoload/ui/inventory/shaders/statusportrait.tres" id="3_xppx1"]
 [ext_resource type="Texture2D" uid="uid://dn7lcwjh1b7qs" path="res://autoload/ui/inventory/textures/status_badly_injured.png" id="4_vdh6k"]
 [ext_resource type="Texture2D" uid="uid://cob2das1tor5l" path="res://autoload/ui/inventory/textures/status_injured.png" id="5_mcf8x"]
@@ -10,11 +10,11 @@
 [ext_resource type="Shader" uid="uid://mabpfkseed6r" path="res://autoload/ui/inventory/shaders/selector.tres" id="7_h5sks"]
 [ext_resource type="Texture2D" uid="uid://bs86c427mrbng" path="res://autoload/ui/inventory/textures/selector.png" id="7_j6mwm"]
 [ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/item_list/item_list.tscn" id="7_mybl8"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/portrait.gd" id="8_kdghm"]
+[ext_resource type="Script" uid="uid://f2mrkmax8f3n" path="res://autoload/ui/inventory/item_scroll.gd" id="7_uupfk"]
+[ext_resource type="Script" uid="uid://cxrpd544vev6o" path="res://autoload/ui/inventory/portrait.gd" id="8_kdghm"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="9_5s03v"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
-[ext_resource type="Script" path="res://autoload/ui/inventory/item_description.gd" id="10_fiy35"]
+[ext_resource type="Script" uid="uid://debod3n31rnbr" path="res://autoload/ui/inventory/selector.gd" id="9_dcg4u"]
+[ext_resource type="Script" uid="uid://bi65or2qar6yt" path="res://autoload/ui/inventory/item_description.gd" id="10_fiy35"]
 [ext_resource type="Texture2D" uid="uid://b533ape3tmkcv" path="res://autoload/ui/inventory/textures/selector_background.png" id="12_086n4"]
 
 [sub_resource type="Gradient" id="Gradient_h0lxj"]
@@ -52,15 +52,15 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ikmb"]
 shader = ExtResource("3_xppx1")
-shader_parameter/CurrentHealth = 1.0
-shader_parameter/GradientSpeedMinHealth = 0.7
-shader_parameter/GradientSpeedMaxHealth = 0.1
-shader_parameter/ColorMinHealth = Color(1, 0, 0, 1)
-shader_parameter/ColorMaxHealth = Color(0, 1, 0, 1)
 shader_parameter/TextureWell = ExtResource("6_d0dbk")
 shader_parameter/TextureInjured = ExtResource("5_mcf8x")
+shader_parameter/CurrentHealth = 1.0
 shader_parameter/TextureBadlyInjured = ExtResource("4_vdh6k")
+shader_parameter/GradientSpeedMinHealth = 0.7
+shader_parameter/GradientSpeedMaxHealth = 0.1
 shader_parameter/GradientForm = SubResource("GradientTexture2D_1rb8f")
+shader_parameter/ColorMinHealth = Color(1, 0, 0, 1)
+shader_parameter/ColorMaxHealth = Color(0, 1, 0, 1)
 shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iww3n"]

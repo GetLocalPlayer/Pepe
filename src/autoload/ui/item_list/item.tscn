@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2ykucjec5cgq"]
 
-[ext_resource type="Script" path="res://autoload/ui/item_list/item.gd" id="1_mjg05"]
+[ext_resource type="Script" uid="uid://cgymfodqla6cg" path="res://autoload/ui/item_list/item.gd" id="1_mjg05"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="2_leaap"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cxej4"]
 _data = {
-"Idle": SubResource("Animation_8yw1n"),
-"RESET": SubResource("Animation_wava2")
+&"Idle": SubResource("Animation_8yw1n"),
+&"RESET": SubResource("Animation_wava2")
 }
 
 [node name="Item" type="Button"]
