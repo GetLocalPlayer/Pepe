@@ -25,7 +25,7 @@ orientation = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_335xo"]
 size = Vector3(69.073, 7.5462, 65.7783)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i7hq3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8p1dx"]
 viewport_path = NodePath("MirrorViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_witq4"]
@@ -34,13 +34,13 @@ render_priority = 0
 shader = ExtResource("6_4qt73")
 shader_parameter/mesh_size = Vector2(0.685, 1.434)
 shader_parameter/blur_radius = 14.0
-shader_parameter/video_texture = SubResource("ViewportTexture_i7hq3")
+shader_parameter/video_texture = SubResource("ViewportTexture_8p1dx")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_jrn78"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_y0a8r"]
 size = Vector2(0.685, 1.434)
 orientation = 2
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ulegu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b8loo"]
 viewport_path = NodePath("MirrorViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkym0"]
@@ -49,9 +49,9 @@ render_priority = 0
 shader = ExtResource("6_4qt73")
 shader_parameter/mesh_size = Vector2(0.615, 0.68)
 shader_parameter/blur_radius = 14.0
-shader_parameter/video_texture = SubResource("ViewportTexture_ulegu")
+shader_parameter/video_texture = SubResource("ViewportTexture_b8loo")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_oqgfb"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_caurl"]
 size = Vector2(0.6, 0.7)
 center_offset = Vector3(0, 0, 0.005)
 orientation = 2
@@ -113,11 +113,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205662, -1.2269, 0.107933)
 
 [node name="Mirror" parent="flat/Rooms/Hall/dressing_table" index="2"]
 material_override = SubResource("ShaderMaterial_witq4")
-mesh = SubResource("PlaneMesh_jrn78")
+mesh = SubResource("PlaneMesh_y0a8r")
 
 [node name="Mirror" parent="flat/Rooms/Bathroom" index="4"]
 material_override = SubResource("ShaderMaterial_wkym0")
-mesh = SubResource("PlaneMesh_oqgfb")
+mesh = SubResource("PlaneMesh_caurl")
 
 [node name="Collectables" type="Node" parent="flat"]
 

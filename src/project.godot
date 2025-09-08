@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Pepe"
 run/main_scene="res://scenes/test/test.tscn"
-config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://project_ico.png"
 
 [autoload]
