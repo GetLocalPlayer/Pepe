@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds38o75ahfi56"]
+
+[ext_resource type="PackedScene" uid="uid://b7qqb0kamjg27" path="res://objects/pickable/pickable.tscn" id="1_nbnf1"]
+[ext_resource type="PackedScene" uid="uid://djmngbx1l3q0b" path="res://assets/bun/bun.blend" id="2_bpflu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mju74"]
+height = 1.37565
+radius = 0.561549
+
+[node name="ThreeBuns" instance=ExtResource("1_nbnf1")]
+_amount = 3
+_default_interaction_line = "[center]There are several  [color=#{_item_name_color}]buns[/color] on the shelf (x[color=#{_item_name_color}]{_amount}[/color]). Take them?"
+_item_name = "Bun"
+interaction_priority = 0
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_mju74")
+
+[node name="bun" parent="." index="1" instance=ExtResource("2_bpflu")]
+transform = Transform3D(0.753437, 0, 0.65752, 0, 1, 0, -0.65752, 0, 0.753437, -0.0681221, 0.0434201, -0.103628)
+
+[node name="bun2" parent="." index="2" instance=ExtResource("2_bpflu")]
+transform = Transform3D(0.666337, 0, -0.74565, 0, 1, 0, 0.74565, 0, 0.666337, -0.00591719, 0.0434201, 0.116855)
+
+[node name="bun3" parent="." index="3" instance=ExtResource("2_bpflu")]
+transform = Transform3D(0.605043, 0.741939, -0.288877, -0.243685, 0.517973, 0.819952, 0.757985, -0.425711, 0.494195, 0.0869529, 0.0921154, -0.0132806)

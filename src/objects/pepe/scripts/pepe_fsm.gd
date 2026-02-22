@@ -1,18 +1,18 @@
 extends FiniteStateMachine
 
 
-var _states = {
-	idle = PepeIdle.new(),
-	exhausted = PepeExhausted.new(),
-	walking = PepeWalking.new(),
-	walking_backwards = PepeWalkingBackwards.new(),
-	running = PepeRunning.new(),
+@onready var _states: Dictionary[String, PepeState] = {
+	idle = $Idle,
+	move = $Move,
+	#exhausted = $Exhausted,
 }
 
+@onready var _debug_label = $Debug
 
 
-func _get_initial_state() -> State:
-	return _states.idle
+func _process(_delta: float) -> void:
+	if _debug_label.visible:
+		_debug_label.text = "Curr. state: %s" % _current_state.name if _current_state else "no state"
 
 
 func _set_state(new_state: State):
@@ -24,17 +24,11 @@ func _update_current_state(delta: float):
 	super._update_current_state(delta)
 
 	var pepe = _get_context() as Pepe
-	var body = _get_context() as CharacterBody3D
 
-	body.apply_floor_snap() # only for testing, delete later
+	pepe.apply_floor_snap() # only for testing, delete later
 
-	if body.is_on_floor():
+	if pepe.is_on_floor():
 		if Input.is_action_pressed("Move"):
-			if Input.is_action_pressed("WalkBackwards"):
-				_set_state(_states.walking_backwards)
-			elif Input.is_action_pressed("RunModifier") and not pepe.exhausted:
-				_set_state(_states.running)
-			else:
-				_set_state(_states.walking)
+			_set_state(_states.move)
 		else:
-			_set_state(_states.exhausted if pepe.exhausted else _states.idle)
+			_set_state(_states.idle)

@@ -1,0 +1,241 @@
+[gd_scene load_steps=15 format=3 uid="uid://bwr4ocbucraje"]
+
+[ext_resource type="Script" uid="uid://d04xcdth8mcgd" path="res://autoload/ui/interaction/interaction.gd" id="1_dsj72"]
+[ext_resource type="Shader" uid="uid://vl34mwjdwx3u" path="res://autoload/ui/pickup/yesnobutton_flashing_shader.tres" id="2_al23h"]
+[ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_hujjk"]
+[ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="4_54c4s"]
+[ext_resource type="Script" uid="uid://csawkbnff4lp6" path="res://autoload/ui/pickup/yesnobutton.gd" id="4_arkjt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y20w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhibi"]
+shader = ExtResource("2_al23h")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yadm2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tdm7"]
+shader = ExtResource("2_al23h")
+shader_parameter/main_color = Color(1, 0.839216, 0.819608, 1)
+shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ub7ed"]
+shader = ExtResource("2_al23h")
+shader_parameter/main_color = Color(1, 0.839216, 0.819608, 1)
+shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5c77"]
+shader = ExtResource("2_al23h")
+shader_parameter/main_color = Color(1, 0.839216, 0.819608, 1)
+shader_parameter/flashing_color = Color(0.862745, 0.00392157, 0, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8m5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b486o"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.705882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g41nu"]
+
+[node name="Interaction" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dsj72")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 75.0
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7y20w")
+
+[node name="Container1" type="CenterContainer" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="Buttons/Container1"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lhibi")
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Container4/Button4")
+focus_neighbor_top = NodePath("../../Container4/Button4")
+focus_neighbor_right = NodePath("../../Container2/Button2")
+focus_neighbor_bottom = NodePath("../../Container2/Button2")
+focus_next = NodePath("../../Container2/Button2")
+focus_previous = NodePath("../../Container4/Button4")
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_54c4s")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
+button_mask = 0
+text = "Button 1
+"
+script = ExtResource("4_arkjt")
+
+[node name="Container2" type="CenterContainer" parent="Buttons"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Buttons/Container2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_4tdm7")
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Container1/Button1")
+focus_neighbor_top = NodePath("../../Container1/Button1")
+focus_neighbor_right = NodePath("../../Container3/Button3")
+focus_neighbor_bottom = NodePath("../../Container3/Button3")
+focus_next = NodePath("../../Container3/Button3")
+focus_previous = NodePath("../../Container1/Button1")
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_54c4s")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
+button_mask = 0
+text = "Button 2
+"
+script = ExtResource("4_arkjt")
+
+[node name="Container3" type="CenterContainer" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Buttons/Container3"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ub7ed")
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Container2/Button2")
+focus_neighbor_top = NodePath("../../Container2/Button2")
+focus_neighbor_right = NodePath("../../Container4/Button4")
+focus_neighbor_bottom = NodePath("../../Container4/Button4")
+focus_next = NodePath("../../Container4/Button4")
+focus_previous = NodePath("../../Container2/Button2")
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_54c4s")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
+button_mask = 0
+text = "Button 3
+"
+script = ExtResource("4_arkjt")
+
+[node name="Container4" type="CenterContainer" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="Buttons/Container4"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q5c77")
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Container3/Button3")
+focus_neighbor_top = NodePath("../../Container3/Button3")
+focus_neighbor_right = NodePath("../../Container1/Button1")
+focus_neighbor_bottom = NodePath("../../Container1/Button1")
+focus_next = NodePath("../../Container1/Button1")
+focus_previous = NodePath("../../Container3/Button3")
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_54c4s")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
+button_mask = 0
+text = "Button 4
+"
+script = ExtResource("4_arkjt")
+
+[node name="HSeparator2" type="HSeparator" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l8m5l")
+
+[node name="Text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.999989, 0.851371, 0.83285, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("2_hujjk")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_b486o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b486o")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+visible_characters_behavior = 1
+
+[node name="ButtonNext" type="Button" parent="Text"]
+unique_name_in_owner = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g41nu")
+button_mask = 0

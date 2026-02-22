@@ -97,9 +97,6 @@ tonemap_white = 3.41
 [sub_resource type="BoxShape3D" id="BoxShape3D_gpxis"]
 size = Vector3(6.05466, 7.5462, 3.7094)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x6mck"]
-size = Vector3(0.0855713, 0.217773, 0.0869751)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5og8"]
 resource_name = "Frame"
 cull_mode = 2
@@ -186,23 +183,27 @@ shadow_mesh = SubResource("ArrayMesh_2t8hf")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_raxkr"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vwjyy"]
-viewport_path = NodePath("MirrorViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_pbdbb"]
+viewport_path = NodePath("Rooms/Hall/dressing_table/Mirror/MirrorViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_witq4"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_vwjyy")
+shader_parameter/video_texture = SubResource("ViewportTexture_pbdbb")
 shader_parameter/mesh_size = Vector2(0.685, 1.434)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_jt6ot"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_m3yhj"]
 size = Vector2(0.685, 1.434)
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hg1p"]
 size = Vector3(4.60729, 7.619, 4.77691)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6mck"]
+margin = 0.18
+size = Vector3(0.29882813, 0.5858154, 0.21728516)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmumu"]
 resource_name = "Radiator.001"
@@ -365,18 +366,18 @@ size = Vector3(4.51436, 7.5462, 1.65348)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gorao"]
 size = Vector3(1.67349, 7.5462, 1.8631)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7juia"]
-viewport_path = NodePath("MirrorViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_cexls"]
+viewport_path = NodePath("Rooms/Bathroom/Mirror/MirrorViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkym0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_7juia")
+shader_parameter/video_texture = SubResource("ViewportTexture_cexls")
 shader_parameter/mesh_size = Vector2(0.615, 0.68)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_q6q1e"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_81frv"]
 size = Vector2(0.6, 0.7)
 center_offset = Vector3(0, 0, 0.005)
 orientation = 2
@@ -1033,8 +1034,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="CollisionShape3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894606, -0.0717773, 0.00210434)
-shape = SubResource("BoxShape3D_x6mck")
+transform = Transform3D(1, 0, -4.391154e-12, 0, 1, 0, 4.391154e-12, 0, 1, -0.008946061, -0.008444548, 0.046450257)
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="1"]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.479615, 0.592315, 0.537196)
@@ -1077,7 +1077,7 @@ transform = Transform3D(-4.23126e-08, 0, -0.968, 0, 0.968, 0, 0.968, 0, -4.23126
 [node name="Mirror" parent="Rooms/Hall/dressing_table" index="2" instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.999999, 0, 1.77636e-14, 0, 0.999999, 0, -1.77636e-14, 0, 0.999999, 0, 1.29634, -0.262927)
 material_override = SubResource("ShaderMaterial_witq4")
-mesh = SubResource("PlaneMesh_jt6ot")
+mesh = SubResource("PlaneMesh_m3yhj")
 
 [node name="Room" parent="Rooms" index="1" instance=ExtResource("2_qdykt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81828, 0, -2.09811)
@@ -1350,11 +1350,6 @@ visible = true
 [node name="ironing_board" parent="Rooms/Room" index="14" instance=ExtResource("33_f5bsn")]
 transform = Transform3D(0.0144612, -0.985139, 0.171149, 0.0140876, 0.171351, 0.98511, -0.999796, -0.0118348, 0.0163562, 2.74806, 0.568536, -1.40422)
 
-[node name="Skeleton3D" parent="Rooms/Room/ironing_board/Armature" index="0"]
-bones/0/rotation = Quaternion(0.707107, 2.90201e-07, 1.53744e-07, 0.707107)
-bones/1/rotation = Quaternion(0.42016, 7.50503e-10, 2.69541e-07, 0.90745)
-bones/2/rotation = Quaternion(0.64597, -2.54374e-08, 2.63239e-07, 0.763362)
-
 [node name="Board" parent="Rooms/Room/ironing_board/Armature/Skeleton3D" index="1"]
 transform = Transform3D(1, -2.23517e-08, -2.46145e-10, -2.98023e-08, 1, -5.15744e-10, 1.67419e-08, -5.34179e-10, 1, 0, 0, 0)
 
@@ -1425,7 +1420,7 @@ transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 0.892
 [node name="Mirror" parent="Rooms/Bathroom" index="4" node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 1.32724, -0.888967)
 material_override = SubResource("ShaderMaterial_wkym0")
-mesh = SubResource("PlaneMesh_q6q1e")
+mesh = SubResource("PlaneMesh_81frv")
 skeleton = NodePath("../1stflr_bathroom_sink")
 _main_camera = NodePath("../Camera3D")
 _resolution_factor = 0.08
@@ -1547,7 +1542,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="CollisionShape3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894606, -0.0717773, 0.00210434)
+transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, -0.03366661, -0.2109654, 0.08106607)
 shape = SubResource("BoxShape3D_x6mck")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="1"]
@@ -1922,6 +1917,9 @@ transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
 _fade_in_out_color = null
 _fade_in_out_time = null
+
+[node name="CollisionShape3D" parent="ThreeBuns" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="bun" parent="ThreeBuns" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -12,7 +12,10 @@ class_name Pepe
 @export var gravity: float = 10
 @export var turn_speed: float = 60
 @export var max_stamina:float = 20
-@export var stamina_restoration_rate: float = 5 # per second
+## Per second
+@export var stamina_restoration_rate: float = 5
+## Per second
+@export var stamina_consumption_rate: float = 10
 @export var stamina: float = max_stamina:
 	get:
 		return stamina
@@ -24,11 +27,16 @@ var exhausted: bool:
 		return stamina <= 0
 
 
+@onready var model: Node3D = $aigirl
 @onready var _interactable_detector = $InteractableDetector
 @onready var _ui = {
 	interaction = get_node("/root/Interaction"),
 	inventory = get_node("/root/Inventory"),
 }
+
+
+func get_animation_tree() -> AnimationTree:
+	return $AnimationTree
 
 
 func _input(_event):

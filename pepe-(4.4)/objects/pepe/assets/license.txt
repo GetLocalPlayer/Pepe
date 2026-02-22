@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pepe Full
+* source:	https://sketchfab.com/3d-models/pepe-full-6071e960a5904e8eacc9d479d7b444f9
+* author:	jet (https://sketchfab.com/jet1122)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pepe Full" (https://sketchfab.com/3d-models/pepe-full-6071e960a5904e8eacc9d479d7b444f9) by jet (https://sketchfab.com/jet1122) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b01clx351mpp8"]
+
+[ext_resource type="PackedScene" uid="uid://b7qqb0kamjg27" path="res://objects/pickable/pickable.tscn" id="1_sd1td"]
+[ext_resource type="PackedScene" uid="uid://usvhcp8v0ogh" path="res://assets/snickers/snickers.blend" id="2_eoqro"]
+
+[node name="Snickers" instance=ExtResource("1_sd1td")]
+
+[node name="Model" parent="." index="0" instance=ExtResource("2_eoqro")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="LookAtDetectable" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LookAtDetectable" index="0"]
+
+[node name="LookAtPoint" type="Marker3D" parent="." index="3"]

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://fa5ihdfikw4u"]
+[gd_scene load_steps=3 format=3 uid="uid://fa5ihdfikw4u"]
 
 [ext_resource type="Script" uid="uid://du5wjv0tuxmqa" path="res://objects/interactable/interactable.gd" id="1_t6scv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tno2t"]
+size = Vector3(1.5775146, 0.930542, 1)
 
 [node name="Interactable" type="Area3D"]
 collision_layer = 512
@@ -9,6 +12,8 @@ monitoring = false
 script = ExtResource("1_t6scv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28875732, -0.034729004, 0)
+shape = SubResource("BoxShape3D_tno2t")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 visible = false

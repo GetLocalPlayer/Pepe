@@ -9,7 +9,7 @@ func _get_context() -> Node:
 
 
 func _get_initial_state() -> State:
-	return null
+	return get_children().filter(func(x:Node) -> bool: return x is State).front() as State
 
 
 func _set_state(new_state: State):
@@ -25,6 +25,9 @@ func _update_current_state(delta: float):
 
 
 func _ready():
+	var states = get_children().filter(func(x:Node) -> bool: return x is PepeState)
+	for s in states:
+		s.process_mode = Node.PROCESS_MODE_DISABLED
 	_set_state(_get_initial_state())
 
 
@@ -34,5 +37,6 @@ func _input(event):
 
 
 func _physics_process(delta):
+	_current_state._handle_input(_get_context(), null)
 	if _current_state != null:
 		_update_current_state(delta)

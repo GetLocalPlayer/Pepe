@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qqb0kamjg27"]
+
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_l4qfr"]
+[ext_resource type="Script" uid="uid://ccwl05giyuy7j" path="res://objects/pickable/pickable.gd" id="2_aslbf"]
+
+[node name="Pickable" instance=ExtResource("1_l4qfr")]
+script = ExtResource("2_aslbf")
+_item_list_JSON_path = "res://autoload/ui/item_list/item_list.json"
+_amount = 1
+_item_name_color = Color(0.498039, 1, 0, 1)
+_default_interaction_line = "[center]You have found [color=#{_item_name_color}]{_item_name}[/color] (x[color=#{_item_name_color}]{_amount}[/color]). Take it?"
+_interaction_lines = Array[String]([])
+_item_name = "_NO_ITEM_SELECTED_"
+interaction_priority = 1
