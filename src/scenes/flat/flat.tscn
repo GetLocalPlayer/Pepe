@@ -1022,7 +1022,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205662, -1.2269, 0.107936)
 shape = SubResource("BoxShape3D_gpxis")
 
 [node name="Camera3D" parent="Rooms/Hall" index="1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50625, 2.5462, 0.600564)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50625, 2.0140908, 0.600564)
 fov = 60.0
 
 [node name="simple_light_switch" parent="Rooms/Hall" index="2" instance=ExtResource("21_jebvf")]
@@ -1074,10 +1074,18 @@ visible = true
 [node name="dressing_table" parent="Rooms/Hall" index="5" instance=ExtResource("7_1qdxb")]
 transform = Transform3D(-4.23126e-08, 0, -0.968, 0, 0.968, 0, 0.968, 0, -4.23126e-08, 3.07709, 0, 0.0933883)
 
-[node name="Mirror" parent="Rooms/Hall/dressing_table" index="2" instance=ExtResource("8_bn7t0")]
-transform = Transform3D(0.999999, 0, 1.77636e-14, 0, 0.999999, 0, -1.77636e-14, 0, 0.999999, 0, 1.29634, -0.262927)
+[node name="Mirror" parent="Rooms/Hall/dressing_table" index="2" node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
+transform = Transform3D(0.999999, 0, 3.907985e-14, 0, 0.999999, 0, -3.907985e-14, 0, 0.999999, 3.5762787e-07, 1.2963393, -0.12224102)
 material_override = SubResource("ShaderMaterial_witq4")
 mesh = SubResource("PlaneMesh_m3yhj")
+_main_camera = NodePath("../../Camera3D")
+
+[node name="MirrorCamera" parent="Rooms/Hall/dressing_table/Mirror/MirrorViewport" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.911009, 0.93004775, 0.8410306)
+projection = 2
+size = 1.434
+frustum_offset = Vector2(-5.854079, -1.3688833)
+near = 4.5014315
 
 [node name="Room" parent="Rooms" index="1" instance=ExtResource("2_qdykt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81828, 0, -2.09811)
@@ -1951,6 +1959,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.640
 [editable path="Rooms/Hall/simple_light_switch/Interactable"]
 [editable path="Rooms/Hall/picture_ba2sai2"]
 [editable path="Rooms/Hall/picture_ba2sai2/Interactable"]
+[editable path="Rooms/Hall/dressing_table/Mirror"]
 [editable path="Rooms/Room"]
 [editable path="Rooms/Room/simple_light_switch/Interactable"]
 [editable path="Rooms/Room/picture_ba2sai"]
@@ -1967,6 +1976,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.640
 [editable path="Rooms/Balcony"]
 [editable path="Rooms/Bathroom"]
 [editable path="Rooms/Bathroom/simple_light_switch/Interactable"]
+[editable path="Rooms/Bathroom/Mirror"]
 [editable path="Rooms/Bathroom/DoorBathroom"]
 [editable path="Rooms/WaterCloset"]
 [editable path="Rooms/WaterCloset/simple_light_switch/Interactable"]

@@ -2,6 +2,8 @@ extends State
 class_name PepeState
 
 
+const _PLAYBACK_PATH = "parameters/MovementStateMachine/playback"
+
 var input_actions = {
 	left = "TurnLeft",
 	right = "TurnRight",
@@ -14,4 +16,4 @@ var input_actions = {
 func _enter(_context: Node) -> void:
 	var pepe = _context as Pepe
 	pepe.get_animation_tree().advance_expression_base_node = get_path()
-	pepe.get_animation_tree().get("parameters/playback").travel(name)
+	pepe.get_animation_tree().get(_PLAYBACK_PATH).travel(name)

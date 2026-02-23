@@ -1,6 +1,11 @@
 extends CharacterBody3D
 class_name Pepe
 
+
+signal gets_exhausted
+signal stamina_restored
+
+
 @export var max_health = 100
 
 @export var health: float = max_health:
@@ -20,11 +25,21 @@ class_name Pepe
 	get:
 		return stamina
 	set(value):
-		stamina = 0.0 if value < 0.0 else max_stamina if value > max_stamina else value
+		var emit_restored = stamina < max_stamina and value >= max_stamina
+		stamina = clampf(value, 0, max_stamina)
+		exhausted = stamina <= 0
+		if emit_restored:
+			stamina_restored.emit()
+		
 
-var exhausted: bool:
-	get:
-		return stamina <= 0
+
+var exhausted: bool = stamina <= 0:
+	set(value):
+		var emit_gets_exhausted = not exhausted and value
+		exhausted = value
+		if emit_gets_exhausted:
+			gets_exhausted.emit()
+
 
 
 @onready var model: Node3D = $aigirl
@@ -33,7 +48,6 @@ var exhausted: bool:
 	interaction = get_node("/root/Interaction"),
 	inventory = get_node("/root/Inventory"),
 }
-
 
 func get_animation_tree() -> AnimationTree:
 	return $AnimationTree

@@ -18,8 +18,6 @@ func _update(_context: Node, delta: float) -> void:
 	backwards = Input.is_action_pressed(input_actions.backwards)
 	if not backwards and mode == Modes.SPRINT:
 		pepe.stamina -= pepe.stamina_consumption_rate * delta
-	if pepe.exhausted:
-		mode = Modes.WALK
 	var anim_tree = pepe.get_animation_tree()
 	var rm_position = anim_tree.get_root_motion_position()
 	var rm_rotation = anim_tree.get_root_motion_rotation()
@@ -30,7 +28,9 @@ func _update(_context: Node, delta: float) -> void:
 
 func _handle_input(_context: Node, _event: InputEvent) -> void:
 	backwards = Input.is_action_pressed(input_actions.backwards)
-	if Input.is_action_pressed(input_actions.walk):
+	if (_context as Pepe).exhausted:
+		mode = Modes.WALK
+	elif Input.is_action_pressed(input_actions.walk):
 		mode = Modes.WALK
 	elif Input.is_action_pressed(input_actions.sprint):
 		mode = Modes.SPRINT

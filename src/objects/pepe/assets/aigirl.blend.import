@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfhxnjbmksq0k"
+uid="uid://vsd5qcx82ky4"
 path="res://.godot/imported/aigirl.blend-ba4ec2b57db83619f725f821138cedb7.scn"
 
 [deps]
@@ -29,9 +29,9 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=30.0
+animation/fps=30
 animation/trimming=false
-animation/remove_immutable_tracks=false
+animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0

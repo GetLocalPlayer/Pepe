@@ -138,11 +138,6 @@ Sprint={
 3d_render/layer_5="Mirrored Objects"
 3d_physics/layer_10="Interactable"
 
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-
 [shader_globals]
 
 delta_time={
