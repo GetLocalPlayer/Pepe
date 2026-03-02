@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://btp3e3gnq88os"]
+
+[ext_resource type="PackedScene" uid="uid://rslctff181bp" path="res://assets/scooter/scooter.blend" id="1_5tgjj"]
+[ext_resource type="Script" uid="uid://ceg6a3l8uygwe" path="res://objects/scooter/scripts/camera_control.gd" id="1_cr7rw"]
+[ext_resource type="Script" uid="uid://begbuhinr178g" path="res://objects/scooter/scripts/scooter.gd" id="1_rh3xh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qcxa"]
+size = Vector3(0.20101929, 0.6772175, 1.251266)
+
+[node name="Scooter" type="VehicleBody3D"]
+script = ExtResource("1_rh3xh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49, -0.066)
+shape = SubResource("BoxShape3D_0qcxa")
+
+[node name="FrontWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24148874, 0.5877635)
+wheel_radius = 0.24
+
+[node name="BackWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24204932, -0.53233606)
+wheel_radius = 0.24
+
+[node name="CameraControl" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7351056, 0)
+script = ExtResource("1_cr7rw")
+
+[node name="Camera3D" type="Camera3D" parent="CameraControl"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Model" parent="." instance=ExtResource("1_5tgjj")]
+
+[editable path="Model"]

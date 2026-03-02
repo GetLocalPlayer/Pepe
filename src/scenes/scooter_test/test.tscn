@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bf3uqvfg3hr5g"]
+
+[ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="1_njrt3"]
+[ext_resource type="Script" uid="uid://dgga0tqsmwvxp" path="res://scripts/pid_controller.gd" id="2_bpspv"]
+[ext_resource type="PackedScene" uid="uid://btp3e3gnq88os" path="res://objects/scooter/scooter.tscn" id="2_nh8ps"]
+[ext_resource type="PackedScene" uid="uid://boeu84piyqg30" path="res://scenes/scooter_test/landscape.blend" id="3_ie5fn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh8ps"]
+
+[sub_resource type="Sky" id="Sky_ie5fn"]
+sky_material = SubResource("ProceduralSkyMaterial_nh8ps")
+
+[sub_resource type="Environment" id="Environment_bpspv"]
+background_mode = 2
+sky = SubResource("Sky_ie5fn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nh8ps"]
+size = Vector3(100.009, 0.558472, 100.226)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cukl"]
+albedo_texture = ExtResource("1_njrt3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ie5fn"]
+material = SubResource("StandardMaterial3D_8cukl")
+size = Vector2(10, 10)
+orientation = 1
+
+[node name="Test" type="WorldEnvironment" unique_id=985627515]
+environment = SubResource("Environment_bpspv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=258262058]
+transform = Transform3D(0.8345306, -0.006932977, -0.550918, 0.5436775, -0.15169352, 0.8254718, -0.08929365, -0.9884033, -0.12282354, -3.3749917, 2.8131433, 0)
+shadow_enabled = true
+directional_shadow_mode = 1
+
+[node name="Scooter" parent="." unique_id=2557137 instance=ExtResource("2_nh8ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18539855, 0.2692696, -1.4496088)
+mass = 110.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -0.2)
+_engine_force = 250.0
+_stabilizing_factor = 80.0
+
+[node name="CollisionShape3D" parent="Scooter" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6285931, -0.056346893)
+
+[node name="FrontWheel" parent="Scooter" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24306881, 0.5802695)
+use_as_steering = true
+wheel_rest_length = 0.1
+wheel_friction_slip = 0.75
+suspension_travel = 0.08
+suspension_stiffness = 100.0
+suspension_max_force = 3000.0
+damping_compression = 1.0
+damping_relaxation = 2.0
+
+[node name="BackWheel" parent="Scooter" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27222484, -0.532336)
+use_as_traction = true
+wheel_rest_length = 0.12
+wheel_friction_slip = 0.65
+suspension_travel = 0.08
+suspension_stiffness = 150.0
+suspension_max_force = 5000.0
+damping_compression = 2.0
+damping_relaxation = 3.0
+
+[node name="Handlebar" parent="Scooter/Model" index="2" unique_id=415433197]
+transform = Transform3D(1, 0, 0, 0, 0.962218, 0.27228025, 0, -0.27228025, 0.962218, 0, 0.59752, 0.39149898)
+
+[node name="PIDController" type="Node" parent="Scooter" unique_id=412825720]
+script = ExtResource("2_bpspv")
+proportional_gain = 0.5
+derivative_gain = 0.1
+output_min = -90.0
+output_max = 90.0
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=137808358]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=119541208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254787, -0.278381, -0.0149164)
+shape = SubResource("BoxShape3D_nh8ps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1795971446]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("QuadMesh_ie5fn")
+
+[node name="landscape" parent="." unique_id=1050190225 instance=ExtResource("3_ie5fn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2567177, 134.52473)
+
+[editable path="Scooter"]
+[editable path="Scooter/Model"]
