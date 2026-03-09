@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cyeqr08cv5b10"
+path="res://.godot/imported/clothing_head_bm.png-7e9430fb2155afe09dacf29c5b9c72ec.res"
+
+[deps]
+
+source_file="res://objects/pepe/assets/clothing_menu/clothing_head_bm.png"
+dest_files=["res://.godot/imported/clothing_head_bm.png-7e9430fb2155afe09dacf29c5b9c72ec.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

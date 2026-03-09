@@ -1,10 +1,11 @@
 extends Node3D
+class_name OrbitalCamera
 
 @export var _min_distance: float = 1
 @export var _max_distance: float = 4
 @export var _distance_sensitivity: = 0.3
 @export var _distance_lerp_factor = 5
-var _accumulated_distance: float = lerp(_min_distance, _max_distance, 0.5)
+var _distance: float = lerp(_min_distance, _max_distance, 0.5)
 
 @export_range(0, 180, 5, "radians_as_degrees") var _max_angle: float = deg_to_rad(80)
 @export_range(0, 90, 5, "radians_as_degrees") var _h_rotation_sensitivity = 0.2
@@ -15,8 +16,9 @@ var _accumulated_distance: float = lerp(_min_distance, _max_distance, 0.5)
 ## target to get to the scooter position.
 @export var _target_position_align_lerp_factor: float = 10
 
-@onready var _camera: Camera3D = $Camera3D
-@onready var _body: Node3D = owner
+@onready var _body: Node3D = get_parent() if get_parent() else self
+@onready var _arm: SpringArm3D = $SpringArm3D
+#@onready var _camera: Camera3D = $Camera3D
 # Camera's target is free from the owner's transform
 # hence I calculate its local position on _ready.
 @onready var _target_offset: Vector3 = _body.to_local(global_position)
@@ -25,7 +27,7 @@ var _accumulated_distance: float = lerp(_min_distance, _max_distance, 0.5)
 func _ready() -> void:
 	top_level = true
 	quaternion = Quaternion(global_basis.x, _init_angle) * quaternion
-	_process(1)
+	#_process(1)
 
 
 func _input(event: InputEvent) -> void:
@@ -50,11 +52,13 @@ func _input(event: InputEvent) -> void:
 	if e:
 		var dir: int = -1 if e.button_index == MOUSE_BUTTON_WHEEL_UP else 1 if e.button_index == MOUSE_BUTTON_WHEEL_DOWN else 0
 		if dir:
-			_accumulated_distance = clampf(_accumulated_distance + dir * _distance_sensitivity, _min_distance, _max_distance)
+			_distance = clampf(_distance + dir * _distance_sensitivity, _min_distance, _max_distance)
 		
 
 
 func _process(delta: float) -> void:
-	var tar_pos = global_position.lerp(_body.global_position + _target_offset, clampf(delta * _target_position_align_lerp_factor, 0, 1))
-	global_position = tar_pos
-	_camera.global_position = _camera.global_position.lerp(tar_pos - global_basis.z * _accumulated_distance, clampf(delta * _distance_lerp_factor, 0, 1))
+	_arm.spring_length = lerpf(_arm.spring_length, _distance, clampf(delta * _distance_lerp_factor, 0, 1))
+	global_position = global_position.lerp(_body.global_position + _target_offset, clampf(delta * _target_position_align_lerp_factor, 0, 1))
+	#global_position = tar_pos
+	#var dir = _arm.global_basis.z
+	#_camera.global_position = _camera.global_position.lerp(tar_pos + dir.z * _distance, clampf(delta * _distance_lerp_factor, 0, 1))

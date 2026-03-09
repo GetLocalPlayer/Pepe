@@ -38,10 +38,9 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"materials": {
-"Wall_EmptyWithShadow": {
-"use_external/enabled": false,
-"use_external/path": "res://scenes/flat/assets/Wall_EmptyWithShadow.tres"
+"nodes": {
+"PATH:WindowsLightBlocker": {
+"mesh_instance/cast_shadow": 3
 }
 }
 }
@@ -55,6 +54,7 @@ blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/gpu_instances=false
 blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false

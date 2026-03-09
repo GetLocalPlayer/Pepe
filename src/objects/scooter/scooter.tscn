@@ -1,35 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://btp3e3gnq88os"]
+[gd_scene format=3 uid="uid://btp3e3gnq88os"]
 
 [ext_resource type="PackedScene" uid="uid://rslctff181bp" path="res://assets/scooter/scooter.blend" id="1_5tgjj"]
-[ext_resource type="Script" uid="uid://ceg6a3l8uygwe" path="res://objects/scooter/scripts/camera_control.gd" id="1_cr7rw"]
 [ext_resource type="Script" uid="uid://begbuhinr178g" path="res://objects/scooter/scripts/scooter.gd" id="1_rh3xh"]
+[ext_resource type="Script" uid="uid://dgga0tqsmwvxp" path="res://scripts/pid_controller.gd" id="4_2bnfx"]
+[ext_resource type="PackedScene" uid="uid://do615pq8ed8fc" path="res://assets/delivery_bag/delivery_bag.blend" id="5_ao4ni"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qcxa"]
-size = Vector3(0.20101929, 0.6772175, 1.251266)
+size = Vector3(0.20101929, 0.5070658, 1.251266)
 
-[node name="Scooter" type="VehicleBody3D"]
+[node name="Scooter" type="VehicleBody3D" unique_id=184911787]
+collision_layer = 2
+mass = 110.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -0.2)
 script = ExtResource("1_rh3xh")
+_engine_force = 250.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49, -0.066)
+[node name="TiltController" type="Node" parent="." unique_id=1421538407]
+script = ExtResource("4_2bnfx")
+proportional_gain = 1.0
+derivative_gain = 0.1
+output_min = -90.0
+output_max = 90.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=939168838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54351723, -0.056346893)
 shape = SubResource("BoxShape3D_0qcxa")
 
-[node name="FrontWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24148874, 0.5877635)
+[node name="FrontWheel" type="VehicleWheel3D" parent="." unique_id=1023920430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24306881, 0.5802695)
+use_as_steering = true
 wheel_radius = 0.24
+wheel_rest_length = 0.1
+wheel_friction_slip = 0.75
+suspension_travel = 0.08
+suspension_stiffness = 200.0
+suspension_max_force = 3000.0
+damping_compression = 1.0
+damping_relaxation = 2.0
 
-[node name="BackWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24204932, -0.53233606)
+[node name="BackWheel" type="VehicleWheel3D" parent="." unique_id=1499692085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27222484, -0.532336)
+use_as_traction = true
 wheel_radius = 0.24
+wheel_rest_length = 0.12
+wheel_friction_slip = 0.65
+suspension_travel = 0.05
+suspension_stiffness = 250.0
+suspension_max_force = 5000.0
+damping_compression = 1.0
+damping_relaxation = 2.0
 
-[node name="CameraControl" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7351056, 0)
-script = ExtResource("1_cr7rw")
+[node name="Model" parent="." unique_id=1382544695 instance=ExtResource("1_5tgjj")]
 
-[node name="Camera3D" type="Camera3D" parent="CameraControl"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-metadata/_edit_lock_ = true
+[node name="Handlebar" parent="Model" index="2" unique_id=784684843]
+transform = Transform3D(1, 0, 0, 0, 0.962218, 0.27228025, 0, -0.27228025, 0.962218, 0, 0.59752, 0.39149898)
 
-[node name="Model" parent="." instance=ExtResource("1_5tgjj")]
+[node name="DeliveryBag" parent="." unique_id=1437624206 instance=ExtResource("5_ao4ni")]
+transform = Transform3D(-0.88, 0, -1.3287631e-07, 0, 0.88, 0, 1.3287631e-07, 0, -0.88, 0, 0.597066, -0.613)
+
+[node name="DeliveryBag" parent="DeliveryBag/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1437624206, 449921713) index="0" unique_id=1274516223]
+transform = Transform3D(1, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 1, 2.780972e-09, -0.0050415993, -0.018417597)
+
+[node name="AnimationPlayer" parent="DeliveryBag" index="1" unique_id=254075486]
+autoplay = &"idle"
 
 [editable path="Model"]
+[editable path="DeliveryBag"]

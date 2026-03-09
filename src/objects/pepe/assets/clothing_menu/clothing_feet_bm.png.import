@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bc44taawweuhv"
+path="res://.godot/imported/clothing_feet_bm.png-466da7a0c3b639c5e4c54d15cc4b0f4e.res"
+
+[deps]
+
+source_file="res://objects/pepe/assets/clothing_menu/clothing_feet_bm.png"
+dest_files=["res://.godot/imported/clothing_feet_bm.png-466da7a0c3b639c5e4c54d15cc4b0f4e.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

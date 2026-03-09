@@ -171,6 +171,9 @@ Right={
 
 3d_render/layer_1="General"
 3d_render/layer_5="Mirrored Objects"
+3d_physics/layer_1="Environment"
+3d_physics/layer_2="Movable"
+3d_physics/layer_3="Player"
 3d_physics/layer_10="Interactable"
 
 [shader_globals]

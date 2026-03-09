@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://duk652365qby8"
+path="res://.godot/imported/clothing_legs_bm.png-1ec3cffaa189f4a348c0dcae2560a13a.res"
+
+[deps]
+
+source_file="res://objects/pepe/assets/clothing_menu/clothing_legs_bm.png"
+dest_files=["res://.godot/imported/clothing_legs_bm.png-1ec3cffaa189f4a348c0dcae2560a13a.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
