@@ -10,6 +10,7 @@ var input_actions = {
 	sprint = "Sprint",
 	walk = "Walk",
 	backwards = "WalkBackwards",
+	mount = "MountDismount",
 }
 
 

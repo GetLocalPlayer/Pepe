@@ -42,24 +42,84 @@ var exhausted: bool = stamina <= 0:
 
 
 
-@onready var model: Node3D = $aigirl
+@onready var _model: Node3D = $aigirl
 @onready var _interactable_detector = $InteractableDetector
 @onready var _ui = {
 	interaction = get_node("/root/Interaction"),
 	inventory = get_node("/root/Inventory"),
 }
 
+
+@onready var _collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var _stairs_detector: PepeStairsDetector = $StairsDetector
+@onready var _hands_ik_controller: CCDIK3D = %HandsIKController
+@onready var _left_hand_ik_target: Marker3D = $LeftHandIKTarget
+@onready var _right_hand_ik_target: Marker3D = $RightHandIKTarget
+enum ik_target_type {LEFT_HAND, RIGHT_HAND}
+
+
+var _input_actions: Dictionary[String, String] = {
+	action = "Action",
+	inventory = "OpenInventory",
+}
+
+
+func get_ik_target(type: ik_target_type) -> Marker3D:
+	match type:
+		ik_target_type.LEFT_HAND:
+			return _left_hand_ik_target
+		ik_target_type.RIGHT_HAND:
+			return _right_hand_ik_target
+	return null
+
+
+func enable_hands_ik() -> void:
+	_hands_ik_controller.active = true
+
+
+func disable_hands_ik() -> void:
+	_hands_ik_controller.active = false
+
+	
 func get_animation_tree() -> AnimationTree:
 	return $AnimationTree
 
 
-func _input(_event):
-	if Input.is_action_just_pressed("Action"):
+
+func _input(event):
+	if event as InputEventKey: _handle_input_actions(event)
+
+
+func _handle_input_actions(event: InputEventKey) -> void:
+	if event.is_action(_input_actions.action):
 		if _interactable_detector.has_overlapping_areas():
 			get_viewport().set_input_as_handled()
 			var interactables: Array[Area3D] = _interactable_detector.get_overlapping_areas()
 			interactables.sort_custom(func(a, b): return a.interaction_priority > b.interaction_priority)
 			(interactables[0] as Interactable).interact()
-	if Input.is_action_just_pressed("OpenInventory"):
+	if event.is_action(_input_actions.inventory):
 		get_viewport().set_input_as_handled()
 		_ui.inventory.open()
+
+
+func enable_collision() -> void:
+	_collision_shape.set_deferred("disabled", false)
+	_stairs_detector.enable.call_deferred()
+	_interactable_detector.monitoring = true
+
+
+func disable_collision() -> void:
+	_collision_shape.set_deferred("disabled", true)
+	_stairs_detector.disable.call_deferred()
+	_interactable_detector.monitoring = false
+
+
+func get_overlaping_scooter() -> Scooter:
+	for b: Node3D in _interactable_detector.get_overlapping_bodies():
+		if b is Scooter:
+			return b as Scooter
+	return null
+
+
+func get_model() -> Node3D:
+	return _model

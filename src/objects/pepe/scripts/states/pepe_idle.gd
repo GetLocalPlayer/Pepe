@@ -7,7 +7,7 @@ enum Directions { LEFT = -1, STRAIGHT = 0, RIGHT = 1}
 var _accumulated_stamina: float
 
 var exhausted: bool = false
-var direction: int = 0
+var direction: int = Directions.STRAIGHT
 
 
 func _enter(context: Node):
@@ -22,7 +22,7 @@ func _update (context: Node, delta: float):
 	if direction:
 		var anim_tree = pepe.get_animation_tree()
 		var rm_rotation = anim_tree.get_root_motion_rotation()
-		pepe.model.quaternion *= rm_rotation
+		pepe.get_model().quaternion *= rm_rotation
 
 	var restored_stamina = delta * pepe.stamina_restoration_rate 
 	if exhausted:
@@ -32,6 +32,11 @@ func _update (context: Node, delta: float):
 	else:
 		pepe.stamina += restored_stamina
 	exhausted = pepe.exhausted
+	if not pepe.is_on_floor():
+		pepe.velocity = pepe.get_gravity()
+		pepe.move_and_slide()
+	else:
+		pepe.velocity = Vector3.ZERO
 
 
 func _handle_input(_context: Node, _event: InputEvent):

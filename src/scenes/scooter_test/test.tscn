@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bf3uqvfg3hr5g"]
 
+[ext_resource type="Script" uid="uid://c7f86ucmpf845" path="res://scenes/scooter_test/test.gd" id="1_f4vvm"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="1_njrt3"]
 [ext_resource type="PackedScene" uid="uid://i5un35uqish8" path="res://objects/orbital_camera/orbital_camera.tscn" id="2_bpspv"]
 [ext_resource type="PackedScene" uid="uid://btp3e3gnq88os" path="res://objects/scooter/scooter.tscn" id="2_nh8ps"]
@@ -31,11 +32,14 @@ orientation = 1
 
 [node name="Test" type="WorldEnvironment" unique_id=985627515]
 environment = SubResource("Environment_bpspv")
+script = ExtResource("1_f4vvm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=258262058]
 transform = Transform3D(0.8345306, -0.006932977, -0.550918, 0.5436775, -0.15169352, 0.8254718, -0.08929365, -0.9884033, -0.12282354, -3.3749917, 2.8131433, 0)
 shadow_enabled = true
 directional_shadow_mode = 1
+
+[node name="TestDriver" type="Node3D" parent="." unique_id=1004131871]
 
 [node name="Scooter" parent="." unique_id=184911787 instance=ExtResource("2_nh8ps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18539855, 0.2692696, -1.4496088)

@@ -8,6 +8,7 @@ class_name OrbitalCamera
 var _distance: float = lerp(_min_distance, _max_distance, 0.5)
 
 @export_range(0, 180, 5, "radians_as_degrees") var _max_angle: float = deg_to_rad(80)
+@export_range(0, -90, 5, "radians_as_degrees") var _min_angle: float = deg_to_rad(-60)
 @export_range(0, 90, 5, "radians_as_degrees") var _h_rotation_sensitivity = 0.2
 @export_range(0, 90, 5, "radians_as_degrees") var _v_rotation_sensitivity = 0.2
 @onready var _init_angle: float = _max_angle * 0.5
@@ -42,8 +43,8 @@ func _input(event: InputEvent) -> void:
 		var new_q = Quaternion(global_basis.x, rot.y) * quaternion
 		var euler = new_q.get_euler(EULER_ORDER_YXZ)
 		var a = euler.x if not is_equal_approx(absf(euler.z), PI) else PI - euler.x
-		if a < 0:
-			new_q = Quaternion(global_basis.x, absf(a)) * new_q
+		if a < _min_angle:
+			new_q = Quaternion(global_basis.x, _min_angle - a) * new_q
 		if a > _max_angle:
 			new_q = Quaternion(global_basis.x, _max_angle - a) * new_q
 		quaternion = new_q

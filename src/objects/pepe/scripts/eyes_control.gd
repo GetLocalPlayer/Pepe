@@ -31,4 +31,4 @@ func _process(_delta: float) -> void:
 	var controller = get_node_or_null(_eyes_uv_controller_path) as Node3D
 	var material = get_node(_eyes_path).mesh.surface_get_material(_eyes_material_index) as BaseMaterial3D
 	if controller and material:
-		material.uv1_offset = Vector3(controller.position.x , controller.position.z, material.uv1_offset.y)
+		material.uv1_offset = Vector3(controller.position.x , controller.position.z+0.045, material.uv1_offset.y)

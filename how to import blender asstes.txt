@@ -1,0 +1,28 @@
+Blender files can be imported directly (via hidden exporting to gltf).
+
+IMPORTANT:
+"Import acitve collection only" means SELECTED collection in the outliner.
+
+All external files must be packed.
+A scene can include linked objects and collection. Linked collections can include other linked objects. Packed blend-file, prepared for import, must make all linked collections local via Object -> Relations -> Make Local -> All.
+
+IMPORTANT:
+Make Local -> All in complex files can be not finished at first use becuase it will link libraries  from included files. Making local must be continued until all sublibraries in linked libraries are local. One must open "Library Overrides" and "Unused Data" in the outliner to make sure every library was included locally in the file.
+
+Each time the scene is reimported, corresponding "texture" folder inside Godot-project should be deleted and the blend-file must be re-imported (to ensure that changed textures were re-imported as well).
+
+
+DATA BLOCKS ERROERS:
+Using linked libraries/objects/scenes/overrides in blender, sometimes can occure " ERROR: Error: Data corruption: data-block" error in resulting packed scene. For this usually reopening and resaving the causing scene in blender is enough, then reimport in godot.
+
+
+OBJECTS INSTANCING:
+Object instancing works well if one's instancing on vertices/polygons an object inside the final scene, but won't work if the scene is linked to the final scene. So better created linked objects instead or using array modifier.
+
+
+ALPHA MODES
+Starting from Blender 4.2+ alpha modes were removed. Now blend-modes are controlled via nodes that are connected to alpha channel slot of a Principle BSDF material:
+- if no node is connected - the mode is considered to be OPAQUE
+- if connected a texture with "round" node between connecitons - the mode is MASK, alpha value will take only value between 0 and 1 by rounding to the clossest value
+- if the texture's alpha value is connected directrly to alpha-channel of the material - considere as BLEND mode
+IMPORTANT: Godot seems not to understand separated alpha textures, so if one connects a separated texture to alpha-value of the material's alpha-slot this texture will be considered as albedo texture inside Godot. That means alpha must be included in the main texture and the main texture must be connected as a separated node to the alpha slot.

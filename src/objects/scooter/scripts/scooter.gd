@@ -2,9 +2,12 @@ extends VehicleBody3D
 class_name Scooter
 
 
+var _driver: Node
 ## km/h
-@export var _max_speed: float = 50
-@export var _engine_force: float = 100
+@export var _max_speed: float = 67
+@export var _engine_force: float = 200
+@export var _backwards_engine_force: float = 75
+var _applied_engine_force: float = 0
 @export var _brake_force: float = 5
 @export var _tilt_stabilizing_factor: float = 10
 ## The higher the speed the lesser stabilization
@@ -19,6 +22,12 @@ class_name Scooter
 ## fully rotate the wheel and the handle bar
 ## to the steering angle.
 @export var _steering_time: float = 0.25
+
+
+@onready var _ik_remotes: Dictionary[String, RemoteTransform3D] = {
+	left = %LeftHandIKTarget,
+	right = %RightHandIKTarget,
+}
 
 
 @onready var _pid: PIDController = $TiltController
@@ -45,6 +54,32 @@ var _actions: Dictionary[String, String] = {
 }
 
 
+func set_driver(d: Node3D) -> void:
+	d.reparent(self)
+	d.global_position = global_position
+	d.global_basis = global_basis
+	_driver = d
+	_pid.reset()
+	freeze = false
+	
+
+
+func remove_driver() -> Node3D:
+	var d = _driver
+	d.reparent(get_parent())
+	_driver = null
+	_ik_remotes.left.remote_path = ""
+	_ik_remotes.right.remote_path = ""
+	return d
+
+
+func set_hands_ik(left_hand: Node3D, right_hand: Node3D) -> void:
+	if left_hand:
+		_ik_remotes.left.remote_path = left_hand.get_path()
+	if right_hand:
+		_ik_remotes.right.remote_path = right_hand.get_path()
+
+
 func _process(delta: float) -> void:
 	# Handlebar model rotation
 	var handlebar_x = _models.handlebar.global_basis.x
@@ -67,27 +102,32 @@ func _process(delta: float) -> void:
 	_models.back_wheel.global_transform = _wheels.back.global_transform
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if not _driver: return
 	if event as InputEventKey: _handle_input_actions(event)
-	if Input.is_key_pressed(KEY_E) and not event.is_echo():
-		get_tree().reload_current_scene()
 
 
 func _handle_input_actions(event: InputEventKey) -> void:
-	if event.is_action(_actions.forward):
-		_handle_engine_force(event.pressed)
+	var pressed = event.pressed
+	var echo = event.echo
+	if event.is_action(_actions.forward) or event.is_action(_actions.backwards):
+		_handle_engine_force(pressed and event.is_action(_actions.forward), pressed and event.is_action(_actions.backwards))
 	if event.is_action(_actions.brake):
-		_handle_brake(event.pressed and not event.echo, not event.pressed)
-	if (event.is_action(_actions.left) or event.is_action(_actions.right)) and not event.echo:
+		_handle_brake(pressed and not echo, not pressed)
+	if (event.is_action(_actions.left) or event.is_action(_actions.right)) and not echo:
 		var dir = 0
 		if event.is_action_pressed(_actions.left, true): dir -= 1 
 		if event.is_action_pressed(_actions.right, true): dir += 1
 		_handle_steering(dir)
 
 
-func _handle_engine_force(pressed: bool) -> void:
-	engine_force = _engine_force if pressed else 0.
-
+func _handle_engine_force(pressed_forward: bool, pressed_backwards: bool) -> void:
+	_applied_engine_force = 0
+	if pressed_forward:
+		_applied_engine_force = _engine_force
+	if pressed_backwards:
+		_applied_engine_force = -_backwards_engine_force
+		
 
 func _handle_brake(just_pressed: bool, just_released: bool) -> void:
 	if just_pressed:
@@ -95,7 +135,6 @@ func _handle_brake(just_pressed: bool, just_released: bool) -> void:
 		engine_force = 0
 		brake = _brake_force
 	if just_released:
-		brake = 0
 		brake = 0
 
 
@@ -108,8 +147,12 @@ func _handle_steering(dir: int) -> void:
 
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	if _wheels.back.get_rpm() >= _max_rpm:
-		engine_force = 0
+	engine_force = 0. if _wheels.back.get_rpm() >= _max_rpm else _applied_engine_force
+	if _driver:
+		_correct_tilt(state)
+
+
+func _correct_tilt(state: PhysicsDirectBodyState3D) -> void:
 	if not(_wheels.front.is_in_contact() or _wheels.back.is_in_contact()):
 		_pid.reset()
 		return
@@ -121,5 +164,5 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		state.apply_torque(global_basis.z * deg_to_rad(correction) * _tilt_stabilizing_factor * mass)
 		
 
-	
+
 		

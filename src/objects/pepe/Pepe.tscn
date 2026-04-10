@@ -19,10 +19,16 @@
 [ext_resource type="BitMap" uid="uid://bkaimtvrn16ip" path="res://objects/pepe/assets/clothing_menu/clothing_chest_bm.png" id="9_k80mr"]
 [ext_resource type="BitMap" uid="uid://duk652365qby8" path="res://objects/pepe/assets/clothing_menu/clothing_legs_bm.png" id="11_pmdbk"]
 [ext_resource type="BitMap" uid="uid://bc44taawweuhv" path="res://objects/pepe/assets/clothing_menu/clothing_feet_bm.png" id="13_2nf5a"]
+[ext_resource type="Script" uid="uid://dca6r6pqir2no" path="res://objects/pepe/scripts/stairs_detector.gd" id="15_2nf5a"]
+[ext_resource type="Script" uid="uid://bjoyfkt6ke75u" path="res://objects/pepe/scripts/states/pepe_driving.gd" id="20_r7k0l"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tfndm"]
-radius = 0.158848
-height = 1.51277
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_pmdbk"]
+length = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pmdbk"]
+margin = 0.33
+radius = 0.2
+height = 1.567186
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_5e1lb"]
 filter_enabled = true
@@ -42,6 +48,9 @@ blend_point_0/node = SubResource("AnimationNodeAnimation_h6q7n")
 blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_vcavu")
 blend_point_1/pos = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1tlk3"]
+animation = &"mounted"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_da37a"]
 animation = &"idle"
@@ -343,7 +352,20 @@ xfade_time = 0.3
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yonlw"]
 xfade_time = 0.3
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wf1g0"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4md7k"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f27k5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lym1o"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ves6g"]
+state_machine_type = 1
+states/Driving/node = SubResource("AnimationNodeAnimation_1tlk3")
+states/Driving/position = Vector2(454, -5)
 states/Idle/node = SubResource("AnimationNodeStateMachine_3wa6i")
 states/Idle/position = Vector2(226, -28)
 states/Move/node = SubResource("AnimationNodeBlendTree_6tdt1")
@@ -351,8 +373,8 @@ states/Move/position = Vector2(226, 106.75)
 states/Start/position = Vector2(-80, -28)
 states/t_pose/node = SubResource("AnimationNodeAnimation_8xa0w")
 states/t_pose/position = Vector2(84, -28)
-transitions = ["Start", "t_pose", SubResource("AnimationNodeStateMachineTransition_djx7l"), "t_pose", "Idle", SubResource("AnimationNodeStateMachineTransition_xajy5"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_da37a"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_yonlw")]
-graph_offset = Vector2(-229, -109.25)
+transitions = ["Start", "t_pose", SubResource("AnimationNodeStateMachineTransition_djx7l"), "t_pose", "Idle", SubResource("AnimationNodeStateMachineTransition_xajy5"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_da37a"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_yonlw"), "Idle", "Driving", SubResource("AnimationNodeStateMachineTransition_wf1g0"), "Driving", "Idle", SubResource("AnimationNodeStateMachineTransition_4md7k"), "Driving", "Move", SubResource("AnimationNodeStateMachineTransition_f27k5"), "Move", "Driving", SubResource("AnimationNodeStateMachineTransition_lym1o")]
+graph_offset = Vector2(-249, -197.25)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ytkbu"]
 filter_enabled = true
@@ -361,7 +383,7 @@ autorestart = true
 autorestart_random_delay = 5.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yonlw"]
-graph_offset = Vector2(-385.205, 6.6465607)
+graph_offset = Vector2(-428.16132, -46.86487)
 nodes/output/position = Vector2(440, 160)
 nodes/MovementStateMachine/node = SubResource("AnimationNodeStateMachine_ves6g")
 nodes/MovementStateMachine/position = Vector2(-340, 60)
@@ -379,10 +401,13 @@ node_connections = [&"output", 0, &"Add2", &"Moving", 0, &"MovementStateMachine"
 size = Vector3(0.307949, 1.52953, 0.338379)
 
 [node name="Pepe" type="CharacterBody3D" unique_id=70899364 groups=["Player"]]
-collision_layer = 6
-floor_snap_length = 0.5
+collision_layer = 4
+collision_mask = 3
+input_ray_pickable = false
 script = ExtResource("1_p8plj")
+max_stamina = 100.0
 stamina_consumption_rate = 5.0
+stamina = 100.0
 
 [node name="UI" type="Control" parent="." unique_id=2005444651]
 layout_mode = 3
@@ -516,9 +541,17 @@ texture_click_mask = ExtResource("13_2nf5a")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682157702]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.758854, 0)
-shape = SubResource("CapsuleShape3D_tfndm")
+[node name="StairsDetector" type="CollisionShape3D" parent="." unique_id=375068312]
+transform = Transform3D(1, 0, 0, 0, -4.371138e-08, -0.9999999, 0, 0.9999999, -4.371138e-08, 0, 0.25, 0.21803658)
+shape = SubResource("SeparationRayShape3D_pmdbk")
+debug_color = Color(0.16078432, 0.6117647, 0.56078434, 1)
+script = ExtResource("15_2nf5a")
+count = 100
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=257211302]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.8047921, 0)
+shape = SubResource("CapsuleShape3D_pmdbk")
+debug_color = Color(0.827451, 0.39215687, 0.14509805, 0.9137255)
 
 [node name="CameraTarget" type="Marker3D" parent="." unique_id=1026323190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14569, 0)
@@ -570,9 +603,13 @@ metadata/_custom_type_script = "uid://bacpym2h6aex"
 script = ExtResource("4_rkhwm")
 metadata/_custom_type_script = "uid://peoj2twnlfnm"
 
+[node name="Driving" type="Node" parent="FSM" unique_id=1611759339]
+script = ExtResource("20_r7k0l")
+metadata/_custom_type_script = "uid://peoj2twnlfnm"
+
 [node name="InteractableDetector" type="Area3D" parent="." unique_id=2128857562]
 collision_layer = 0
-collision_mask = 512
+collision_mask = 514
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableDetector" unique_id=1470746247]
@@ -580,18 +617,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00447661, 0.772427, 0.1188
 shape = SubResource("BoxShape3D_jbufl")
 metadata/_edit_group_ = true
 
-[node name="aigirl" parent="." unique_id=1032404511 instance=ExtResource("4_bsw5e")]
+[node name="aigirl" parent="." unique_id=835471666 instance=ExtResource("4_bsw5e")]
 
-[node name="Empty-uvanim-eyes_uv_idle" parent="aigirl/Armature/Eyes" parent_id_path=PackedInt32Array(1032404511, 1457530043) index="0" unique_id=301133116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2242962e-05, -1.2795978, -0.0561833)
+[node name="Empty-uvanim-eyes_uv_idle" parent="aigirl/Armature/Eyes" parent_id_path=PackedInt32Array(835471666, 1415485998) index="0" unique_id=1059682925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034774847, -1.2795978, -0.065374345)
+top_level = true
 
-[node name="Chest" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1032404511, 1405363700) index="1" unique_id=1676488880]
+[node name="Coat" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="2" unique_id=790224958]
 visible = false
 
-[node name="Feet" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1032404511, 1405363700) index="5" unique_id=547623]
+[node name="Feet" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="5" unique_id=1205444521]
 visible = false
 
-[node name="Legs" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1032404511, 1405363700) index="9" unique_id=585542387]
+[node name="Pants" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="10" unique_id=1187286371]
 visible = false
+
+[node name="HandsIKController" type="CCDIK3D" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="11" unique_id=1829512647]
+unique_name_in_owner = true
+visible = false
+active = false
+mutable_bone_axes = false
+angular_delta_limit = 0.8203047484373349
+deterministic = true
+setting_count = 2
+settings/0/target_node = NodePath("../../../../LeftHandIKTarget")
+settings/1/target_node = NodePath("../../../../RightHandIKTarget")
+settings/0/root_bone_name = "spine2"
+settings/0/root_bone = 4
+settings/0/end_bone_name = "hand.L"
+settings/0/end_bone = 77
+settings/0/extend_end_bone = false
+settings/0/joint_count = 5
+settings/1/root_bone_name = "spine2"
+settings/1/root_bone = 4
+settings/1/end_bone_name = "hand.R"
+settings/1/end_bone = 101
+settings/1/extend_end_bone = false
+settings/1/joint_count = 5
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+settings/0/joints/3/rotation_axis = 3
+settings/0/joints/3/limitation = null
+settings/0/joints/4/rotation_axis = 3
+settings/0/joints/4/limitation = null
+settings/1/joints/0/rotation_axis = 3
+settings/1/joints/0/limitation = null
+settings/1/joints/1/rotation_axis = 3
+settings/1/joints/1/limitation = null
+settings/1/joints/2/rotation_axis = 3
+settings/1/joints/2/limitation = null
+settings/1/joints/3/rotation_axis = 3
+settings/1/joints/3/limitation = null
+settings/1/joints/4/rotation_axis = 3
+settings/1/joints/4/limitation = null
+metadata/_edit_lock_ = true
+
+[node name="TransferRotation" type="Node3D" parent="aigirl" unique_id=1953471164]
+
+[node name="ToInteractableDetector" type="RemoteTransform3D" parent="aigirl/TransferRotation" unique_id=47779013]
+remote_path = NodePath("../../../InteractableDetector")
+update_position = false
+update_scale = false
+
+[node name="LeftHandIKTarget" type="Marker3D" parent="." unique_id=1699899355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2610149, 1.0560288, 0.27303645)
+gizmo_extents = 0.15
+
+[node name="RightHandIKTarget" type="Marker3D" parent="." unique_id=1256382701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28302428, 1.0113611, 0.27287456)
+gizmo_extents = 0.15
 
 [editable path="aigirl"]

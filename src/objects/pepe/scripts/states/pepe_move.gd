@@ -1,12 +1,9 @@
-extends PepeState
+extends PepeIdle
 class_name PepeMove
 
 
 enum Modes {WALK, RUN, SPRINT}
-enum Directions {LEFT = -1, STRAIGHT = 0, RIGHT = 1}
-
 var backwards: bool = false
-var direction = Directions.STRAIGHT
 var mode = 0 
 
 func _enter(_context: Node) -> void:
@@ -21,8 +18,9 @@ func _update(_context: Node, delta: float) -> void:
 	var anim_tree = pepe.get_animation_tree()
 	var rm_position = anim_tree.get_root_motion_position()
 	var rm_rotation = anim_tree.get_root_motion_rotation()
-	pepe.model.quaternion *= rm_rotation
-	pepe.velocity = pepe.model.quaternion * rm_position / delta
+	var model = pepe.get_model() as Node3D
+	model.quaternion *= rm_rotation
+	pepe.velocity = model.quaternion * rm_position / delta + (pepe.get_gravity() if not pepe.is_on_floor() else Vector3.ZERO)
 	pepe.move_and_slide()
 
 
@@ -38,10 +36,7 @@ func _handle_input(_context: Node, event: InputEvent) -> void:
 		mode = Modes.SPRINT
 	elif mode != Modes.WALK:
 		mode = Modes.RUN
-	var dir = Directions.STRAIGHT as int
-	dir += Directions.LEFT if Input.is_action_pressed(input_actions.left) and e.pressed else 0
-	dir += Directions.RIGHT if Input.is_action_pressed(input_actions.right) and e.pressed else 0
-	direction = dir as Directions
+	super._handle_input(_context, event)
 
 
 func _exit(_context: Node) -> void: pass
