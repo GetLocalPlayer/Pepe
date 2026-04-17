@@ -64,13 +64,11 @@ transform = Transform3D(1, 0, 0, 0, 0.962218, 0.27228025, 0, -0.27228025, 0.9622
 [node name="RightHandIKTarget" type="RemoteTransform3D" parent="Model/Handlebar" index="4" unique_id=1676503532]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303, 0.5881201, -0.09703159)
-update_rotation = false
 update_scale = false
 
 [node name="LeftHandIKTarget" type="RemoteTransform3D" parent="Model/Handlebar" index="5" unique_id=671907724]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303, 0.5881201, -0.09703159)
-update_rotation = false
 update_scale = false
 
 [node name="DeliveryBag" parent="." unique_id=1437624206 instance=ExtResource("5_ao4ni")]

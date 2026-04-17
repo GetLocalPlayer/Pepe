@@ -58,9 +58,10 @@ func _on_button_toggled(toggled: bool, body_part_name: String) -> void:
 	var mesh: MeshInstance3D
 	if _body_parts_parent_path:
 		mesh = get_node(_body_parts_parent_path).get_node(body_part_name)
-		if mesh and mesh.name != "Head": mesh.visible = not toggled
+		mesh.visible = not toggled
 		mesh = get_node(_clothing_paths[body_part_name])
 		if mesh: mesh.visible = toggled
+
 
 
 func _process(_delta: float) -> void:

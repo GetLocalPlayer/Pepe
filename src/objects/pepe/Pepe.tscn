@@ -378,19 +378,20 @@ graph_offset = Vector2(-249, -197.25)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ytkbu"]
 filter_enabled = true
-filters = ["", "Armature/Skeleton3D:Eyebrow.001.R", "Armature/Skeleton3D:Eyebrow.002.L", "Armature/Skeleton3D:Eyebrow.002.R", "Armature/Skeleton3D:Eyebrow.003.L", "Armature/Skeleton3D:Eyebrow.003.R", "Armature/Skeleton3D:Eyelid.016.L", "Armature/Skeleton3D:Eyelid.016.R", "Armature/Skeleton3D:Eyelid.017.L", "Armature/Skeleton3D:Eyelid.017.R", "Armature/Skeleton3D:Eyelid.018.L", "Armature/Skeleton3D:Eyelid.018.R", "Armature/Skeleton3D:Eyelid.019.L", "Armature/Skeleton3D:Eyelid.019.R", "Armature/Skeleton3D:Eyelid.020.L", "Armature/Skeleton3D:Eyelid.020.R", "Armature/Skeleton3D:Eyelid.021.L", "Armature/Skeleton3D:Eyelid.021.R", "Armature/Skeleton3D:Eyelid.022.L", "Armature/Skeleton3D:Eyelid.022.R", "Armature/Skeleton3D:Eyelid.023.L", "Armature/Skeleton3D:Eyelid.023.R", "Armature/Skeleton3D:Eyelid.025.L", "Armature/Skeleton3D:Eyelid.025.R", "Armature/Skeleton3D:EyelidBumpControl.010.L", "Armature/Skeleton3D:EyelidBumpControl.010.R", "Armature/Skeleton3D:EyelidBumpTop.L", "Armature/Skeleton3D:EyelidBumpTop.R", "Armature/Skeleton3D:EyelidControl.001.L", "Armature/Skeleton3D:EyelidControl.001.R", "Armature/Skeleton3D:EyelidControl.002.L", "Armature/Skeleton3D:EyelidControl.002.R", "Armature/Skeleton3D:EyelidControl.003.L", "Armature/Skeleton3D:EyelidControl.003.R", "Armature/Skeleton3D:EyelidControl.004.L", "Armature/Skeleton3D:EyelidControl.004.R", "Armature/Skeleton3D:EyelidControl.005.L", "Armature/Skeleton3D:EyelidControl.005.R", "Armature/Skeleton3D:EyelidControl.006.L", "Armature/Skeleton3D:EyelidControl.006.R", "Armature/Skeleton3D:EyelidControl.007.L", "Armature/Skeleton3D:EyelidControl.007.R", "Armature/Skeleton3D:EyelidControl.008.L", "Armature/Skeleton3D:EyelidControl.008.R", "Armature/Skeleton3D:EyelidControl.009.L", "Armature/Skeleton3D:EyelidControl.009.R"]
+filters = ["Armature/Skeleton3D:Eyebrow.001.R", "Armature/Skeleton3D:Eyebrow.002.L", "Armature/Skeleton3D:Eyebrow.002.R", "Armature/Skeleton3D:Eyebrow.003.L", "Armature/Skeleton3D:Eyebrow.003.R", "Armature/Skeleton3D:Eyelid.016.L", "Armature/Skeleton3D:Eyelid.016.R", "Armature/Skeleton3D:Eyelid.017.L", "Armature/Skeleton3D:Eyelid.017.R", "Armature/Skeleton3D:Eyelid.018.L", "Armature/Skeleton3D:Eyelid.018.R", "Armature/Skeleton3D:Eyelid.019.L", "Armature/Skeleton3D:Eyelid.019.R", "Armature/Skeleton3D:Eyelid.020.L", "Armature/Skeleton3D:Eyelid.020.R", "Armature/Skeleton3D:Eyelid.021.L", "Armature/Skeleton3D:Eyelid.021.R", "Armature/Skeleton3D:Eyelid.022.L", "Armature/Skeleton3D:Eyelid.022.R", "Armature/Skeleton3D:Eyelid.023.L", "Armature/Skeleton3D:Eyelid.023.R", "Armature/Skeleton3D:Eyelid.025.L", "Armature/Skeleton3D:Eyelid.025.R", "Armature/Skeleton3D:EyelidBumpControl.010.L", "Armature/Skeleton3D:EyelidBumpControl.010.R", "Armature/Skeleton3D:EyelidBumpTop.L", "Armature/Skeleton3D:EyelidBumpTop.R", "Armature/Skeleton3D:EyelidControl.001.L", "Armature/Skeleton3D:EyelidControl.001.R", "Armature/Skeleton3D:EyelidControl.002.L", "Armature/Skeleton3D:EyelidControl.002.R", "Armature/Skeleton3D:EyelidControl.003.L", "Armature/Skeleton3D:EyelidControl.003.R", "Armature/Skeleton3D:EyelidControl.004.L", "Armature/Skeleton3D:EyelidControl.004.R", "Armature/Skeleton3D:EyelidControl.005.L", "Armature/Skeleton3D:EyelidControl.005.R", "Armature/Skeleton3D:EyelidControl.006.L", "Armature/Skeleton3D:EyelidControl.006.R", "Armature/Skeleton3D:EyelidControl.007.L", "Armature/Skeleton3D:EyelidControl.007.R", "Armature/Skeleton3D:EyelidControl.008.L", "Armature/Skeleton3D:EyelidControl.008.R", "Armature/Skeleton3D:EyelidControl.009.L", "Armature/Skeleton3D:EyelidControl.009.R", "Armature/Skeleton3D:eyelid.016.L", "Armature/Skeleton3D:eyelid.016.R", "Armature/Skeleton3D:eyelid.017.L", "Armature/Skeleton3D:eyelid.017.R", "Armature/Skeleton3D:eyelid.018.L", "Armature/Skeleton3D:eyelid.018.R", "Armature/Skeleton3D:eyelid.019.L", "Armature/Skeleton3D:eyelid.019.R", "Armature/Skeleton3D:eyelid.020.L", "Armature/Skeleton3D:eyelid.020.R", "Armature/Skeleton3D:eyelid.021.L", "Armature/Skeleton3D:eyelid.021.R", "Armature/Skeleton3D:eyelid.022.L", "Armature/Skeleton3D:eyelid.022.R", "Armature/Skeleton3D:eyelid.023.L", "Armature/Skeleton3D:eyelid.023.R", "Armature/Skeleton3D:eyelid.025.L", "Armature/Skeleton3D:eyelid.025.R", "Armature/Skeleton3D:eyelidbumpcontrol.010.L", "Armature/Skeleton3D:eyelidbumpcontrol.010.R", "Armature/Skeleton3D:eyelidbumptop.L", "Armature/Skeleton3D:eyelidbumptop.R", "Armature/Skeleton3D:eyelidcontrol.001.L", "Armature/Skeleton3D:eyelidcontrol.001.R", "Armature/Skeleton3D:eyelidcontrol.002.L", "Armature/Skeleton3D:eyelidcontrol.002.R", "Armature/Skeleton3D:eyelidcontrol.003.L", "Armature/Skeleton3D:eyelidcontrol.003.R", "Armature/Skeleton3D:eyelidcontrol.004.L", "Armature/Skeleton3D:eyelidcontrol.004.R", "Armature/Skeleton3D:eyelidcontrol.005.L", "Armature/Skeleton3D:eyelidcontrol.005.R", "Armature/Skeleton3D:eyelidcontrol.006.L", "Armature/Skeleton3D:eyelidcontrol.006.R", "Armature/Skeleton3D:eyelidcontrol.007.L", "Armature/Skeleton3D:eyelidcontrol.007.R", "Armature/Skeleton3D:eyelidcontrol.008.L", "Armature/Skeleton3D:eyelidcontrol.008.R", "Armature/Skeleton3D:eyelidcontrol.009.L", "Armature/Skeleton3D:eyelidcontrol.009.R"]
 autorestart = true
+autorestart_delay = 0.5
 autorestart_random_delay = 5.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yonlw"]
-graph_offset = Vector2(-428.16132, -46.86487)
+graph_offset = Vector2(-312.64465, 11.86776)
 nodes/output/position = Vector2(440, 160)
 nodes/MovementStateMachine/node = SubResource("AnimationNodeStateMachine_ves6g")
 nodes/MovementStateMachine/position = Vector2(-340, 60)
 nodes/Moving/node = SubResource("AnimationNodeOneShot_ytkbu")
 nodes/Moving/position = Vector2(-40, 120)
 nodes/Eyes/node = SubResource("AnimationNodeBlendSpace1D_cb7tb")
-nodes/Eyes/position = Vector2(-400, 320)
+nodes/Eyes/position = Vector2(-400, 260)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_k80mr")
 nodes/Animation/position = Vector2(-80, 560)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_5e1lb")
@@ -465,10 +466,11 @@ _body_parts_parent_path = NodePath("../../aigirl/Armature/Skeleton3D")
 _clothing_paths = Dictionary[String, NodePath]({
 "Chest": NodePath("../../aigirl/Armature/Skeleton3D/Coat"),
 "Feet": NodePath("../../aigirl/Armature/Skeleton3D/Boots"),
+"Haircut": NodePath("../../aigirl/Armature/Skeleton3D/Hat"),
 "Head": NodePath("../../aigirl/Armature/Skeleton3D/Hat"),
 "Legs": NodePath("../../aigirl/Armature/Skeleton3D/Pants")
 })
-Head = NodePath("../../aigirl/Armature/Skeleton3D/Hat")
+Haircut = NodePath("../../aigirl/Armature/Skeleton3D/Hat")
 Chest = NodePath("../../aigirl/Armature/Skeleton3D/Coat")
 Legs = NodePath("../../aigirl/Armature/Skeleton3D/Pants")
 Feet = NodePath("../../aigirl/Armature/Skeleton3D/Boots")
@@ -485,7 +487,7 @@ layout_mode = 2
 texture = ExtResource("5_c2q3s")
 expand_mode = 1
 
-[node name="Head" type="TextureButton" parent="UI/Clothing" unique_id=1669293242]
+[node name="Haircut" type="TextureButton" parent="UI/Clothing" unique_id=1669293242]
 self_modulate = Color(0.30980393, 0.6745098, 0, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -617,23 +619,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00447661, 0.772427, 0.1188
 shape = SubResource("BoxShape3D_jbufl")
 metadata/_edit_group_ = true
 
-[node name="aigirl" parent="." unique_id=835471666 instance=ExtResource("4_bsw5e")]
+[node name="aigirl" parent="." unique_id=1682223256 instance=ExtResource("4_bsw5e")]
 
-[node name="Empty-uvanim-eyes_uv_idle" parent="aigirl/Armature/Eyes" parent_id_path=PackedInt32Array(835471666, 1415485998) index="0" unique_id=1059682925]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034774847, -1.2795978, -0.065374345)
-top_level = true
+[node name="Empty-uvanim-eyes_uv_idle" parent="aigirl/Armature/Eyes" parent_id_path=PackedInt32Array(1682223256, 1989897163) index="0" unique_id=1590703126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013741389, -1.2795978, -0.07402231)
 
-[node name="Coat" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="2" unique_id=790224958]
+[node name="Chest" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="1" unique_id=1719110116]
 visible = false
 
-[node name="Feet" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="5" unique_id=1205444521]
+[node name="Feet" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="5" unique_id=1536246729]
 visible = false
 
-[node name="Pants" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="10" unique_id=1187286371]
+[node name="Haircut" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="6" unique_id=1047207035]
 visible = false
 
-[node name="HandsIKController" type="CCDIK3D" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(835471666, 129519936) index="11" unique_id=1829512647]
+[node name="HandsIKController" type="CCDIK3D" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="9" unique_id=1829512647]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2243137e-05, 0, -0.0023799485)
 visible = false
 active = false
 mutable_bone_axes = false
@@ -645,13 +647,13 @@ settings/1/target_node = NodePath("../../../../RightHandIKTarget")
 settings/0/root_bone_name = "spine2"
 settings/0/root_bone = 4
 settings/0/end_bone_name = "hand.L"
-settings/0/end_bone = 77
+settings/0/end_bone = 84
 settings/0/extend_end_bone = false
 settings/0/joint_count = 5
 settings/1/root_bone_name = "spine2"
 settings/1/root_bone = 4
 settings/1/end_bone_name = "hand.R"
-settings/1/end_bone = 101
+settings/1/end_bone = 108
 settings/1/extend_end_bone = false
 settings/1/joint_count = 5
 settings/0/joints/0/rotation_axis = 3
@@ -675,6 +677,46 @@ settings/1/joints/3/limitation = null
 settings/1/joints/4/rotation_axis = 3
 settings/1/joints/4/limitation = null
 metadata/_edit_lock_ = true
+
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="10" unique_id=543991071]
+setting_count = 1
+settings/0/root_bone_name = "ponytail"
+settings/0/root_bone = 74
+settings/0/end_bone_name = "ponytail.006"
+settings/0/end_bone = 80
+settings/0/extend_end_bone = false
+settings/0/center_from = 1
+settings/0/center_node = NodePath("../../../..")
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.2
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 1.41
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.62
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/joints/0/bone_name = "ponytail"
+settings/0/joints/0/bone = 74
+settings/0/joints/1/bone_name = "ponytail.001"
+settings/0/joints/1/bone = 75
+settings/0/joints/2/bone_name = "ponytail.002"
+settings/0/joints/2/bone = 76
+settings/0/joints/3/bone_name = "ponytail.003"
+settings/0/joints/3/bone = 77
+settings/0/joints/4/bone_name = "ponytail.004"
+settings/0/joints/4/bone = 78
+settings/0/joints/5/bone_name = "ponytail.005"
+settings/0/joints/5/bone = 79
+settings/0/joints/6/bone_name = "ponytail.006"
+settings/0/joints/6/bone = 80
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0
+
+[node name="Legs" parent="aigirl/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1682223256, 838154624) index="12" unique_id=241536014]
+visible = false
 
 [node name="TransferRotation" type="Node3D" parent="aigirl" unique_id=1953471164]
 
