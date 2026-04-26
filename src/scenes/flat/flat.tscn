@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://driabqxeux3yx" path="res://assets/pot/textures/orm.jpg" id="5_jpwgw"]
 [ext_resource type="PackedScene" uid="uid://dgxowpv6brivr" path="res://assets/interior/front_door/front_door.blend" id="6_7b3xq"]
 [ext_resource type="PackedScene" uid="uid://drt5vlo3ijlnl" path="res://assets/furniture/1stflr_bathroom_sink/1stflr_bathroom_sink.blend" id="6_8shmh"]
+[ext_resource type="Shader" uid="uid://b8am10y0gmhfh" path="res://objects/interactable/iteractable_option_button_focus_shader.tres" id="6_cexls"]
 [ext_resource type="PackedScene" uid="uid://da6iyryjbb4bu" path="res://assets/furniture/badbed/badbed.blend" id="6_l4awr"]
 [ext_resource type="PackedScene" uid="uid://p57dsa16x661" path="res://assets/furniture/old_kitchen_set/block1.blend" id="6_u2jdq"]
 [ext_resource type="Texture2D" uid="uid://ddwodcimg3m8j" path="res://assets/pot/textures/normal.jpg" id="6_v44g8"]
@@ -59,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6kcpuv48pvy" path="res://assets/doodads/old_ussr_bath/old_ussr_bath.blend" id="27_uf6vt"]
 [ext_resource type="PackedScene" uid="uid://g0gxjb1hr4sr" path="res://assets/doodads/electric_iron/electric_iron.blend" id="28_fwwkt"]
 [ext_resource type="PackedScene" uid="uid://bi8s568sc50q2" path="res://assets/doodads/clock_sun/clock_sun.blend" id="28_x6ppr"]
+[ext_resource type="Script" uid="uid://csawkbnff4lp6" path="res://autoload/ui/pickup/yesnobutton.gd" id="29_81frv"]
 [ext_resource type="PackedScene" uid="uid://ctkot3gclk41d" path="res://assets/interior/doors/doors.blend" id="30_w05d5"]
 [ext_resource type="PackedScene" uid="uid://djkjc7negcfwv" path="res://assets/furniture/toilet/toilet.blend" id="32_eskl1"]
 [ext_resource type="PackedScene" uid="uid://bh4you08vdngs" path="res://assets/furniture/cabinet_wall/cabinet_wall.blend" id="32_wjycb"]
@@ -98,6 +100,13 @@ tonemap_agx_contrast = 1.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbdbb"]
 size = Vector3(6.0480347, 6.875107, 1.9257813)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1cua"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5og8"]
 resource_name = "Frame"
@@ -183,25 +192,39 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2t8hf")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bx3p"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_raxkr"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pbdbb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3gewt"]
 viewport_path = NodePath("Rooms/Hall/dressing_table/Mirror/MirrorViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3yhj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8j1x"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_pbdbb")
+shader_parameter/video_texture = SubResource("ViewportTexture_3gewt")
 shader_parameter/mesh_size = Vector2(0.685, 1.434)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cexls"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gme4g"]
 size = Vector2(0.685, 1.434)
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hg1p"]
 size = Vector3(4.60729, 2.8627226, 5.054959)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6lpg"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6mck"]
 margin = 0.18
@@ -342,8 +365,22 @@ shadow_mesh = SubResource("ArrayMesh_o3iuo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhap"]
 size = Vector3(2.22266, 0.829834, 0.322205)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owjrw"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rilif"]
 size = Vector3(0.238587, 0.456573, 0.523041)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsg7c"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbdbb"]
 radius = 0.4506836
@@ -355,6 +392,13 @@ radius = 0.35423
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6ra0"]
 size = Vector3(0.912354, 0.77063, 0.325333)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd1fw"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jt0ws"]
 radius = 0.475562
@@ -368,18 +412,25 @@ size = Vector3(4.51436, 2.760085, 1.7516668)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gorao"]
 size = Vector3(1.67349, 2.5992718, 1.8631)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_81frv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4g5bp"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vmnr8"]
 viewport_path = NodePath("Rooms/Bathroom/Mirror/MirrorViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1cua"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quhk8"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_81frv")
+shader_parameter/video_texture = SubResource("ViewportTexture_vmnr8")
 shader_parameter/mesh_size = Vector2(0.615, 0.68)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_2bx3p"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5lrmy"]
 size = Vector2(0.6, 0.7)
 center_offset = Vector3(0, 0, 0.005)
 orientation = 2
@@ -387,11 +438,32 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_76ewo"]
 size = Vector3(1.66099, 3.026884, 0.968225)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u45j"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_chguj"]
 size = Vector3(0.468994, 0.980957, 1.22998)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_njd6n"]
 size = Vector3(3.79924, 2.54328, 2.97526)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy6ni"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq5ut"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jude3"]
 size = Vector3(0.382385, 1.0651255, 0.40551758)
@@ -899,6 +971,13 @@ shadow_mesh = SubResource("ArrayMesh_am2ml")
 [sub_resource type="BoxShape3D" id="BoxShape3D_sso28"]
 size = Vector3(1.52887, 0.874023, 0.286743)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vygft"]
+shader = ExtResource("6_cexls")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tbr3u"]
 radius = 0.578125
 
@@ -998,10 +1077,10 @@ light_color = Color(0.9372549, 0.2901961, 0.105882354, 1)
 light_energy = 5.0
 shadow_enabled = true
 
-[node name="Ceiling" parent="Floor_003" parent_id_path=PackedInt32Array(447759260) index="1" unique_id=1170384722]
+[node name="Ceiling" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="1" unique_id=538834283]
 cast_shadow = 2
 
-[node name="Walls_001" parent="Floor_003" parent_id_path=PackedInt32Array(447759260) index="6" unique_id=2134534951]
+[node name="Walls_001" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="6" unique_id=1711019339]
 cast_shadow = 2
 
 [node name="Rooms" type="Node3D" parent="." index="2" unique_id=1784528622]
@@ -1027,8 +1106,8 @@ script = ExtResource("9_rh8il")
 _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
-[node name="CollisionShape3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.391154e-12, 0, 1, 0, 4.391154e-12, 0, 1, 0.055247784, -0.008444548, 0.053301454)
+[node name="BaseButton" parent="Rooms/Hall/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1606343862, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_i1cua")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="1" unique_id=771602814]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.479615, 0.592315, 0.537196)
@@ -1039,31 +1118,37 @@ shadow_transmittance_bias = -7.877
 shadow_blur = 10.0
 omni_attenuation = 0.366021
 
+[node name="CollisionShape3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -4.391154e-12, 0, 1, 0, 4.391154e-12, 0, 1, 0.028377116, -0.008444548, -0.0013860464)
+
 [node name="door_with_frame" parent="Rooms/Hall" index="3" unique_id=1644362715 instance=ExtResource("6_7b3xq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0122244, 0, 1.0792)
 
 [node name="picture_ba2sai2" parent="Rooms/Hall" index="4" unique_id=1196865680 instance=ExtResource("7_mk6hs")]
 transform = Transform3D(0.555, 0, 0, 0, 0.555, 0, 0, 0, 0.555, -0.8254, 1.61498, -0.794971)
 
-[node name="Frame" parent="Rooms/Hall/picture_ba2sai2" index="0"]
+[node name="Frame" parent="Rooms/Hall/picture_ba2sai2" index="0" unique_id=14895988]
 mesh = SubResource("ArrayMesh_p314k")
 
-[node name="Picture_002" parent="Rooms/Hall/picture_ba2sai2" index="1"]
+[node name="Picture_002" parent="Rooms/Hall/picture_ba2sai2" index="1" unique_id=1126233969]
 transform = Transform3D(0.707107, -2.98023e-08, -0.707107, -0.707107, 5.96046e-08, -0.707107, 2.98023e-08, 1, -3.55271e-15, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ij32e")
 
-[node name="Picture_001" parent="Rooms/Hall/picture_ba2sai2" index="2"]
+[node name="Picture_001" parent="Rooms/Hall/picture_ba2sai2" index="2" unique_id=1729267214]
 visible = false
 
 [node name="Interactable" parent="Rooms/Hall/picture_ba2sai2" index="3" unique_id=343235869 instance=ExtResource("9_mbwjg")]
 _lines = Array[String](["A masterpiece.", "Do you like the picture?"])
 _options = Array[String](["Yes", "Of course", "Definitely", "No doubt"])
 
-[node name="CollisionShape3D" parent="Rooms/Hall/picture_ba2sai2/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Hall/picture_ba2sai2/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(343235869, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_2bx3p")
+
+[node name="CollisionShape3D" parent="Rooms/Hall/picture_ba2sai2/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.62212, 0)
 shape = SubResource("CylinderShape3D_raxkr")
 
-[node name="Camera3D" parent="Rooms/Hall/picture_ba2sai2/Interactable" index="1"]
+[node name="Camera3D" parent="Rooms/Hall/picture_ba2sai2/Interactable" index="2" unique_id=1622127475]
 transform = Transform3D(2.29559, 0.00384046, 0.0398849, 0, 3.98158, -0.383381, -0.0698045, 0.383299, 3.98072, 0.0205981, -0.134089, 0.945817)
 visible = true
 
@@ -1072,9 +1157,12 @@ transform = Transform3D(-4.23126e-08, 0, -0.968, 0, 0.968, 0, 0.968, 0, -4.23126
 
 [node name="Mirror" parent="Rooms/Hall/dressing_table" index="2" unique_id=1803904182 node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.999999, 0, 3.907985e-14, 0, 0.999999, 0, -3.907985e-14, 0, 0.999999, 3.5762787e-07, 1.2963393, -0.12224102)
-material_override = SubResource("ShaderMaterial_m3yhj")
-mesh = SubResource("PlaneMesh_cexls")
+material_override = SubResource("ShaderMaterial_g8j1x")
+mesh = SubResource("PlaneMesh_gme4g")
 _main_camera = NodePath("../../Camera3D")
+
+[node name="MirrorViewport" parent="Rooms/Hall/dressing_table/Mirror" index="0"]
+size = Vector2i(524, 344)
 
 [node name="MirrorCamera" parent="Rooms/Hall/dressing_table/Mirror/MirrorViewport" index="0"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.911009, 0.93004775, 0.8410306)
@@ -1103,9 +1191,8 @@ script = ExtResource("9_rh8il")
 _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
-[node name="CollisionShape3D" parent="Rooms/Room/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894594, -0.0717773, 0.00210434)
-shape = SubResource("BoxShape3D_x6mck")
+[node name="BaseButton" parent="Rooms/Room/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(993763967, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_n6lpg")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Room/simple_light_switch/Interactable" index="1" unique_id=1092908274]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.945339, 0.592315, 1.18896)
@@ -1117,73 +1204,77 @@ shadow_enabled = true
 shadow_blur = 10.0
 omni_attenuation = 0.225313
 
+[node name="CollisionShape3D" parent="Rooms/Room/simple_light_switch/Interactable" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -4.37694e-12, 0, 1, 0, 4.37694e-12, 0, 1, -0.00894594, -0.0717773, 0.00210434)
+shape = SubResource("BoxShape3D_x6mck")
+
 [node name="badbed" parent="Rooms/Room" index="3" unique_id=46855004 instance=ExtResource("6_l4awr")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.73769, 0, -2.18073)
 
 [node name="picture_ba2sai" parent="Rooms/Room" index="4" unique_id=105790365 instance=ExtResource("7_mk6hs")]
 transform = Transform3D(-2.88495e-08, 0, -0.5, 0, 0.5, 0, 0.66, 0, -2.18557e-08, 2.879, 1.788, -0.142)
 
-[node name="Picture_002" parent="Rooms/Room/picture_ba2sai" index="1"]
+[node name="Picture_002" parent="Rooms/Room/picture_ba2sai" index="1" unique_id=1126233969]
 visible = false
 
-[node name="Picture_001" parent="Rooms/Room/picture_ba2sai" index="2"]
+[node name="Picture_001" parent="Rooms/Room/picture_ba2sai" index="2" unique_id=1729267214]
 transform = Transform3D(0.707107, 2.21128e-08, -0.707107, -0.707107, 5.33851e-08, -0.707107, 2.21128e-08, 1, 5.33851e-08, 0, 0, 0)
 
 [node name="balcony_window_door_with_sliders" parent="Rooms/Room" index="5" unique_id=1431278960 instance=ExtResource("13_4blpo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305822, 1.06372, -3.00929)
 
-[node name="Cage" parent="Rooms/Room/balcony_window_door_with_sliders" index="0"]
+[node name="Cage" parent="Rooms/Room/balcony_window_door_with_sliders" index="0" unique_id=2135464835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783335, 0.35, 0)
 
-[node name="Door" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="0"]
+[node name="Door" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="0" unique_id=2063603157]
 transform = Transform3D(-0.801776, 0, -0.597625, 0, 1, 0, 0.597625, 0, -0.801776, -2.24667, 0.675, 0.110032)
 
-[node name="Glass" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/Door" index="0"]
+[node name="Glass" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/Door" index="0" unique_id=762030426]
 cast_shadow = 0
 
-[node name="FrameA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="1"]
+[node name="FrameA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="1" unique_id=2066572161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312444, 0, 0)
 
-[node name="GlassA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameA" index="0"]
+[node name="GlassA" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameA" index="0" unique_id=1576051256]
 cast_shadow = 0
 
-[node name="FrameB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="2"]
+[node name="FrameB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="2" unique_id=702967735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81687, 0, 0)
 
-[node name="GlassB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameB" index="0"]
+[node name="GlassB" parent="Rooms/Room/balcony_window_door_with_sliders/Cage/FrameB" index="0" unique_id=1645110929]
 cast_shadow = 0
 
-[node name="Windowsill" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="4"]
+[node name="Windowsill" parent="Rooms/Room/balcony_window_door_with_sliders/Cage" index="4" unique_id=1177385940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.535152, 0.197106)
 
 [node name="separated_pipes" parent="Rooms/Room/balcony_window_door_with_sliders" index="1" unique_id=1385585638 instance=ExtResource("20_gv8pu")]
 transform = Transform3D(-1.688, 0, 0.000618419, 0, 1.688, 0, -0.000618419, 0, -1.688, 2.19618, 0.00528002, 0.24629)
 
-[node name="Var_001" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="0"]
+[node name="Var_001" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="0" unique_id=317242715]
 visible = false
 
-[node name="Var_002" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="1"]
+[node name="Var_002" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="1" unique_id=692888448]
 transform = Transform3D(1, 0, -4.94765e-10, 0, 1, 0, 4.94765e-10, 0, 1, 0.0699999, -0.599745, 0.0469992)
 
-[node name="Var_003" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="2"]
+[node name="Var_003" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="2" unique_id=1465147433]
 transform = Transform3D(1, 0, -5.82077e-11, 0, 1, 0, 5.82077e-11, 0, 1, 0, 0, 0)
 visible = false
 
-[node name="Var_004" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="3"]
+[node name="Var_004" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="3" unique_id=1893598981]
 visible = false
 
-[node name="Var_005" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="4"]
+[node name="Var_005" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="4" unique_id=2080224143]
 transform = Transform3D(-0.581271, 0, -0.81371, 0, 1, 0, 0.81371, 0, -0.581271, 0.219675, -0.249782, 0.0469444)
 visible = false
 
-[node name="Var_006" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="5"]
+[node name="Var_006" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="5" unique_id=21376208]
 transform = Transform3D(-1, 0, -8.68167e-08, 0, 1, 0, 8.68167e-08, 0, -1, 0.122995, -0.611, 0.0469804)
 visible = false
 
-[node name="Var_007" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="6"]
+[node name="Var_007" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="6" unique_id=2921080]
 transform = Transform3D(4.37114e-08, -1, -8.69331e-08, -1, -4.37114e-08, 0, -3.80078e-15, 8.66421e-08, -1, 0.637284, -0.228474, 0.0470014)
 
-[node name="Var_008" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="7"]
+[node name="Var_008" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="7" unique_id=300844522]
 transform = Transform3D(1, 1.38778e-17, 3.20142e-10, 0, -1, 8.74228e-08, 3.20142e-10, -8.74228e-08, -1, 0.07, 0.601, 0.047)
 
 [node name="Var_017" type="MeshInstance3D" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="8" unique_id=2116776657]
@@ -1226,13 +1317,13 @@ transform = Transform3D(1, 1.38778e-17, 2.61934e-10, 0, -1, 8.74228e-08, 2.61934
 mesh = SubResource("ArrayMesh_o73bb")
 skeleton = NodePath("")
 
-[node name="Var_009" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="16"]
+[node name="Var_009" parent="Rooms/Room/balcony_window_door_with_sliders/separated_pipes" index="16" unique_id=1342534425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700002, -0.247571, 0.0469995)
 
 [node name="old_radiator" parent="Rooms/Room/balcony_window_door_with_sliders" index="2" unique_id=527201761 instance=ExtResource("20_j8u1d")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.786768, -0.913457, 0.164247)
 
-[node name="Small" parent="Rooms/Room/balcony_window_door_with_sliders/old_radiator" index="1"]
+[node name="Small" parent="Rooms/Room/balcony_window_door_with_sliders/old_radiator" index="1" unique_id=1318080275]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rooms/Room/balcony_window_door_with_sliders" index="3" unique_id=292062188]
@@ -1250,11 +1341,14 @@ transform = Transform3D(-7.08124e-08, 0, -0.791, 0, 1.587, 0, 1.62, 0, -3.45757e
 [node name="Interactable" parent="Rooms/Room/school_wardrobe/russian_poster_1" index="1" unique_id=1779417210 instance=ExtResource("9_mbwjg")]
 _lines = Array[String](["The favorite game of my childhood.", "My grandma bought this poster when I was six.", "Can't believe she kept it so carefuly all these years."])
 
-[node name="CollisionShape3D" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1779417210, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_owjrw")
+
+[node name="CollisionShape3D" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(0.999999, 0, 3.90799e-14, 0, 0.999994, 0, -1.98952e-13, 0, 1, 0.125321, -0.0562931, 0.157944)
 shape = SubResource("BoxShape3D_rilif")
 
-[node name="Camera3D" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable" index="1"]
+[node name="Camera3D" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable" index="2" unique_id=1622127475]
 transform = Transform3D(0.588938, -0.0528607, -0.177193, 2.09227e-08, 0.603823, -0.180134, 0.378702, 0.344812, 1.15583, -0.108684, -0.0330454, 0.376559)
 visible = true
 fov = 68.2
@@ -1262,25 +1356,25 @@ fov = 68.2
 [node name="double_door" parent="Rooms/Room" index="7" unique_id=1866389027 instance=ExtResource("16_ftyik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532874, -0.00266838, 2.19396)
 
-[node name="Door" parent="Rooms/Room/double_door" index="1"]
+[node name="Door" parent="Rooms/Room/double_door" index="1" unique_id=657416233]
 transform = Transform3D(-0.795992, 0, 0.605307, 0, 1, 0, -0.605307, 0, -0.795992, -0.99, 0, -0.1)
 
-[node name="DoorGlass" parent="Rooms/Room/double_door/Door" index="0"]
+[node name="DoorGlass" parent="Rooms/Room/double_door/Door" index="0" unique_id=1385994943]
 cast_shadow = 0
 
-[node name="Handle Base" parent="Rooms/Room/double_door/Door" index="1"]
+[node name="Handle Base" parent="Rooms/Room/double_door/Door" index="1" unique_id=888270092]
 transform = Transform3D(0.997599, 0.000956744, 0.0692489, 0.0692489, -0.0275925, -0.997218, 0.000956684, 0.999619, -0.0275925, 0.88786, 1, 0.0199999)
 
-[node name="Door_002" parent="Rooms/Room/double_door" index="2"]
+[node name="Door_002" parent="Rooms/Room/double_door" index="2" unique_id=577354419]
 transform = Transform3D(0.95985, 0, -0.280516, 0, 1, 0, 0.280516, 0, 0.95985, 0.99, 0, -0.1)
 
-[node name="DoorGlass_001" parent="Rooms/Room/double_door/Door_002" index="0"]
+[node name="DoorGlass_001" parent="Rooms/Room/double_door/Door_002" index="0" unique_id=313624348]
 cast_shadow = 0
 
-[node name="Handle Base_001" parent="Rooms/Room/double_door/Door_002" index="1"]
+[node name="Handle Base_001" parent="Rooms/Room/double_door/Door_002" index="1" unique_id=460359861]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.88786, 1, 0.02)
 
-[node name="Handle_001" parent="Rooms/Room/double_door/Door_002" index="2"]
+[node name="Handle_001" parent="Rooms/Room/double_door/Door_002" index="2" unique_id=789730470]
 transform = Transform3D(0.996539, 0.000170343, -0.083125, -0.083125, 0.00409131, -0.996531, 0.000170369, 0.999992, 0.00409131, -0.88786, 1, 0.02)
 
 [node name="wheelchair" parent="Rooms/Room" index="8" unique_id=1771840731 instance=ExtResource("17_mhgov")]
@@ -1289,7 +1383,10 @@ transform = Transform3D(-0.794298, 0, 0.607528, 0, 1, 0, -0.607528, 0, -0.794298
 [node name="Interactable" parent="Rooms/Room/wheelchair" index="2" unique_id=1075778933 instance=ExtResource("9_mbwjg")]
 _lines = Array[String](["The wheelchair my granma spent her last years in.", "Even though she always looked happy when we were on a walk, I believe she hated this thing deeply.", "\"A portable prison\", as she once jokingly called it."])
 
-[node name="CollisionShape3D" parent="Rooms/Room/wheelchair/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Room/wheelchair/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1075778933, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_nsg7c")
+
+[node name="CollisionShape3D" parent="Rooms/Room/wheelchair/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.07391095, -0.09625888, -0.024765968)
 shape = SubResource("CapsuleShape3D_pbdbb")
 
@@ -1305,7 +1402,22 @@ _default_interaction_line = "[center]You have found  an [color=#{_item_name_colo
 _interaction_lines = Array[String](["You've just found an [color=#{_item_name_color}]{_item_name}[/color].", "This is an extremally strong weapon.", "The true tool of violence and massacre.", "Are you sure you want to carry such a deadly thing with you?"])
 _item_name = "Iron"
 
-[node name="CollisionShape3D" parent="Rooms/Room/office_desk/Pickable" index="0"]
+[node name="UI" parent="Rooms/Room/office_desk/Pickable" index="0" unique_id=701153672]
+visible = false
+
+[node name="BaseButton" parent="Rooms/Room/office_desk/Pickable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1578130341, 140207785) index="0" unique_id=2126020029]
+unique_name_in_owner = true
+text = "Button 1
+"
+script = ExtResource("29_81frv")
+
+[node name="Text" parent="Rooms/Room/office_desk/Pickable/UI" index="1" unique_id=1660217933]
+unique_name_in_owner = true
+
+[node name="NextLineButton" parent="Rooms/Room/office_desk/Pickable/UI/Text" index="2" unique_id=18934470]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" parent="Rooms/Room/office_desk/Pickable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_q5ewd")
 
@@ -1315,17 +1427,17 @@ transform = Transform3D(0.608969, -0.781144, -0.137737, -8.88181e-16, -0.173648,
 [node name="carpet" parent="Rooms/Room" index="11" unique_id=573809569 instance=ExtResource("25_0il33")]
 transform = Transform3D(0.00350806, 0, -1.5, 0, 1.5, 0, 1.5, 0, 0.00350806, 0.0231054, 0, -0.119982)
 
-[node name="var_001" parent="Rooms/Room/carpet" index="0"]
+[node name="var_001" parent="Rooms/Room/carpet" index="0" unique_id=446763939]
 visible = false
 
-[node name="var_004" parent="Rooms/Room/carpet" index="1"]
+[node name="var_004" parent="Rooms/Room/carpet" index="1" unique_id=300803536]
 visible = false
 
-[node name="var_003" parent="Rooms/Room/carpet" index="2"]
+[node name="var_003" parent="Rooms/Room/carpet" index="2" unique_id=1544968305]
 transform = Transform3D(0.996105, 0, -0.0881815, 0, 1, 0, 0.0881815, 0, 0.996105, 0, 0, 0)
 visible = false
 
-[node name="var_002" parent="Rooms/Room/carpet" index="3"]
+[node name="var_002" parent="Rooms/Room/carpet" index="3" unique_id=1980741656]
 transform = Transform3D(0.992498, 0, 0.136872, 0, 1, 0, -0.11891, 0, 1.14241, 0, 0, 0)
 
 [node name="clock_sun" parent="Rooms/Room" index="12" unique_id=1534938209 instance=ExtResource("28_x6ppr")]
@@ -1347,24 +1459,27 @@ transform = Transform3D(-0.628113, 0, -0.111885, 0, 0.571, 0, 0.111885, 0, -0.62
 transform = Transform3D(0.390236, 0, -1.11784, 0, 1.184, 0, 1.11784, 0, 0.390236, -0.0854983, 0.299102, 0.0807008)
 _lines = Array[String](["I was taught to work on a sewing machine.", "Never liked it."])
 
-[node name="CollisionShape3D" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1136615416, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_dd1fw")
+
+[node name="CollisionShape3D" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 5.9604645e-08, 0, 1.0000399, 0, -5.9604645e-08, 0, 1, 0.11129904, 0.069857, 0.07098174)
 shape = SubResource("SphereShape3D_jt0ws")
 
-[node name="Camera3D" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable" index="1"]
+[node name="Camera3D" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable" index="2" unique_id=1622127475]
 transform = Transform3D(0.0306587, -0.657042, 1.18047, 0, 1.18077, 0.657212, -1.351, -0.0149104, 0.0267887, 0.377, 0.181079, -0.0750003)
 visible = true
 
 [node name="ironing_board" parent="Rooms/Room" index="14" unique_id=1233070578 instance=ExtResource("33_f5bsn")]
 transform = Transform3D(0.0144612, -0.985139, 0.171149, 0.0140876, 0.171351, 0.98511, -0.999796, -0.0118348, 0.0163562, 2.74806, 0.568536, -1.40422)
 
-[node name="Board" parent="Rooms/Room/ironing_board/Armature/Skeleton3D" index="1"]
+[node name="Board" parent="Rooms/Room/ironing_board/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1233070578, 1639683078) index="1" unique_id=1996621926]
 transform = Transform3D(1, -2.23517e-08, -2.46145e-10, -2.98023e-08, 1, -5.15744e-10, 1.67419e-08, -5.34179e-10, 1, 0, 0, 0)
 
-[node name="OffLeg" parent="Rooms/Room/ironing_board/Armature/Skeleton3D" index="3"]
+[node name="OffLeg" parent="Rooms/Room/ironing_board/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1233070578, 1639683078) index="3" unique_id=71452272]
 transform = Transform3D(1, 9.31323e-10, -2.32831e-10, 0, 1, -3.32875e-10, 0, 1.46792e-08, 1, 0, 0, 0)
 
-[node name="AnimationPlayer" parent="Rooms/Room/ironing_board" index="1"]
+[node name="AnimationPlayer" parent="Rooms/Room/ironing_board" index="1" unique_id=1743168537]
 autoplay = &"close"
 
 [node name="cabinet_wall" parent="Rooms/Room" index="15" unique_id=740471250 instance=ExtResource("32_wjycb")]
@@ -1411,9 +1526,8 @@ script = ExtResource("9_rh8il")
 _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
-[node name="CollisionShape3D" parent="Rooms/Bathroom/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, 0.0003312677, -0.071777284, 0.002104342)
-shape = SubResource("BoxShape3D_x6mck")
+[node name="BaseButton" parent="Rooms/Bathroom/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1999237244, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_4g5bp")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Bathroom/simple_light_switch/Interactable" index="1" unique_id=718595617]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.277088, 0.592315, -0.775479)
@@ -1424,27 +1538,34 @@ shadow_transmittance_bias = -7.877
 shadow_blur = 10.0
 omni_range = 3.94731
 
+[node name="CollisionShape3D" parent="Rooms/Bathroom/simple_light_switch/Interactable" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, 0.0003312677, -0.071777284, 0.002104342)
+shape = SubResource("BoxShape3D_x6mck")
+
 [node name="1stflr_bathroom_sink" parent="Rooms/Bathroom" index="3" unique_id=1492229520 instance=ExtResource("6_8shmh")]
 transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 0.892162, -0.888967)
 
 [node name="Mirror" parent="Rooms/Bathroom" index="4" unique_id=363263372 node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 1.32724, -0.888967)
-material_override = SubResource("ShaderMaterial_i1cua")
-mesh = SubResource("PlaneMesh_2bx3p")
+material_override = SubResource("ShaderMaterial_quhk8")
+mesh = SubResource("PlaneMesh_5lrmy")
 skeleton = NodePath("../1stflr_bathroom_sink")
 _main_camera = NodePath("../Camera3D")
 _resolution_factor = 0.08
 
+[node name="MirrorViewport" parent="Rooms/Bathroom/Mirror" index="0"]
+size = Vector2i(83, 55)
+
 [node name="DoorBathroom" parent="Rooms/Bathroom" index="5" unique_id=1815605059 instance=ExtResource("23_v0w8j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9491, -0.032, 0.110033)
 
-[node name="DoorLeft" parent="Rooms/Bathroom/DoorBathroom" index="1"]
+[node name="DoorLeft" parent="Rooms/Bathroom/DoorBathroom" index="1" unique_id=1624709463]
 visible = false
 
-[node name="CollisionShape3D" parent="Rooms/Bathroom/DoorBathroom/DoorLeft/LeftStaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="Rooms/Bathroom/DoorBathroom/DoorLeft/LeftStaticBody3D" parent_id_path=PackedInt32Array(1815605059, 1351582052) index="0" unique_id=2136459556]
 disabled = true
 
-[node name="DoorRight" parent="Rooms/Bathroom/DoorBathroom" index="2"]
+[node name="DoorRight" parent="Rooms/Bathroom/DoorBathroom" index="2" unique_id=281509983]
 transform = Transform3D(-0.419516, 0, 0.907748, 0, 1, 0, -0.907748, 0, -0.419516, -0.487, 2.088, -0.118)
 
 [node name="washing_machine_beko" parent="Rooms/Bathroom" index="6" unique_id=1023760423 instance=ExtResource("8_qdvqd")]
@@ -1479,9 +1600,8 @@ script = ExtResource("9_rh8il")
 _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
-[node name="CollisionShape3D" parent="Rooms/WaterCloset/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, 0.0052877925, -0.071777284, 0.002104342)
-shape = SubResource("BoxShape3D_x6mck")
+[node name="BaseButton" parent="Rooms/WaterCloset/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1065937596, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_0u45j")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/WaterCloset/simple_light_switch/Interactable" index="1" unique_id=949049430]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.473892, 0.592315, -0.581387)
@@ -1492,19 +1612,23 @@ shadow_transmittance_bias = -7.877
 shadow_blur = 10.0
 omni_range = 3.59881
 
+[node name="CollisionShape3D" parent="Rooms/WaterCloset/simple_light_switch/Interactable" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, 0.0052877925, -0.071777284, 0.002104342)
+shape = SubResource("BoxShape3D_x6mck")
+
 [node name="DoorWC" parent="Rooms/WaterCloset" index="3" unique_id=535990350 instance=ExtResource("23_v0w8j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.01856, -0.032, -0.11752)
 
-[node name="DoorLeft" parent="Rooms/WaterCloset/DoorWC" index="1"]
+[node name="DoorLeft" parent="Rooms/WaterCloset/DoorWC" index="1" unique_id=1624709463]
 transform = Transform3D(-0.0331551, 0, -0.99945, 0, 1, 0, 0.99945, 0, -0.0331551, 0.487, 2.089, -0.118)
 
-[node name="LeftStaticBody3D" parent="Rooms/WaterCloset/DoorWC/DoorLeft" index="2"]
+[node name="LeftStaticBody3D" parent="Rooms/WaterCloset/DoorWC/DoorLeft" index="2" unique_id=1351582052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111571, 0.0118425, 5.75781e-05)
 
-[node name="DoorRight" parent="Rooms/WaterCloset/DoorWC" index="2"]
+[node name="DoorRight" parent="Rooms/WaterCloset/DoorWC" index="2" unique_id=281509983]
 visible = false
 
-[node name="CollisionShape3D" parent="Rooms/WaterCloset/DoorWC/DoorRight/RightStaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="Rooms/WaterCloset/DoorWC/DoorRight/RightStaticBody3D" parent_id_path=PackedInt32Array(535990350, 1406065776) index="0" unique_id=732969108]
 disabled = true
 
 [node name="toilet" parent="Rooms/WaterCloset" index="4" unique_id=1575311226 instance=ExtResource("32_eskl1")]
@@ -1552,9 +1676,8 @@ script = ExtResource("9_rh8il")
 _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
-[node name="CollisionShape3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="0"]
-transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, -0.03366661, -0.2109654, 0.08106607)
-shape = SubResource("BoxShape3D_x6mck")
+[node name="BaseButton" parent="Rooms/Kitchen/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1466790459, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_yy6ni")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="1" unique_id=2007068211]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.209608, 0.592315, 0.891597)
@@ -1563,6 +1686,10 @@ light_color = Color(1, 0.8392157, 0.6666667, 1)
 shadow_enabled = true
 shadow_transmittance_bias = -7.877
 shadow_blur = 10.0
+
+[node name="CollisionShape3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -4.3769433e-12, 0, 1, 0, 4.3769433e-12, 0, 1, -0.03366661, -0.2109654, 0.08106607)
+shape = SubResource("BoxShape3D_x6mck")
 
 [node name="fridge" parent="Rooms/Kitchen" index="3" unique_id=2027363312 instance=ExtResource("3_5k0it")]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -0.0980589, 9.53674e-07, 1.25466)
@@ -1574,7 +1701,10 @@ transform = Transform3D(0.834338, 0, 0.162421, 0, 0.85, 0, -0.162421, 0, 0.83433
 _lines = Array[String](["The fridge is empty for a while.", "I had to turn it off,", "not to save electricity, its pointless hum was taking away what was left of my mind."])
 interaction_priority = 1
 
-[node name="CollisionShape3D" parent="Rooms/Kitchen/fridge/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Kitchen/fridge/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(238230988, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_aq5ut")
+
+[node name="CollisionShape3D" parent="Rooms/Kitchen/fridge/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08755493, 0.6125178, 0.29431188)
 shape = SubResource("BoxShape3D_jude3")
 
@@ -1584,7 +1714,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.543
 [node name="block1" parent="Rooms/Kitchen" index="5" unique_id=617873447 instance=ExtResource("6_u2jdq")]
 transform = Transform3D(-4.27735e-08, 0, 1, 0, 0.943497, 0, -0.978544, 0, -4.37114e-08, -1.978, 0, 1.171)
 
-[node name="Block1" parent="Rooms/Kitchen/block1" index="0"]
+[node name="Block1" parent="Rooms/Kitchen/block1" index="0" unique_id=2724434]
 transform = Transform3D(0.957217, 0, -1.77636e-14, 0, 1, 0, 7.10543e-15, 0, 1, -0.0209224, 0, 0)
 
 [node name="Box074" type="MeshInstance3D" parent="Rooms/Kitchen/block1/Block1" index="1" unique_id=1676588702]
@@ -1592,7 +1722,7 @@ transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 1, 0, -1, 0, -4.37113e-08,
 mesh = SubResource("ArrayMesh_ntkwv")
 skeleton = NodePath("")
 
-[node name="door_big006" parent="Rooms/Kitchen/block1/Block1" index="3"]
+[node name="door_big006" parent="Rooms/Kitchen/block1/Block1" index="3" unique_id=1649891344]
 transform = Transform3D(0.355302, 0, -0.93475, 0, 0.999999, 0, 0.93475, 0, 0.355302, -0.396098, 0.448653, 0.601178)
 
 [node name="plastic_bin" parent="Rooms/Kitchen/block1/Block1/door_big006" index="0" unique_id=1723994336 instance=ExtResource("7_k1qg5")]
@@ -1611,44 +1741,44 @@ shape = SubResource("BoxShape3D_rvonm")
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.200453, 0.0271378, 0.00788927)
 shape = SubResource("BoxShape3D_6xdm0")
 
-[node name="shelf_big004" parent="Rooms/Kitchen/block1/Block1" index="4"]
+[node name="shelf_big004" parent="Rooms/Kitchen/block1/Block1" index="4" unique_id=1512605302]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 3.55271e-15, 0, 1, -0.000139236, 0.547178, 0.290339)
 visible = false
 
-[node name="shelf_big005" parent="Rooms/Kitchen/block1/Block1" index="5"]
+[node name="shelf_big005" parent="Rooms/Kitchen/block1/Block1" index="5" unique_id=914389837]
 visible = false
 
 [node name="block2" parent="Rooms/Kitchen" index="6" unique_id=902886216 instance=ExtResource("7_g053i")]
 transform = Transform3D(-4.20266e-08, 0, 1, 0, 0.943497, 0, -0.961457, 0, -4.37114e-08, -1.978, 0, 0.417)
 
-[node name="box_big003" parent="Rooms/Kitchen/block2/Block2" index="2"]
+[node name="box_big003" parent="Rooms/Kitchen/block2/Block2" parent_id_path=PackedInt32Array(902886216, 171709008) index="2" unique_id=1727496913]
 transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.199232, 0.316166, 0.680693)
 
 [node name="block4" parent="Rooms/Kitchen" index="7" unique_id=2000712527 instance=ExtResource("8_lvfn7")]
 transform = Transform3D(-4.09893e-08, 0, 1, 0, 0.943497, 0, -0.937726, 0, -4.37114e-08, -1.978, 0, -0.342)
 
-[node name="Block4" parent="Rooms/Kitchen/block4" index="0"]
+[node name="Block4" parent="Rooms/Kitchen/block4" index="0" unique_id=1717469016]
 transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0159996, 0, 0)
 
-[node name="Box070" parent="Rooms/Kitchen/block4/Block4" index="0"]
+[node name="Box070" parent="Rooms/Kitchen/block4/Block4" index="0" unique_id=1586840556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0.31852)
 
-[node name="Box_small002" parent="Rooms/Kitchen/block4/Block4" index="1"]
+[node name="Box_small002" parent="Rooms/Kitchen/block4/Block4" index="1" unique_id=969705245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199649, 0.698246, 0.619929)
 
-[node name="Box_small003" parent="Rooms/Kitchen/block4/Block4" index="2"]
+[node name="Box_small003" parent="Rooms/Kitchen/block4/Block4" index="2" unique_id=209300212]
 transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.198596, 0.698246, 0.66564)
 
-[node name="door_small002" parent="Rooms/Kitchen/block4/Block4" index="3"]
+[node name="door_small002" parent="Rooms/Kitchen/block4/Block4" index="3" unique_id=1830901981]
 transform = Transform3D(0.999982, 0, -0.00603884, 0, 1, 0, 0.00603885, 0, 0.999982, 0.396038, 0.374137, 0.601619)
 
-[node name="door_small003" parent="Rooms/Kitchen/block4/Block4" index="4"]
+[node name="door_small003" parent="Rooms/Kitchen/block4/Block4" index="4" unique_id=1236381018]
 transform = Transform3D(0.945904, 0, -0.324446, 0, 1, 0, 0.324446, 0, 0.945904, -0.397092, 0.374136, 0.601619)
 
 [node name="block5" parent="Rooms/Kitchen" index="8" unique_id=1139622640 instance=ExtResource("8_lvfn7")]
 transform = Transform3D(-2.83867e-08, 0, 1, 0, 0.943497, 0, -0.649413, 0, -4.37114e-08, -1.97786, 0.000120691, -1.50851)
 
-[node name="Box071" type="MeshInstance3D" parent="Rooms/Kitchen/block5/Block4" index="1" unique_id=1802626020]
+[node name="Box071" type="MeshInstance3D" parent="Rooms/Kitchen/block5/Block4" parent_id_path=PackedInt32Array(1139622640, 1717469016) index="1" unique_id=1802626020]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.999999, 0, 1, 0, -4.37114e-08, 0.088, 0.875, 0.23)
 mesh = SubResource("ArrayMesh_yr74k")
 skeleton = NodePath("")
@@ -1659,13 +1789,13 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 [node name="top_block1" parent="Rooms/Kitchen" index="10" unique_id=1708185008 instance=ExtResource("9_w4jgr")]
 transform = Transform3D(-4.20066e-08, 0, 1, 0, 1, 0, -0.961, 0, -4.37114e-08, -1.978, 1.51508, 1.186)
 
-[node name="door_big003" parent="Rooms/Kitchen/top_block1/TopBlock" index="0"]
+[node name="door_big003" parent="Rooms/Kitchen/top_block1/TopBlock" parent_id_path=PackedInt32Array(1708185008, 1528355032) index="0" unique_id=1515910551]
 transform = Transform3D(0.543409, 0, -0.839468, 0, 1, 0, 0.839467, 0, 0.543408, -0.397016, 0.401044, 0.403167)
 
-[node name="door_big004" parent="Rooms/Kitchen/top_block1/TopBlock" index="1"]
+[node name="door_big004" parent="Rooms/Kitchen/top_block1/TopBlock" parent_id_path=PackedInt32Array(1708185008, 1528355032) index="1" unique_id=202942110]
 transform = Transform3D(0.998557, 0, 0.0536954, 0, 1, 0, -0.0536953, 0, 0.998557, 0.395957, 0.401044, 0.403167)
 
-[node name="shelf_small001" parent="Rooms/Kitchen/top_block1/TopBlock" index="2"]
+[node name="shelf_small001" parent="Rooms/Kitchen/top_block1/TopBlock" parent_id_path=PackedInt32Array(1708185008, 1528355032) index="2" unique_id=1221999638]
 visible = false
 
 [node name="dish_drainer_with_dishes" parent="Rooms/Kitchen/top_block1" index="1" unique_id=237591916 instance=ExtResource("52_s6f6r")]
@@ -1674,10 +1804,10 @@ transform = Transform3D(0.91, 0, -7.10543e-15, 0, 0.91, 0, 3.55271e-14, 0, 0.91,
 [node name="top_block2" parent="Rooms/Kitchen" index="11" unique_id=479085689 instance=ExtResource("9_w4jgr")]
 transform = Transform3D(-4.20066e-08, 0, 1, 0, 1, 0, -0.961, 0, -4.37114e-08, -1.978, 1.51508, 0.417)
 
-[node name="door_big003" parent="Rooms/Kitchen/top_block2/TopBlock" index="0"]
+[node name="door_big003" parent="Rooms/Kitchen/top_block2/TopBlock" parent_id_path=PackedInt32Array(479085689, 1528355032) index="0" unique_id=1515910551]
 transform = Transform3D(0.992876, 0, -0.119149, 0, 1, 0, 0.119149, 0, 0.992876, -0.397016, 0.401044, 0.403167)
 
-[node name="door_big004" parent="Rooms/Kitchen/top_block2/TopBlock" index="1"]
+[node name="door_big004" parent="Rooms/Kitchen/top_block2/TopBlock" parent_id_path=PackedInt32Array(479085689, 1528355032) index="1" unique_id=202942110]
 transform = Transform3D(0.999291, 0, 0.0376553, 0, 1, 0, -0.0376553, 0, 0.999291, 0.395957, 0.401044, 0.403167)
 
 [node name="top_block3" parent="Rooms/Kitchen" index="12" unique_id=1435555082 instance=ExtResource("9_w4jgr")]
@@ -1692,76 +1822,76 @@ transform = Transform3D(0.705414, 0, -0.708796, 0, 1, 0, 0.708796, 0, 0.705414, 
 [node name="doors" parent="Rooms/Kitchen" index="15" unique_id=1350288952 instance=ExtResource("30_w05d5")]
 transform = Transform3D(0.95, 0, 0, 0, 1, 0, 0, 0, 1, 1.30139, 0, 1.41366)
 
-[node name="DoorB" parent="Rooms/Kitchen/doors" index="0"]
+[node name="DoorB" parent="Rooms/Kitchen/doors" index="0" unique_id=1418897170]
 transform = Transform3D(0.0823211, 0, -0.996606, 0, 0.995, 0, 0.996606, 0, 0.0823212, 0.463079, 1.025, 0.249741)
 
-[node name="Cube" parent="Rooms/Kitchen/doors" index="1"]
+[node name="Cube" parent="Rooms/Kitchen/doors" index="1" unique_id=672258392]
 transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00738394, 0, 0.264844)
 
-[node name="DoorA" parent="Rooms/Kitchen/doors" index="2"]
+[node name="DoorA" parent="Rooms/Kitchen/doors" index="2" unique_id=591282513]
 visible = false
 
-[node name="CollisionShape3D" parent="Rooms/Kitchen/doors/DoorA/StaticBody3DA" index="0"]
+[node name="CollisionShape3D" parent="Rooms/Kitchen/doors/DoorA/StaticBody3DA" parent_id_path=PackedInt32Array(1350288952, 1654940482) index="0" unique_id=1551737290]
 disabled = true
 
 [node name="window_2x1_with_sliders" parent="Rooms/Kitchen" index="16" unique_id=1598814633 instance=ExtResource("35_ghvi7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0769999, 1.612, -1.885)
 
-[node name="FrameB" parent="Rooms/Kitchen/window_2x1_with_sliders" index="1"]
+[node name="FrameB" parent="Rooms/Kitchen/window_2x1_with_sliders" index="1" unique_id=897176631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.434034, 0, 0)
 
-[node name="GlassB" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameB" index="0"]
+[node name="GlassB" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameB" index="0" unique_id=1358282601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7234e-05, 0, -0.104852)
 cast_shadow = 0
 
-[node name="GlassA" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameA" index="0"]
+[node name="GlassA" parent="Rooms/Kitchen/window_2x1_with_sliders/FrameA" parent_id_path=PackedInt32Array(1598814633, 1974853202) index="0" unique_id=75065986]
 cast_shadow = 0
 
 [node name="old_radiator" parent="Rooms/Kitchen/window_2x1_with_sliders" index="4" unique_id=843473935 instance=ExtResource("20_j8u1d")]
 transform = Transform3D(-1.9, 0, -1.50996e-07, 0, 1, 0, 2.86892e-07, 0, -1, -0.0389969, -1.44632, 0.168248)
 
-[node name="Medium" parent="Rooms/Kitchen/window_2x1_with_sliders/old_radiator" index="0"]
+[node name="Medium" parent="Rooms/Kitchen/window_2x1_with_sliders/old_radiator" index="0" unique_id=733013709]
 visible = false
 mesh = SubResource("ArrayMesh_f77td")
 
-[node name="Small" parent="Rooms/Kitchen/window_2x1_with_sliders/old_radiator" index="1"]
+[node name="Small" parent="Rooms/Kitchen/window_2x1_with_sliders/old_radiator" index="1" unique_id=1318080275]
 mesh = SubResource("ArrayMesh_sqj7h")
 
 [node name="separated_pipes" parent="Rooms/Kitchen/window_2x1_with_sliders" index="5" unique_id=1991161543 instance=ExtResource("20_gv8pu")]
 transform = Transform3D(-1.688, 0, 0.000618419, 0, 1.688, 0, -0.000618419, 0, -1.688, 1.34776, -0.524704, 0.250501)
 
-[node name="Var_001" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="0"]
+[node name="Var_001" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="0" unique_id=317242715]
 visible = false
 mesh = SubResource("ArrayMesh_g71c2")
 
-[node name="Var_002" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="1"]
+[node name="Var_002" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="1" unique_id=692888448]
 transform = Transform3D(1, 0, -4.94765e-10, 0, 1, 0, 4.94765e-10, 0, 1, 0.0699999, -0.599745, 0.0469992)
 mesh = SubResource("ArrayMesh_u0afi")
 
-[node name="Var_003" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="2"]
+[node name="Var_003" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="2" unique_id=1465147433]
 transform = Transform3D(1, 0, -5.82077e-11, 0, 1, 0, 5.82077e-11, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_5p36t")
 
-[node name="Var_004" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="3"]
+[node name="Var_004" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="3" unique_id=1893598981]
 visible = false
 mesh = SubResource("ArrayMesh_ii33m")
 
-[node name="Var_005" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="4"]
+[node name="Var_005" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="4" unique_id=2080224143]
 transform = Transform3D(-0.581271, 0, -0.81371, 0, 1, 0, 0.81371, 0, -0.581271, 0.219675, -0.249782, 0.0469444)
 visible = false
 mesh = SubResource("ArrayMesh_1sfux")
 
-[node name="Var_006" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="5"]
+[node name="Var_006" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="5" unique_id=21376208]
 transform = Transform3D(-1, 0, -8.68167e-08, 0, 1, 0, 8.68167e-08, 0, -1, 0.122995, -0.611, 0.0469804)
 visible = false
 mesh = SubResource("ArrayMesh_y0ira")
 
-[node name="Var_007" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="6"]
+[node name="Var_007" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="6" unique_id=2921080]
 transform = Transform3D(4.37114e-08, -1, -8.69331e-08, -1, -4.37114e-08, 0, -3.80078e-15, 8.66421e-08, -1, 0.637284, -0.228474, 0.0470014)
 mesh = SubResource("ArrayMesh_u3ak5")
 
-[node name="Var_008" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="7"]
+[node name="Var_008" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="7" unique_id=300844522]
 transform = Transform3D(1, 1.38778e-17, 3.20142e-10, 0, -1, 8.74228e-08, 3.20142e-10, -8.74228e-08, -1, 0.07, 0.601, 0.047)
 mesh = SubResource("ArrayMesh_pnucb")
 
@@ -1810,7 +1940,7 @@ transform = Transform3D(1, 1.38778e-17, 2.61934e-10, 0, -1, 8.74228e-08, 2.61934
 mesh = SubResource("ArrayMesh_o73bb")
 skeleton = NodePath("")
 
-[node name="Var_009" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="17"]
+[node name="Var_009" parent="Rooms/Kitchen/window_2x1_with_sliders/separated_pipes" index="17" unique_id=1342534425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700002, -0.247571, 0.0469995)
 mesh = SubResource("ArrayMesh_d36jl")
 
@@ -1823,7 +1953,10 @@ shape = SubResource("BoxShape3D_sso28")
 [node name="Interactable" parent="Rooms/Kitchen/window_2x1_with_sliders" index="7" unique_id=2027521188 instance=ExtResource("9_mbwjg")]
 _lines = Array[String](["The picture behind the window never changes.", "I can't even say if it's sunset or dawn.", "Whatever hour the clocks show, it's always the same outside."])
 
-[node name="CollisionShape3D" parent="Rooms/Kitchen/window_2x1_with_sliders/Interactable" index="0"]
+[node name="BaseButton" parent="Rooms/Kitchen/window_2x1_with_sliders/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(2027521188, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_vygft")
+
+[node name="CollisionShape3D" parent="Rooms/Kitchen/window_2x1_with_sliders/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00147295, -0.034729004, -0.0066809654)
 shape = SubResource("CylinderShape3D_tbr3u")
 
@@ -1863,20 +1996,20 @@ transform = Transform3D(-4.37114e-08, 0.939693, 0.34202, 0, 0.34202, -0.939693, 
 [node name="pot" parent="Rooms/Kitchen/Dishes" index="9" unique_id=229330401 instance=ExtResource("3_8sy7o")]
 transform = Transform3D(0.0145371, 0, 0.594822, 0, 0.595, 0, -0.594822, 0, 0.0145371, -0.43254, -0.102785, -0.904097)
 
-[node name="Cylinder001" parent="Rooms/Kitchen/Dishes/pot" index="0"]
+[node name="Cylinder001" parent="Rooms/Kitchen/Dishes/pot" index="0" unique_id=1972787521]
 transform = Transform3D(0.000897866, 0, -0.000440268, 0, 0.001, 0, 0.000440268, 0, 0.000897866, -1.06168, -0.696305, 0.246657)
 
-[node name="Object" parent="Rooms/Kitchen/Dishes/pot" index="1"]
+[node name="Object" parent="Rooms/Kitchen/Dishes/pot" index="1" unique_id=1222581857]
 transform = Transform3D(0.000859161, 0.000153944, 0.000488003, -0.000147892, 0.000987678, -5.11955e-05, -0.00048987, -2.81867e-05, 0.000871342, 0.642692, 0.0153503, 0.134027)
 
 [node name="pot2" parent="Rooms/Kitchen/Dishes" index="10" unique_id=1647980773 instance=ExtResource("3_8sy7o")]
 transform = Transform3D(-0.417711, 0, 0.102066, 0, 0.43, 0, -0.102066, 0, -0.417711, -0.51933, -0.13664, -0.577342)
 
-[node name="Cylinder001" parent="Rooms/Kitchen/Dishes/pot2" index="0"]
+[node name="Cylinder001" parent="Rooms/Kitchen/Dishes/pot2" index="0" unique_id=1972787521]
 transform = Transform3D(0.000897866, 0, -0.000440268, 0, 0.001, 0, 0.000440268, 0, 0.000897866, -0.00579548, -0.00402045, -0.128371)
 mesh = SubResource("ArrayMesh_vk53d")
 
-[node name="Object" parent="Rooms/Kitchen/Dishes/pot2" index="1"]
+[node name="Object" parent="Rooms/Kitchen/Dishes/pot2" index="1" unique_id=1222581857]
 transform = Transform3D(0.000557377, 0.000796016, -0.00023599, -0.000819153, 0.000573576, 0, 0.000135359, 0.000193312, 0.000971756, 0.260749, 0.183753, 0.00400543)
 mesh = SubResource("ArrayMesh_cpkvn")
 
@@ -1921,19 +2054,46 @@ transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.4728
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="CollisionShape3D" parent="Snikers" index="0"]
-transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0, -0.346013, 0)
+[node name="UI" parent="Snikers" index="0" unique_id=701153672]
+visible = false
+
+[node name="BaseButton" parent="Snikers/UI/Options/Buttons" parent_id_path=PackedInt32Array(675424064, 140207785) index="0" unique_id=2126020029]
+unique_name_in_owner = true
+text = "Button 1
+"
+script = ExtResource("29_81frv")
+
+[node name="Text" parent="Snikers/UI" index="1" unique_id=1660217933]
+unique_name_in_owner = true
+
+[node name="NextLineButton" parent="Snikers/UI/Text" index="2" unique_id=18934470]
+unique_name_in_owner = true
 
 [node name="Snikers" parent="Snikers" index="1"]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Snikers" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0, -0.346013, 0)
 
 [node name="ThreeBuns" parent="." index="4" unique_id=804978257 instance=ExtResource("25_tvpim")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="CollisionShape3D" parent="ThreeBuns" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="UI" parent="ThreeBuns" index="0" unique_id=701153672]
+visible = false
+
+[node name="BaseButton" parent="ThreeBuns/UI/Options/Buttons" parent_id_path=PackedInt32Array(804978257, 140207785) index="0" unique_id=2126020029]
+unique_name_in_owner = true
+text = "Button 1
+"
+script = ExtResource("29_81frv")
+
+[node name="Text" parent="ThreeBuns/UI" index="1" unique_id=1660217933]
+unique_name_in_owner = true
+
+[node name="NextLineButton" parent="ThreeBuns/UI/Text" index="2" unique_id=18934470]
+unique_name_in_owner = true
 
 [node name="bun" parent="ThreeBuns" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -1944,16 +2104,34 @@ transform = Transform3D(0.666337, 0, -0.74565, 0, 1, 0, 0.74565, 0, 0.666337, -0
 [node name="bun3" parent="ThreeBuns" index="3"]
 transform = Transform3D(0.605043, 0.741939, -0.288877, -0.243685, 0.517973, 0.819952, 0.757985, -0.425711, 0.494195, 0.0869529, 0.0921154, -0.0132809)
 
+[node name="CollisionShape3D" parent="ThreeBuns" index="4" unique_id=2097588528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="FlashLight" parent="." index="5" unique_id=23902964 instance=ExtResource("26_tn48v")]
 transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440603, -2.33587, 1.2302, -2.12493)
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="CollisionShape3D" parent="FlashLight" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.353974, 0)
+[node name="UI" parent="FlashLight" index="0" unique_id=701153672]
+visible = false
+
+[node name="BaseButton" parent="FlashLight/UI/Options/Buttons" parent_id_path=PackedInt32Array(23902964, 140207785) index="0" unique_id=2126020029]
+unique_name_in_owner = true
+text = "Button 1
+"
+script = ExtResource("29_81frv")
+
+[node name="Text" parent="FlashLight/UI" index="1" unique_id=1660217933]
+unique_name_in_owner = true
+
+[node name="NextLineButton" parent="FlashLight/UI/Text" index="2" unique_id=18934470]
+unique_name_in_owner = true
 
 [node name="flashlightblend" parent="FlashLight" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="FlashLight" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.353974, 0)
 
 [node name="table" parent="." index="6" unique_id=1348167633 instance=ExtResource("26_4nr2c")]
 transform = Transform3D(1.25028, 0, 0, 0, 1, 0, 0, 0, 1.25028, -0.632614, 0, -4.01187)
@@ -1961,7 +2139,7 @@ transform = Transform3D(1.25028, 0, 0, 0, 1, 0, 0, 0, 1.25028, -0.632614, 0, -4.
 [node name="old_ussr_bath" parent="." index="7" unique_id=455666254 instance=ExtResource("27_uf6vt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.64071, 0, 0.843)
 
-[node name="WindowsLightBlocker" parent="." index="8" unique_id=2026353191]
+[node name="WindowsLightBlocker" parent="." index="8" unique_id=1827207096]
 layers = 3
 
 [editable path="Rooms/Hall"]

@@ -1,19 +1,143 @@
-[gd_scene load_steps=3 format=3 uid="uid://fa5ihdfikw4u"]
+[gd_scene format=3 uid="uid://fa5ihdfikw4u"]
 
 [ext_resource type="Script" uid="uid://du5wjv0tuxmqa" path="res://objects/interactable/interactable.gd" id="1_t6scv"]
+[ext_resource type="Script" uid="uid://bf7bf3tahrd3h" path="res://objects/interactable/interactable_ui.gd" id="2_0ifa0"]
+[ext_resource type="Shader" uid="uid://b8am10y0gmhfh" path="res://objects/interactable/iteractable_option_button_focus_shader.tres" id="3_0ifa0"]
+[ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="4_qq8g2"]
+[ext_resource type="Script" uid="uid://d2unakd7v0ek8" path="res://objects/interactable/interactable_option_button.gd" id="5_0ifa0"]
+[ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="6_721rc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7y20w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhibi"]
+shader = ExtResource("3_0ifa0")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yadm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8m5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b486o"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.705882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g41nu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tno2t"]
 size = Vector3(1.5775146, 0.930542, 1)
 
-[node name="Interactable" type="Area3D"]
+[node name="Interactable" type="Area3D" unique_id=2060453790]
 collision_layer = 512
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_t6scv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="UI" type="Control" parent="." unique_id=701153672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0ifa0")
+
+[node name="Options" type="VBoxContainer" parent="UI" unique_id=698638238]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 75.0
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/Options" unique_id=692772121]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7y20w")
+
+[node name="Buttons" type="VBoxContainer" parent="UI/Options" unique_id=140207785]
+layout_mode = 2
+
+[node name="BaseButton" type="Button" parent="UI/Options/Buttons" unique_id=2126020029]
+material = SubResource("ShaderMaterial_lhibi")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_qq8g2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
+button_mask = 0
+text = "OptionButton
+"
+script = ExtResource("5_0ifa0")
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Options" unique_id=1365828296]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l8m5l")
+
+[node name="Text" type="RichTextLabel" parent="UI" unique_id=1660217933]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.999989, 0.851371, 0.83285, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("6_721rc")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b486o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b486o")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+visible_characters_behavior = 1
+
+[node name="NextLineButton" type="Button" parent="UI/Text" unique_id=18934470]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g41nu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g41nu")
+button_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28875732, -0.034729004, 0)
 shape = SubResource("BoxShape3D_tno2t")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1622127475]
 visible = false
