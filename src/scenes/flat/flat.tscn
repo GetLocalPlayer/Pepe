@@ -60,7 +60,6 @@
 [ext_resource type="PackedScene" uid="uid://bw6kcpuv48pvy" path="res://assets/doodads/old_ussr_bath/old_ussr_bath.blend" id="27_uf6vt"]
 [ext_resource type="PackedScene" uid="uid://g0gxjb1hr4sr" path="res://assets/doodads/electric_iron/electric_iron.blend" id="28_fwwkt"]
 [ext_resource type="PackedScene" uid="uid://bi8s568sc50q2" path="res://assets/doodads/clock_sun/clock_sun.blend" id="28_x6ppr"]
-[ext_resource type="Script" uid="uid://csawkbnff4lp6" path="res://autoload/ui/pickup/yesnobutton.gd" id="29_81frv"]
 [ext_resource type="PackedScene" uid="uid://ctkot3gclk41d" path="res://assets/interior/doors/doors.blend" id="30_w05d5"]
 [ext_resource type="PackedScene" uid="uid://djkjc7negcfwv" path="res://assets/furniture/toilet/toilet.blend" id="32_eskl1"]
 [ext_resource type="PackedScene" uid="uid://bh4you08vdngs" path="res://assets/furniture/cabinet_wall/cabinet_wall.blend" id="32_wjycb"]
@@ -101,7 +100,7 @@ tonemap_agx_contrast = 1.35
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbdbb"]
 size = Vector3(6.0480347, 6.875107, 1.9257813)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1cua"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3yhj"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -192,7 +191,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2t8hf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bx3p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cexls"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -201,25 +200,25 @@ shader_parameter/flashing_rate = 2.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_raxkr"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3gewt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_81frv"]
 viewport_path = NodePath("Rooms/Hall/dressing_table/Mirror/MirrorViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8j1x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1cua"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_3gewt")
+shader_parameter/video_texture = SubResource("ViewportTexture_81frv")
 shader_parameter/mesh_size = Vector2(0.685, 1.434)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_gme4g"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_2bx3p"]
 size = Vector2(0.685, 1.434)
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hg1p"]
 size = Vector3(4.60729, 2.8627226, 5.054959)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6lpg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gewt"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -365,7 +364,7 @@ shadow_mesh = SubResource("ArrayMesh_o3iuo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhap"]
 size = Vector3(2.22266, 0.829834, 0.322205)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_owjrw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8j1x"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -375,7 +374,7 @@ shader_parameter/flashing_rate = 2.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_rilif"]
 size = Vector3(0.238587, 0.456573, 0.523041)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsg7c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gme4g"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -393,7 +392,7 @@ radius = 0.35423
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6ra0"]
 size = Vector3(0.912354, 0.77063, 0.325333)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd1fw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6lpg"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -412,25 +411,25 @@ size = Vector3(4.51436, 2.760085, 1.7516668)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gorao"]
 size = Vector3(1.67349, 2.5992718, 1.8631)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4g5bp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owjrw"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
 shader_parameter/flashing_enabled = false
 shader_parameter/flashing_rate = 2.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vmnr8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nsg7c"]
 viewport_path = NodePath("Rooms/Bathroom/Mirror/MirrorViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_quhk8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd1fw"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_35kbe")
-shader_parameter/video_texture = SubResource("ViewportTexture_vmnr8")
+shader_parameter/video_texture = SubResource("ViewportTexture_nsg7c")
 shader_parameter/mesh_size = Vector2(0.615, 0.68)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5lrmy"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4g5bp"]
 size = Vector2(0.6, 0.7)
 center_offset = Vector3(0, 0, 0.005)
 orientation = 2
@@ -438,7 +437,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_76ewo"]
 size = Vector3(1.66099, 3.026884, 0.968225)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u45j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmnr8"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -451,14 +450,14 @@ size = Vector3(0.468994, 0.980957, 1.22998)
 [sub_resource type="BoxShape3D" id="BoxShape3D_njd6n"]
 size = Vector3(3.79924, 2.54328, 2.97526)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy6ni"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quhk8"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
 shader_parameter/flashing_enabled = false
 shader_parameter/flashing_rate = 2.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq5ut"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lrmy"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -971,7 +970,7 @@ shadow_mesh = SubResource("ArrayMesh_am2ml")
 [sub_resource type="BoxShape3D" id="BoxShape3D_sso28"]
 size = Vector3(1.52887, 0.874023, 0.286743)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vygft"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u45j"]
 shader = ExtResource("6_cexls")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -1078,6 +1077,7 @@ light_energy = 5.0
 shadow_enabled = true
 
 [node name="Ceiling" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="1" unique_id=538834283]
+visible = false
 cast_shadow = 2
 
 [node name="Walls_001" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="6" unique_id=1711019339]
@@ -1107,7 +1107,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="BaseButton" parent="Rooms/Hall/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1606343862, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_i1cua")
+material = SubResource("ShaderMaterial_m3yhj")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Hall/simple_light_switch/Interactable" index="1" unique_id=771602814]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.479615, 0.592315, 0.537196)
@@ -1142,7 +1142,7 @@ _lines = Array[String](["A masterpiece.", "Do you like the picture?"])
 _options = Array[String](["Yes", "Of course", "Definitely", "No doubt"])
 
 [node name="BaseButton" parent="Rooms/Hall/picture_ba2sai2/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(343235869, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_2bx3p")
+material = SubResource("ShaderMaterial_cexls")
 
 [node name="CollisionShape3D" parent="Rooms/Hall/picture_ba2sai2/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.62212, 0)
@@ -1157,12 +1157,12 @@ transform = Transform3D(-4.23126e-08, 0, -0.968, 0, 0.968, 0, 0.968, 0, -4.23126
 
 [node name="Mirror" parent="Rooms/Hall/dressing_table" index="2" unique_id=1803904182 node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.999999, 0, 3.907985e-14, 0, 0.999999, 0, -3.907985e-14, 0, 0.999999, 3.5762787e-07, 1.2963393, -0.12224102)
-material_override = SubResource("ShaderMaterial_g8j1x")
-mesh = SubResource("PlaneMesh_gme4g")
+material_override = SubResource("ShaderMaterial_i1cua")
+mesh = SubResource("PlaneMesh_2bx3p")
 _main_camera = NodePath("../../Camera3D")
 
 [node name="MirrorViewport" parent="Rooms/Hall/dressing_table/Mirror" index="0"]
-size = Vector2i(524, 344)
+size = Vector2i(497, 344)
 
 [node name="MirrorCamera" parent="Rooms/Hall/dressing_table/Mirror/MirrorViewport" index="0"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.911009, 0.93004775, 0.8410306)
@@ -1192,7 +1192,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="BaseButton" parent="Rooms/Room/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(993763967, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_n6lpg")
+material = SubResource("ShaderMaterial_3gewt")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Room/simple_light_switch/Interactable" index="1" unique_id=1092908274]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.945339, 0.592315, 1.18896)
@@ -1342,7 +1342,7 @@ transform = Transform3D(-7.08124e-08, 0, -0.791, 0, 1.587, 0, 1.62, 0, -3.45757e
 _lines = Array[String](["The favorite game of my childhood.", "My grandma bought this poster when I was six.", "Can't believe she kept it so carefuly all these years."])
 
 [node name="BaseButton" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1779417210, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_owjrw")
+material = SubResource("ShaderMaterial_g8j1x")
 
 [node name="CollisionShape3D" parent="Rooms/Room/school_wardrobe/russian_poster_1/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(0.999999, 0, 3.90799e-14, 0, 0.999994, 0, -1.98952e-13, 0, 1, 0.125321, -0.0562931, 0.157944)
@@ -1384,7 +1384,7 @@ transform = Transform3D(-0.794298, 0, 0.607528, 0, 1, 0, -0.607528, 0, -0.794298
 _lines = Array[String](["The wheelchair my granma spent her last years in.", "Even though she always looked happy when we were on a walk, I believe she hated this thing deeply.", "\"A portable prison\", as she once jokingly called it."])
 
 [node name="BaseButton" parent="Rooms/Room/wheelchair/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1075778933, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_nsg7c")
+material = SubResource("ShaderMaterial_gme4g")
 
 [node name="CollisionShape3D" parent="Rooms/Room/wheelchair/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.07391095, -0.09625888, -0.024765968)
@@ -1399,19 +1399,9 @@ transform = Transform3D(-4.37114e-08, 0, -0.85, 0, 1, 0, 1, 0, -3.71547e-08, 2.5
 [node name="Pickable" parent="Rooms/Room/office_desk" index="2" unique_id=1578130341 instance=ExtResource("27_tfnir")]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -0.544753, 0.933708, 0.227499)
 _default_interaction_line = "[center]You have found  an [color=#{_item_name_color}]{_item_name}[/color] (x[color=#{_item_name_color}]{_amount}[/color]). Take it?"
-_interaction_lines = Array[String](["You've just found an [color=#{_item_name_color}]{_item_name}[/color].", "This is an extremally strong weapon.", "The true tool of violence and massacre.", "Are you sure you want to carry such a deadly thing with you?"])
-_item_name = "Iron"
+_lines = Array[String](["[center]You have found  an [color=#7fff00]Iron[/color] (x[color=#7fff00]1[/color]). Take it?"])
 
-[node name="UI" parent="Rooms/Room/office_desk/Pickable" index="0" unique_id=701153672]
-visible = false
-
-[node name="BaseButton" parent="Rooms/Room/office_desk/Pickable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1578130341, 140207785) index="0" unique_id=2126020029]
-unique_name_in_owner = true
-text = "Button 1
-"
-script = ExtResource("29_81frv")
-
-[node name="Text" parent="Rooms/Room/office_desk/Pickable/UI" index="1" unique_id=1660217933]
+[node name="Text" parent="Rooms/Room/office_desk/Pickable/UI" parent_id_path=PackedInt32Array(1578130341, 701153672) index="2" unique_id=1660217933]
 unique_name_in_owner = true
 
 [node name="NextLineButton" parent="Rooms/Room/office_desk/Pickable/UI/Text" index="2" unique_id=18934470]
@@ -1460,7 +1450,7 @@ transform = Transform3D(0.390236, 0, -1.11784, 0, 1.184, 0, 1.11784, 0, 0.390236
 _lines = Array[String](["I was taught to work on a sewing machine.", "Never liked it."])
 
 [node name="BaseButton" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1136615416, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_dd1fw")
+material = SubResource("ShaderMaterial_n6lpg")
 
 [node name="CollisionShape3D" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 5.9604645e-08, 0, 1.0000399, 0, -5.9604645e-08, 0, 1, 0.11129904, 0.069857, 0.07098174)
@@ -1527,7 +1517,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="BaseButton" parent="Rooms/Bathroom/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1999237244, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_4g5bp")
+material = SubResource("ShaderMaterial_owjrw")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Bathroom/simple_light_switch/Interactable" index="1" unique_id=718595617]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, -0.277088, 0.592315, -0.775479)
@@ -1547,14 +1537,14 @@ transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 0.892
 
 [node name="Mirror" parent="Rooms/Bathroom" index="4" unique_id=363263372 node_paths=PackedStringArray("_main_camera") instance=ExtResource("8_bn7t0")]
 transform = Transform3D(0.843481, 0, 0, 0, 1, 0, 0, 0, 0.843481, -0.33334, 1.32724, -0.888967)
-material_override = SubResource("ShaderMaterial_quhk8")
-mesh = SubResource("PlaneMesh_5lrmy")
+material_override = SubResource("ShaderMaterial_dd1fw")
+mesh = SubResource("PlaneMesh_4g5bp")
 skeleton = NodePath("../1stflr_bathroom_sink")
 _main_camera = NodePath("../Camera3D")
 _resolution_factor = 0.08
 
 [node name="MirrorViewport" parent="Rooms/Bathroom/Mirror" index="0"]
-size = Vector2i(83, 55)
+size = Vector2i(79, 55)
 
 [node name="DoorBathroom" parent="Rooms/Bathroom" index="5" unique_id=1815605059 instance=ExtResource("23_v0w8j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9491, -0.032, 0.110033)
@@ -1601,7 +1591,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="BaseButton" parent="Rooms/WaterCloset/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1065937596, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_0u45j")
+material = SubResource("ShaderMaterial_vmnr8")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/WaterCloset/simple_light_switch/Interactable" index="1" unique_id=949049430]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.473892, 0.592315, -0.581387)
@@ -1677,7 +1667,7 @@ _lines = Array[String](["A light switcher. Turn the light %s?"])
 _options = Array[String](["Yes", "No"])
 
 [node name="BaseButton" parent="Rooms/Kitchen/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1466790459, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_yy6ni")
+material = SubResource("ShaderMaterial_quhk8")
 
 [node name="Lamp" type="OmniLight3D" parent="Rooms/Kitchen/simple_light_switch/Interactable" index="1" unique_id=2007068211]
 transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.209608, 0.592315, 0.891597)
@@ -1702,7 +1692,7 @@ _lines = Array[String](["The fridge is empty for a while.", "I had to turn it of
 interaction_priority = 1
 
 [node name="BaseButton" parent="Rooms/Kitchen/fridge/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(238230988, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_aq5ut")
+material = SubResource("ShaderMaterial_5lrmy")
 
 [node name="CollisionShape3D" parent="Rooms/Kitchen/fridge/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08755493, 0.6125178, 0.29431188)
@@ -1954,7 +1944,7 @@ shape = SubResource("BoxShape3D_sso28")
 _lines = Array[String](["The picture behind the window never changes.", "I can't even say if it's sunset or dawn.", "Whatever hour the clocks show, it's always the same outside."])
 
 [node name="BaseButton" parent="Rooms/Kitchen/window_2x1_with_sliders/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(2027521188, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_vygft")
+material = SubResource("ShaderMaterial_0u45j")
 
 [node name="CollisionShape3D" parent="Rooms/Kitchen/window_2x1_with_sliders/Interactable" index="1" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00147295, -0.034729004, -0.0066809654)
@@ -2054,16 +2044,7 @@ transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.4728
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="UI" parent="Snikers" index="0" unique_id=701153672]
-visible = false
-
-[node name="BaseButton" parent="Snikers/UI/Options/Buttons" parent_id_path=PackedInt32Array(675424064, 140207785) index="0" unique_id=2126020029]
-unique_name_in_owner = true
-text = "Button 1
-"
-script = ExtResource("29_81frv")
-
-[node name="Text" parent="Snikers/UI" index="1" unique_id=1660217933]
+[node name="Text" parent="Snikers/UI" parent_id_path=PackedInt32Array(675424064, 701153672) index="2" unique_id=1660217933]
 unique_name_in_owner = true
 
 [node name="NextLineButton" parent="Snikers/UI/Text" index="2" unique_id=18934470]
@@ -2077,19 +2058,11 @@ transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0, -0.34
 
 [node name="ThreeBuns" parent="." index="4" unique_id=804978257 instance=ExtResource("25_tvpim")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
+_count = 3
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="UI" parent="ThreeBuns" index="0" unique_id=701153672]
-visible = false
-
-[node name="BaseButton" parent="ThreeBuns/UI/Options/Buttons" parent_id_path=PackedInt32Array(804978257, 140207785) index="0" unique_id=2126020029]
-unique_name_in_owner = true
-text = "Button 1
-"
-script = ExtResource("29_81frv")
-
-[node name="Text" parent="ThreeBuns/UI" index="1" unique_id=1660217933]
+[node name="Text" parent="ThreeBuns/UI" parent_id_path=PackedInt32Array(804978257, 701153672) index="2" unique_id=1660217933]
 unique_name_in_owner = true
 
 [node name="NextLineButton" parent="ThreeBuns/UI/Text" index="2" unique_id=18934470]
@@ -2112,16 +2085,7 @@ transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="UI" parent="FlashLight" index="0" unique_id=701153672]
-visible = false
-
-[node name="BaseButton" parent="FlashLight/UI/Options/Buttons" parent_id_path=PackedInt32Array(23902964, 140207785) index="0" unique_id=2126020029]
-unique_name_in_owner = true
-text = "Button 1
-"
-script = ExtResource("29_81frv")
-
-[node name="Text" parent="FlashLight/UI" index="1" unique_id=1660217933]
+[node name="Text" parent="FlashLight/UI" parent_id_path=PackedInt32Array(23902964, 701153672) index="2" unique_id=1660217933]
 unique_name_in_owner = true
 
 [node name="NextLineButton" parent="FlashLight/UI/Text" index="2" unique_id=18934470]

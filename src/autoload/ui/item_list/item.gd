@@ -7,15 +7,15 @@ extends Button
 @export_multiline var description: String = ""
 
 
-@export var amount: int = 1:
+@export var count: int = 1:
     get:
-        return amount
+        return count
     set(value):
-        amount = value if value >= 0 else 0
+        count = value if value >= 0 else 0
         if not is_node_ready(): return
-        _label.text = "x%d" % amount
-        visible = amount > 0
-        _label.visible = amount > 1
+        _label.text = "x%d" % count
+        visible = count > 0
+        _label.visible = count > 1
 
 
 @export var _model: PackedScene:
@@ -59,7 +59,7 @@ extends Button
 
 @onready var _model_root = %ModelRoot
 @onready var _sub_viewport = $SubViewport
-@onready var _label = %Amount
+@onready var _label = %Count
 @onready var _anim_player = %AnimationPlayer
 
 
@@ -71,7 +71,7 @@ func _ready():
         _model_root.add_child(_model.instantiate())
     for child in _model_root.get_children():
         child.rotation = _model_rotation
-    amount = amount # just to trigger setter
+    count = count # just to trigger setter
     _anim_player.play(_anim_player.autoplay)
 
 

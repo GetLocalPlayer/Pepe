@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2ykucjec5cgq"]
+[gd_scene format=3 uid="uid://d2ykucjec5cgq"]
 
 [ext_resource type="Script" uid="uid://cgymfodqla6cg" path="res://autoload/ui/item_list/item.gd" id="1_mjg05"]
 [ext_resource type="FontFile" uid="uid://necg7x20p4rk" path="res://fonts/PixeloidSans-Bold.ttf" id="2_leaap"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j777h"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rojus"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_e44dq"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="World3D" id="World3D_hwcny"]
@@ -49,25 +49,25 @@ _data = {
 &"RESET": SubResource("Animation_wava2")
 }
 
-[node name="Item" type="Button"]
+[node name="Item" type="Button" unique_id=1839490234]
 use_parent_material = true
 custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 pivot_offset = Vector2(100, 100)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j777h")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j777h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j777h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j777h")
 button_mask = 0
-icon = SubResource("ViewportTexture_rojus")
+icon = SubResource("ViewportTexture_e44dq")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_mjg05")
 
-[node name="Amount" type="Label" parent="."]
+[node name="Count" type="Label" parent="." unique_id=1322261045]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -86,35 +86,33 @@ theme_override_fonts/font = ExtResource("2_leaap")
 text = "x1"
 horizontal_alignment = 2
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1660535465]
 own_world_3d = true
 world_3d = SubResource("World3D_hwcny")
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(200, 200)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=303905263]
 transform = Transform3D(0.685958, 0.487113, -0.540539, 0, 0.742864, 0.669442, 0.727641, -0.459209, 0.509574, -5.00522, 5.74625, 6.71116)
 light_energy = 15.0
 spot_range = 15.1184
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewport"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewport" unique_id=1250434734]
 transform = Transform3D(0.810785, -0.401063, 0.426352, -0.0655793, -0.786031, -0.614699, 0.581659, 0.470429, -0.663604, 6.25442, -3.03819, -2.81207)
 light_energy = 15.0
 light_size = 0.523
 light_specular = 0.05
 spot_range = 24.3519
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1028339867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.96932)
 
-[node name="ModelRoot" type="Node3D" parent="SubViewport"]
+[node name="ModelRoot" type="Node3D" parent="SubViewport" unique_id=689428918]
 unique_name_in_owner = true
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport" unique_id=73033215]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_cxej4")
-}
-autoplay = "Idle"
+libraries/ = SubResource("AnimationLibrary_cxej4")
+autoplay = &"Idle"

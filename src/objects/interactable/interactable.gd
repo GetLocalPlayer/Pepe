@@ -2,10 +2,10 @@ extends Area3D
 class_name Interactable
 
 
-@export_multiline var _lines: Array[String]
+@export_multiline var _lines: Array[String]: get = _get_lines
 @export var _options: Array[String]
 # To avoid conflicts with @tool script in child classes
-@onready var _ui = $UI
+@onready var _ui: InteractableUI = $UI
 @onready var _screen_effect = null if Engine.is_editor_hint() else get_node("/root/ScreenEffect")
 # Interactables with bigger interaction priority take adventage
 @export var interaction_priority: int
@@ -16,13 +16,18 @@ var _switched_camera: Camera3D
 
 
 func _ready() -> void:
-	_ui.hide()
+	if owner:
+		_ui.hide()
 
+
+func _get_lines() -> Array[String]:
+	return _lines
+	
 
 func _run() -> Variant:
 	_ui.show()
 	_ui.run(_lines, _options)
-	var result = await _ui.option_pressed if not _options.is_empty() else await _ui.lines_finished
+	var result = await _ui.lines_finished if _options.is_empty() else await _ui.option_pressed
 	_ui.hide()
 	return result
 

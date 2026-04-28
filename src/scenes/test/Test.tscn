@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfper0kbpl23o"]
+[gd_scene format=3 uid="uid://bfper0kbpl23o"]
 
 [ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_7mhlv"]
 [ext_resource type="PackedScene" uid="uid://50cf04m074fu" path="res://objects/cameraroomconstraint/camera_room_constraint.tscn" id="2_0hqxc"]
 [ext_resource type="Texture2D" uid="uid://cei2ra8mxd3mt" path="res://scenes/test/uvgrid.png" id="2_0o3cl"]
 [ext_resource type="PackedScene" uid="uid://dlyyotltmxl2d" path="res://objects/decorations/groceryshelf/groceryshelf.tscn" id="4_xtui0"]
 [ext_resource type="Shader" uid="uid://dcxr4kmwcrffs" path="res://objects/mirror/mirror.gdshader" id="6_4qt73"]
+[ext_resource type="Shader" uid="uid://b8am10y0gmhfh" path="res://objects/interactable/iteractable_option_button_focus_shader.tres" id="6_ju1m8"]
 [ext_resource type="PackedScene" uid="uid://dep5q7xcgh8xr" path="res://scenes/flat/flat.tscn" id="8_fqqk5"]
 [ext_resource type="PackedScene" uid="uid://doar5l4gui0pc" path="res://objects/collectables/flashlight/flashlight.tscn" id="9_b6ykc"]
 [ext_resource type="PackedScene" uid="uid://byvlwrhmyjmwy" path="res://objects/collectables/snickers.tscn" id="10_5owjf"]
@@ -25,42 +26,119 @@ orientation = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_335xo"]
 size = Vector3(69.073, 7.5462, 65.7783)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_saoeg"]
-viewport_path = NodePath("MirrorViewport")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ju1m8"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_witq4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vf8hs"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5y6vu"]
+viewport_path = NodePath("flat/Rooms/Hall/dressing_table/Mirror/MirrorViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ie5ob"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_4qt73")
-shader_parameter/video_texture = SubResource("ViewportTexture_saoeg")
+shader_parameter/video_texture = SubResource("ViewportTexture_5y6vu")
 shader_parameter/mesh_size = Vector2(0.685, 1.434)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_we7ej"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_iqym6"]
 size = Vector2(0.685, 1.434)
 orientation = 2
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xi5sv"]
-viewport_path = NodePath("MirrorViewport")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3axd4"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkym0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntyj5"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1db5"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43x57"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkycc"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x1v7f"]
+viewport_path = NodePath("flat/Rooms/Bathroom/Mirror/MirrorViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44lfs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_4qt73")
-shader_parameter/video_texture = SubResource("ViewportTexture_xi5sv")
+shader_parameter/video_texture = SubResource("ViewportTexture_x1v7f")
 shader_parameter/mesh_size = Vector2(0.615, 0.68)
 shader_parameter/blur_radius = 14.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_2dgve"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_70eeg"]
 size = Vector2(0.6, 0.7)
 center_offset = Vector3(0, 0, 0.005)
 orientation = 2
 
-[node name="Test" type="Node"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ta63e"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lleyt"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26x2o"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bokxa"]
+shader = ExtResource("6_ju1m8")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[node name="Test" type="Node" unique_id=1981575784]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2089087232]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1901413310]
 transform = Transform3D(0.941759, 0.185772, -0.28032, -0.0378125, 0.886778, 0.460646, 0.334157, -0.423218, 0.842155, 4.06476, 5.35749, 68.4774)
 visible = false
 light_color = Color(1, 0.596078, 0.262745, 1)
@@ -68,83 +146,132 @@ light_energy = 0.158
 shadow_enabled = true
 shadow_reverse_cull_face = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=121166183]
 transform = Transform3D(-0.863835, -0.204903, 0.460221, 0, 0.913545, 0.406737, -0.503774, 0.351353, -0.789153, 1.77994, 2.09675, -2.69237)
 current = true
 
-[node name="Pepe" parent="." instance=ExtResource("1_7mhlv")]
+[node name="Pepe" parent="." unique_id=394848277 instance=ExtResource("1_7mhlv")]
 transform = Transform3D(0.99921, 0, 0.0397308, 0, 1, 0, -0.0397308, 0, 0.99921, -2.75361, 0.0349882, 68.4714)
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1986065696]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1827111183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254787, -0.278381, -0.0149164)
 shape = SubResource("BoxShape3D_74hqk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=403648712]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("QuadMesh_dbi2w")
 
-[node name="CameraConstraints" type="Node" parent="."]
+[node name="CameraConstraints" type="Node" parent="." unique_id=1664897315]
 
-[node name="General" parent="CameraConstraints" instance=ExtResource("2_0hqxc")]
+[node name="General" parent="CameraConstraints" unique_id=112325822 instance=ExtResource("2_0hqxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48701, -0.00830746, 59.7067)
 
-[node name="CollisionShape3D" parent="CameraConstraints/General" index="0"]
+[node name="CollisionShape3D" parent="CameraConstraints/General" index="0" unique_id=1527537016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05785, -1.11383, -58.3471)
 shape = SubResource("BoxShape3D_335xo")
 
-[node name="Camera3D" parent="CameraConstraints/General" index="1"]
+[node name="Camera3D" parent="CameraConstraints/General" index="1" unique_id=1179745574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302519, 3.66384, 0)
 
-[node name="Interactables" type="Node" parent="."]
+[node name="Interactables" type="Node" parent="." unique_id=1420039628]
 
-[node name="GroceryShelf_2" parent="Interactables" instance=ExtResource("4_xtui0")]
+[node name="GroceryShelf_2" parent="Interactables" unique_id=1939384372 instance=ExtResource("4_xtui0")]
 transform = Transform3D(0.994538, 0, 0.104372, 0, 1, 0, -0.104372, 0, 0.994538, -18.963, 0, -9.062)
 
-[node name="GroceryShelf_3" parent="Interactables" instance=ExtResource("4_xtui0")]
+[node name="GroceryShelf_3" parent="Interactables" unique_id=2135976585 instance=ExtResource("4_xtui0")]
 transform = Transform3D(0.737254, 0, -0.675616, 0, 1, 0, 0.675616, 0, 0.737254, -20.168, 0, -4.502)
 
-[node name="flat" parent="." instance=ExtResource("8_fqqk5")]
+[node name="flat" parent="." unique_id=1845569351 instance=ExtResource("8_fqqk5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.157, 0, 65.71)
 
-[node name="Sun" parent="flat/Light" index="1"]
+[node name="Sun" parent="flat/Light" parent_id_path=PackedInt32Array(1845569351, 994212547) index="1" unique_id=1536363202]
 light_energy = 7.121
 shadow_transmittance_bias = -2.282
 shadow_blur = 0.394
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.509
 
-[node name="CollisionShape3D" parent="flat/Rooms/Hall" index="0"]
+[node name="CollisionShape3D" parent="flat/Rooms/Hall" parent_id_path=PackedInt32Array(1845569351, 1330082753) index="0" unique_id=1527537016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205662, -1.2269, 0.107933)
 
-[node name="Mirror" parent="flat/Rooms/Hall/dressing_table" index="2"]
-material_override = SubResource("ShaderMaterial_witq4")
-mesh = SubResource("PlaneMesh_we7ej")
+[node name="BaseButton" parent="flat/Rooms/Hall/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1606343862, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_ju1m8")
 
-[node name="Mirror" parent="flat/Rooms/Bathroom" index="4"]
-material_override = SubResource("ShaderMaterial_wkym0")
-mesh = SubResource("PlaneMesh_2dgve")
+[node name="BaseButton" parent="flat/Rooms/Hall/picture_ba2sai2/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 343235869, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_vf8hs")
 
-[node name="Lamp" parent="flat/Rooms/Kitchen/simple_light_switch/Interactable" index="1"]
-transform = Transform3D(-0.566572, 0, 8.555e-08, 0, 0.566572, 0, -8.555e-08, 0, -0.566572, 0.209608, 0.592315, 0.891597)
+[node name="Mirror" parent="flat/Rooms/Hall/dressing_table" parent_id_path=PackedInt32Array(1845569351, 445846769) index="2" unique_id=1803904182]
+material_override = SubResource("ShaderMaterial_ie5ob")
+mesh = SubResource("PlaneMesh_iqym6")
+
+[node name="MirrorViewport" parent="flat/Rooms/Hall/dressing_table/Mirror" index="0"]
+size = Vector2i(497, 453)
+
+[node name="BaseButton" parent="flat/Rooms/Room/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 993763967, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_3axd4")
+
+[node name="BaseButton" parent="flat/Rooms/Room/school_wardrobe/russian_poster_1/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1779417210, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_ntyj5")
+
+[node name="BaseButton" parent="flat/Rooms/Room/wheelchair/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1075778933, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_x1db5")
+
+[node name="BaseButton" parent="flat/Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1136615416, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_43x57")
+
+[node name="BaseButton" parent="flat/Rooms/Bathroom/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1999237244, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_lkycc")
+
+[node name="Mirror" parent="flat/Rooms/Bathroom" parent_id_path=PackedInt32Array(1845569351, 794954152) index="4" unique_id=363263372]
+material_override = SubResource("ShaderMaterial_44lfs")
+mesh = SubResource("PlaneMesh_70eeg")
+
+[node name="MirrorViewport" parent="flat/Rooms/Bathroom/Mirror" index="0"]
+size = Vector2i(79, 72)
+
+[node name="BaseButton" parent="flat/Rooms/WaterCloset/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1065937596, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_ta63e")
+
+[node name="BaseButton" parent="flat/Rooms/Kitchen/simple_light_switch/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 1466790459, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_lleyt")
+
+[node name="Lamp" parent="flat/Rooms/Kitchen/simple_light_switch/Interactable" parent_id_path=PackedInt32Array(1845569351, 1466790459) index="1" unique_id=2007068211]
 light_energy = 2.293
 
-[node name="Collectables" type="Node" parent="flat"]
+[node name="BaseButton" parent="flat/Rooms/Kitchen/fridge/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 238230988, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_26x2o")
 
-[node name="ThreeBuns" parent="flat/Collectables" instance=ExtResource("10_cl2yl")]
+[node name="BaseButton" parent="flat/Rooms/Kitchen/window_2x1_with_sliders/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1845569351, 2027521188, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_bokxa")
+
+[node name="ThreeBuns" parent="flat" index="4" unique_id=804978257]
+_default_interaction_line = "[center]There are several  [color=#{_item_name_color}]buns[/color] on the shelf (x[color=#{_item_name_color}]{_count}[/color]). Take them?"
+
+[node name="Collectables" type="Node" parent="flat" unique_id=1904738498]
+
+[node name="ThreeBuns" parent="flat/Collectables" unique_id=412874187 instance=ExtResource("10_cl2yl")]
 transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -5.76484, 0.957237, 56.3406)
+_count = 3
+_lines = Array[String](["[center]You have found [color=#7fff00]_NO_ITEM_SELECTED_[/color] (x[color=#7fff00]1[/color]). Take it?"])
 
-[node name="Snikers" parent="flat/Collectables" instance=ExtResource("10_5owjf")]
+[node name="Snikers" parent="flat/Collectables" unique_id=390524351 instance=ExtResource("10_5owjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93534, 1.63879, 56.8081)
+_count = 3
+_lines = Array[String](["[center]You have found [color=#7fff00]_NO_ITEM_SELECTED_[/color] (x[color=#7fff00]1[/color]). Take it?"])
 
-[node name="Milk" parent="flat/Collectables" instance=ExtResource("11_hq3u4")]
+[node name="Milk" parent="flat/Collectables" unique_id=1562632256 instance=ExtResource("11_hq3u4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56018, 0.512091, 60.8731)
+_count = 3
 _default_interaction_line = "[center]A [color=#{_item_name_color}]carton of milk[/color] lays in the grocery trolley. Take it?"
+_lines = Array[String](["[center]You have found [color=#7fff00]_NO_ITEM_SELECTED_[/color] (x[color=#7fff00]1[/color]). Take it?"])
 
-[node name="Flashlight" parent="flat/Collectables" instance=ExtResource("9_b6ykc")]
+[node name="Flashlight" parent="flat/Collectables" unique_id=1572384628 instance=ExtResource("9_b6ykc")]
 transform = Transform3D(0.78378, 0, -0.621038, 0, 1, 0, 0.621038, 0, 0.78378, -3.3353, 0.770782, 58.3989)
 monitoring = true
+_count = 3
+_lines = Array[String](["[center]You have found [color=#7fff00]_NO_ITEM_SELECTED_[/color] (x[color=#7fff00]1[/color]). Take it?"])
 interaction_priority = 0
 
 [editable path="CameraConstraints/General"]
@@ -153,6 +280,7 @@ interaction_priority = 0
 [editable path="flat/Rooms/Hall/simple_light_switch/Interactable"]
 [editable path="flat/Rooms/Hall/picture_ba2sai2"]
 [editable path="flat/Rooms/Hall/picture_ba2sai2/Interactable"]
+[editable path="flat/Rooms/Hall/dressing_table/Mirror"]
 [editable path="flat/Rooms/Room"]
 [editable path="flat/Rooms/Room/simple_light_switch/Interactable"]
 [editable path="flat/Rooms/Room/picture_ba2sai"]
@@ -169,6 +297,7 @@ interaction_priority = 0
 [editable path="flat/Rooms/Balcony"]
 [editable path="flat/Rooms/Bathroom"]
 [editable path="flat/Rooms/Bathroom/simple_light_switch/Interactable"]
+[editable path="flat/Rooms/Bathroom/Mirror"]
 [editable path="flat/Rooms/Bathroom/DoorBathroom"]
 [editable path="flat/Rooms/WaterCloset"]
 [editable path="flat/Rooms/WaterCloset/simple_light_switch/Interactable"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbcxp6cit6pdr"]
+[gd_scene format=3 uid="uid://dbcxp6cit6pdr"]
 
 [ext_resource type="Script" uid="uid://dvq57cqihehj3" path="res://autoload/ui/item_list/item_list.gd" id="1_6xcf1"]
 [ext_resource type="PackedScene" uid="uid://d2ykucjec5cgq" path="res://autoload/ui/item_list/item.tscn" id="2_b46fe"]
@@ -9,22 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://8ypkooo4aj3y" path="res://assets/milk/milk carton.blend" id="7_rwsjs"]
 [ext_resource type="PackedScene" uid="uid://g0gxjb1hr4sr" path="res://assets/doodads/electric_iron/electric_iron.blend" id="8_muh81"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p5y7q"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_56jo5"]
+viewport_path = NodePath("Flashlight/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pcpj3"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_wmaeg"]
+viewport_path = NodePath("Bun/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o8t4l"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_xixup"]
+viewport_path = NodePath("Snickers/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ksi78"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_vh2o7"]
+viewport_path = NodePath("Milk/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3blaw"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_2ipbr"]
+viewport_path = NodePath("Iron/SubViewport")
 
-[node name="ItemList" type="VFlowContainer"]
+[node name="ItemList" type="VFlowContainer" unique_id=434312535]
 unique_name_in_owner = true
 use_parent_material = true
 anchors_preset = -1
@@ -35,27 +35,26 @@ offset_bottom = 0.319977
 theme_override_constants/h_separation = 0
 script = ExtResource("1_6xcf1")
 
-[node name="Flashlight" parent="." instance=ExtResource("2_b46fe")]
+[node name="Flashlight" parent="." unique_id=1743113554 instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_p5y7q")
+icon = SubResource("ViewportTexture_56jo5")
 description = "Flashlight"
 _model = ExtResource("3_3u5eu")
 _model_scale = 9.0
 
-[node name="Bun" parent="." instance=ExtResource("2_b46fe")]
+[node name="Bun" parent="." unique_id=1732741970 instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_pcpj3")
+icon = SubResource("ViewportTexture_wmaeg")
 script = ExtResource("5_moqir")
 type = 0
 value = 20.0
 description = "Bun"
-amount = 3
 _model = ExtResource("4_rd3k8")
 _model_scale = 8.0
 
-[node name="Snickers" parent="." instance=ExtResource("2_b46fe")]
+[node name="Snickers" parent="." unique_id=312116754 instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_o8t4l")
+icon = SubResource("ViewportTexture_xixup")
 script = ExtResource("5_moqir")
 type = 0
 value = 15.0
@@ -63,9 +62,9 @@ description = "Snikers."
 _model = ExtResource("6_3na38")
 _model_scale = 0.25
 
-[node name="Milk" parent="." instance=ExtResource("2_b46fe")]
+[node name="Milk" parent="." unique_id=59040890 instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_ksi78")
+icon = SubResource("ViewportTexture_vh2o7")
 script = ExtResource("5_moqir")
 type = 0
 value = 15.0
@@ -74,9 +73,9 @@ _model = ExtResource("7_rwsjs")
 _model_scale = 5.0
 _model_offset = Vector3(0, -0.215, 0)
 
-[node name="Iron" parent="." instance=ExtResource("2_b46fe")]
+[node name="Iron" parent="." unique_id=2067619813 instance=ExtResource("2_b46fe")]
 layout_mode = 2
-icon = SubResource("ViewportTexture_3blaw")
+icon = SubResource("ViewportTexture_2ipbr")
 description = "Can be used as a meele and ranged weapon.
 "
 _model = ExtResource("8_muh81")

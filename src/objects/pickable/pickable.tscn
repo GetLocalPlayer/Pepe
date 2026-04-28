@@ -1,14 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7qqb0kamjg27"]
+[gd_scene format=3 uid="uid://b7qqb0kamjg27"]
 
 [ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_l4qfr"]
 [ext_resource type="Script" uid="uid://ccwl05giyuy7j" path="res://objects/pickable/pickable.gd" id="2_aslbf"]
+[ext_resource type="Script" uid="uid://duv5hykui4ox3" path="res://objects/pickable/pickable_ui.gd" id="3_7ovkj"]
+[ext_resource type="PackedScene" uid="uid://dbcxp6cit6pdr" path="res://autoload/ui/item_list/item_list.tscn" id="3_akkrq"]
 
-[node name="Pickable" instance=ExtResource("1_l4qfr")]
+[node name="Pickable" unique_id=1713259281 instance=ExtResource("1_l4qfr")]
 script = ExtResource("2_aslbf")
-_item_list_JSON_path = "res://autoload/ui/item_list/item_list.json"
-_amount = 1
+_item_name = "_NONE_"
+_count = 1
 _item_name_color = Color(0.498039, 1, 0, 1)
-_default_interaction_line = "[center]You have found [color=#{_item_name_color}]{_item_name}[/color] (x[color=#{_item_name_color}]{_amount}[/color]). Take it?"
-_interaction_lines = Array[String]([])
-_item_name = "_NO_ITEM_SELECTED_"
+_default_interaction_line = "[center]You have found [color=#{_item_name_color}]{_item_name}[/color] (x[color=#{_item_name_color}]{_count}[/color]). Take it?"
+_options = Array[String](["Yes", "No"])
 interaction_priority = 1
+
+[node name="UI" parent="." index="0" unique_id=701153672]
+script = ExtResource("3_7ovkj")
+_item_appearing_time = 0.4
+
+[node name="ItemPreview" type="CenterContainer" parent="UI" index="0" unique_id=1668336957]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.203
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ItemPreview" index="0" unique_id=1920769534]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+mouse_filter = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ItemList" parent="UI/ItemPreview/ScrollContainer" index="0" unique_id=1322802630 instance=ExtResource("3_akkrq")]
+unique_name_in_owner = false
+layout_mode = 2
+
+[node name="NextLineButton" parent="UI/Text" parent_id_path=PackedInt32Array(1660217933) index="2" unique_id=18934470]
+visible = false

@@ -45,7 +45,6 @@ var exhausted: bool = stamina <= 0:
 @onready var _model: Node3D = $aigirl
 @onready var _interactable_detector = $InteractableDetector
 @onready var _ui = {
-	interaction = get_node("/root/Interaction"),
 	inventory = get_node("/root/Inventory"),
 }
 
@@ -96,7 +95,10 @@ func _handle_input_actions(event: InputEventKey) -> void:
 			get_viewport().set_input_as_handled()
 			var interactables: Array[Area3D] = _interactable_detector.get_overlapping_areas()
 			interactables.sort_custom(func(a, b): return a.interaction_priority > b.interaction_priority)
-			(interactables[0] as Interactable).interact()
+			for i: Interactable in interactables:
+				var result = await i.interact()
+				if i is Pickable and result:
+					_ui.inventory.add_item(i.get_item_name(), i.get_item_count())
 	if event.is_action(_input_actions.inventory):
 		get_viewport().set_input_as_handled()
 		_ui.inventory.open()

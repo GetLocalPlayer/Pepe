@@ -25,4 +25,4 @@ func use():
     match type:
         EffectType.HEALTH_RESTORATION:
             _player.restore_health(value)
-    amount -= 1
+    count -= 1

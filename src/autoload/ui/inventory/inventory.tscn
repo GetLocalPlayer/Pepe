@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bue4pp11ghxtp"]
+[gd_scene format=3 uid="uid://bue4pp11ghxtp"]
 
 [ext_resource type="Script" uid="uid://q0ckv5xf2p4v" path="res://autoload/ui/inventory/inventory.gd" id="1_mkn8m"]
 [ext_resource type="FontFile" uid="uid://cbhtjy8qjsvwf" path="res://fonts/PixeloidSans.ttf" id="2_rokqn"]
@@ -68,20 +68,20 @@ shader_parameter/Border = SubResource("GradientTexture2D_w3dmp")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nrcv"]
 content_margin_top = 30.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0l8pj"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_midp8"]
+viewport_path = NodePath("Backdrop/Rows/ItemScroll/ItemList/Flashlight/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rwonx"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_khoi6"]
+viewport_path = NodePath("Backdrop/Rows/ItemScroll/ItemList/Bun/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r6pn4"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_ihyay"]
+viewport_path = NodePath("Backdrop/Rows/ItemScroll/ItemList/Snickers/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_55ujd"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_8q8fk"]
+viewport_path = NodePath("Backdrop/Rows/ItemScroll/ItemList/Milk/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4in7k"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_aox0u"]
+viewport_path = NodePath("Backdrop/Rows/ItemScroll/ItemList/Iron/SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4kqr"]
 content_margin_left = 20.0
@@ -105,7 +105,7 @@ texture = SubResource("GradientTexture2D_qeet7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5pwex"]
 shader = ExtResource("7_h5sks")
 
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" unique_id=2127998048]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -117,7 +117,7 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("1_mkn8m")
 
-[node name="Backdrop" type="ColorRect" parent="."]
+[node name="Backdrop" type="ColorRect" parent="." unique_id=620047440]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -127,7 +127,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Rows" type="VBoxContainer" parent="Backdrop"]
+[node name="Rows" type="VBoxContainer" parent="Backdrop" unique_id=2084258083]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +135,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="HBoxContainer" parent="Backdrop/Rows"]
+[node name="Character" type="HBoxContainer" parent="Backdrop/Rows" unique_id=1842928639]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ItemScroll")
 focus_mode = 2
@@ -143,12 +143,12 @@ theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("2_tjspy")
 
-[node name="Status" type="VBoxContainer" parent="Backdrop/Rows/Character"]
+[node name="Status" type="VBoxContainer" parent="Backdrop/Rows/Character" unique_id=503006510]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
-[node name="Title" type="Label" parent="Backdrop/Rows/Character/Status"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Status" unique_id=1980251283]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -163,14 +163,14 @@ text = "Status
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="ColorRect" parent="Backdrop/Rows/Character/Status"]
+[node name="Portrait" type="ColorRect" parent="Backdrop/Rows/Character/Status" unique_id=479664940]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_8ikmb")
 custom_minimum_size = Vector2(300, 330)
 layout_mode = 2
 script = ExtResource("8_kdghm")
 
-[node name="Button" type="Button" parent="Backdrop/Rows/Character/Status/Portrait"]
+[node name="Button" type="Button" parent="Backdrop/Rows/Character/Status/Portrait" unique_id=1069743470]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,17 +184,17 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_iww3n")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_iww3n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iww3n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iww3n")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_iww3n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iww3n")
 flat = true
 
-[node name="Equipment" type="VBoxContainer" parent="Backdrop/Rows/Character"]
+[node name="Equipment" type="VBoxContainer" parent="Backdrop/Rows/Character" unique_id=748081976]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="Backdrop/Rows/Character/Equipment"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Equipment" unique_id=1608842740]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
@@ -206,15 +206,15 @@ text = "Equipment
 "
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Backdrop/Rows/Character/Equipment"]
+[node name="TextureRect" type="TextureRect" parent="Backdrop/Rows/Character/Equipment" unique_id=9669414]
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 
-[node name="Command" type="VBoxContainer" parent="Backdrop/Rows/Character"]
+[node name="Command" type="VBoxContainer" parent="Backdrop/Rows/Character" unique_id=1274600819]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="Backdrop/Rows/Character/Command"]
+[node name="Title" type="Label" parent="Backdrop/Rows/Character/Command" unique_id=476857654]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.454902)
@@ -225,18 +225,18 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
 text = "Command"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Backdrop/Rows/Character/Command"]
+[node name="HSeparator" type="HSeparator" parent="Backdrop/Rows/Character/Command" unique_id=1114305346]
 light_mask = 0
 visibility_layer = 0
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Buttons" type="VBoxContainer" parent="Backdrop/Rows/Character/Command"]
+[node name="Buttons" type="VBoxContainer" parent="Backdrop/Rows/Character/Command" unique_id=752917099]
 custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Use" type="Button" parent="Backdrop/Rows/Character/Command/Buttons"]
+[node name="Use" type="Button" parent="Backdrop/Rows/Character/Command/Buttons" unique_id=658329499]
 custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -248,13 +248,13 @@ focus_previous = NodePath(".")
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8nrcv")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8nrcv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8nrcv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8nrcv")
 button_mask = 0
 
-[node name="Label" type="Label" parent="Backdrop/Rows/Character/Command/Buttons/Use"]
+[node name="Label" type="Label" parent="Backdrop/Rows/Character/Command/Buttons/Use" unique_id=1167779779]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -270,7 +270,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ItemScroll" type="ScrollContainer" parent="Backdrop/Rows"]
+[node name="ItemScroll" type="ScrollContainer" parent="Backdrop/Rows" unique_id=1989184462]
 unique_name_in_owner = true
 clip_contents = false
 custom_minimum_size = Vector2(200, 200)
@@ -284,37 +284,37 @@ horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 script = ExtResource("7_uupfk")
 
-[node name="ItemList" parent="Backdrop/Rows/ItemScroll" instance=ExtResource("7_mybl8")]
+[node name="ItemList" parent="Backdrop/Rows/ItemScroll" unique_id=281637083 instance=ExtResource("7_mybl8")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/v_separation = 0
 
-[node name="Flashlight" parent="Backdrop/Rows/ItemScroll/ItemList" index="0"]
+[node name="Flashlight" parent="Backdrop/Rows/ItemScroll/ItemList" index="0" unique_id=1743113554]
 visible = false
-icon = SubResource("ViewportTexture_0l8pj")
-amount = 0
+icon = SubResource("ViewportTexture_midp8")
+count = 0
 
-[node name="Bun" parent="Backdrop/Rows/ItemScroll/ItemList" index="1"]
+[node name="Bun" parent="Backdrop/Rows/ItemScroll/ItemList" index="1" unique_id=1732741970]
 visible = false
-icon = SubResource("ViewportTexture_rwonx")
-amount = 0
+icon = SubResource("ViewportTexture_khoi6")
+count = 0
 
-[node name="Snickers" parent="Backdrop/Rows/ItemScroll/ItemList" index="2"]
+[node name="Snickers" parent="Backdrop/Rows/ItemScroll/ItemList" index="2" unique_id=312116754]
 visible = false
-icon = SubResource("ViewportTexture_r6pn4")
-amount = 0
+icon = SubResource("ViewportTexture_ihyay")
+count = 0
 
-[node name="Milk" parent="Backdrop/Rows/ItemScroll/ItemList" index="3"]
+[node name="Milk" parent="Backdrop/Rows/ItemScroll/ItemList" index="3" unique_id=59040890]
 visible = false
-icon = SubResource("ViewportTexture_55ujd")
-amount = 0
+icon = SubResource("ViewportTexture_8q8fk")
+count = 0
 
-[node name="Iron" parent="Backdrop/Rows/ItemScroll/ItemList" index="4"]
+[node name="Iron" parent="Backdrop/Rows/ItemScroll/ItemList" index="4" unique_id=2067619813]
 visible = false
-icon = SubResource("ViewportTexture_4in7k")
-amount = 0
+icon = SubResource("ViewportTexture_aox0u")
+count = 0
 
-[node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows"]
+[node name="ItemDescription" type="RichTextLabel" parent="Backdrop/Rows" unique_id=239925446]
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -332,20 +332,20 @@ Item description line 3
 Item description line 4"
 script = ExtResource("10_fiy35")
 
-[node name="BottomButtons" type="HBoxContainer" parent="Backdrop/Rows"]
+[node name="BottomButtons" type="HBoxContainer" parent="Backdrop/Rows" unique_id=1645492515]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Backdrop/Rows/BottomButtons"]
+[node name="VSeparator" type="VSeparator" parent="Backdrop/Rows/BottomButtons" unique_id=230418234]
 visibility_layer = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VSeparator2" type="VSeparator" parent="Backdrop/Rows/BottomButtons"]
+[node name="VSeparator2" type="VSeparator" parent="Backdrop/Rows/BottomButtons" unique_id=1304800687]
 visibility_layer = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ExitButton" type="Button" parent="Backdrop/Rows/BottomButtons"]
+[node name="ExitButton" type="Button" parent="Backdrop/Rows/BottomButtons" unique_id=652969267]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -361,15 +361,15 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_rokqn")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxTexture_ljah1")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ljah1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljah1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_tmtwf")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ljah1")
 button_mask = 0
 text = "
 "
 
-[node name="Title" type="Label" parent="Backdrop/Rows/BottomButtons/ExitButton"]
+[node name="Title" type="Label" parent="Backdrop/Rows/BottomButtons/ExitButton" unique_id=476315361]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -385,7 +385,7 @@ theme_override_font_sizes/font_size = 21
 text = "Exit"
 horizontal_alignment = 1
 
-[node name="Selector" type="MarginContainer" parent="Backdrop"]
+[node name="Selector" type="MarginContainer" parent="Backdrop" unique_id=936526802]
 layout_mode = 0
 offset_left = 326.0
 offset_top = 249.0
@@ -393,7 +393,7 @@ offset_right = 454.0
 offset_bottom = 379.0
 script = ExtResource("9_dcg4u")
 
-[node name="Glow" type="NinePatchRect" parent="Backdrop/Selector"]
+[node name="Glow" type="NinePatchRect" parent="Backdrop/Selector" unique_id=1807067875]
 material = SubResource("ShaderMaterial_5pwex")
 layout_mode = 2
 texture = ExtResource("7_j6mwm")
@@ -402,7 +402,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Background" type="NinePatchRect" parent="Backdrop/Selector"]
+[node name="Background" type="NinePatchRect" parent="Backdrop/Selector" unique_id=1474780415]
 layout_mode = 2
 texture = ExtResource("12_086n4")
 region_rect = Rect2(-2, -2, 132, 132)
@@ -411,7 +411,7 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[node name="FadeScreen" type="ColorRect" parent="."]
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=322274771]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

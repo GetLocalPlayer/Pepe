@@ -19,10 +19,15 @@ func _get_option_button() -> Button:
 	var btn: Button
 	if _recycled_option_buttons.is_empty():
 		btn = _base_option_button.duplicate()
-		btn.pressed.connect(func() -> void: option_pressed.emit(_option_buttons.find(btn)))
+		btn.pressed.connect(_on_option_pressed.bind(btn))
 	else:
 		btn = _recycled_option_buttons.pop_front()
 	return btn
+
+
+func _on_option_pressed(btn: Button) -> void:
+	option_pressed.emit(_option_buttons.find(btn))
+	clear_options()
 
 
 func _recycle_option_button(btn: Button) -> void:
@@ -33,14 +38,13 @@ func _recycle_option_button(btn: Button) -> void:
 
 
 
-func _ready():
+func _ready() -> void:
 	hide()
 	_next_line_button.hide()
 	_option_button_container.remove_child(_base_option_button)
 
 
-func run(lines: Array[String], options: Array[String]):
-	clear_options()
+func run(lines: Array[String], options: Array[String]) -> void:
 	await run_lines(lines)
 	lines_finished.emit()
 	run_options(options)
@@ -63,10 +67,9 @@ func run_lines(lines: Array[String]) -> void:
 	_next_line_button.hide()
 
 
-func run_options(options: Array[String]):
+func run_options(options: Array[String]) -> void:
 	if options.is_empty():
 		return
-	clear_options()
 	show()
 	for s: String in options:
 		var btn: Button = _get_option_button()
