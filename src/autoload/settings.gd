@@ -1,6 +1,11 @@
 extends Node
 
 
+var input_map: Dictionary[String, String] = {
+	interact = "Action",
+	cancel = "Cancel",
+}
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED

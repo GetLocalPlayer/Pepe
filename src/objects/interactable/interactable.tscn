@@ -31,16 +31,15 @@ border_color = Color(0, 0, 0, 0.705882)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g41nu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tno2t"]
-size = Vector3(0.41531372, 0.930542, 0.3828125)
 
 [node name="Interactable" type="Area3D" unique_id=2060453790]
 collision_layer = 512
 collision_mask = 0
+input_ray_pickable = false
 monitoring = false
 script = ExtResource("1_t6scv")
 
 [node name="UI" type="Control" parent="." unique_id=701153672]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +70,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_qq8g2")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yadm2")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yadm2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
@@ -81,6 +80,8 @@ button_mask = 0
 text = "OptionButton
 "
 script = ExtResource("5_0ifa0")
+_normal_font_size = 20
+_focused_font_size = 25
 
 [node name="HSeparator2" type="HSeparator" parent="UI/Options" unique_id=1365828296]
 layout_mode = 2
@@ -137,7 +138,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_g41nu")
 button_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2097588528]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28875732, -0.034729004, 0)
 shape = SubResource("BoxShape3D_tno2t")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1622127475]

@@ -1446,7 +1446,7 @@ shape = SubResource("BoxShape3D_d6ra0")
 transform = Transform3D(-0.628113, 0, -0.111885, 0, 0.571, 0, 0.111885, 0, -0.628113, -0.139834, 0.778948, -0.00394738)
 
 [node name="Interactable" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine" index="1" unique_id=1136615416 instance=ExtResource("9_mbwjg")]
-transform = Transform3D(0.390236, 0, -1.11784, 0, 1.184, 0, 1.11784, 0, 0.390236, -0.0854983, 0.299102, 0.0807008)
+transform = Transform3D(0.3295919, 0, -0.9441235, 0, 1, 0, 0.9441235, 0, 0.3295919, -0.0854983, 0.299102, 0.0807008)
 _lines = Array[String](["I was taught to work on a sewing machine.", "Never liked it."])
 
 [node name="BaseButton" parent="Rooms/Room/sovite_table_book/vintage_sewing_machine/Interactable/UI/Options/Buttons" parent_id_path=PackedInt32Array(1136615416, 140207785) index="0" unique_id=2126020029]
@@ -2040,7 +2040,7 @@ transform = Transform3D(-0.993094, -0.0346481, 0.112093, -0.0124117, 0.981064, 0
 transform = Transform3D(-0.72295, 0, 0.585016, 0, 0.93, 0, -0.585016, 0, -0.72295, 3.86662, 3.57628e-07, -2.48431)
 
 [node name="Snikers" parent="." index="3" unique_id=675424064 instance=ExtResource("24_tfyl5")]
-transform = Transform3D(0.472836, 0, 0.344457, 0, 0.585, 0, -0.344457, 0, 0.472836, -3.46913, 0.82556, -3.2431)
+transform = Transform3D(0.80826724, 0, 0.5888158, 0, 1, 0, -0.5888158, 0, 0.80826724, -3.46913, 0.82556, -3.2431)
 _fade_in_out_color = null
 _fade_in_out_time = null
 
@@ -2051,13 +2051,13 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Snikers" parent="Snikers" index="1"]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="Snikers" index="2" unique_id=2097588528]
 transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0, -0.346013, 0)
 
 [node name="ThreeBuns" parent="." index="4" unique_id=804978257 instance=ExtResource("25_tvpim")]
-transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -0.848847, 0.797624, -4.10043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.848847, 0.797624, -4.10043)
 _count = 3
 _fade_in_out_color = null
 _fade_in_out_time = null
@@ -2069,19 +2069,16 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="bun" parent="ThreeBuns" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
 
 [node name="bun2" parent="ThreeBuns" index="2"]
-transform = Transform3D(0.666337, 0, -0.74565, 0, 1, 0, 0.74565, 0, 0.666337, -0.00591707, 0.0434202, 0.116855)
+transform = Transform3D(0.383144, 0, -0.42874897, 0, 0.575, 0, 0.42874897, 0, 0.383144, -0.00591707, 0.0434202, 0.116855)
 
 [node name="bun3" parent="ThreeBuns" index="3"]
-transform = Transform3D(0.605043, 0.741939, -0.288877, -0.243685, 0.517973, 0.819952, 0.757985, -0.425711, 0.494195, 0.0869529, 0.0921154, -0.0132809)
-
-[node name="CollisionShape3D" parent="ThreeBuns" index="4" unique_id=2097588528]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.34789962, 0.42661497, -0.16610391, -0.14011884, 0.2978346, 0.47147244, 0.43584123, -0.24478398, 0.28416234, 0.06373012, 0.0921154, 0.011490345)
 
 [node name="FlashLight" parent="." index="5" unique_id=23902964 instance=ExtResource("26_tn48v")]
-transform = Transform3D(-0.440603, 0, 0.329194, 0, 0.55, 0, -0.329194, 0, -0.440603, -2.33587, 1.2302, -2.12493)
+transform = Transform3D(-0.8010968, 0, 0.5985348, 0, 1, 0, -0.5985348, 0, -0.8010968, -2.33587, 1.2302, -2.12493)
 _fade_in_out_color = null
 _fade_in_out_time = null
 
@@ -2092,7 +2089,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="flashlightblend" parent="FlashLight" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="FlashLight" index="2" unique_id=2097588528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.353974, 0)

@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://btclb4y2mbnx3"]
+
+[ext_resource type="PackedScene" uid="uid://fa5ihdfikw4u" path="res://objects/interactable/interactable.tscn" id="1_nipan"]
+[ext_resource type="Shader" uid="uid://b8am10y0gmhfh" path="res://objects/interactable/iteractable_option_button_focus_shader.tres" id="2_ea7lc"]
+[ext_resource type="Script" uid="uid://bqxoh2a2elxwj" path="res://objects/interactable/intercom/intercom.gd" id="2_v8yex"]
+[ext_resource type="FontFile" uid="uid://bvgbouk0r38tk" path="res://objects/interactable/intercom/fonts/DS-DIGIB.ttf" id="3_ea7lc"]
+[ext_resource type="Script" uid="uid://duf7ad7suj1sw" path="res://objects/interactable/intercom/intercom_interface.gd" id="3_tupqj"]
+[ext_resource type="AudioStream" uid="uid://cpnmwn53tgrdl" path="res://objects/interactable/intercom/sounds/intercom_btn.mp3" id="5_jvm3m"]
+[ext_resource type="AudioStream" uid="uid://crbnpupynprdb" path="res://objects/interactable/intercom/sounds/intercom_special_btn.mp3" id="6_neusv"]
+[ext_resource type="AudioStream" uid="uid://hffo81ioucxt" path="res://objects/interactable/intercom/sounds/intercom_error.mp3" id="7_5l8p2"]
+[ext_resource type="AudioStream" uid="uid://b6acygsblnacr" path="res://objects/interactable/intercom/sounds/intercom_ring.mp3" id="8_o5k0l"]
+[ext_resource type="AudioStream" uid="uid://8fg02lktmlwq" path="res://objects/interactable/intercom/sounds/intercom_hang_up.mp3" id="9_5l8p2"]
+[ext_resource type="AudioStream" uid="uid://cjrlq4ugsass1" path="res://objects/interactable/intercom/sounds/intercom_pick_up.mp3" id="10_o5k0l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5l8p2"]
+shader = ExtResource("2_ea7lc")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="Animation" id="Animation_1ggx7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/Screen:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["1234"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7vqv2"]
+resource_name = "call"
+length = 3.75
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_o5k0l")
+}],
+"times": PackedFloat32Array(1)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kqfch"]
+resource_name = "error"
+length = 2.5
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_5l8p2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ERR"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interface/Screen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2xfq0"]
+resource_name = "hang_up"
+length = 0.3884
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_5l8p2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jvm3m"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/Screen:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["_", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vc8jm"]
+resource_name = "pick_up"
+length = 0.3884
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_o5k0l")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Screen:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SAY"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interface/Screen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xfq0"]
+_data = {
+&"RESET": SubResource("Animation_1ggx7"),
+&"call": SubResource("Animation_7vqv2"),
+&"error": SubResource("Animation_kqfch"),
+&"hang_up": SubResource("Animation_2xfq0"),
+&"idle": SubResource("Animation_jvm3m"),
+&"pick_up": SubResource("Animation_vc8jm")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v8yex"]
+height = 0.006
+radius = 0.0034179688
+
+[node name="Intercom" unique_id=2060453790 instance=ExtResource("1_nipan")]
+script = ExtResource("2_v8yex")
+_max_number = 48
+_lines = Array[String](["Nobody's answering..."])
+
+[node name="AnswerPlayer" type="AudioStreamPlayer" parent="." index="0" unique_id=1138094000]
+
+[node name="BaseButton" parent="UI/Options/Buttons" parent_id_path=PackedInt32Array(140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_5l8p2")
+
+[node name="Camera3D" parent="." index="3" unique_id=1622127475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.938241)
+
+[node name="Interface" type="Area3D" parent="." index="4" unique_id=1261527891]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("3_tupqj")
+
+[node name="ButtonSounds" type="Node" parent="Interface" index="0" unique_id=1851070900]
+
+[node name="Normal" type="AudioStreamPlayer" parent="Interface/ButtonSounds" index="0" unique_id=1130050805]
+stream = ExtResource("5_jvm3m")
+
+[node name="Special" type="AudioStreamPlayer" parent="Interface/ButtonSounds" index="1" unique_id=1929860281]
+stream = ExtResource("6_neusv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface" index="1" unique_id=1500769264]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_2xfq0")
+autoplay = &"idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interface/AnimationPlayer" index="0" unique_id=935670931]
+
+[node name="CallTimer" type="Timer" parent="Interface/AnimationPlayer" index="1" unique_id=645440090]
+one_shot = true
+
+[node name="Screen" type="Label3D" parent="Interface" index="2" unique_id=350666076]
+modulate = Color(0.99999994, 0.04050286, 0.022352692, 1)
+text = "1234"
+font = ExtResource("3_ea7lc")
+font_size = 120
+outline_size = 5
+horizontal_alignment = 2
+
+[node name="Button1" type="CollisionShape3D" parent="Interface" index="3" unique_id=1134331623]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+
+[node name="Button2" type="CollisionShape3D" parent="Interface" index="4" unique_id=1277775039]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05, -1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button3" type="CollisionShape3D" parent="Interface" index="5" unique_id=549363714]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.1, -1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button4" type="CollisionShape3D" parent="Interface" index="6" unique_id=544750918]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.05, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button5" type="CollisionShape3D" parent="Interface" index="7" unique_id=1143960460]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05, -1.05, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button6" type="CollisionShape3D" parent="Interface" index="8" unique_id=2095866035]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.1, -1.05, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button7" type="CollisionShape3D" parent="Interface" index="9" unique_id=1712104152]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button8" type="CollisionShape3D" parent="Interface" index="10" unique_id=1511117691]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05, -1.1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="Button9" type="CollisionShape3D" parent="Interface" index="11" unique_id=1603539917]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.1, -1.1, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="ButtonCall" type="CollisionShape3D" parent="Interface" index="12" unique_id=1468295388]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.15, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("6_neusv")
+
+[node name="Button0" type="CollisionShape3D" parent="Interface" index="13" unique_id=1517250525]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05, -1.15, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("5_jvm3m")
+
+[node name="ButtonCancel" type="CollisionShape3D" parent="Interface" index="14" unique_id=646450115]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.1, -1.15, 0)
+shape = SubResource("CylinderShape3D_v8yex")
+metadata/sound_pressed = ExtResource("6_neusv")

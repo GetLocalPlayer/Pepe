@@ -46,6 +46,7 @@ var exhausted: bool = stamina <= 0:
 @onready var _interactable_detector = $InteractableDetector
 @onready var _ui = {
 	inventory = get_node("/root/Inventory"),
+	clothing = $UI/Clothing
 }
 
 
@@ -95,7 +96,11 @@ func _handle_input_actions(event: InputEventKey) -> void:
 			get_viewport().set_input_as_handled()
 			var interactables: Array[Area3D] = _interactable_detector.get_overlapping_areas()
 			interactables.sort_custom(func(a, b): return a.interaction_priority > b.interaction_priority)
+			_ui.clothing.hide()
 			for i: Interactable in interactables:
+				if i.has_camera():
+					i.camera_switched_in.connect(hide, CONNECT_ONE_SHOT)
+					i.camera_switched_out.connect(show, CONNECT_ONE_SHOT)
 				var result = await i.interact()
 				if i is Pickable and result:
 					_ui.inventory.add_item(i.get_item_name(), i.get_item_count())
