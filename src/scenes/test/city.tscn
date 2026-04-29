@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://dtunp1tnrtbxf"]
+
+[ext_resource type="PackedScene" uid="uid://4047kefmuldg" path="res://objects/pepe/Pepe.tscn" id="1_d2ekc"]
+[ext_resource type="PackedScene" uid="uid://i5un35uqish8" path="res://objects/orbital_camera/orbital_camera.tscn" id="2_pvfom"]
+[ext_resource type="PackedScene" uid="uid://btp3e3gnq88os" path="res://objects/scooter/scooter.tscn" id="3_snv1f"]
+[ext_resource type="PackedScene" uid="uid://cpd40dtkowgrp" path="res://assets/city/airplane_area.blend" id="4_c4j14"]
+[ext_resource type="PackedScene" uid="uid://btclb4y2mbnx3" path="res://objects/interactable/intercom/intercom.tscn" id="5_f5r8k"]
+[ext_resource type="Shader" uid="uid://b8am10y0gmhfh" path="res://objects/interactable/iteractable_option_button_focus_shader.tres" id="6_x5d2m"]
+[ext_resource type="Script" uid="uid://da1wi4l2as56k" path="res://objects/interactable/intercom/intercom_answer.gd" id="7_6bary"]
+[ext_resource type="AudioStream" uid="uid://dc0ls2r1n5qet" path="res://objects/interactable/intercom/sounds/wrong_call_1_pick_up.mp3" id="8_sao6j"]
+[ext_resource type="AudioStream" uid="uid://bjcbmtpfx8pb5" path="res://objects/interactable/intercom/sounds/wrong_call_2_pick_up.mp3" id="9_kjnol"]
+[ext_resource type="AudioStream" uid="uid://cvx8hme750i2k" path="res://objects/interactable/intercom/sounds/wrong_call_2_opt1.mp3" id="10_ychef"]
+[ext_resource type="AudioStream" uid="uid://bmc4vu0ad72np" path="res://objects/interactable/intercom/sounds/wrong_call_2_opt2.mp3" id="11_1lqmk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oi7a6"]
+sky_top_color = Color(0.6965938, 0.83508146, 0.896945, 1)
+sky_horizon_color = Color(0.8611306, 0.8649257, 0.87250805, 1)
+sky_curve = 0.14489064
+ground_curve = 0.20392954
+
+[sub_resource type="Sky" id="Sky_7ux8m"]
+sky_material = SubResource("ProceduralSkyMaterial_oi7a6")
+
+[sub_resource type="Environment" id="Environment_f60bu"]
+background_mode = 2
+sky = SubResource("Sky_7ux8m")
+tonemap_mode = 4
+tonemap_exposure = 1.19
+tonemap_white = 16.0
+tonemap_agx_white = 10.69
+tonemap_agx_contrast = 1.48
+ssao_radius = 0.7
+ssao_intensity = 2.09
+ssao_light_affect = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icohv"]
+shader = ExtResource("6_x5d2m")
+shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
+shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
+shader_parameter/flashing_enabled = false
+shader_parameter/flashing_rate = 2.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gdl7j"]
+height = 1.2324219
+radius = 0.15527344
+
+[node name="Test" type="WorldEnvironment" unique_id=1577574594]
+environment = SubResource("Environment_f60bu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1901470804]
+transform = Transform3D(-0.16965163, 0.83983856, -0.5156449, -0.46185213, 0.39445898, 0.7944148, 0.8705808, 0.37292543, 0.32096064, 5.77479, 39.107815, 0)
+light_color = Color(0.8252699, 0.7348356, 0.6199007, 1)
+light_energy = 1.585
+shadow_enabled = true
+
+[node name="Pepe" parent="." unique_id=70899364 instance=ExtResource("1_d2ekc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.48837, 0.01776123, -116.79371)
+
+[node name="OrbitalCamera" parent="Pepe" unique_id=1789092374 instance=ExtResource("2_pvfom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2377956, 0)
+
+[node name="Camera3D" parent="Pepe/OrbitalCamera/SpringArm3D" parent_id_path=PackedInt32Array(1789092374, 1141987983) index="0" unique_id=1902916828]
+current = true
+fov = 50.0
+
+[node name="Scooter" parent="." unique_id=184911787 instance=ExtResource("3_snv1f")]
+transform = Transform3D(0.5683608, 0, -0.8227794, 0, 1, 0, 0.8227794, 0, 0.5683608, 148.78238, 0.0018902123, -123.07116)
+sleeping = true
+
+[node name="HangingLamps" type="Node3D" parent="." unique_id=75288250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.68831, 0, 78.52278)
+
+[node name="HangingLamp" type="SpotLight3D" parent="HangingLamps" unique_id=125092395]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.6002808, 0.76063865, -8.212555)
+light_energy = 1.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp2" type="SpotLight3D" parent="HangingLamps" unique_id=524270583]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.2099915, 0.76063865, -8.212555)
+light_energy = 1.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp3" type="SpotLight3D" parent="HangingLamps" unique_id=607847466]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.8734055, 0.76063865, -8.212555)
+light_energy = 1.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp4" type="SpotLight3D" parent="HangingLamps" unique_id=1602023515]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.917175, 0.7427339, -2.8565216)
+light_energy = 1.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp5" type="SpotLight3D" parent="HangingLamps" unique_id=1697361292]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.886017, 0.7427339, -1.2481079)
+light_energy = 1.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp6" type="SpotLight3D" parent="HangingLamps" unique_id=877735861]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.9356613, 0.71512544, -6.5641937)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp7" type="SpotLight3D" parent="HangingLamps" unique_id=1979012964]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.9356613, 0.71512544, -7.530052)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp8" type="SpotLight3D" parent="HangingLamps" unique_id=1478053592]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.9356613, 0.71512544, -8.433601)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp9" type="SpotLight3D" parent="HangingLamps" unique_id=1157074696]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.0369568, 0.6912064, -6.5641937)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp10" type="SpotLight3D" parent="HangingLamps" unique_id=2106709590]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.0369568, 0.6912064, -7.530052)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="HangingLamp11" type="SpotLight3D" parent="HangingLamps" unique_id=1612036985]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.0369568, 0.6912064, -8.433601)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 3.094
+spot_angle = 41.13
+
+[node name="CailingLamp" type="OmniLight3D" parent="HangingLamps" unique_id=367851265]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.3309479, 0.6912064, -2.0149002)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp2" type="OmniLight3D" parent="HangingLamps" unique_id=1603803786]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.666809, 0.6912064, -2.4803772)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp3" type="OmniLight3D" parent="HangingLamps" unique_id=1408492566]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.6066666, 0.6912064, -2.4803772)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp4" type="OmniLight3D" parent="HangingLamps" unique_id=1318803145]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.6066666, 0.6912064, -5.3712387)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp5" type="OmniLight3D" parent="HangingLamps" unique_id=850856743]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.4953156, 0.6912064, -5.3712387)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp6" type="OmniLight3D" parent="HangingLamps" unique_id=162292427]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.123825, 0.6912064, -5.3712387)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp7" type="OmniLight3D" parent="HangingLamps" unique_id=943026914]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.264122, 0.6912064, -5.3712387)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp8" type="OmniLight3D" parent="HangingLamps" unique_id=1462630367]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.132721, 0.6912064, -1.5004196)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="CailingLamp9" type="OmniLight3D" parent="HangingLamps" unique_id=1921289113]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.734051, 0.6912064, -7.3311462)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="airplane_area" parent="." unique_id=594938282 instance=ExtResource("4_c4j14")]
+
+[node name="Intercom" parent="." unique_id=1414504136 instance=ExtResource("5_f5r8k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 113.4665, 1.458598, -122.81146)
+
+[node name="UI" parent="Intercom" index="1" unique_id=701153672]
+visible = false
+
+[node name="Options" parent="Intercom/UI" index="0" unique_id=698638238]
+anchors_preset = 9
+anchor_left = 0.0
+anchor_right = 0.0
+offset_right = 200.0
+
+[node name="BaseButton" parent="Intercom/UI/Options/Buttons" parent_id_path=PackedInt32Array(1414504136, 140207785) index="0" unique_id=2126020029]
+material = SubResource("ShaderMaterial_icohv")
+theme_override_font_sizes/font_size = 32
+
+[node name="CollisionShape3D" parent="Intercom" index="2" unique_id=2097588528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27690697, 6.789299)
+shape = SubResource("CylinderShape3D_gdl7j")
+
+[node name="Camera3D" parent="Intercom" index="3" unique_id=1622127475]
+transform = Transform3D(0.90069854, -0.1051014, -0.42153987, 0, 0.9702959, -0.24192125, 0.43444467, 0.21789812, 0.8739441, -0.077804565, -0.1470623, 6.8704224)
+visible = true
+
+[node name="Interface" parent="Intercom" index="4" unique_id=1261527891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.06, 6.817)
+
+[node name="Screen" parent="Intercom/Interface" index="2" unique_id=350666076]
+transform = Transform3D(0.023, 0, 0, 0, 0.022, 0, 0, 0, 0.022, 0.059143066, -0.034561634, -0.07552338)
+
+[node name="Button1" parent="Intercom/Interface" index="3" unique_id=1134331623]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.03601837, -0.0629462, -0.07889557)
+
+[node name="Button2" parent="Intercom/Interface" index="4" unique_id=1277775039]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.045913696, -0.0629462, -0.07889557)
+
+[node name="Button3" parent="Intercom/Interface" index="5" unique_id=549363714]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.056106567, -0.0629462, -0.07889557)
+
+[node name="Button4" parent="Intercom/Interface" index="6" unique_id=544750918]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.03601837, -0.07415187, -0.07889557)
+
+[node name="Button5" parent="Intercom/Interface" index="7" unique_id=1143960460]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.045913696, -0.07415187, -0.07889557)
+
+[node name="Button6" parent="Intercom/Interface" index="8" unique_id=2095866035]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.055984497, -0.07415187, -0.07889557)
+
+[node name="Button7" parent="Intercom/Interface" index="9" unique_id=1712104152]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.03601837, -0.08515155, -0.07889557)
+
+[node name="Button8" parent="Intercom/Interface" index="10" unique_id=1511117691]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.045913696, -0.08515155, -0.07889557)
+
+[node name="Button9" parent="Intercom/Interface" index="11" unique_id=1603539917]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.055976868, -0.085006595, -0.07889557)
+
+[node name="ButtonCall" parent="Intercom/Interface" index="12" unique_id=1468295388]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.03601837, -0.09596431, -0.07889557)
+
+[node name="Button0" parent="Intercom/Interface" index="13" unique_id=1517250525]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.045913696, -0.09596431, -0.07889557)
+
+[node name="ButtonCancel" parent="Intercom/Interface" index="14" unique_id=646450115]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.055976868, -0.09577739, -0.07889557)
+
+[node name="13" type="Node" parent="Intercom" unique_id=358184267]
+script = ExtResource("7_6bary")
+_answer = ExtResource("8_sao6j")
+_hang_up_lines = Array[String](["... Uh?", "What was that?"])
+metadata/_custom_type_script = "uid://da1wi4l2as56k"
+
+[node name="48" type="Node" parent="Intercom" unique_id=1443395536]
+script = ExtResource("7_6bary")
+_answer = ExtResource("9_kjnol")
+metadata/_custom_type_script = "uid://da1wi4l2as56k"
+
+[node name="Delivery!" type="Node" parent="Intercom/48" unique_id=1642260951]
+script = ExtResource("7_6bary")
+_answer = ExtResource("10_ychef")
+_hang_up_lines = Array[String](["...", "Might it be the wrong address?"])
+metadata/_custom_type_script = "uid://da1wi4l2as56k"
+
+[node name="<Remain Silent>" type="Node" parent="Intercom/48" unique_id=271844964]
+script = ExtResource("7_6bary")
+_answer = ExtResource("11_1lqmk")
+_option_string = "< промолчать >"
+_hang_up_lines = Array[String](["...", "Maybe, I should have said something..."])
+metadata/_custom_type_script = "uid://da1wi4l2as56k"
+
+[editable path="Pepe/OrbitalCamera"]
+[editable path="Intercom"]
