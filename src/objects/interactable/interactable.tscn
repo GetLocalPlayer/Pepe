@@ -66,6 +66,7 @@ layout_mode = 2
 
 [node name="BaseButton" type="Button" parent="UI/Options/Buttons" unique_id=2126020029]
 material = SubResource("ShaderMaterial_0ifa0")
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
 theme_override_constants/outline_size = 8
@@ -77,11 +78,23 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_yadm2")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yadm2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yadm2")
 button_mask = 0
-text = "OptionButton
-"
 script = ExtResource("5_0ifa0")
-_normal_font_size = 20
-_focused_font_size = 25
+_normal_font_size = 25
+_focused_font_size = 30
+
+[node name="Label" type="Label" parent="UI/Options/Buttons/BaseButton" unique_id=2017270112]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qq8g2")
+theme_override_font_sizes/font_size = 25
+text = "BaseButton"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="UI/Options" unique_id=1365828296]
 layout_mode = 2

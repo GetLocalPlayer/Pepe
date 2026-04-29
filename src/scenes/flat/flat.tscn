@@ -1077,7 +1077,6 @@ light_energy = 5.0
 shadow_enabled = true
 
 [node name="Ceiling" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="1" unique_id=538834283]
-visible = false
 cast_shadow = 2
 
 [node name="Walls_001" parent="Floor_003" parent_id_path=PackedInt32Array(1901866752) index="6" unique_id=1711019339]
@@ -1160,9 +1159,6 @@ transform = Transform3D(0.999999, 0, 3.907985e-14, 0, 0.999999, 0, -3.907985e-14
 material_override = SubResource("ShaderMaterial_i1cua")
 mesh = SubResource("PlaneMesh_2bx3p")
 _main_camera = NodePath("../../Camera3D")
-
-[node name="MirrorViewport" parent="Rooms/Hall/dressing_table/Mirror" index="0"]
-size = Vector2i(497, 344)
 
 [node name="MirrorCamera" parent="Rooms/Hall/dressing_table/Mirror/MirrorViewport" index="0"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.911009, 0.93004775, 0.8410306)
@@ -1398,11 +1394,15 @@ transform = Transform3D(-4.37114e-08, 0, -0.85, 0, 1, 0, 1, 0, -3.71547e-08, 2.5
 
 [node name="Pickable" parent="Rooms/Room/office_desk" index="2" unique_id=1578130341 instance=ExtResource("27_tfnir")]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -0.544753, 0.933708, 0.227499)
-_default_interaction_line = "[center]You have found  an [color=#{_item_name_color}]{_item_name}[/color] (x[color=#{_item_name_color}]{_amount}[/color]). Take it?"
-_lines = Array[String](["[center]You have found  an [color=#7fff00]Iron[/color] (x[color=#7fff00]1[/color]). Take it?"])
+_item_name = "Iron"
+_lines = Array[String](["[center]You've just found  an [color=#{_item_name_color}]{_item_name}[/color]!", "This is an extremally strong weapon!", "The true tool of violence and massacre!", "Are you sure you want to carry such a deadly thing with you?"])
 
-[node name="Text" parent="Rooms/Room/office_desk/Pickable/UI" parent_id_path=PackedInt32Array(1578130341, 701153672) index="2" unique_id=1660217933]
+[node name="UI" parent="Rooms/Room/office_desk/Pickable" index="0" unique_id=701153672]
+visible = false
+
+[node name="Text" parent="Rooms/Room/office_desk/Pickable/UI" index="2" unique_id=1660217933]
 unique_name_in_owner = true
+visible = false
 
 [node name="NextLineButton" parent="Rooms/Room/office_desk/Pickable/UI/Text" index="2" unique_id=18934470]
 unique_name_in_owner = true
@@ -1542,9 +1542,6 @@ mesh = SubResource("PlaneMesh_4g5bp")
 skeleton = NodePath("../1stflr_bathroom_sink")
 _main_camera = NodePath("../Camera3D")
 _resolution_factor = 0.08
-
-[node name="MirrorViewport" parent="Rooms/Bathroom/Mirror" index="0"]
-size = Vector2i(79, 55)
 
 [node name="DoorBathroom" parent="Rooms/Bathroom" index="5" unique_id=1815605059 instance=ExtResource("23_v0w8j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9491, -0.032, 0.110033)
@@ -2044,8 +2041,12 @@ transform = Transform3D(0.80826724, 0, 0.5888158, 0, 1, 0, -0.5888158, 0, 0.8082
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="Text" parent="Snikers/UI" parent_id_path=PackedInt32Array(675424064, 701153672) index="2" unique_id=1660217933]
+[node name="UI" parent="Snikers" index="0" unique_id=701153672]
+visible = false
+
+[node name="Text" parent="Snikers/UI" index="2" unique_id=1660217933]
 unique_name_in_owner = true
+visible = false
 
 [node name="NextLineButton" parent="Snikers/UI/Text" index="2" unique_id=18934470]
 unique_name_in_owner = true
@@ -2062,8 +2063,12 @@ _count = 3
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="Text" parent="ThreeBuns/UI" parent_id_path=PackedInt32Array(804978257, 701153672) index="2" unique_id=1660217933]
+[node name="UI" parent="ThreeBuns" index="0" unique_id=701153672]
+visible = false
+
+[node name="Text" parent="ThreeBuns/UI" index="2" unique_id=1660217933]
 unique_name_in_owner = true
+visible = false
 
 [node name="NextLineButton" parent="ThreeBuns/UI/Text" index="2" unique_id=18934470]
 unique_name_in_owner = true
@@ -2082,8 +2087,12 @@ transform = Transform3D(-0.8010968, 0, 0.5985348, 0, 1, 0, -0.5985348, 0, -0.801
 _fade_in_out_color = null
 _fade_in_out_time = null
 
-[node name="Text" parent="FlashLight/UI" parent_id_path=PackedInt32Array(23902964, 701153672) index="2" unique_id=1660217933]
+[node name="UI" parent="FlashLight" index="0" unique_id=701153672]
+visible = false
+
+[node name="Text" parent="FlashLight/UI" index="2" unique_id=1660217933]
 unique_name_in_owner = true
+visible = false
 
 [node name="NextLineButton" parent="FlashLight/UI/Text" index="2" unique_id=18934470]
 unique_name_in_owner = true

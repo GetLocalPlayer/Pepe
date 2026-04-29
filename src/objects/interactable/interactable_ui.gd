@@ -10,9 +10,9 @@ signal lines_finished
 @onready var _label: RichTextLabel = $Text
 @onready var _next_line_button: Button = $Text/NextLineButton
 @onready var _option_button_container: Control = $Options/Buttons
-@onready var _base_option_button: Button = $Options/Buttons/BaseButton
-var _option_buttons: Array[Button] = []
-var _recycled_option_buttons: Array[Button] = []
+@onready var _base_option_button: InteractableOptionButton = $Options/Buttons/BaseButton
+var _option_buttons: Array[InteractableOptionButton] = []
+var _recycled_option_buttons: Array[InteractableOptionButton] = []
 
 
 func _get_option_button() -> Button:
@@ -32,7 +32,7 @@ func _on_option_pressed(btn: Button) -> void:
 
 
 func _recycle_option_button(btn: Button) -> void:
-	btn.text = ""
+	btn.set_label_text("")
 	btn.hide()
 	btn.get_parent().remove_child(btn)
 	_recycled_option_buttons.append(btn)
@@ -86,7 +86,7 @@ func run_options(options: Array[String]) -> void:
 		var btn: Button = _get_option_button()
 		_option_buttons.append(btn)
 		_option_button_container.add_child(btn)
-		btn.text = s
+		btn.set_label_text(s)
 		btn.show()
 
 	_option_buttons[0].grab_focus()
