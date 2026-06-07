@@ -33,7 +33,7 @@ ssao_radius = 0.7
 ssao_intensity = 2.09
 ssao_light_affect = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_icohv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2ekc"]
 shader = ExtResource("6_x5d2m")
 shader_parameter/main_color = Color(1, 0.85098, 0.831373, 1)
 shader_parameter/flashing_color = Color(1, 0.3001221, 0.23614964, 1)
@@ -217,17 +217,11 @@ distance_fade_enabled = true
 [node name="Intercom" parent="." unique_id=1414504136 instance=ExtResource("5_f5r8k")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 113.4665, 1.458598, -122.81146)
 
-[node name="UI" parent="Intercom" index="1" unique_id=701153672]
-visible = false
-
-[node name="Options" parent="Intercom/UI" index="0" unique_id=698638238]
-anchors_preset = 9
-anchor_left = 0.0
-anchor_right = 0.0
+[node name="Options" parent="Intercom/UI" parent_id_path=PackedInt32Array(1414504136, 701153672) index="0" unique_id=698638238]
 offset_right = 200.0
 
 [node name="BaseButton" parent="Intercom/UI/Options/Buttons" parent_id_path=PackedInt32Array(1414504136, 140207785) index="0" unique_id=2126020029]
-material = SubResource("ShaderMaterial_icohv")
+material = SubResource("ShaderMaterial_d2ekc")
 theme_override_font_sizes/font_size = 32
 
 [node name="CollisionShape3D" parent="Intercom" index="2" unique_id=2097588528]
@@ -300,7 +294,6 @@ metadata/_custom_type_script = "uid://da1wi4l2as56k"
 [node name="<Remain Silent>" type="Node" parent="Intercom/48" unique_id=271844964]
 script = ExtResource("7_6bary")
 _answer = ExtResource("11_1lqmk")
-_option_string = "< промолчать >"
 _hang_up_lines = Array[String](["...", "Maybe, I should have said something..."])
 metadata/_custom_type_script = "uid://da1wi4l2as56k"
 

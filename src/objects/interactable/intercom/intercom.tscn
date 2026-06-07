@@ -246,8 +246,14 @@ _lines = Array[String](["Nobody's answering..."])
 
 [node name="AnswerPlayer" type="AudioStreamPlayer" parent="." index="0" unique_id=1138094000]
 
+[node name="Options" parent="UI" parent_id_path=PackedInt32Array(701153672) index="0" unique_id=698638238]
+anchor_right = 0.143
+
 [node name="BaseButton" parent="UI/Options/Buttons" parent_id_path=PackedInt32Array(140207785) index="0" unique_id=2126020029]
 material = SubResource("ShaderMaterial_5l8p2")
+
+[node name="Label" parent="UI/Options/Buttons/BaseButton" index="0" unique_id=2017270112]
+horizontal_alignment = 0
 
 [node name="Camera3D" parent="." index="3" unique_id=1622127475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.938241)
